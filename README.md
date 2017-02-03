@@ -40,16 +40,38 @@ Rubocop configuation at [.rubocop.yml](.rubocop.yml)
 We follow the following naming convention for branches:
 `[group]/[name]`
 
-Where `group` will be one of these four groupings:
+Where `group` will be one of these five groupings:
 ```
 wip       Works in progress; stuff I know won't be finished soon
 feat      Feature I'm adding or expanding
 bug       Bug fix or experiment
+cleanup   General code cleanup
 junk      Throwaway branch created to experiment
 ```
-and `name` will be a `brief-description` separated by dashes (-).
+and `name` will be a `brief-description` separated by dashes (-). On rare occasion other `group`'s may be defined.
 
-Contributions will be based on a `branch --> rebase from {master} --> PR --> rebase onto {master}` workflow, ensuring a linear commit history.
+Contributions will be based on the following five step workflow:
+```
+1. Create branch
+2. Rebase from {master}
+3. PR
+4. (after PR approved) Rebase from {master} (this time squashing down to single commit)
+5. Rebase onto {master}
+```
+This ensures a comprehensible linear commit history.
+
+
+We follow the following message convention for git commit messages:
+`[type] [message]`
+Where `type` will be one of these four groupings:
+```
+CLEANUP
+FEATURE
+BUG
+PATCH
+STYLE
+```
+and `message` will be a regular <80 char commit message. If you need more space use git description. This should also be where squashed commit messages will go, if appropriate. On rare occasion other `type`'s may be defined.
 
 ## Deploying
 

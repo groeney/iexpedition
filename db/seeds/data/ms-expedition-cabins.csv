@@ -1,4 +1,4 @@
-Voyage Itinerary,Start Date,Finish Date,Cabin class,Cabin price,Single Supplement
+voyage_name,voyage_start_date,voyage_end_date,name,price,single_supplement
 "Falkland Is, South Georgia and Antarctic Islands",23-Oct-17,13-Nov-17,Quad,13999,
 "Falkland Is, South Georgia and Antarctic Islands",23-Oct-17,13-Nov-17,Triple,15799,
 "Falkland Is, South Georgia and Antarctic Islands",23-Oct-17,13-Nov-17,Twin Porthole,17499,1.6

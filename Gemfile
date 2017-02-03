@@ -22,6 +22,11 @@ gem "execjs"
 gem "jquery-rails"
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem "turbolinks", "~> 5"
+# A Rails 5 dependency for Active Admin
+gem "inherited_resources", git: "https://github.com/activeadmin/inherited_resources"
+# Active Admin
+gem "activeadmin", git: "https://github.com/activeadmin/activeadmin"
+gem "devise"
 
 #allow seeding data in staging and dev
 group :development, :test, :staging do

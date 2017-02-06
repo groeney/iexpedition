@@ -28,6 +28,10 @@ gem "inherited_resources", git: "https://github.com/activeadmin/inherited_resour
 gem "activeadmin", git: "https://github.com/activeadmin/activeadmin"
 gem "devise"
 
+# Paperclip setup
+gem "aws-sdk"
+gem "paperclip"
+
 #allow seeding data in staging and dev
 group :development, :test, :staging do
   gem "faker"

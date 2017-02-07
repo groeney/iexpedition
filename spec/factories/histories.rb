@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :activity do
-
+  factory :history do
+    
   end
 end

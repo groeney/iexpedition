@@ -3,7 +3,7 @@ class CreateVoyages < ActiveRecord::Migration[5.0]
     create_table :voyages do |t|
       t.references :ship, foreign_key: true
       t.string :name, null: false
-      t.string :overview
+      t.text :overview
       t.date :start_date, null: false
       t.date :end_date, null: false
       t.string :embark_port

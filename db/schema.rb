@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170207212100) do
+ActiveRecord::Schema.define(version: 20170208143749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,12 +39,12 @@ ActiveRecord::Schema.define(version: 20170207212100) do
     t.text     "label"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.float    "price"
   end
 
   create_table "activity_groupings", force: :cascade do |t|
     t.integer  "voyage_id"
     t.integer  "activity_id"
-    t.float    "price"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["activity_id"], name: "index_activity_groupings_on_activity_id", using: :btree

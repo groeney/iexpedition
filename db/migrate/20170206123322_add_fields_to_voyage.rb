@@ -3,6 +3,6 @@ class AddFieldsToVoyage < ActiveRecord::Migration[5.0]
     add_column :voyages, :overview_tile, :text
     add_column :voyages, :passenger_capacity, :integer
     add_column :voyages, :physical_rating, :string
-    add_column :voyages, :includes_flight, :boolean
+    add_column :voyages, :includes_flight, :boolean, default: false
   end
 end

@@ -1,1 +1,2 @@
-AdminUser.create!(email: "admin@example.com", password: "password", password_confirmation: "password")
+admin = AdminUser.find_or_create_by(email: "admin@example.com")
+admin.password = "password" if admin.encrypted_password.blank?

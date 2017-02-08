@@ -24,4 +24,20 @@ class Voyage < ApplicationRecord
   has_many :histories, through: :region
   has_many :facts, through: :region
   has_many :region_highlights, through: :region, source: :highlight
+
+  def identifier_s
+    "#{self.name} on #{self.ship.name} from #{self.start_date} to #{self.end_date}"
+  end
+
+  def destination_highlights
+    self.destination.highlights
+  end
+
+  def region_highlights
+    self.region.highlights
+  end
+
+  def region_wildlives
+    self.region.wildlives
+  end
 end

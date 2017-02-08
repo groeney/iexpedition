@@ -244,8 +244,10 @@ ActiveRecord::Schema.define(version: 20170208143749) do
   create_table "regions", force: :cascade do |t|
     t.string   "name"
     t.text     "overview"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "destination_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["destination_id"], name: "index_regions_on_destination_id", using: :btree
   end
 
   create_table "ships", force: :cascade do |t|
@@ -274,15 +276,15 @@ ActiveRecord::Schema.define(version: 20170208143749) do
 
   create_table "voyages", force: :cascade do |t|
     t.integer  "ship_id"
-    t.string   "name",                            null: false
+    t.string   "name",                                null: false
     t.text     "overview"
-    t.date     "start_date",                      null: false
-    t.date     "end_date",                        null: false
+    t.date     "start_date",                          null: false
+    t.date     "end_date",                            null: false
     t.string   "embark_port"
     t.string   "disembark_port"
     t.integer  "discount_percentage", default: 0
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "map_file_name"
     t.string   "map_content_type"
     t.integer  "map_file_size"
@@ -290,7 +292,7 @@ ActiveRecord::Schema.define(version: 20170208143749) do
     t.text     "overview_tile"
     t.integer  "passenger_capacity"
     t.string   "physical_rating"
-    t.boolean  "includes_flight"
+    t.boolean  "includes_flight",     default: false
     t.integer  "destination_id"
     t.integer  "region_id"
     t.index ["destination_id"], name: "index_voyages_on_destination_id", using: :btree

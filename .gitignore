@@ -19,3 +19,13 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Local paperclip image store
+app/assets/images/activities/*
+app/assets/images/cabins/*
+app/assets/images/facts/*
+app/assets/images/highlights/*
+app/assets/images/inclusions/*
+app/assets/images/itinerary_days/*
+app/assets/images/voyages/*
+app/assets/images/wildlives/*

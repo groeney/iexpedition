@@ -275,7 +275,7 @@ ActiveAdmin.setup do |config|
   # By default, the footer shows the current Active Admin version. You can
   # override the content of the footer here.
   #
-  config.footer = "iExpedition v1.0.0"
+  config.footer = "iExpedition v0.0.1"
 
   # == Sorting
   #

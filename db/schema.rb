@@ -78,12 +78,16 @@ ActiveRecord::Schema.define(version: 20170208143749) do
   end
 
   create_table "cabins", force: :cascade do |t|
-    t.string   "name",                            null: false
-    t.float    "price",                           null: false
-    t.float    "single_supplement", default: 1.0, null: false
+    t.string   "name",                             null: false
+    t.float    "price",                            null: false
+    t.float    "single_supplement",  default: 1.0, null: false
     t.text     "description"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.integer  "square_meter"
     t.text     "overview"
   end
@@ -114,10 +118,8 @@ ActiveRecord::Schema.define(version: 20170208143749) do
 
   create_table "exclusions", force: :cascade do |t|
     t.string   "name"
-    t.integer  "voyage_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["voyage_id"], name: "index_exclusions_on_voyage_id", using: :btree
   end
 
   create_table "facts", force: :cascade do |t|
@@ -251,13 +253,11 @@ ActiveRecord::Schema.define(version: 20170208143749) do
   end
 
   create_table "ships", force: :cascade do |t|
-    t.string   "name",                null: false
+    t.string   "name",                                 null: false
     t.string   "operator_name"
     t.string   "category"
-    t.string   "currency",            null: false
+    t.string   "currency",                             null: false
     t.integer  "payment_prior"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
     t.text     "recommendation_text"
     t.integer  "passenger_capacity"
     t.integer  "luxury_star_rating"
@@ -271,7 +271,14 @@ ActiveRecord::Schema.define(version: 20170208143749) do
     t.integer  "tonnage"
     t.integer  "registry"
     t.integer  "engines"
-    t.integer  "outlets"
+    t.integer  "outlets",              default: 0
+    t.boolean  "open_bridge",          default: false
+    t.integer  "observation_decks"
+    t.integer  "zodiacs"
+    t.string   "provided_gear"
+    t.boolean  "polar_code_compliant", default: true
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
   create_table "voyages", force: :cascade do |t|
@@ -322,7 +329,6 @@ ActiveRecord::Schema.define(version: 20170208143749) do
     t.datetime "updated_at",         null: false
   end
 
-  add_foreign_key "exclusions", "voyages"
   add_foreign_key "facts", "destinations"
   add_foreign_key "feature_groupings", "features"
   add_foreign_key "gallery_image_groupings", "gallery_images"

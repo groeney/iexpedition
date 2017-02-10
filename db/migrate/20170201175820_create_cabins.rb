@@ -5,6 +5,7 @@ class CreateCabins < ActiveRecord::Migration[5.0]
       t.float :price, null: false
       t.float :single_supplement, null: false, default: 1
       t.text :description
+      t.attachment :image
 
       t.timestamps
     end

@@ -23,12 +23,17 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
+
+  # Asset digests allow you to set far-future HTTP expiration dates on all assets,
+  # yet still be able to expire them through the digest params.
+  config.assets.digest = true
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  # config.action_controller.asset_host = 'http://assets.example.com'
+  config.action_controller.asset_host = ENV.fetch("ASSET_HOST", ENV.fetch("APPLICATION_HOST"))
+  Rails.application.routes.default_url_options[:host] = ENV.fetch("APPLICATION_HOST")
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
@@ -87,11 +92,22 @@ Rails.application.configure do
   # Paperclip
   config.paperclip_defaults = {
     storage: :s3,
+    s3_protocol: :https,
     s3_credentials: {
       bucket: ENV.fetch("S3_BUCKET_NAME"),
       access_key_id: ENV.fetch("AWS_ACCESS_KEY_ID"),
       secret_access_key: ENV.fetch("AWS_SECRET_ACCESS_KEY"),
       s3_region: ENV.fetch("AWS_REGION"),
     }
+  }
+
+  ActionMailer::Base.smtp_settings = {
+    :address        => "smtp.sendgrid.net",
+    :port           => "587",
+    :authentication => :plain,
+    :user_name      => ENV["SENDGRID_USERNAME"],
+    :password       => ENV["SENDGRID_PASSWORD"],
+    :domain         => "heroku.com",
+    :enable_starttls_auto => true
   }
 end

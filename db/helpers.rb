@@ -16,8 +16,11 @@ def create_singleton(class_name, obj)
 end
 
 def associate_singleton_with_collection(collection, singleton)
-  if !(collection << singleton)
-    raise "Could not associate #{singleton.name} with #{collection.name}"
+  if collection.exists?(singleton)
+    puts "Association between #{singleton.name} and #{collection.name} already exists."
+    return collection
+  elsif !(collection << singleton)
+    raise "Could not associate #{singleton.name} with #{collection.name}."
   else
     puts "Created #{singleton.class.name} #{singleton.name}"
     return collection

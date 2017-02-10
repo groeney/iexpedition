@@ -3,15 +3,15 @@ class Voyage < ApplicationRecord
   belongs_to :destination
   belongs_to :region
 
-  has_many :cabin_groupings
-  has_many :itinerary_day_groupings
-  has_many :activity_groupings
-  has_many :inclusion_groupings
-  has_many :exclusion_groupings
+  has_many :cabin_groupings, dependent: :destroy
+  has_many :itinerary_day_groupings, dependent: :destroy
+  has_many :activity_groupings, dependent: :destroy
+  has_many :inclusion_groupings, dependent: :destroy
+  has_many :exclusion_groupings, dependent: :destroy
 
-  has_many :highlight_groupings, as: :highlightable
-  has_many :gallery_image_groupings, as: :gallery_imageable
-  has_many :wildlife_groupings, as: :wildlifable
+  has_many :highlight_groupings, as: :highlightable, dependent: :destroy
+  has_many :gallery_image_groupings, as: :gallery_imageable, dependent: :destroy
+  has_many :wildlife_groupings, as: :wildlifable, dependent: :destroy
 
   has_many :cabins, through: :cabin_groupings
   has_many :itinerary_days, through: :itinerary_day_groupings
@@ -23,7 +23,9 @@ class Voyage < ApplicationRecord
   has_many :gallery_images, through: :gallery_image_groupings
   has_many :histories, through: :region
   has_many :facts, through: :region
-  has_many :region_highlights, through: :region, source: :highlight
+
+  has_attached_file :map, default_url: "/assets/missing.png"
+  validates_attachment :map, content_type: { content_type: /\Aimage\/.*\z/ }
 
   def identifier_s
     "#{self.name} on #{self.ship.name} from #{self.start_date} to #{self.end_date}"

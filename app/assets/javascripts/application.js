@@ -13,4 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require cable
+//= require bootstrap.min
+//= require scripts
+//= require smooth-scroll.min
+//= require masonry.min
+//= require lightbox.min

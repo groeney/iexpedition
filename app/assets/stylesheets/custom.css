@@ -1,1 +1,75 @@
 /****** PLACE YOUR CUSTOM STYLES HERE ******/
+hr {
+  opacity: 0.6;
+}
+nav.nav-centered .logo {
+  max-height: 56px;
+  margin: 16px 0 0px 0;
+}
+
+.nav-utility {
+  height: 30px;
+  line-height: 25px;
+}
+
+.menu li a, .module.right a {
+  text-decoration: none;
+}
+
+.mr8 { margin-right: 8px; }
+.pl8 { padding-left: 8px; }
+
+
+/*!---------- 36. FOOTERS ----------*/
+footer {
+  padding: 64px 0;
+}
+footer .container {
+  padding: 0px 100px;
+}
+footer.bg-ix{
+  background: linear-gradient(90deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+}
+footer.bg-ix h6 {
+  color: #fff;
+}
+footer a {
+  text-decoration: none !important;
+  color: #fff !important;
+}
+.footer-1 .logo {
+  max-height: 30px;
+}
+.footer-1 .sub {
+  opacity: .5;
+}
+.social-list {
+  margin: 0;
+}
+.social-list .social-heading {
+  font-weight: bolder;
+}
+.image-bg .social-list a {
+  color: #fff;
+}
+.bg-ix .social-list i,
+.image-bg .social-list i {
+  color: #fff;
+  opacity: .5;
+}
+.bg-ix .social-list i:hover {
+  opacity: 1;
+}
+.bg-ix .back-to-top {
+  border-color: #fff;
+}
+.bg-ix .back-to-top:active,
+.bg-ix .back-to-top:focus {
+  color: #fff;
+}
+.bg-ix .back-to-top:hover {
+  background: none;
+}
+footer img {
+  max-width: 60%;
+}

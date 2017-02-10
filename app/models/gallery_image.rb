@@ -7,4 +7,8 @@ class GalleryImage < ApplicationRecord
   has_many :ships, through: :gallery_image_groupings, source: :gallery_imageable, source_type: "Ship"
   has_many :voyages, through: :gallery_image_groupings, source: :gallery_imageable, source_type: "Voyage"
   has_many :destinations, through: :gallery_image_groupings, source: :gallery_imageable, source_type: "Destination"
+
+  def self.gallery_imageables
+    Ship.all + Voyage.all
+  end
 end

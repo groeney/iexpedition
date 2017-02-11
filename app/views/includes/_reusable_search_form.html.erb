@@ -1,0 +1,37 @@
+<div class="col-md-10 col-md-offset-1 col-sm-12 text-center">
+  <form class="form">
+    <div class="row">
+      <div class="select-option col-md-6">
+        <i class="ti-angle-down"></i>
+        <select>
+          <option selected="" value="Default">Select Destination</option>
+          <%= Region.all.each do |region| %>
+            <option value="<%= region.id %>"><%= region.name %></option>
+          <% end %>
+        </select>
+      </div>
+
+      <div class="select-option col-md-6">
+        <div class="input-group date">
+          <input type="text" class="form-control" placeholder="Select Departure Date">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-th"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <input id="duration-slider" data-slider-id="durationSlider" type="text" data-slider-min="1" data-slider-max="50" data-slider-step="1" data-slider-value="10" data-slider-ticks="[1, 50]" data-slider-ticks-labels='["1 Days", "50 Days"]'/>
+      </div>
+      <div class="col-md-6">
+        <input id="price-slider" data-slider-id="sliderSlider" type="text" data-slider-min="1" data-slider-max="100" data-slider-step="1" data-slider-value="10" data-slider-ticks="[1, 100]" data-slider-ticks-labels='["$1k AUD", "$100k AUD"]'/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="pt32 col-md-3 col-centered">
+        <input type="submit" value="Search">
+      </div>
+    </div>
+  </form>
+</div>

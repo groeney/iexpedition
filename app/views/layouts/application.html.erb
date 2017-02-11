@@ -15,8 +15,7 @@
 
   <body class="<%= controller_name %> <%= action_name %>">
     <%= render "includes/header" %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <%= render "includes/flash_notices" -%>
     <%= yield %>
     <%= render "includes/footer" %>
   </body>

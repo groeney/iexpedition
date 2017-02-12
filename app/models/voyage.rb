@@ -27,8 +27,11 @@ class Voyage < ApplicationRecord
   has_attached_file :map, default_url: "/assets/missing.png"
   validates_attachment :map, content_type: { content_type: /\Aimage\/.*\z/ }
 
+  scope :destination, -> (destination_name) { joins(:destination).where(destinations: { name: destination_name }) }
+  scope :region, -> (region_name) { joins(:region).where(regions: { name: region_name }) }
+
   def identifier_s
-    "#{self.name} on #{self.ship.name} from #{self.start_date} to #{self.end_date}"
+    self.valid? ? "#{self.name} on #{self.ship.name} from #{self.start_date} to #{self.end_date}" : "[unidentifiable]"
   end
 
   def destination_highlights

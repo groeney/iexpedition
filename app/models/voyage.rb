@@ -27,6 +27,9 @@ class Voyage < ApplicationRecord
   has_attached_file :map, default_url: "/assets/missing.png"
   validates_attachment :map, content_type: { content_type: /\Aimage\/.*\z/ }
 
+  has_attached_file :image, default_url: "/assets/missing-voyage-temp.png"
+  validates_attachment :image, content_type: { content_type: /\Aimage\/.*\z/ }
+
   scope :destination, -> (destination_name) { joins(:destination).where(destinations: { name: destination_name }) }
   scope :region, -> (region_name) { joins(:region).where(regions: { name: region_name }) }
 

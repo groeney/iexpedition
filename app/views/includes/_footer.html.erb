@@ -15,11 +15,11 @@
       <div class="col-md-3 col-sm-4">
         <h6 class="uppercase mb8">help & support</h6>
         <ul>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">iExpedition Destination</a></li>
-          <li><a href="#">Expedition Activities</a></li>
-          <li><a href="#">Terms & Conditions</a></li>
-          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">FAQs & Contact Us</a></li>
+          <li><a href="#">How to Reserve & Book</a></li>
+          <li><a href="#">Booking Confirmation</a></li>
+          <li><a href="#">Before you Travel</a></li>
+          <li><a href="#">Payment & Currency Information</a></li>
         </ul>
       </div>
 
@@ -51,22 +51,18 @@
       <div class="col-md-3 col-sm-4">
         <h6 class="uppercase mb8">most popular ships</h6>
         <ul>
-          <li><a href="#">Ms Expedition</a></li>
-          <li><a href="#">Ms Expedition</a></li>
-          <li><a href="#">Ms Expedition</a></li>
-          <li><a href="#">Ms Expedition</a></li>
-          <li><a href="#">Ms Expedition</a></li>
+          <% Ship.all.each do |ship| %>
+            <li><a href="#"><%= ship.name %></a></li>
+          <% end %>
         </ul>
       </div>
 
       <div class="col-md-4 col-sm-4">
         <h6 class="uppercase mb8">most popular destinations</h6>
         <ul>
-          <li><a href="#">Antarctic Peninsula</a></li>
-          <li><a href="#">Antarctic Peninsula</a></li>
-          <li><a href="#">Antarctic Peninsula</a></li>
-          <li><a href="#">Antarctic Peninsula</a></li>
-          <li><a href="#">Antarctic Peninsula</a></li>
+          <% Region.all.each do |region| %>
+            <li><a href="#"><%= region.name %></a></li>
+          <% end %>
         </ul>
       </div>
     </div>

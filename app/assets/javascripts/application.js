@@ -17,9 +17,9 @@
 //= require bootstrap.min
 //= require bootstrap-datepicker.min
 //= require bootstrap-slider.min
-//= require scripts
 //= require smooth-scroll.min
 //= require masonry.min
 //= require lightbox.min
 //= require jquery.flexslider-min
+//= require scripts
 //= require_tree ./pages

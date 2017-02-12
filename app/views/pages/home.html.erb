@@ -32,12 +32,16 @@
   <h5 class="divider">
     <span>Featured Antarctica Expeditions</span>
   </h5>
-  <%= render "includes/image_carousel", collection: Voyage.destination("Antarctica").sample(10) %>
+  <div class="col-sm-12 mt32">
+    <%= render "includes/image_carousel", collection: Voyage.destination("Antarctica").sample(3) %>
+  </div>
 
   <h5 class="divider">
     <span>Featured Arctic Expeditions</span>
   </h5>
-  <%= render "includes/image_carousel", collection: Voyage.destination("Arctic").sample(10) %>
+  <div class="col-sm-12 mt32">
+    <%= render "includes/image_carousel", collection: Voyage.destination("Arctic").sample(10) %>
+  </div>
 
   <h5 class="divider">
     <span>Why iExpedition</span>

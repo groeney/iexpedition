@@ -15,5 +15,12 @@ $(document).on('turbolinks:load', function(){
         return 'Current value: $' + value + 'k AUD';
       }
     });
+
+    $('.flexslider').flexslider({
+      animation: "slide",
+      animationLoop: false,
+      itemWidth: 300,
+      itemMargin: 5
+    });
   });
 });

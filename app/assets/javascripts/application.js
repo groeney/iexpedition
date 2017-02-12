@@ -21,4 +21,5 @@
 //= require smooth-scroll.min
 //= require masonry.min
 //= require lightbox.min
+//= require jquery.flexslider-min
 //= require_tree ./pages

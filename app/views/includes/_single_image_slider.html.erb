@@ -1,0 +1,9 @@
+<div class="image-slider slider-thumb-controls controls-inside">
+  <ul class="slides">
+    <% ["cover12.jpg", "cover14.jpg", "cover15.jpg", "cover16.jpg", "cover12.jpg"].each do |image| %>
+      <li>
+        <%= image_tag("theme-images/" + image) %>
+      </li>
+    <% end %>
+  </ul>
+</div>

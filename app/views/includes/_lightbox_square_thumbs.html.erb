@@ -1,0 +1,13 @@
+<div class="lightbox-grid square-thumbs" data-gallery-title="Gallery">
+  <ul>
+    <% ["cover1.jpg", "home12.jpg", "home14.jpg", "home17.jpg", "cover5.jpg", "cover6.jpg"].each do |image| %>
+      <li>
+        <a href="<%= 'assets/theme-images/' + image %>" data-lightbox="true">
+          <div class="background-image-holder fadeIn" style="background: url(<%= 'assets/theme-images/' + image %>);">
+            <%= image_tag('theme-images/' + image, class: "background-image") %>
+          </div>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+</div>

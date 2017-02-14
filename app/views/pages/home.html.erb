@@ -40,6 +40,7 @@
     <span>Featured Arctic Expeditions</span>
   </h5>
   <div class="col-sm-12 mt32">
+    <%= render "includes/lightbox_square_thumbs" %>
     <%= render "includes/image_carousel", collection: Voyage.destination("Arctic").sample(10) %>
   </div>
 

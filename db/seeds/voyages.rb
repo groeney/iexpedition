@@ -12,11 +12,11 @@ Dir["./db/seeds/data/*voyages.csv"].each do |fn|
       ship: ship,
     })
 
-    existing_resource = Voyage.ship(ship.id).where({
-                                                    name: voyage_obj[:name],
-                                                    start_date: voyage_obj[:start_date],
-                                                    end_date: voyage_obj[:end_date]
-                                                  })
+    existing_resource = Voyage.where({
+                                      name: voyage_obj[:name],
+                                      start_date: voyage_obj[:start_date],
+                                      end_date: voyage_obj[:end_date]
+                                    })
     singleton = create_or_update_singleton("Voyage", voyage_obj, existing_resource)
 
     associate_singleton_with_collection(ship.voyages, singleton)

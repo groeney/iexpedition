@@ -6,7 +6,7 @@ class Cabin < ApplicationRecord
   has_many :features, through: :feature_groupings
 
   validates_presence_of [:name, :price]
-  validates_uniqueness_of :name, scope: :price, message: "name and price should be unique"
+  validates_uniqueness_of :name, scope: :price, message: "and price should be unique"
 
   has_attached_file :image, default_url: "/assets/missing.png"
   validates_attachment :image, content_type: { content_type: /\Aimage\/.*\z/ }

@@ -27,7 +27,7 @@ class Voyage < ApplicationRecord
   has_attached_file :map, default_url: "/assets/missing.png"
   validates_attachment :map, content_type: { content_type: /\Aimage\/.*\z/ }
 
-  has_attached_file :image, default_url: "/assets/missing-voyage-temp.png"
+  has_attached_file :image, default_url: "/assets/missing-voyage.png"
   validates_attachment :image, content_type: { content_type: /\Aimage\/.*\z/ }
 
   scope :destination, -> (destination_name) { joins(:destination).where(destinations: { name: destination_name }) }
@@ -48,5 +48,17 @@ class Voyage < ApplicationRecord
 
   def region_wildlives
     self.region.wildlives
+  end
+
+  def from_price
+    self.cabins.minimum(:price)
+  end
+
+  def formatted_start_date
+    self.start_date.strftime('%d %b %Y')
+  end
+
+  def formatted_end_date
+    self.end_date.strftime('%d %b %Y')
   end
 end

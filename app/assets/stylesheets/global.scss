@@ -1,0 +1,28 @@
+.no-horz-pad {
+  padding-left: 0!important;
+  padding-right: 0!important;
+}
+.clear {
+  clear: both;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-between {
+  justify-content: space-between;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.mb65 {
+  margin-bottom: 65px;
+}

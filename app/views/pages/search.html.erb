@@ -1,0 +1,12 @@
+<div class="container search-container">
+  <div class="mt64 flex sm-tablet-column">
+    <section class="search-filters">
+      Filters
+    </section>
+    <section class="search-results">
+      <% @results.each do |voyage_name, bundle| %>
+        <%= render partial: "includes/search/voyage_bundle", locals: { voyage: bundle.first, bundle: bundle,  } %>
+      <% end %>
+    </section>
+  </div>
+</div>

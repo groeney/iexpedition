@@ -1,0 +1,12 @@
+<div class="container page-container">
+  <div class="mt64 ship-listing flex">
+    <section class="search-filters">
+      Filters
+    </section>
+    <section class="ship-results row" >
+      <% @results.each do |ship| %>
+        <%= render partial: "includes/ship/tile", locals: { ship: ship } %>
+      <% end -%>
+    </section>
+  </div>
+</div>

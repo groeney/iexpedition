@@ -1,0 +1,25 @@
+.ship-listing {
+
+  .search-filters {
+    margin-right: 100px;
+  }
+
+  .ship-results {
+    overflow: visible;
+    width: calc(100% - 428px);
+
+    .ship-wrap {
+      margin-bottom: 65px;
+
+      &:nth-child(odd) {
+        padding-left: 0;
+        padding-right: 16px;
+      }
+
+      &:nth-child(even) {
+        padding-left: 16px;
+        padding-right: 0;
+      }
+    }
+  }
+}

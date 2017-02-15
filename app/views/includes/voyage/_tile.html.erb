@@ -1,0 +1,23 @@
+<div class="voyage-expedition">
+  <div class="voyage-name">
+    <div class="voyage-header">
+      <%= render partial: "includes/voyage/name", locals: { voyage: voyage } %>
+      <%= render partial: "includes/voyage/duration", locals: { voyage: voyage } %>
+    </div>
+    <%= image_tag(voyage.image.url) %>
+    <div class="voyage-hover">
+      <%= render partial: "includes/voyage/name", locals: { voyage: voyage } %>
+      <div class="ship-name"><%= voyage.ship.name %></div>
+      <%= render partial: "includes/voyage/duration", locals: { voyage: voyage } %>
+      <div class="voyage-description">
+        <%= simple_format(voyage.overview_tile) %>
+      </div>
+    </div>
+  </div>
+  <div class="voyage-footer">
+    <a href="#"><span>Explore</span></a>
+    <span class="voyage-star">
+      <%= image_tag("star.png", :data => { :toggle => "tooltip" }, :title=> "add to wish list" )  %>
+    </span>
+  </div>
+</div>

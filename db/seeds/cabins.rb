@@ -5,7 +5,7 @@ Dir["./db/seeds/data/cabins.csv"].each do |fn|
     ship = extract_resource("Ship", cabin_obj, "ship_name")
     voyage = extract_voyage(ship, cabin_obj)
 
-    existing_resource = Cabin.voyage(voyage.id).where(name: cabin_obj[:name])
+    existing_resource = Cabin.where({ name: cabin_obj[:name], price: cabin_obj[:price] })
     singleton = create_or_update_singleton("Cabin", cabin_obj, existing_resource)
 
     associate_singleton_with_collection(voyage.cabins, singleton)

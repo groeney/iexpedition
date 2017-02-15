@@ -1,0 +1,365 @@
+// $voyage_color: #0d4863;
+// $date_color: #084863;
+// $ship_color: #464646;
+@import "variables";
+
+.voyage-expedition,
+.ship-wrap {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  color: $voyage_color;
+}
+
+.voyage-expedition {
+  margin-bottom: 40px;
+}
+
+.voyage-name,
+.ship-pile {
+  overflow: hidden;
+  position: relative;
+
+  .voyage-header,
+  .ship-header{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: rgba(255,255,255, 0.75);
+    padding: 20px;
+    left: 0;
+    transition: left 0.3s ease-in-out;
+
+    &.animate {
+      left: -100%;
+    }
+  }
+
+  .voyage-expedition-name {
+    font-size: 31px;
+  }
+
+  .vayage-duration {
+    font-size: 19px;
+    display: flex;
+    align-items: center;
+    margin-top: 23px;
+
+    &:before {
+      content: '';
+      display: block;
+      background-image: url('/icons/clock.png');
+      width: 23px;
+      height: 30px;
+      margin-right: 10px;
+    }
+  }
+
+  .voyage-hover,
+  .ship-hover {
+    padding: 20px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 100%;
+    top: 0;
+    background-color: rgba($voyage_color, 0.8);
+    color: #fff;
+    transition: left 0.3s ease-in-out;
+
+    &.animate {
+      left: 0;
+    }
+
+    .vayage-duration {
+
+      &:before {
+        background-image: url('/icons/clock_white.png');
+      }
+    }
+
+    .ship-data {
+      font-size: 17px;
+      margin-top: 40px;
+      margin-bottom: 42px;
+    }
+
+    .ship-name {
+      margin-top: 14px;
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    .voyage-description {
+      margin-top: 20px;
+      font-size: 17px;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .ship-description {
+      font-family: 'Open Sans', sans-serif;
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+.voyage-footer,
+.ship-footer {
+  font-family: 'Open Sans', sans-serif;
+  width: 100%;
+  border: 1px solid $voyage_color;
+  padding: 16px;
+  position: relative;
+  text-align: center;
+
+  &> a {
+    text-transform: uppercase;
+    font-size: 24px;
+  }
+
+  .voyage-star {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 60px;
+    display: flex;
+
+    img {
+      position: relative;
+      width: 58px;
+      display: table;
+      margin: auto;
+      padding: 14px 17px 20px 17px;
+      cursor: pointer;
+    }
+    .tooltip  {
+      width: 150px;
+      opacity: 0;
+      transition: opacity 0.3s ease-in;
+    }
+    .tooltip.in {
+      opacity: 0.9
+    }
+  }
+}
+
+@media only screen and (max-width: 450px) {
+
+  .voyage-name {
+
+    .voyage-header {
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+
+    .voyage-expedition-name {
+      font-size: 25px;
+    }
+
+    .vayage-duration {
+      font-size: 15px;
+      margin-top: 15px;
+    }
+
+    .voyage-hover {
+      padding-top: 15px;
+
+      .ship-name {
+        font-size: 19px;
+      }
+    }
+  }
+  .voyage-footer > a {
+    font-size: 21px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+
+  .voyage-expedition {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1100px) {
+
+  .voyage-name {
+
+    .voyage-header {
+      padding-top: 5px;
+      padding-bottom: 3px;
+      padding: 15px;
+    }
+
+    .voyage-expedition-name {
+      font-size: 16px;
+    }
+
+    .vayage-duration {
+      font-size: 13px;
+      margin-top: 1px;
+
+      &:before {
+        width: 14px;
+        height: 18px;
+        margin-right: 7px;
+      }
+    }
+
+    .voyage-hover {
+      padding: 13px;
+      padding-top: 5px;
+
+      .voyage-description {
+        line-height: 1.4;
+      }
+    }
+  }
+
+  .voyage-footer {
+    padding: 8px;
+
+    .voyage-star img {
+      width: 50px;
+      padding: 9px 17px 12px 17px;
+    }
+
+    &> a {
+      font-size: 14px;
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+
+  .voyage-name {
+
+    .voyage-header {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .voyage-expedition-name {
+      font-size: 20px;
+    }
+
+    .vayage-duration {
+      margin-top: 7px;
+
+      &:before {
+        background-size: 100%;
+        width: 18px;
+        height: 24px;
+      }
+    }
+
+    .voyage-hover {
+      padding-top: 10px;
+
+      .ship-name {
+        font-size: 15px;
+        margin-top: 4px;
+      }
+
+      .voyage-description {
+        margin-top: 10px;
+        font-size: 13px;
+      }
+    }
+  }
+
+  .voyage-footer {
+
+    .voyage-star img {
+      width: 55px;
+    }
+
+    &> a {
+      font-size: 17px;
+    }
+  }
+}
+
+
+
+@media only screen and (min-width: 1200px) and (max-width: 1500px) {
+
+  .voyage-name,
+  .ship-pile {
+
+    .voyage-header,
+    .ship-header {
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+
+    .voyage-expedition-name {
+      font-size: 25px;
+    }
+
+    .vayage-duration {
+      font-size: 15px;
+      margin-top: 15px;
+    }
+
+    .voyage-hover,
+    .ship-hover {
+      padding-top: 15px;
+
+      .ship-data {
+        margin-top: 25px;
+        margin-bottom: 25px;
+      }
+
+      .ship-name {
+        font-size: 19px;
+      }
+    }
+  }
+
+  .voyage-footer > a,
+  .ship-footer > a {
+    font-size: 21px;
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1350px) {
+
+  .ship-listing .ship-results .ship-wrap {
+    margin-bottom: 35px;
+  }
+
+  .voyage-name,
+  .ship-pile {
+
+    .voyage-hover,
+    .ship-hover {
+
+      .voyage-description {
+        margin-top: 12px;
+        font-size: 15px;
+      }
+
+      .ship-data {
+        font-size: 14px;
+        margin-top: 13px;
+        margin-bottom: 13px;
+      }
+    }
+  }
+}
+
+
+@media only screen and (min-width: 1500px) {
+
+  .page-container.container {
+    width: 1264px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

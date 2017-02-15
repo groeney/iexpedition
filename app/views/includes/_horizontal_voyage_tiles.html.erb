@@ -1,0 +1,5 @@
+<% collection.each do |resource| %>
+  <div class="col-md-4">
+    <%= render partial: "includes/voyage/tile", locals: { voyage: resource } %>
+  </div>
+<% end %>

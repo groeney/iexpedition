@@ -1,13 +1,13 @@
-ship_name,name,operator_name,overview,start_date,end_date,embark_port,disembark_port,discount_amount,overview_tile,passenger_capacity,physical_rating,includes_flight,destination_name,region_name
-Ms Expedition,"Falkland Is, South Georgia and Antarctic Islands",G Adventures,,23-Oct-17,13-Nov-17,,,,,,,,Antarctica,Commonwealth Bay/Ross Sea
-Ms Expedition,Antarctic Classic in Depth,G Adventures,,12-Nov-17,24-Nov-17,,,,,,,,Antarctica,Commonwealth Bay/Ross Sea
-Ms Expedition,Spirit of Shackleton,G Adventures,,23-Nov-17,13-Dec-17,,,,,,,,Antarctica,Commonwealth Bay/Ross Sea
-Ms Expedition,Spirit of Shackleton,G Adventures,,11-Jan-18,31-Jan-18,,,,,,,,Antarctica,Commonwealth Bay/Ross Sea
-Ms Expedition,Antarctic Classic,G Adventures,,12-Dec-17,22-Dec-17,,,,,,,,Antarctica,Antarctica Peninsula
-Ms Expedition,Antarctic Classic,G Adventures,,2-Jan-18,12-Jan-18,,,,,,,,Antarctica,Antarctica Peninsula
-Ms Expedition,Antarctic Classic,G Adventures,,30-Jan-18,9-Feb-18,,,,,,,,Antarctica,Antarctica Peninsula
-Ms Expedition,Antarctic Classic,G Adventures,,4-Mar-18,14-Mar-18,,,,,,,,Antarctica,Antarctica Peninsula
-Ms Expedition,Antarctic Classic,G Adventures,,13-Mar-18,23-Mar-18,,,,,,,,Antarctica,Antarctica Peninsula
-Ms Expedition,Quest for the Antarctic Circle,G Adventures,,21-Dec-17,3-Jan-18,,,,,,,,Antarctica,Antarctica Peninsula
-Ms Expedition,Quest for the Antarctic Circle,G Adventures,,8-Feb-18,21-Feb-18,,,,,,,,Antarctica,Antarctica Peninsula
-Ms Expedition,Quest for the Antarctic Circle,G Adventures,,20-Feb-18,5-Mar-18,,,,,,,,Antarctica,Antarctica Peninsula
+ship_name,name,operator_name,overview,start_date,end_date,embark_port,disembark_port,discount_amount,overview_tile,passenger_capacity,physical_rating,includes_flight,destination_name,region_name,overview_tile
+Ms Expedition,"Falkland Is, South Georgia and Antarctic Islands",G Adventures,,23-Oct-17,13-Nov-17,,,,,,,,Antarctica,Commonwealth Bay/Ross Sea,Sed maximus nibh at metus porta convallis.Nullam vulputate leo in enim placerat congue vel quis leo.
+Ms Expedition,Antarctic Classic in Depth,G Adventures,,12-Nov-17,24-Nov-17,,,,,,,,Antarctica,Commonwealth Bay/Ross Sea,Sed maximus nibh at metus porta convallis.Nullam vulputate leo in enim placerat congue vel quis leo.
+Ms Expedition,Spirit of Shackleton,G Adventures,,23-Nov-17,13-Dec-17,,,,,,,,Antarctica,Commonwealth Bay/Ross Sea,Sed maximus nibh at metus porta convallis.Nullam vulputate leo in enim placerat congue vel quis leo.
+Ms Expedition,Spirit of Shackleton,G Adventures,,11-Jan-18,31-Jan-18,,,,,,,,Antarctica,Commonwealth Bay/Ross Sea,Sed maximus nibh at metus porta convallis.Nullam vulputate leo in enim placerat congue vel quis leo.
+Ms Expedition,Antarctic Classic,G Adventures,,12-Dec-17,22-Dec-17,,,,,,,,Antarctica,Antarctica Peninsula,Sed maximus nibh at metus porta convallis.Nullam vulputate leo in enim placerat congue vel quis leo.
+Ms Expedition,Antarctic Classic,G Adventures,,2-Jan-18,12-Jan-18,,,,,,,,Antarctica,Antarctica Peninsula,Sed maximus nibh at metus porta convallis.Nullam vulputate leo in enim placerat congue vel quis leo.
+Ms Expedition,Antarctic Classic,G Adventures,,30-Jan-18,9-Feb-18,,,,,,,,Antarctica,Antarctica Peninsula,Sed maximus nibh at metus porta convallis.Nullam vulputate leo in enim placerat congue vel quis leo.
+Ms Expedition,Antarctic Classic,G Adventures,,4-Mar-18,14-Mar-18,,,,,,,,Antarctica,Antarctica Peninsula,Sed maximus nibh at metus porta convallis.Nullam vulputate leo in enim placerat congue vel quis leo.
+Ms Expedition,Antarctic Classic,G Adventures,,13-Mar-18,23-Mar-18,,,,,,,,Antarctica,Antarctica Peninsula,Sed maximus nibh at metus porta convallis.Nullam vulputate leo in enim placerat congue vel quis leo.
+Ms Expedition,Quest for the Antarctic Circle,G Adventures,,21-Dec-17,3-Jan-18,,,,,,,,Antarctica,Antarctica Peninsula,Sed maximus nibh at metus porta convallis.Nullam vulputate leo in enim placerat congue vel quis leo.
+Ms Expedition,Quest for the Antarctic Circle,G Adventures,,8-Feb-18,21-Feb-18,,,,,,,,Antarctica,Antarctica Peninsula,Sed maximus nibh at metus porta convallis.Nullam vulputate leo in enim placerat congue vel quis leo.
+Ms Expedition,Quest for the Antarctic Circle,G Adventures,,20-Feb-18,5-Mar-18,,,,,,,,Antarctica,Antarctica Peninsula,Sed maximus nibh at metus porta convallis.Nullam vulputate leo in enim placerat congue vel quis leo.

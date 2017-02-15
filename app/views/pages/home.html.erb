@@ -8,7 +8,7 @@
     </div>
   </div>
 </section>
-<div class="container">
+<div class="container page-container">
   <div class="mt64 row">
     <div class="col-sm-6">
       <a href="#">
@@ -32,19 +32,17 @@
   <h5 class="divider">
     <span>Featured Antarctica Expeditions</span>
   </h5>
-  <div class="col-sm-12 mt32">
-    <%= render "includes/image_carousel", collection: Voyage.destination("Antarctica").sample(3) %>
+  <div class="row mt32">
+    <%= render "includes/horizontal_voyage_tiles", collection: Voyage.destination("Antarctica").sample(3) %>
   </div>
-
   <h5 class="divider">
     <span>Featured Arctic Expeditions</span>
   </h5>
-  <div class="col-sm-12 mt32">
-    <%= render "includes/lightbox_square_thumbs" %>
-    <%= render "includes/image_carousel", collection: Voyage.destination("Arctic").sample(10) %>
+  <div class="row mt32">
+    <%= render "includes/horizontal_voyage_tiles", collection: Voyage.destination("Arctic").sample(3) %>
   </div>
 
-  <h5 class="divider">
+  <h5 class="divider clear">
     <span>Why iExpedition</span>
   </h5>
 

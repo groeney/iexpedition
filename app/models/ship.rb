@@ -1,4 +1,5 @@
 class Ship < ApplicationRecord
+  belongs_to :operator
   has_many :voyages, dependent: :destroy
 
   has_many :feature_groupings, as: :featurable, dependent: :destroy

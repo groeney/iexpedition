@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170212133533) do
+ActiveRecord::Schema.define(version: 20170216223129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,16 +30,17 @@ ActiveRecord::Schema.define(version: 20170212133533) do
   end
 
   create_table "activities", force: :cascade do |t|
-    t.string   "name",               null: false
+    t.string   "name",                               null: false
     t.text     "overview"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.text     "label"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.float    "price"
+    t.boolean  "is_mandatory",       default: false
   end
 
   create_table "activity_groupings", force: :cascade do |t|
@@ -243,6 +244,12 @@ ActiveRecord::Schema.define(version: 20170212133533) do
     t.datetime "updated_at",         null: false
   end
 
+  create_table "operators", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "regions", force: :cascade do |t|
     t.string   "name"
     t.text     "overview"
@@ -254,7 +261,6 @@ ActiveRecord::Schema.define(version: 20170212133533) do
 
   create_table "ships", force: :cascade do |t|
     t.string   "name",                                 null: false
-    t.string   "operator_name"
     t.string   "category"
     t.string   "currency",                             null: false
     t.integer  "payment_prior"
@@ -271,7 +277,7 @@ ActiveRecord::Schema.define(version: 20170212133533) do
     t.integer  "tonnage"
     t.integer  "registry"
     t.integer  "engines"
-    t.integer  "outlets",              default: 0
+    t.string   "outlets"
     t.boolean  "open_bridge",          default: false
     t.integer  "observation_decks"
     t.integer  "zodiacs"
@@ -279,19 +285,21 @@ ActiveRecord::Schema.define(version: 20170212133533) do
     t.boolean  "polar_code_compliant", default: true
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
+    t.integer  "operator_id"
+    t.index ["operator_id"], name: "index_ships_on_operator_id", using: :btree
   end
 
   create_table "voyages", force: :cascade do |t|
     t.integer  "ship_id"
-    t.string   "name",                                null: false
+    t.string   "name",                                      null: false
     t.text     "overview"
-    t.date     "start_date",                          null: false
-    t.date     "end_date",                            null: false
+    t.date     "start_date",                                null: false
+    t.date     "end_date",                                  null: false
     t.string   "embark_port"
     t.string   "disembark_port"
-    t.integer  "discount_percentage", default: 0
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.integer  "discount_amount",           default: 0
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.string   "map_file_name"
     t.string   "map_content_type"
     t.integer  "map_file_size"
@@ -299,9 +307,13 @@ ActiveRecord::Schema.define(version: 20170212133533) do
     t.text     "overview_tile"
     t.integer  "passenger_capacity"
     t.string   "physical_rating"
-    t.boolean  "includes_flight",     default: false
+    t.boolean  "includes_flight",           default: false
     t.integer  "destination_id"
     t.integer  "region_id"
+    t.string   "header_image_file_name"
+    t.string   "header_image_content_type"
+    t.integer  "header_image_file_size"
+    t.datetime "header_image_updated_at"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -338,6 +350,7 @@ ActiveRecord::Schema.define(version: 20170212133533) do
   add_foreign_key "gallery_image_groupings", "gallery_images"
   add_foreign_key "highlight_groupings", "highlights"
   add_foreign_key "histories", "destinations"
+  add_foreign_key "ships", "operators"
   add_foreign_key "voyages", "destinations"
   add_foreign_key "voyages", "regions"
   add_foreign_key "voyages", "ships"

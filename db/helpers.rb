@@ -2,16 +2,14 @@ def parse(obj)
   result_obj = obj.to_hash.symbolize_keys!
 end
 
-def create_singleton(class_name, obj)
+def create_or_update_singleton(class_name, obj, relation=nil)
   klass = Object.const_get class_name
-
-  if !(singleton = klass.find_or_create_by(obj))
+  relation = klass.where(name: obj[:name]) if relation.nil?
+  if !(relation.update_or_create!(obj))
     raise "Could not create #{class_name} #{obj}."
-  elsif !singleton.valid?
-    raise "Could not create #{class_name} #{obj} because #{singleton.errors.full_messages}."
   else
-    puts "Created #{class_name} #{singleton.name}."
-    return singleton
+    puts "Created #{class_name} #{relation.first.name}."
+    return relation.first
   end
 end
 
@@ -27,11 +25,22 @@ def associate_singleton_with_collection(collection, singleton)
   end
 end
 
+def extract_or_create_resource(class_name, obj, key)
+  klass = Object.const_get class_name
+  resource_name = obj.delete(key.to_sym)
+  if !(resource = klass.find_or_create_by(name: resource_name))
+    raise "Could not create #{class_name} #{resource_name}."
+  elsif !resource.valid?
+    raise "#{class_name} #{resource.name} not valid because #{resource.errors.full_messages}."
+  else
+    return resource
+  end
+end
+
 def extract_resource(class_name, obj, key)
   klass = Object.const_get class_name
   resource_name = obj.delete(key.to_sym)
   if !(resource = klass.find_by_name(resource_name))
-    binding.pry
     raise "Could not find #{class_name} #{resource_name}."
   elsif !resource.valid?
     raise "#{class_name} #{resource.name} not valid because #{resource.errors.full_messages}."

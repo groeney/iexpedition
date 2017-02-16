@@ -7,6 +7,8 @@ class Activity < ApplicationRecord
 
   validates_uniqueness_of :name, scope: [:price, :label], message: "name, price and label should be unique"
 
+  scope :voyage, -> (voyage_id) { joins(:activity_groupings).where(activity_groupings: { voyage_id: voyage_id }) }
+
   def identifier_s
     "#{self.name} for #{self.price}"
   end

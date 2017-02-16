@@ -32,6 +32,7 @@ class Voyage < ApplicationRecord
 
   scope :destination, -> (destination_name) { joins(:destination).where(destinations: { name: destination_name }) }
   scope :region, -> (region_name) { joins(:region).where(regions: { name: region_name }) }
+  scope :ship, -> (ship_id) { joins(:ship).where(ships: { id: ship_id }) }
 
   def identifier_s
     self.nil? ? "[unidentifiable]" : "#{self.name} on #{self.ship.name} from #{self.start_date} to #{self.end_date}"

@@ -11,6 +11,8 @@ class Cabin < ApplicationRecord
   has_attached_file :image, default_url: "/assets/missing.png"
   validates_attachment :image, content_type: { content_type: /\Aimage\/.*\z/ }
 
+  scope :voyage, -> (voyage_id) { joins(:cabin_groupings).where(cabin_groupings: { voyage_id: voyage_id }) }
+
   def identifier_s
     "#{self.name} for $#{self.price}"
   end

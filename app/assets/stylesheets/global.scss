@@ -1,3 +1,5 @@
+@import "variables";
+
 .no-horz-pad {
   padding-left: 0!important;
   padding-right: 0!important;
@@ -25,4 +27,13 @@
 
 .mb65 {
   margin-bottom: 65px;
+}
+
+a {
+  color: $theme_color;
+}
+
+.theme-header {
+  color: $theme_color;
+  font-weight: 500;
 }

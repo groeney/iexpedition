@@ -5,7 +5,7 @@ class Highlight < ApplicationRecord
   has_many :regions, through: :highlight_groupings, source: :highlightable, source_type: "Region"
   has_many :voyages, through: :highlight_groupings, source: :highlightable, source_type: "Voyage"
 
-  has_attached_file :image, default_url: "/assets/missing.png"
+  has_attached_file :image, default_url: "/assets/missing-highlight.png"
 
   validates_attachment :image, content_type: { content_type: /\Aimage\/.*\z/ }
   validates_uniqueness_of :name

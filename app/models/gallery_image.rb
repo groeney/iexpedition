@@ -1,5 +1,5 @@
 class GalleryImage < ApplicationRecord
-  has_attached_file :image, default_url: "/assets/missing.png"
+  has_attached_file :image, default_url: "/assets/missing.png", styles: { original: "512x512>" }
   validates_attachment :image, content_type: { content_type: /\Aimage\/.*\z/ }, presence: true
 
   has_many :gallery_image_groupings, dependent: :destroy

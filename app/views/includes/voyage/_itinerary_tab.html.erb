@@ -1,0 +1,14 @@
+<div class="container">
+  <ul class="accordion accordion-1 one-open">
+    <% @voyage.itinerary_day_groupings.each do |grouping| %>
+      <li>
+          <div class="title">
+            <span><%= "Day #{grouping.day_number} - #{grouping.itinerary_day.name}" %></span>
+          </div>
+          <div class="content">
+            <%= simple_format(grouping.itinerary_day.overview) %>
+          </div>
+      </li>
+    <% end -%>
+  </ul>
+</div>

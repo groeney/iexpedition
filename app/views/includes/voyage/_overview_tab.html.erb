@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="col-md-6">
+    <%= !@voyage.overview.blank? ? simple_format(@voyage.overview) : simple_format("Lorem ipsum Est sint aute non elit nostrud anim pariatur. Lorem ipsum Veniam Duis enim Ut mollit enim in id sit sit do cupidatat. Lorem ipsum Eu culpa mollit velit Ut adipisicing. \n\n Lorem ipsum Sint id enim dolor est dolor. Lorem ipsum Deserunt consecteturLorem ipsum Culpa exercitation cupidatat sed Duis occaecat occaecat. \n\n Lorem ipsum Enim Duis sed magna laboris est id. Lorem ipsum Cupidatat dolore tempor in eiusmod enim. Lorem ipsum Nulla sit dolor sit consectetur eiusmod eiusmod. Lorem ipsum In voluptate Duis mollit aliquip tempor. \n\n Lorem ipsum Dolor irure deserunt cillum non in nisi est consectetur. Lorem ipsum Dolore nostrud fugiat dolore adipisicing in elit laborum in incididunt anim culpa. Lorem ipsum Elit occaecat in Duis enim dolor sit incididunt. Lorem ipsum Do ullamco in ea sunt eiusmod.") %>
+  </div>
+  <div class="col-md-1"></div>
+  <div class="col-md-5">
+    <table class="table">
+      <tbody>
+        <tr>
+          <td class="table-header">Duration:</td>
+          <td><%= distance_of_time_in_words(@voyage.start_date, @voyage.end_date) %></td>
+        </tr>
+        <tr>
+          <td class="table-header">Passengers:</td>
+          <td><%= @voyage.passenger_capacity %> passengers</td>
+        </tr>
+        <tr>
+          <td class="table-header">Embarkation Point:</td>
+          <td><%= @voyage.embark_port %></td>
+        </tr>
+        <tr>
+          <td class="table-header">Disembarkation Point:</td>
+          <td><%= @voyage.disembark_port %></td>
+        </tr>
+        <tr>
+          <td class="table-header">No. of excursions:</td>
+          <td><%= @voyage.activities.count %>* approx</td>
+        </tr>
+        <tr>
+          <td class="table-header">Physical rating:</td>
+          <td><%= @voyage.physical_rating %></td>
+        </tr>
+        <tr>
+          <td class="table-header">Fly/Cruise:</td>
+          <td><%= @voyage.includes_flight ? "Mandatory extra flight" : "Cruise only" %></td>
+        </tr>
+        <tr>
+          <td class="table-header">Single Supplement:</td>
+          <td><%= @voyage.cabins.maximum(:single_supplement) %>x twin rate or share options</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="row">
+      <div class="flex col-md-8 col-md-offset-4">
+        <a href="#" class="btn voyage-explore-button">Reserve now</a>
+        <a href="#" class="btn btn-icon" data-toggle="tooltip" data-original-title="add to wishlist">
+          <i class="ti-star"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

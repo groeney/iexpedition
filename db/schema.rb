@@ -322,6 +322,10 @@ ActiveRecord::Schema.define(version: 20170218153733) do
     t.datetime "image_updated_at"
     t.float    "gst"
     t.string   "currency",                  default: "USD"
+    t.string   "header_image_file_name"
+    t.string   "header_image_content_type"
+    t.integer  "header_image_file_size"
+    t.datetime "header_image_updated_at"
     t.index ["destination_id"], name: "index_voyages_on_destination_id", using: :btree
     t.index ["region_id"], name: "index_voyages_on_region_id", using: :btree
     t.index ["ship_id"], name: "index_voyages_on_ship_id", using: :btree

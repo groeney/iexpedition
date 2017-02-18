@@ -6,14 +6,14 @@
     <div class="content-pile flex-column">
       <h3><%= voyage.name %></h3>
       <h4><%= voyage.ship.name %></h4>
-      <div class="search-voyage-description"><%= !voyage.overview.blank? ? simple_format(voyage.overview) : simple_format("Lorem ipsum Est sint aute non elit nostrud anim pariatur. Lorem ipsum Veniam Duis enim Ut mollit enim in id sit sit do cupidatat. Lorem ipsum Eu culpa mollit velit Ut adipisicing. \n\n Lorem ipsum Sint id enim dolor est dolor. Lorem ipsum Deserunt consectetur") %></div>
+      <div class="search-voyage-description"><%= !voyage.overview_tile.blank? ? simple_format(voyage.overview_tile) : simple_format("Lorem ipsum Est sint aute non elit nostrud anim pariatur. Lorem ipsum Veniam Duis enim Ut mollit enim in id sit sit do cupidatat. Lorem ipsum Eu culpa mollit velit Ut adipisicing. \n\n Lorem ipsum Sint id enim dolor est dolor. Lorem ipsum Deserunt consectetur") %></div>
       <table>
         <% bundle.each do |voyage| %>
           <tr>
             <td class="search-date"><%= voyage.formatted_start_date %> - <%= voyage.formatted_end_date %></td>
             <td class="search-price">From AUD $<%= voyage.from_price.to_int %><em>pp</em></td>
           </tr>
-        <% end %>
+        <% end -%>
       </table>
       <div class="search-explore-buttons flex">
         <div class="search-explore-button">Explore voyage</div>

@@ -1,9 +1,11 @@
-<div class="image-slider slider-thumb-controls controls-inside">
+<div class="image-slider slider-all-controls controls-inside">
   <ul class="slides">
-    <% ["cover12.jpg", "cover14.jpg", "cover15.jpg", "cover16.jpg", "cover12.jpg"].each do |image| %>
+    <% collection.each do |item| %>
       <li>
-        <%= image_tag("theme-images/" + image) %>
+        <div class="image-caption cast-shadow hover-caption" data-caption="<%= item.description %>">
+          <%= image_tag(item.image.url) %>
+        </div>
       </li>
-    <% end %>
+    <% end -%>
   </ul>
 </div>

@@ -1,0 +1,15 @@
+<div class="horizontal-tile">
+  <div class="tile-left">
+    <a href="#">
+      <div class="background-image-holder fadeIn" style="background: url("<%= resource.image.url %>");">
+        <img alt="image" class="background-image" src="<%= resource.image.url %>" style="display: none;">
+      </div>
+    </a>
+  </div>
+  <div class="tile-right bg-secondary">
+    <div class="description">
+      <h4 class="mb8"><%= resource.name %></h4>
+      <%= !resource.overview.blank? ? simple_format(resource.overview) : simple_format("Lorem ipsum Ullamco dolore nisi Ut est anim exercitation. Lorem ipsum Laborum amet esse nulla in ea consectetur mollit irure aliqua Duis officia. \n\n Lorem ipsum Eiusmod nisi incididunt veniam quis laborum deserunt culpa do dolor eu et non. Lorem ipsum Mollit reprehenderit dolor nostrud minim adipisicing consequat officia veniam sed consequat minim.") %>
+    </div>
+  </div>
+</div>

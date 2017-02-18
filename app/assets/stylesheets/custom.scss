@@ -1,6 +1,16 @@
 /****** PLACE YOUR CUSTOM STYLES HERE ******/
-a {
-  color: #466a7e;
+@import "variables";
+
+.table {
+  text-align: left;
+}
+
+.icon {
+  font-size: 30px;
+}
+
+.icon-tabs .tabs li {
+  width: 10%;
 }
 
 .btn:hover {
@@ -192,3 +202,89 @@ footer img {
   }
 }
 
+/*!---------- 6. BUTTONS ----------*/
+.btn {
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border: 2px solid $theme_color;
+  padding: 0 26px;
+  height: 40px;
+  min-width: 150px;
+  line-height: 36px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 0;
+  color: $theme_color;
+  text-align: center;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  margin-right: 8px;
+  margin-bottom: 24px;
+}
+
+.btn-icon {
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  min-width: 0;
+  padding: 0;
+  line-height: 38px;
+}
+
+.btn:hover {
+  background: $theme_color;
+  color: #fff;
+}
+.btn-filled {
+  background: $theme_color;
+  color: #fff;
+}
+.image-bg .btn.btn-filled,
+.image-bg .btn-filled:visited {
+  border-color: $theme_color;
+}
+.btn:visited {
+  color: $theme_color;
+}
+.bg-primary .btn:hover {
+  background: #fff;
+  color: $theme_color;
+}
+
+.accordion-1 .active .title {
+  background: $theme_color;
+  color: #fff;
+}
+.accordion-1 .active .title:hover {
+  background: $theme_color;
+}
+.button-tabs .active .tab-title {
+  background: $theme_color;
+  color: #fff;
+}
+.button-tabs .active .tab-title:hover {
+  background: $theme_color;
+}
+.text-tabs .active .tab-title {
+  opacity: 1;
+  color: $theme_color;
+}
+.icon-tabs .active .tab-title {
+  color: $theme_color;
+  opacity: 1;
+}
+.icon-tabs .active .tab-title i {
+  color: $theme_color;
+}
+.progress-bar {
+  background: $theme_color;
+  box-shadow: none !important;
+}
+.progress-2 .bar-holder {
+  height: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid $theme_color;
+}

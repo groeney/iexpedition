@@ -6,7 +6,7 @@
     <section class="search-results">
       <% @results.each do |voyage_name, bundle| %>
         <%= render partial: "includes/search/voyage_bundle", locals: { voyage: bundle.first, bundle: bundle,  } %>
-      <% end %>
+      <% end -%>
     </section>
   </div>
 </div>

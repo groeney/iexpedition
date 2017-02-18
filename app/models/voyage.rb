@@ -24,10 +24,13 @@ class Voyage < ApplicationRecord
   has_many :histories, through: :region
   has_many :facts, through: :region
 
-  has_attached_file :map, default_url: "/assets/missing.png"
+  has_attached_file :map, default_url: "/assets/missing-map.png"
   validates_attachment :map, content_type: { content_type: /\Aimage\/.*\z/ }
 
   has_attached_file :image, default_url: "/assets/missing-voyage.png"
+  validates_attachment :image, content_type: { content_type: /\Aimage\/.*\z/ }
+
+  has_attached_file :header_image, default_url: "/assets/missing-voyage-header-image.png"
   validates_attachment :image, content_type: { content_type: /\Aimage\/.*\z/ }
 
   scope :destination, -> (destination_name) { joins(:destination).where(destinations: { name: destination_name }) }

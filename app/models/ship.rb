@@ -7,6 +7,7 @@ class Ship < ApplicationRecord
 
   has_many :features, through: :feature_groupings
   has_many :gallery_images, through: :gallery_image_groupings
+  has_many :destinations, through: :voyages
 
   validates_uniqueness_of :name
 

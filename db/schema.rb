@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170216223129) do
+ActiveRecord::Schema.define(version: 20170218153733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -260,9 +260,8 @@ ActiveRecord::Schema.define(version: 20170216223129) do
   end
 
   create_table "ships", force: :cascade do |t|
-    t.string   "name",                                 null: false
+    t.string   "name",                                null: false
     t.string   "category"
-    t.string   "currency",                             null: false
     t.integer  "payment_prior"
     t.text     "recommendation_text"
     t.integer  "passenger_capacity"
@@ -278,14 +277,17 @@ ActiveRecord::Schema.define(version: 20170216223129) do
     t.integer  "registry"
     t.integer  "engines"
     t.string   "outlets"
-    t.boolean  "open_bridge",          default: false
+    t.integer  "open_bridge"
     t.integer  "observation_decks"
     t.integer  "zodiacs"
     t.string   "provided_gear"
     t.boolean  "polar_code_compliant", default: true
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.integer  "operator_id"
+    t.integer  "stabilisers"
+    t.integer  "draft"
+    t.text     "overview_tile"
     t.index ["operator_id"], name: "index_ships_on_operator_id", using: :btree
   end
 
@@ -318,6 +320,8 @@ ActiveRecord::Schema.define(version: 20170216223129) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.float    "gst"
+    t.string   "currency",                  default: "USD"
     t.index ["destination_id"], name: "index_voyages_on_destination_id", using: :btree
     t.index ["region_id"], name: "index_voyages_on_region_id", using: :btree
     t.index ["ship_id"], name: "index_voyages_on_ship_id", using: :btree

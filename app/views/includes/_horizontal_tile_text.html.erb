@@ -1,0 +1,16 @@
+<div class="description">
+  <% if resource.class.name == "Fact" %>
+    <h4><%= resource.question %></h4>
+    <span class="fact-header mt16">Answer:</span>
+    <%= !resource.answer.blank? ? simple_format(resource.answer) : simple_format("Lorem ipsum Eiusmod") %>
+    <span class="fact-header mt16">More Info:</span>
+    <%= !resource.more_info.blank? ? simple_format(resource.more_info) : simple_format("Lorem ipsum Eiusmod Lorem ipsum Velit eu eu fugiat est nulla sed occaecat proident elit aute. Lorem ipsum Tempor sed in non fugiat labore eu dolor laboris consectetur do enim.") %>
+  <% else %>
+    <h4 class="mb8"><%= resource.name %></h4>
+    <%= !resource.overview.blank? ? simple_format(resource.overview) : simple_format("Lorem ipsum Ullamco dolore nisi Ut est anim exercitation. Lorem ipsum Laborum amet esse nulla in ea consectetur mollit irure aliqua Duis officia. \n\n Lorem ipsum Eiusmod nisi incididunt veniam quis laborum deserunt culpa do dolor eu et non. Lorem ipsum Mollit reprehenderit dolor nostrud minim adipisicing consequat officia veniam sed consequat minim.") %>
+    <% if resource.class.name == "Wildlife" %>
+      <span class="fact-header mt16">Fact:</span>
+      <%= !resource.fact.blank? ? simple_format(resource.fact) : simple_format("Lorem ipsum Eiusmod amet est esse qui dolor est magna tempor. Lorem ipsum Commodo consectetur aute Ut culpa in nulla ex veniam occaecat aliquip amet dolore.") %>
+    <% end -%>
+  <% end -%>
+</div>

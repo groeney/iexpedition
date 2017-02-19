@@ -20,6 +20,7 @@ ActiveAdmin.register Fact do
     attributes_table do
       row :question
       row :answer
+      row :more_info
       row :destination
       row :image do
         image_tag(fact.image.url)
@@ -31,6 +32,7 @@ ActiveAdmin.register Fact do
     f.inputs "Fact" do
       f.input :question
       f.input :answer
+      f.input :more_info
       f.input :destination
       f.input :image, hint: f.fact.image? ? image_tag(f.fact.image.url, height: "100") : content_tag(:span, "Upload JPG/PNG/GIF image")
     end

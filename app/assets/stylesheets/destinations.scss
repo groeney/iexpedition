@@ -1,0 +1,21 @@
+// Place all the styles related to the Destinations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.fact-header {
+  font-weight: bolder;
+}
+
+.cursive-table-header {
+  font-family: cursive;
+  font-size: x-large;
+  line-height: 40px !important;
+  color: black;
+}
+
+.info-table-holder {
+  top: 60px;
+}
+
+.destination-history-tab {
+  text-align: left;
+}

@@ -29,6 +29,10 @@
   margin-bottom: 65px;
 }
 
+.pt16i {
+  padding-top: 16px !important
+}
+
 a {
   color: $theme_color;
 }
@@ -36,4 +40,22 @@ a {
 .theme-header {
   color: $theme_color;
   font-weight: 500;
+}
+
+.voyage-overview-tab, .voyage-vessel-tab,
+.destination-info-tab {
+  p:first-of-type {
+    font-size: 1.25em;
+  }
+  text-align: left;
+}
+
+.watermark-background {
+  -ms-transform: rotate(13deg); /* IE 9 */
+  -webkit-transform: rotate(13deg); /* Chrome, Safari, Opera */
+  transform: rotate(13deg);
+  opacity: 0.1 !important;
+  height: 215%;
+  left: -60px;
+  top: -40%;
 }

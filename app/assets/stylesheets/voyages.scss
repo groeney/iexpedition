@@ -3,13 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "variables";
 
-.voyage-overview-tab, .voyage-vessel-tab {
-  p:first-of-type {
-    font-size: 1.25em;
-  }
-  text-align: left;
-}
-
 .table-header {
   color: $theme_color;
   font-weight: bolder;

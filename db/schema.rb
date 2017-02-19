@@ -260,7 +260,7 @@ ActiveRecord::Schema.define(version: 20170222121901) do
   end
 
   create_table "ships", force: :cascade do |t|
-    t.string   "name",                                null: false
+    t.string   "name",                                     null: false
     t.string   "category"
     t.integer  "payment_prior"
     t.text     "recommendation_text"
@@ -281,13 +281,23 @@ ActiveRecord::Schema.define(version: 20170222121901) do
     t.integer  "observation_decks"
     t.integer  "zodiacs"
     t.string   "provided_gear"
-    t.boolean  "polar_code_compliant", default: true
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.boolean  "polar_code_compliant",      default: true
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.integer  "operator_id"
     t.integer  "stabilisers"
     t.integer  "draft"
     t.text     "overview_tile"
+    t.text     "ix_review"
+    t.string   "map_file_name"
+    t.string   "map_content_type"
+    t.integer  "map_file_size"
+    t.datetime "map_updated_at"
+    t.string   "header_image_file_name"
+    t.string   "header_image_content_type"
+    t.integer  "header_image_file_size"
+    t.datetime "header_image_updated_at"
+    t.text     "did_you_know"
     t.index ["operator_id"], name: "index_ships_on_operator_id", using: :btree
   end
 

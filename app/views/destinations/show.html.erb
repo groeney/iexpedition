@@ -1,0 +1,91 @@
+<section class="page-title page-title-2 image-bg overlay parallax">
+  <div class="background-image-holder">
+    <%= image_tag(@destination.header_image, class: "background-image") %>
+  </div>
+  <div class="container" style="top: 70%;">
+    <div class="row">
+      <div class="col-md-6">
+        <h3 class="uppercase mb0"><%= @destination.name %></h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <div class="tabbed-content icon-tabs mt16">
+        <ul class="tabs">
+          <li class="active">
+            <div class="tab-title">
+              <i class="ti-info-alt icon"></i>
+              <span>Destination Info</span>
+            </div>
+            <div class="tab-content destination-info-tab">
+              <%= render "includes/destination/info_tab" %>
+            </div>
+          </li>
+          <li>
+            <div class="tab-title">
+              <i class="fa fa-binoculars fa-2x"></i>
+              <span>Highlights & Wildlife</span>
+            </div>
+            <div class="tab-content destination-highlights-tab">
+              <%= render "includes/destination/highlights_and_wildlife_tab" %>
+            </div>
+          </li>
+          <li>
+            <div class="tab-title">
+              <i class="fa fa-snowflake-o fa-2x"></i>
+              <span>Adventure Activities</span>
+            </div>
+            <div class="tab-content destination-activities-tab">
+              <%= render "includes/destination/activities_tab" %>
+            </div>
+          </li>
+          <li>
+            <div class="tab-title">
+                <i class="ti-gallery icon"></i>
+                <span>Gallery</span>
+            </div>
+            <div class="tab-content destination-gallery-tab">
+              <%= render "includes/destination/gallery_tab" %>
+            </div>
+          </li>
+          <li>
+            <div class="tab-title">
+                <i class="ti-light-bulb icon"></i>
+                <span>History & Facts</span>
+            </div>
+            <div class="tab-content destination-history-tab">
+              <%= render "includes/destination/history_and_facts_tab" %>
+            </div>
+          </li>
+          <li>
+            <div class="tab-title">
+                <i class="ti-map-alt icon"></i>
+                <span>Map</span>
+            </div>
+            <div class="tab-content destination-map-tab">
+              <%= render "includes/destination/map_tab" %>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row mt64">
+    <div class="row" style="text-align: center;">
+      <i class="ti-location-pin icon"></i>
+    </div>
+    <h5 class="divider pt16i">
+      <span><%= @destination.name %> Regions</span>
+    </h5>
+    <div class="row" style="text-align: center;">
+      <span>Lorem ipsum Ut labore labore mollit nulla esse nisi. Lorem ipsum Magna fugiat ea est dolore adipisicing nostrud in veniam proident quis aliquip. Lorem ipsum Ea eu ex nulla ullamco incididunt et in dolor cillum dolore cupidatat.</span>
+    </div>
+    <div class="row">
+      <!-- Image slider carousel partial. Pass in @destination.regions and link to search page with region preselected -->
+    </div>
+  </div>
+</div>

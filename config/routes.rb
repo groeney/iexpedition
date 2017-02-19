@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get "ship_listing" => "pages#ship_listing"
   root "pages#home"
   resources :voyages, only: [:show]
+  resources :destinations, only: [:show]
 end

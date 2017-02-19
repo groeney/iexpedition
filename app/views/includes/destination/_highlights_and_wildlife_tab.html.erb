@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="row" style="text-align: center;">
+      <i class="fa fa-binoculars fa-3x"></i>
+    </div>
+    <h5 class="divider pt16i">
+      <span>Highlights</span>
+    </h5>
+    <%= render partial: "includes/alternating_horizontal_tiles", locals: { collection: @destination.highlights } %>
+  </div>
+
+  <div class="row mt64">
+    <div class="row" style="text-align: center;">
+      <i class="fa fa-paw fa-3x"></i>
+    </div>
+    <h5 class="divider pt16i">
+      <span>Wildlife</span>
+    </h5>
+    <%= render partial: "includes/alternating_horizontal_tiles", locals: { collection: @destination.wildlives } %>
+  </div>
+
+</div>

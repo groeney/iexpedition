@@ -1,5 +1,5 @@
 <% if !collection.empty? %>
-  <% collection.select.with_index do |item, i| %>
+  <% collection.each.with_index do |item, i| %>
     <% partial_path = i.odd? ? "includes/horizontal_tile_left" : "includes/horizontal_tile_right" %>
     <%= render partial: partial_path, locals: { resource: item } %>
   <% end -%>

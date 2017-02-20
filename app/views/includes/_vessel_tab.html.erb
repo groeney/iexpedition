@@ -1,0 +1,84 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="row">
+        <p>Why iExpedition recommends the <%= ship.name %></p>
+        <%= !ship.recommendation_text.blank? ? simple_format(ship.recommendation_text) : simple_format("Lorem ipsum Sint id enim dolor est dolor. Lorem ipsum Deserunt consecteturLorem ipsum Culpa exercitation cupidatat sed Duis occaecat occaecat. \n\n Lorem ipsum Enim Duis sed magna laboris est id. Lorem ipsum Cupidatat dolore tempor in eiusmod enim. Lorem ipsum Nulla sit dolor sit consectetur eiusmod eiusmod. Lorem ipsum In voluptate Duis mollit aliquip tempor. \n\n Lorem ipsum Dolor irure deserunt cillum non in nisi est consectetur. Lorem ipsum Dolore nostrud fugiat dolore adipisicing in elit laborum in incididunt anim culpa. Lorem ipsum Elit occaecat in Duis enim dolor sit incididunt. Lorem ipsum Do ullamco in ea sunt eiusmod.") %>
+      </div>
+      <div class="row mt32">
+        <h5>Features & Facilities</h5>
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-5">
+      <h5>Key Facts</h5>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td class="table-header">Luxury star rating:</td>
+            <td><%= ship.luxury_star_rating %></td>
+          </tr>
+          <tr>
+            <td class="table-header">Guests #:</td>
+            <td><%= ship.passenger_capacity %></td>
+          </tr>
+          <tr>
+            <td class="table-header">Crew #:</td>
+            <td><%= ship.crew_number %></td>
+          </tr>
+          <tr>
+            <td class="table-header">Ice Class:</td>
+            <td><%= ship.ice_class %></td>
+          </tr>
+          <tr>
+            <td class="table-header">Speed:</td>
+            <td><%= ship.speed %></td>
+          </tr>
+          <tr>
+            <td class="table-header">Refurbished:</td>
+            <td><%= ship.year_refurbished.strftime('%Y') %></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h5 class="mt64">Technical Specs</h5>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td class="table-header">Year built:</td>
+            <td><%= ship.year_built.strftime('%Y') %></td>
+          </tr>
+          <tr>
+            <td class="table-header">Length:</td>
+            <td><%= ship.length %>m</td>
+          </tr>
+          <tr>
+            <td class="table-header">Width:</td>
+            <td><%= ship.width %></td>
+          </tr>
+          <tr>
+            <td class="table-header">Draft:</td>
+            <td><%= ship.draft %></td>
+          </tr>
+          <tr>
+            <td class="table-header">Tonnage:</td>
+            <td><%= ship.tonnage %></td>
+          </tr>
+          <tr>
+            <td class="table-header">Registry:</td>
+            <td><%= ship.registry %></td>
+          </tr>
+          <tr>
+            <td class="table-header">Elec Outlets:</td>
+            <td><%= ship.outlets %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <% if show_gallery %>
+    <div class="row mt72">
+      <%= render partial: "includes/lightbox_square_thumbs", locals: { collection: ship.gallery_images } %>
+    </div>
+  <% end -%>
+</div>

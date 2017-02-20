@@ -1,0 +1,50 @@
+<section class="page-title page-title-2 image-bg overlay parallax">
+  <div class="background-image-holder">
+    <%= image_tag(@ship.header_image, class: "background-image") %>
+  </div>
+  <div class="container" style="top: 70%;">
+    <div class="row">
+      <div class="col-md-6">
+        <h3 class="uppercase mb0"><%= @ship.name %></h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <div class="tabbed-content icon-tabs mt16">
+        <ul class="tabs">
+          <li class="active">
+            <div class="tab-title">
+              <i class="ti-info-alt icon"></i>
+              <span>Vessel details</span>
+            </div>
+            <div class="tab-content ship-vessel-tab">
+              <%= render partial: "includes/vessel_tab", locals: { ship: @ship, show_gallery: false } %>
+            </div>
+          </li>
+          <li>
+            <div class="tab-title">
+              <i class="ti-gallery icon"></i>
+              <span>Gallery</span>
+            </div>
+            <div class="tab-content ship-gallery-tab">
+              <%= render partial: "includes/ship/gallery_tab", locals: { ship: @ship } %>
+            </div>
+          </li>
+          <li>
+            <div class="tab-title">
+              <i class="ti-gallery icon"></i>
+              <span>Cabin options</span>
+            </div>
+            <div class="tab-content ship-cabins-tab">
+              <%= render partial: "includes/ship/cabins_tab", locals: { ship: @ship } %>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

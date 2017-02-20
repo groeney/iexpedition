@@ -11,7 +11,18 @@ class Ship < ApplicationRecord
 
   validates_uniqueness_of :name
 
+  has_attached_file :header_image, default_url: "/assets/missing-ship-header-image.png", styles: { thumb: "150x150" }
+  validates_attachment :header_image, content_type: { content_type: /\Aimage\/.*\z/ }
+
+  has_attached_file :map, default_url: "/assets/missing-map.png", styles: { thumb: "150x150" }
+  validates_attachment :map, content_type: { content_type: /\Aimage\/.*\z/ }
+
   def identifier_s
     self.name
+  end
+
+  def cabins
+    ids = Voyage.where(ship_id: self.id).map { |voyage| voyage.cabins.pluck(:id)  }
+    Cabin.where(id: ids)
   end
 end

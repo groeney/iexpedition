@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   root "pages#home"
   resources :voyages, only: [:show]
   resources :destinations, only: [:show]
+  resources :ships, only: [:show]
 end

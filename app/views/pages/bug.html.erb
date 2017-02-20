@@ -1,0 +1,93 @@
+<section class="page-title page-title-2 image-bg overlay parallax">
+  <div class="background-image-holder">
+    <%= image_tag(@voyage.header_image.url, class: "background-image") %>
+  </div>
+  <div class="container" style="top: 70%;">
+    <div class="row">
+      <div class="col-md-6">
+        <h3 class="uppercase mb0"><%= @voyage.name %></h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <div class="tabbed-content icon-tabs mt16">
+        <ul class="tabs">
+          <li class="active">
+            <div class="tab-title">
+                <i class="ti-info-alt icon"></i>
+                <span>Overview</span>
+            </div>
+            <div class="tab-content voyage-overview-tab">
+              <%= render "includes/voyage/overview_tab" %>
+            </div>
+          </li>
+          <li>
+            <div class="tab-title">
+                <i class="ti-layers icon"></i>
+                <span>Itinerary</span>
+            </div>
+            <div class="tab-content voyage-itinerary-tab">
+              <%= render "includes/voyage/itinerary_tab" %>
+            </div>
+          </li>
+          <li>
+            <div class="tab-title">
+                <i class="fa fa-compass"></i>
+                <span>Highlights & Activities</span>
+            </div>
+            <div class="tab-content voyage-activities-tab">
+              <%= render "includes/voyage/highlights_and_activities_tab" %>
+            </div>
+          </li>
+          <li>
+            <div class="tab-title">
+                <i class="ti-star icon"></i>
+                <span>Inclusions</span>
+            </div>
+            <div class="tab-content voyage-inclusions-tab">
+              <%= render "includes/voyage/inclusions_and_exclusions_tab" %>
+            </div>
+          </li>
+          <li>
+            <div class="tab-title">
+                <i class="ti-map-alt icon"></i>
+                <span>Map</span>
+            </div>
+            <div class="tab-content voyage-map-tab">
+              <%= render "includes/voyage/map_tab" %>
+            </div>
+          </li>
+          <li>
+            <div class="tab-title">
+                <i class="ti-gallery icon"></i>
+                <span>Gallery</span>
+            </div>
+            <div class="tab-content voyage-gallery-tab">
+              <%= render "includes/voyage/gallery_tab" %>
+            </div>
+          </li>
+          <li>
+            <div class="tab-title">
+              <i class="fa fa-ship"></i>
+              <span>Vessel</span>
+            </div>
+            <div class="tab-content voyage-vessel-tab">
+              <%= render "includes/voyage/vessel_tab" %>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row mt72">
+    <h5 class="divider">
+      <span>Departure Dates & Cabins</span>
+    </h5>
+    <!-- Departure dates & cabins layout incorporating cabin tile-->
+    <!-- Cabin tile -->
+  </div>
+</div>

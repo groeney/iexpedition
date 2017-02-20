@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get "chewbacca" => "pages#chewbacca"
   get "search" => "pages#search"
   get "ship_listing" => "pages#ship_listing"
-  root "pages#home"
+  get "bug" => "pages#bug"
   resources :voyages, only: [:show]
+  root "pages#home"
 end

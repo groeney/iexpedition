@@ -6,4 +6,8 @@ class PagesController < ApplicationController
   def ship_listing
     @results = Ship.all
   end
+
+  def bug
+    @voyage = Voyage.first
+  end
 end

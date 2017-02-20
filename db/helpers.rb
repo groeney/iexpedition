@@ -14,7 +14,7 @@ def create_or_update_singleton(class_name, obj, relation=nil)
 end
 
 def associate_singleton_with_collection(collection, singleton)
-  if collection.exists?(singleton)
+  if collection.exists?(singleton.id)
     puts "Association between #{singleton.name} and #{collection.name} already exists."
     return collection
   elsif !(collection << singleton)

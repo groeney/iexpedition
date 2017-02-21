@@ -1,7 +1,7 @@
 ActiveAdmin.register WildlifeGrouping do
 
   permit_params :wildlife_id, :wildlifable_type, :wildlifable_id
-  filter :wildlifable, collection: Wildlife.wildlifables.map { |wildlifable| [wildlifable.identifier_s, wildlifable.id] }
+  filter :wildlifable, collection: Proc.new { Wildlife.wildlifables.map { |wildlifable| [wildlifable.identifier_s, wildlifable.id] } }
   filter :wildlifable_type, collection: ["Region", "Voyage"]
   filter :wildlife
 
@@ -25,7 +25,7 @@ ActiveAdmin.register WildlifeGrouping do
     f.inputs "Wildlife Grouping Details" do
       f.input :wildlife
       f.input :wildlifable_type, as: :select, collection: ["Region", "Voyage"]
-      f.input :wildlifable_id, as: :select, collection: Wildlife.wildlifables.map { |wildlifable| [wildlifable.identifier_s, wildlifable.id] }
+      f.input :wildlifable_id, as: :select, collection: Proc.new { Wildlife.wildlifables.map { |wildlifable| [wildlifable.identifier_s, wildlifable.id] } }
     end
     f.actions
   end

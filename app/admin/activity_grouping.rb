@@ -1,8 +1,8 @@
 ActiveAdmin.register ActivityGrouping do
 
   permit_params :activity_id, :voyage_id
-  filter :voyage, collection: Voyage.all.map { |voyage| [voyage.identifier_s, voyage.id] }
-  filter :activity, collection: Activity.all.map { |activity| [activity.identifier_s, activity.id] }
+  filter :voyage, collection: Proc.new { Voyage.all.map { |voyage| [voyage.identifier_s, voyage.id] } }
+  filter :activity, collection: Proc.new { Activity.all.map { |activity| [activity.identifier_s, activity.id] } }
 
   index do
     selectable_column
@@ -28,8 +28,8 @@ ActiveAdmin.register ActivityGrouping do
 
   form do |f|
     f.inputs "Activity Grouping Details" do
-      f.input :activity_id, as: :select, collection: Activity.all.map { |activity| [activity.identifier_s, activity.id] }
-      f.input :voyage_id, as: :select, collection: Voyage.all.map { |voyage| [voyage.identifier_s, voyage.id] }
+      f.input :activity_id, as: :select, collection: Proc.new { Activity.all.map { |activity| [activity.identifier_s, activity.id] } }
+      f.input :voyage_id, as: :select, collection: Proc.new { Voyage.all.map { |voyage| [voyage.identifier_s, voyage.id] } }
     end
     f.actions
   end

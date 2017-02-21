@@ -1,7 +1,7 @@
 ActiveAdmin.register HighlightGrouping do
 
   permit_params :highlight_id, :highlightable_type, :highlightable_id
-  filter :highlightable, collection: Highlight.highlightables.map { |highlightable| [highlightable.identifier_s, highlightable.id] }
+  filter :highlightable, collection: Proc.new { Highlight.highlightables.map { |highlightable| [highlightable.identifier_s, highlightable.id] }}
   filter :highlightable_type, collection: ["Destination", "Region", "Voyage"]
   filter :highlight
 
@@ -25,7 +25,7 @@ ActiveAdmin.register HighlightGrouping do
     f.inputs "Highlight Grouping Details" do
       f.input :highlight
       f.input :highlightable_type, as: :select, collection: ["Destination", "Region", "Voyage"]
-      f.input :highlightable_id, as: :select, collection: Highlight.highlightables.map { |highlightable| [highlightable.identifier_s, highlightable.id] }
+      f.input :highlightable_id, as: :select, collection: Proc.new { Highlight.highlightables.map { |highlightable| [highlightable.identifier_s, highlightable.id] }}
     end
     f.actions
   end

@@ -1,7 +1,7 @@
 {
   "name": "iexpedition",
   "scripts": {
-    "postdeploy": "bin/setup_review_app"
+    "postdeploy": "bin/heroku_setup_review_app"
   },
   "env": {
     "APPLICATION_HOST": {

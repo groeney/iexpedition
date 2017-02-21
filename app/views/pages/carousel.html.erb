@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row mt32">
+    <h5 style="display: inline;">First attempt</h5><span> .logo-carousel .slider-all-controls </span>
+    <%= render partial: "includes/thumb_carousel_1", locals: { collection: Voyage.first(10) } %>
+  </div>
+
+  <div class="row mt32">
+    <h5 style="display: inline;">Second attempt</h5><span> .image-slider, .logo-carousel, .slider-all-controls </span>
+    <%= render partial: "includes/thumb_carousel_2", locals: { collection: Voyage.first(10) } %>
+  </div>
+
+  <div class="row mt32">
+    <h5 style="display: inline;">Third attempt</h5> <span> .logo-carousel </span>
+    <%= render partial: "includes/thumb_carousel_3", locals: { collection: Voyage.first(10) } %>
+  </div>
+</div>

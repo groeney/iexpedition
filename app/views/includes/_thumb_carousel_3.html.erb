@@ -1,0 +1,9 @@
+<div class="logo-carousel">
+  <ul class="slides">
+    <% collection.each do |item| %>
+      <li>
+        <%= image_tag(item.image.url) %>
+      </li>
+    <% end -%>
+  </ul>
+</div>

@@ -1,0 +1,22 @@
+<div class="cabin-tile flex xs-flex-reverse">
+  <div class="col-md-3 xs-center-img">
+    <%= image_tag(cabin.image.url, class: "cabin-img") %>
+  </div>
+  <div class="col-md-8 cabin-tile-content flex-column">
+    <h3><%= cabin.name %></h3>
+    <div class="cabin-data">
+      <div class="cabin-aria">
+        <%= cabin.square_meter %>m<sup>2</sup> / <%= cabin.square_feet %>ft<sup>2</sup>
+      </div>
+      <div class="cabin-facilities">
+        <%= cabin.features.first.try(:name) || "Many facilities" %>
+      </div>
+    </div>
+    <div class="cabin-description">
+      <%= cabin.overview %>
+    </div>
+    <div class="view-cabin-button flex">
+      <span>View Cabin</span>
+    </div>
+  </div>
+</div>

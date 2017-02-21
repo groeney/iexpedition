@@ -1,0 +1,170 @@
+// $voyage_color: #0d4863;
+// $date_color: #084863;
+// $ship_color: #464646;
+@import "variables";
+
+.cabin-tile {
+  color: #000;
+  font-family: 'Open Sans', sans-serif;
+
+  .cabin-img {
+    max-height: 260px;
+  }
+
+  .cabin-tile-content {
+    padding-left: 30px;
+    font-size: 13px;
+
+    h3 {
+      margin-top: 20px;
+      margin-bottom: 8px;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 300;
+      font-size: 24px;
+      color: $ship_color;
+    }
+
+    .cabin-data {
+      margin-bottom: 20px;
+    }
+
+    .cabin-description {
+      width: 70%;
+    }
+
+    .view-cabin-button {
+      margin-top: auto;
+      margin-bottom: 22px;
+
+      span {
+        border: 2px solid $date_color;
+        text-transform: uppercase;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 500;
+        font-size: 21px;
+        color: $date_color;
+        padding: 12px 31px;
+        transition: all .3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $date_color;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+.cabin-tile + .divider {
+  width: calc(100% - 30px);
+  margin: 38px auto;
+  padding: 0;
+  color: $border_color;
+}
+
+@media only screen and (max-width: 1349px) {
+
+  .cabin-tile {
+
+    .cabin-tile-content {
+        padding-left: 60px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1199px) {
+
+  .cabin-tile {
+
+    .cabin-tile-content {
+      padding-left: 90px;
+
+      .cabin-description {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1099px) {
+
+  .cabin-tile {
+
+    .cabin-tile-content {
+      padding-left: 130px;
+
+      .view-cabin-button {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 991px) {
+
+  .cabin-tile {
+
+    .cabin-img {
+      max-width: 250px;
+    }
+
+    .cabin-tile-content {
+      font-size: 14px;
+      padding-left: 0;
+
+      h3{
+        margin-top: 0;
+        line-height: 1;
+        margin-bottom: 10px;
+      }
+
+      .cabin-data {
+        margin-bottom: 5px;
+      }
+
+      .view-cabin-button span {
+        padding: 6px 31px;
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 619px) {
+
+  .cabin-tile {
+
+    .cabin-img {
+      max-width: 200px;
+    }
+  }
+}
+
+@media only screen and (max-width: 469px) {
+
+  .xs-center-img {
+    text-align: center;
+  }
+
+  .xs-flex-reverse {
+    flex-direction: column-reverse;
+  }
+
+  .cabin-tile {
+
+    .cabin-img {
+      max-width: 250px;
+      width: 100%;
+    }
+
+    .cabin-tile-content {
+      text-align: center;
+
+      .view-cabin-button {
+        margin: 10px auto;
+        justify-content: center;
+      }
+    }
+  }
+}

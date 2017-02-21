@@ -1,3 +1,8 @@
 <div class="container">
-  <!-- view cabin tile for each cabin. ship.cabins.group_by(&:name).map { |name, items| items.first } -->
+    <div class="row">
+      <% ship.cabins.group_by(&:name).map { |name, items| items.first }.each do |cabin| %>
+        <%= render partial: "includes/cabin/view_tile", locals: { cabin: cabin } %>
+        <h5 class="divider"></h5>
+      <% end -%>
+    </div>
 </div>

@@ -22,7 +22,7 @@ class Ship < ApplicationRecord
   end
 
   def cabins
-    ids = Voyage.where(ship_id: self.id).map { |voyage| voyage.cabins.pluck(:id)  }
+    ids = Voyage.where(ship_id: self.id).map { |voyage| voyage.cabins.pluck(:id)  }.flatten.uniq
     Cabin.where(id: ids)
   end
 end

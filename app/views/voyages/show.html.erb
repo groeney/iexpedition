@@ -87,7 +87,6 @@
     <h5 class="divider">
       <span>Departure Dates & Cabins</span>
     </h5>
-    <!-- Departure dates & cabins layout incorporating cabin tile-->
-    <!-- Cabin tile -->
+    <%= render partial: "includes/voyage/cabins_layout", locals: { voyage: @voyage, date_bundle: @voyage.alternative_dates } %>
   </div>
 </div>

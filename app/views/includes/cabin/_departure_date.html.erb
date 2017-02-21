@@ -1,0 +1,6 @@
+<div class="departure-date flex flex-center">
+  <label class="departure-item" for="">
+    <input type="radio" name="dates" <%= checked ? "checked" : ""%>>
+    <span><%= [start_date.strftime('%d %b'), end_date.strftime('%d %b %Y')].join(' - ') %></span>
+  </label>
+</div>

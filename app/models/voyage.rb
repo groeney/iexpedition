@@ -35,7 +35,7 @@ class Voyage < ApplicationRecord
   scope :ship, -> (ship_id) { joins(:ship).where(ships: { id: ship_id }) }
 
   def identifier_s
-    self.nil? ? "[unidentifiable]" : "#{self.name} on #{self.ship.name} from #{self.start_date} to #{self.end_date}"
+    self.nil? ? "unidentifiable" : "#{self.name} on #{self.ship.name} from #{self.start_date} to #{self.end_date}"
   end
 
   def destination_highlights
@@ -52,5 +52,9 @@ class Voyage < ApplicationRecord
 
   def formatted_end_date
     self.end_date.strftime('%d %b %Y')
+  end
+
+  def alternative_dates
+    Voyage.where(name: self.name).map { |v| [v.start_date, v.end_date] }
   end
 end

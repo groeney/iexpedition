@@ -19,3 +19,454 @@
 .table {
   border-bottom: 1px solid #ddd;
 }
+
+.departure-layout {
+
+  .divider {
+    font-size: 24px;
+    color: $ship_color;
+    margin-bottom: 85px;
+  }
+
+  .departure-dates {
+    width: 328px;
+    float: left;
+
+    .departure-header {
+      width: 100%;
+      padding: 10px;
+      padding-left: 20px;
+      color: #fff;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      text-transform: uppercase;
+      background-color: $voyage_color;
+
+      .arrow-header {
+        padding-top: 5px;
+        font-weight: 700;
+        padding-right: 5px;
+      }
+    }
+
+    .departure-body {
+      border: 1px solid $border_color;
+      color: #000;
+
+      .departure-date {
+        transition: all .2s ease-in-out;
+
+        &:hover {
+          background-color: $border_color;
+          color: #fff;
+        }
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $border_color;
+        }
+      }
+
+      input[type=radio] {
+        margin: 16px;
+        margin-left: 18px;
+        margin-right: 9px;
+      }
+
+      .departure-item {
+        font-size: 16px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 400;
+        margin-bottom: 0;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .cabin-views {
+    width: calc(100% - 328px);
+    padding-left: 70px;
+
+    .cabin-view {
+      position: relative;
+      margin-bottom: 90px;
+    }
+
+    .cabin-view-img {
+      position: relative;
+
+      .top-block {
+        position: absolute;
+        top: 0;
+        padding: 5px;
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        font-size: 17px;
+        text-transform: uppercase;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 700;
+        background-color: $sale_color;
+        display: none;
+      }
+
+      .sale-block {
+        @extend .top-block;
+        display: block;
+        color: #fff;
+        background-color: $sale_color;
+
+        &:after {
+          content: 'sale';
+        }
+      }
+
+      .on-request-block {
+        @extend .top-block;
+        display: block;
+        color: #fff;
+        background-color: #000;
+
+        &:after {
+          content: 'on request';
+        }
+      }
+
+      .limited-block {
+        @extend .top-block;
+        display: block;
+        color: #fff;
+        background-color: #00a651;
+
+        &:after {
+          content: 'limited availability';
+        }
+      }
+
+      .available-block {
+        @extend .top-block;
+        display: block;
+        color: #fff;
+        background-color: $theme_color;
+
+        &:after {
+          content: 'available';
+        }
+      }
+
+    }
+
+    .departure-cabin-img {
+      max-width: 260px;
+    }
+
+    .cabin-view-content {
+      padding-left: 20px;
+
+      h3 {
+        margin-bottom: 10px;
+        color: $voyage_color;
+        font-size: 24px;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 400;
+        line-height: 1;
+      }
+
+      .cabin-view-date {
+        margin-bottom: 4px;
+        color: #000;
+        text-transform: uppercase;
+        font-size: 14px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 700;
+      }
+
+      .cabin-view-description {
+        color: #000;
+        font-size: 16px;
+      }
+
+      .cabin-view-price {
+        margin-top: 26px;
+        font-size: 25px;
+
+        .cabin-view-price-now,
+        .cabin-view-price-sale {
+          color: #000;
+          font-family: 'Open Sans', sans-serif;
+          font-weight: 300;
+        }
+
+        .cabin-view-price-sale {
+          display: none;
+          color: $sale_color;
+          margin-left: 30px;
+        }
+
+        &.sale {
+
+          .cabin-view-price-now {
+            text-decoration: line-through;
+          }
+
+          .cabin-view-price-sale {
+            display: block;
+          }
+        }
+      }
+
+      .cabin-view-buttons {
+        margin-top: auto;
+
+        span {
+          font-size: 21px;
+          font-weight: 500;
+          font-family: 'Raleway', sans-serif;
+          padding: 10px 41px;
+          border: 2px solid;
+          text-transform: uppercase;
+          transition: all .3s ease-in-out;
+          cursor: pointer;
+        }
+
+        .cabin-view-reserve {
+          border-color: $date_color;
+          color: $date_color;
+
+          &:hover {
+            background-color: rgba($date_color, 0.9);
+            color: #fff;
+          }
+        }
+
+        .cabin-view-confirm {
+          border-color: $date_color;
+          background-color: $date_color;
+          color: #fff;
+          margin-left:20px;
+
+          &:hover {
+            background-color: #fff;
+            color: $date_color;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1499px) {
+
+  .departure-layout {
+
+    .cabin-views {
+
+      .cabin-view-content {
+
+        .cabin-view-price {
+          margin-top: 15px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1349px) and (min-width: 992px){
+
+  .departure-layout {
+
+    .departure-dates {
+      width: 286px;
+
+      .departure-body {
+
+        input[type=radio] {
+          margin-left: 10px;
+          margin-right: 5px;
+        }
+      }
+    }
+
+    .cabin-views {
+      width: calc(100% - 286px);
+      padding-left: 30px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1199px) and (min-width: 992px) {
+
+  .departure-layout {
+
+    .cabin-views {
+
+      .cabin-view {
+        position: relative;
+        padding-bottom: 60px;
+      }
+
+      .cabin-view-content {
+
+        .cabin-view-description {
+          font-size: 15px;
+        }
+
+        .cabin-view-price {
+          margin-top: 10px;
+          font-size: 20px;
+        }
+
+        .cabin-view-buttons {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+
+          span {
+            width: 270px;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 991px) {
+
+  .departure-layout {
+    flex-direction: column;
+
+    .departure-dates {
+      float: none;
+      margin: 0 auto;
+      width: 100%;
+      margin-bottom: 70px;
+    }
+
+    .cabin-views {
+      width: 100%;
+      padding-left: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 766px) and (min-width: 500px){
+
+  .departure-layout {
+
+    .cabin-views {
+
+      .cabin-view {
+        padding-bottom: 60px;
+      }
+
+      .cabin-view-content {
+
+        .cabin-view-price {
+          font-size: 22px;
+        }
+
+        .cabin-view-buttons {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+
+          span {
+            width: 270px;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 619px) and (min-width: 500px) {
+
+  .departure-layout {
+
+    .cabin-views {
+
+      .cabin-view {
+        padding-bottom: 60px;
+      }
+
+      .cabin-view-img {
+        width: 220px;
+
+        img {
+          width: 220px;
+        }
+      }
+
+      .cabin-view-content {
+
+        .cabin-view-description {
+          font-size: 15px;
+        }
+
+        .cabin-view-price {
+          font-size: 16px;
+        }
+
+        .cabin-view-buttons {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+
+          span {
+            width: 220px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 499px) {
+
+  .departure-layout {
+
+    .cabin-views {
+
+      .cabin-view {
+        flex-direction: column-reverse;
+
+      }
+
+      .cabin-view-img {
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 20px;
+
+        img {
+          width: 100%;
+          max-width: 100%;
+        }
+      }
+
+      .cabin-view-content {
+        padding-left: 0;
+        text-align: center;
+
+        .cabin-view-description {
+
+        }
+
+        .cabin-view-price {
+          justify-content: center;
+          margin-bottom: 20px;
+        }
+
+        .cabin-view-buttons {
+          justify-content: space-between;
+
+
+          span {
+            padding: 10px 21px;
+          }
+        }
+      }
+    }
+  }
+}

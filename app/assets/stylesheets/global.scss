@@ -25,6 +25,14 @@
   flex-wrap: wrap;
 }
 
+.flex-center {
+  align-items: center;
+}
+
+.flex-between {
+  justify-content: space-between;
+}
+
 .mb65 {
   margin-bottom: 65px;
 }
@@ -43,7 +51,8 @@ a {
 }
 
 .voyage-overview-tab, .voyage-vessel-tab,
-.destination-info-tab, .ship-vessel-tab {
+.destination-info-tab, .ship-vessel-tab,
+.ship-cabins-tab {
   p:first-of-type {
     font-size: 1.25em;
   }

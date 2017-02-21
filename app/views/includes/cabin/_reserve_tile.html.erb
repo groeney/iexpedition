@@ -1,0 +1,24 @@
+<div class="cabin-view flex">
+  <div class="cabin-view-img">
+    <%= image_tag(cabin.image.url, class: "departure-cabin-img") %>
+    <div class="<%= cabin.notice_class %>-block"></div>
+  </div>
+  <div class="cabin-view-content flex flex-column">
+    <h3><%= cabin.name %></h3>
+    <div class="cabin-view-date">
+      <%= [voyage.formatted_start_date, voyage.formatted_end_date].join(' - ') %>
+    </div>
+    <div class="cabin-view-description">
+      <%= cabin.overview %>
+    </div>
+
+    <div class="cabin-view-price <%= cabin.discount_amount > 0 ? 'sale' : '' %> flex">
+      <div class="cabin-view-price-now">AUD $<%= cabin.price %><em>pp</em></div>
+      <div class="cabin-view-price-sale">AUD $<%= cabin.price - cabin.discount_amount %><em>pp</em></div>
+    </div>
+    <div class="cabin-view-buttons flex">
+      <span class="cabin-view-reserve">Reserve</span>
+      <span class="cabin-view-confirm">Confirm</span>
+    </div>
+  </div>
+</div>

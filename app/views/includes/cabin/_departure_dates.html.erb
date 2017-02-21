@@ -1,0 +1,10 @@
+<div class="departure-dates">
+  <div class="departure-header">All available dates
+    <span class="ti-angle-down pull-right arrow-header"></span>
+  </div>
+  <div class="departure-body">
+    <% date_bundle.each do |dates| %>
+      <%= render partial: "includes/cabin/departure_date", locals: { checked: voyage.start_date == dates.first, start_date: dates.first, end_date: dates.last } %>
+    <% end -%>
+  </div>
+</div>

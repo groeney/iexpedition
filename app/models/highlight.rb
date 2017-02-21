@@ -11,7 +11,7 @@ class Highlight < ApplicationRecord
   validates_uniqueness_of :name
   validates_presence_of [:name, :overview]
 
-  def self.highlightables
+  def highlightables
     Destination.all + Region.all + Voyage.all
   end
 end

@@ -10,7 +10,7 @@ class Wildlife < ApplicationRecord
   validates_uniqueness_of :name
   validates_presence_of [:name, :overview]
 
-  def self.wildlifables
+  def wildlifables
     Region.all + Voyage.all
   end
 end

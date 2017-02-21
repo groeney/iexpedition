@@ -24,7 +24,7 @@ ActiveAdmin.register HighlightGrouping do
     f.inputs "Highlight Grouping Details" do
       f.input :highlight
       f.input :highlightable_type, as: :select, collection: ["Destination", "Region", "Voyage"]
-      f.input :highlightable_id, as: :select, collection: Highlight.highlightables.map { |highlightable| [highlightable.identifier_s, highlightable.id] }
+      f.input :highlightable_id, as: :select, collection: Proc.new { Highlight.highlightables.map { |highlightable| [highlightable.identifier_s, highlightable.id] }}
     end
     f.actions
   end

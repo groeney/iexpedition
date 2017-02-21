@@ -28,8 +28,8 @@ ActiveAdmin.register ActivityGrouping do
 
   form do |f|
     f.inputs "Activity Grouping Details" do
-      f.input :activity_id, as: :select, collection: Activity.all.map { |activity| [activity.identifier_s, activity.id] }
-      f.input :voyage_id, as: :select, collection: Voyage.all.map { |voyage| [voyage.identifier_s, voyage.id] }
+      f.input :activity_id, as: :select, collection: Proc.new { Activity.all.map { |activity| [activity.identifier_s, activity.id] } }
+      f.input :voyage_id, as: :select, collection: Proc.new { Voyage.all.map { |voyage| [voyage.identifier_s, voyage.id] } }
     end
     f.actions
   end

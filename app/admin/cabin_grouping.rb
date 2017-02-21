@@ -29,8 +29,8 @@ ActiveAdmin.register CabinGrouping do
 
   form do |f|
     f.inputs "Cabin Grouping Details" do
-      f.input :cabin_id, as: :select, collection: Cabin.all.map { |cabin| [cabin.identifier_s, cabin.id] }
-      f.input :voyage_id, as: :select, collection: Voyage.all.map { |voyage| [voyage.identifier_s, voyage.id] }
+      f.input :cabin_id, as: :select, collection: Proc.new { Cabin.all.map { |cabin| [cabin.identifier_s, cabin.id] } }
+      f.input :voyage_id, as: :select, collection: Proc.new { Voyage.all.map { |voyage| [voyage.identifier_s, voyage.id] } }
     end
     f.actions
   end

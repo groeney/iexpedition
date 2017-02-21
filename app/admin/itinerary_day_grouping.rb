@@ -26,7 +26,7 @@ ActiveAdmin.register ItineraryDayGrouping do
   form do |f|
     f.inputs "Itinerary Day Grouping Details" do
       f.input :itinerary_day
-      f.input :voyage_id, as: :select, collection: Voyage.all.map { |voyage| [voyage.identifier_s, voyage.id] }
+      f.input :voyage_id, as: :select, collection: Proc.new { Voyage.all.map { |voyage| [voyage.identifier_s, voyage.id] } }
       f.input :day_number
     end
     f.actions

@@ -25,7 +25,7 @@ ActiveAdmin.register FeatureGrouping do
     f.inputs "Feature Grouping Details" do
       f.input :feature
       f.input :featurable_type, as: :select, collection: ["Cabin", "Ship"]
-      f.input :featurable_id, as: :select, collection: Feature.featurables.map { |featurable| [featurable.identifier_s, featurable.id] }
+      f.input :featurable_id, as: :select, collection: Proc.new { Feature.featurables.map { |featurable| [featurable.identifier_s, featurable.id] } }
     end
     f.actions
   end

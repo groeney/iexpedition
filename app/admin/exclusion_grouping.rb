@@ -25,7 +25,7 @@ ActiveAdmin.register ExclusionGrouping do
   form do |f|
     f.inputs "Exclusion Grouping Details" do
       f.input :exclusion
-      f.input :voyage_id, as: :select, collection: Voyage.all.map { |voyage| [voyage.identifier_s, voyage.id] }
+      f.input :voyage_id, as: :select, collection: Proc.new { Voyage.all.map { |voyage| [voyage.identifier_s, voyage.id] } }
     end
     f.actions
   end

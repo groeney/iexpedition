@@ -9,10 +9,4 @@ if [ -z "$1" ]; then
   exit 64
 fi
 
-heroku pg:backups restore \
-  `heroku pg:backups public-url -a iexpedition-staging` \
-  DATABASE_URL \
-  --confirm iexpedition-staging-pr-$1 \
-  --app iexpedition-staging-pr-$1
-heroku run rails db:migrate --app iexpedition-staging-pr-$1
-heroku restart --app iexpedition-staging-pr-$1
+heroku config:set ASSET_HOST=iexpedition-staging-pr-$1.herokuapp.com --app iexpedition-staging-pr-$1

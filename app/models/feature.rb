@@ -7,7 +7,7 @@ class Feature < ApplicationRecord
   validates_presence_of [:name, :icon]
   validates_uniqueness_of :name
 
-  def featurables
+  def self.featurables
     Cabin.all + Ship.all
   end
 end

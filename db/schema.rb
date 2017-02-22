@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170218153733) do
+ActiveRecord::Schema.define(version: 20170222121901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -312,31 +312,27 @@ ActiveRecord::Schema.define(version: 20170218153733) do
     t.boolean  "includes_flight",           default: false
     t.integer  "destination_id"
     t.integer  "region_id"
-    t.string   "header_image_file_name"
-    t.string   "header_image_content_type"
-    t.integer  "header_image_file_size"
-    t.datetime "header_image_updated_at"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.float    "gst"
-    t.string   "currency",                  default: "USD"
     t.string   "header_image_file_name"
     t.string   "header_image_content_type"
     t.integer  "header_image_file_size"
     t.datetime "header_image_updated_at"
+    t.float    "gst"
+    t.string   "currency",                  default: "USD"
     t.index ["destination_id"], name: "index_voyages_on_destination_id", using: :btree
     t.index ["region_id"], name: "index_voyages_on_region_id", using: :btree
     t.index ["ship_id"], name: "index_voyages_on_ship_id", using: :btree
   end
 
   create_table "wildlife_groupings", force: :cascade do |t|
-    t.integer  "wildlifable_id"
-    t.string   "wildlifable_type"
     t.integer  "wildlife_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "destination_id"
+    t.index ["destination_id"], name: "index_wildlife_groupings_on_destination_id", using: :btree
     t.index ["wildlife_id"], name: "index_wildlife_groupings_on_wildlife_id", using: :btree
   end
 
@@ -362,5 +358,6 @@ ActiveRecord::Schema.define(version: 20170218153733) do
   add_foreign_key "voyages", "destinations"
   add_foreign_key "voyages", "regions"
   add_foreign_key "voyages", "ships"
+  add_foreign_key "wildlife_groupings", "destinations"
   add_foreign_key "wildlife_groupings", "wildlives"
 end

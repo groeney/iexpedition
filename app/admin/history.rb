@@ -2,7 +2,7 @@ ActiveAdmin.register History do
 
   permit_params :name, :overview, :destination_id
   filter :name
-  filter :destination, collection: Proc.new { Destination.all.map { |destination| [destination.identifier_s, destination.id] }}
+  filter :destination
 
   index do
     selectable_column
@@ -24,7 +24,7 @@ ActiveAdmin.register History do
     f.inputs "History" do
       f.input :name
       f.input :overview
-      f.input :destination_id, as: :select, collection: Proc.new { Destination.all.map { |destination| [destination.identifier_s, destination.id] }}
+      f.input :destination
     end
     f.actions
   end

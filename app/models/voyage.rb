@@ -11,14 +11,12 @@ class Voyage < ApplicationRecord
 
   has_many :highlight_groupings, as: :highlightable, dependent: :destroy
   has_many :gallery_image_groupings, as: :gallery_imageable, dependent: :destroy
-  has_many :wildlife_groupings, as: :wildlifable, dependent: :destroy
 
   has_many :cabins, through: :cabin_groupings
   has_many :itinerary_days, through: :itinerary_day_groupings
   has_many :activities, through: :activity_groupings
   has_many :inclusions, through: :inclusion_groupings
   has_many :exclusions, through: :exclusion_groupings
-  has_many :wildlives, through: :wildlife_groupings
   has_many :highlights, through: :highlight_groupings
   has_many :gallery_images, through: :gallery_image_groupings
   has_many :histories, through: :region
@@ -47,10 +45,6 @@ class Voyage < ApplicationRecord
 
   def region_highlights
     self.region.highlights
-  end
-
-  def region_wildlives
-    self.region.wildlives
   end
 
   def from_price

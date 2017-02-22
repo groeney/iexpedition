@@ -30,3 +30,6 @@ app/assets/images/itinerary_days/*
 app/assets/images/voyages/*
 app/assets/images/wildlives/*
 app/assets/images/gallery_images/*
+
+# Data
+db/seeds/data/*

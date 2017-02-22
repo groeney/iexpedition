@@ -36,7 +36,7 @@
           </tr>
           <tr>
             <td class="table-header">Refurbished:</td>
-            <td><%= ship.year_refurbished.strftime('%Y') %></td>
+            <td><%= ship.year_refurbished.try(:strftime, '%Y') %></td>
           </tr>
         </tbody>
       </table>
@@ -46,7 +46,7 @@
         <tbody>
           <tr>
             <td class="table-header">Year built:</td>
-            <td><%= ship.year_built.strftime('%Y') %></td>
+            <td><%= ship.year_built.try(:strftime, '%Y') %></td>
           </tr>
           <tr>
             <td class="table-header">Length:</td>

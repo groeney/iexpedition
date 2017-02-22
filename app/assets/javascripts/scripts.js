@@ -632,7 +632,7 @@ $(document).on('turbolinks:load', function(){
         $(this).append('<ul class="content"></ul>');
     });
 
-    $('.tabs li').each(function() {
+    $('.tabs > li').each(function() {
         var originalTab = $(this),
             activeClass = "";
         if (originalTab.is('.tabs>li:first-child')) {
@@ -642,7 +642,7 @@ $(document).on('turbolinks:load', function(){
         originalTab.closest('.tabbed-content').find('.content').append(tabContent);
     });
 
-    $('.tabs li').click(function() {
+    $('.tabs > li').click(function() {
         $(this).closest('.tabs').find('li').removeClass('active');
         $(this).addClass('active');
         var liIndex = $(this).index() + 1;

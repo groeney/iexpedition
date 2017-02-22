@@ -302,3 +302,36 @@ footer img {
     width: 60% !important;
   }
 }
+
+.tabs-content > li:not(.active){ display: none; }
+
+.tabs li.active .tab__title{ color: #466a7e; }
+
+.icon-tabs .tab__title span {
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 24px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.icon-tabs .tab__title {
+  text-align: center;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  opacity: .5;
+}
+.icon-tabs .tab__title:hover {
+  opacity: 1;
+}
+.icon-tabs .active .tab__title {
+  color: $theme_color;
+  opacity: 1;
+}
+.icon-tabs .tab__title i {
+  display: block;
+  margin-bottom: 16px;
+}

@@ -14,68 +14,68 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12 text-center">
-      <div class="tabbed-content icon-tabs mt16">
+      <div class="tabs-container tabbed-content icon-tabs mt16">
         <ul class="tabs">
           <li class="active">
-            <div class="tab-title">
+            <div class="tab__title">
                 <i class="ti-info-alt icon"></i>
                 <span>Overview</span>
             </div>
-            <div class="tab-content voyage-overview-tab">
+            <div class="tab__content voyage-overview-tab">
               <%= render "includes/voyage/overview_tab" %>
             </div>
           </li>
           <li>
-            <div class="tab-title">
+            <div class="tab__title">
                 <i class="ti-layers icon"></i>
                 <span>Itinerary</span>
             </div>
-            <div class="tab-content voyage-itinerary-tab">
+            <div class="tab__content voyage-itinerary-tab">
               <%= render "includes/voyage/itinerary_tab" %>
             </div>
           </li>
           <li>
-            <div class="tab-title">
+            <div class="tab__title">
                 <i class="fa fa-compass fa-2x"></i>
                 <span>Highlights & Activities</span>
             </div>
-            <div class="tab-content voyage-activities-tab">
+            <div class="tab__content voyage-activities-tab">
               <%= render "includes/voyage/highlights_and_activities_tab" %>
             </div>
           </li>
           <li>
-            <div class="tab-title">
+            <div class="tab__title">
                 <i class="ti-star icon"></i>
                 <span>Inclusions</span>
             </div>
-            <div class="tab-content voyage-inclusions-tab">
+            <div class="tab__content voyage-inclusions-tab">
               <%= render "includes/voyage/inclusions_and_exclusions_tab" %>
             </div>
           </li>
           <li>
-            <div class="tab-title">
+            <div class="tab__title">
                 <i class="ti-map-alt icon"></i>
                 <span>Map</span>
             </div>
-            <div class="tab-content voyage-map-tab">
+            <div class="tab__content voyage-map-tab">
               <%= render "includes/voyage/map_tab" %>
             </div>
           </li>
           <li>
-            <div class="tab-title">
+            <div class="tab__title">
                 <i class="ti-gallery icon"></i>
                 <span>Gallery</span>
             </div>
-            <div class="tab-content voyage-gallery-tab">
+            <div class="tab__content voyage-gallery-tab">
               <%= render "includes/voyage/gallery_tab" %>
             </div>
           </li>
           <li>
-            <div class="tab-title">
+            <div class="tab__title">
               <i class="fa fa-ship fa-2x"></i>
               <span>Vessel</span>
             </div>
-            <div class="tab-content voyage-vessel-tab">
+            <div class="tab__content voyage-vessel-tab">
               <%= render partial: "includes/vessel_tab", locals: { ship: @voyage.ship, show_gallery: true } %>
             </div>
           </li>

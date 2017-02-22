@@ -25,3 +25,4 @@
 //= require_tree ./pages
 //= require globals
 //= require search
+//= require tabs

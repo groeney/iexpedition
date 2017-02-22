@@ -2,7 +2,7 @@ ActiveAdmin.register InclusionGrouping do
 
   permit_params :inclusion_id, :voyage_id
   filter :inclusion
-  filter :voyage, collection: Proc.new { Voyage.all.map { |voyage| [voyage.identifier_s, voyage.id] } }
+  filter :voyage, collection: Voyage.all.map { |voyage| [voyage.identifier_s, voyage.id] }
 
   index do
     selectable_column
@@ -25,7 +25,7 @@ ActiveAdmin.register InclusionGrouping do
   form do |f|
     f.inputs "Inclusion Grouping Details" do
       f.input :inclusion
-      f.input :voyage_id, as: :select, collection: Proc.new { Voyage.all.map { |voyage| [voyage.identifier_s, voyage.id] } }
+      f.input :voyage_id, as: :select, collection: Voyage.all.map { |voyage| [voyage.identifier_s, voyage.id] }
     end
     f.actions
   end

@@ -335,7 +335,7 @@ $(document).ready(function() {
         });
         $('.slider-paging-controls').flexslider({
             animation: "slide",
-            directionNav: true
+            directionNav: false
         });
         $('.slider-arrow-controls').flexslider({
             controlNav: false
@@ -358,7 +358,7 @@ $(document).ready(function() {
             animation: "slide",
             slideshow: true,
             slideshowSpeed: 3000,
-            directionNav: false,
+            directionNav: true,
             controlNav: false
         });
     }

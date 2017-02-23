@@ -1,3 +1,4 @@
+TYPE = "example"
 require_relative "./helpers"
 require_relative "./seeds/admins"
 

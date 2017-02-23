@@ -9,7 +9,7 @@ class Ship < ApplicationRecord
   has_many :gallery_images, through: :gallery_image_groupings
   has_many :destinations, through: :voyages
 
-  validates_uniqueness_of :name
+  validates_uniqueness_of :name, scope: :operator_id
 
   has_attached_file :header_image, default_url: "/assets/missing-ship-header-image.png", styles: { thumb: "150x150" }
   validates_attachment :header_image, content_type: { content_type: /\Aimage\/.*\z/ }

@@ -1,5 +1,7 @@
 require "csv"
-CSV.foreach("./db/seeds/data/destinations.csv", :headers => true) do |row|
-  destination_obj = row.to_hash.symbolize_keys!
-  create_or_update_singleton("Destination", destination_obj)
+Dir["./db/seeds/data/*destinations-#{TYPE}.csv"].each do |fn|
+  CSV.foreach(fn, :headers => true) do |row|
+    destination_obj = clean_data row.to_hash.symbolize_keys!
+    create_singleton("Destination", destination_obj)
+  end
 end

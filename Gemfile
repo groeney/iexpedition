@@ -27,6 +27,7 @@ gem "inherited_resources", git: "https://github.com/activeadmin/inherited_resour
 # Active Admin
 gem "activeadmin", git: "https://github.com/activeadmin/activeadmin"
 gem "devise"
+gem "google_drive"
 
 # Paperclip setup
 gem "aws-sdk"

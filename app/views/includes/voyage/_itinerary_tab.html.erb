@@ -1,12 +1,16 @@
 <div class="container">
   <ul class="accordion accordion-1 one-open">
-    <% @voyage.itinerary_day_groupings.each do |grouping| %>
+    <% @voyage.itinerary_day_groupings.group_by(&:itinerary_day_id).each do |itinerary_day_id, grouping| %>
+      <% itinerary_day = ItineraryDay.find(itinerary_day_id) %>
+      <% day_max = grouping.pluck(:day_number).max %>
+      <% day_min = grouping.pluck(:day_number).min %>
+      <% title = (day_min == day_max) ? "Day #{day_min}" : "Day #{day_min}/#{day_max}" %>
       <li>
           <div class="title">
-            <span><%= "Day #{grouping.day_number} - #{grouping.itinerary_day.name}" %></span>
+            <span><%= title += " - #{grouping.first.itinerary_day.name}" %></span>
           </div>
           <div class="content">
-            <%= simple_format(grouping.itinerary_day.overview) %>
+            <%= simple_format(grouping.first.itinerary_day.overview) %>
           </div>
       </li>
     <% end -%>

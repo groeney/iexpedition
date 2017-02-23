@@ -2,10 +2,9 @@ ActiveAdmin.register Voyage do
   permit_params :name, :overview, :start_date, :end_date, :embark_port,
                 :disembark_port, :discount_percentage, :overview_tile,
                 :passenger_capacity, :physical_rating, :includes_flight,
-                :destination_id, :region_id, :map
+                :destination_id, :map
   filter :ship
   filter :destination
-  filter :region
 
   index do
     selectable_column
@@ -34,7 +33,6 @@ ActiveAdmin.register Voyage do
       row :physical_rating
       row :includes_flight
       row :destination_id
-      row :region_id
       row :map do
         image_tag(voyage.map.url)
       end
@@ -55,7 +53,6 @@ ActiveAdmin.register Voyage do
       f.input :physical_rating
       f.input :includes_flight
       f.input :destination_id
-      f.input :region_id
       f.input :map, hint: f.voyage.map? ? image_tag(f.activity.map.url, height: "100") : content_tag(:span, "Upload JPG/PNG/GIF image")
     end
     f.actions

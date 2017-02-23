@@ -1,8 +1,8 @@
 class Voyage < ApplicationRecord
   belongs_to :ship
   belongs_to :destination
-  belongs_to :region
 
+  has_many :region_groupings, dependent: :destroy
   has_many :cabin_groupings, dependent: :destroy
   has_many :itinerary_day_groupings, dependent: :destroy
   has_many :activity_groupings, dependent: :destroy
@@ -19,8 +19,7 @@ class Voyage < ApplicationRecord
   has_many :exclusions, through: :exclusion_groupings
   has_many :highlights, through: :highlight_groupings
   has_many :gallery_images, through: :gallery_image_groupings
-  has_many :histories, through: :region
-  has_many :facts, through: :region
+  has_many :regions, through: :region_groupings
 
   has_attached_file :map, default_url: "/assets/missing-map.png"
   validates_attachment :map, content_type: { content_type: /\Aimage\/.*\z/ }
@@ -32,7 +31,7 @@ class Voyage < ApplicationRecord
   validates_attachment :image, content_type: { content_type: /\Aimage\/.*\z/ }
 
   scope :destination, -> (destination_name) { joins(:destination).where(destinations: { name: destination_name }) }
-  scope :region, -> (region_name) { joins(:region).where(regions: { name: region_name }) }
+  scope :region, -> (region_name) { joins(:region_groupings).where(region_groupings: { region_id: Region.find_by_name(region_name) }) }
   scope :ship, -> (ship_id) { joins(:ship).where(ships: { id: ship_id }) }
 
   def identifier_s
@@ -41,10 +40,6 @@ class Voyage < ApplicationRecord
 
   def destination_highlights
     self.destination.highlights
-  end
-
-  def region_highlights
-    self.region.highlights
   end
 
   def from_price

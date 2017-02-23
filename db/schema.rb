@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222135346) do
+ActiveRecord::Schema.define(version: 20170223152507) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,6 +91,8 @@ ActiveRecord::Schema.define(version: 20170222135346) do
     t.datetime "updated_at",                       null: false
     t.integer  "square_meter"
     t.text     "overview"
+    t.integer  "discount_amount",    default: 0
+    t.integer  "availability",       default: 5
   end
 
   create_table "destinations", force: :cascade do |t|
@@ -254,6 +256,15 @@ ActiveRecord::Schema.define(version: 20170222135346) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "region_groupings", force: :cascade do |t|
+    t.integer  "voyage_id"
+    t.integer  "region_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["region_id"], name: "index_region_groupings_on_region_id", using: :btree
+    t.index ["voyage_id"], name: "index_region_groupings_on_voyage_id", using: :btree
+  end
+
   create_table "regions", force: :cascade do |t|
     t.string   "name"
     t.text     "overview"
@@ -313,7 +324,6 @@ ActiveRecord::Schema.define(version: 20170222135346) do
     t.date     "end_date",                                  null: false
     t.string   "embark_port"
     t.string   "disembark_port"
-    t.integer  "discount_amount",           default: 0
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
     t.string   "map_file_name"
@@ -325,7 +335,6 @@ ActiveRecord::Schema.define(version: 20170222135346) do
     t.string   "physical_rating"
     t.boolean  "includes_flight",           default: false
     t.integer  "destination_id"
-    t.integer  "region_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -337,7 +346,6 @@ ActiveRecord::Schema.define(version: 20170222135346) do
     t.float    "gst"
     t.string   "currency",                  default: "USD"
     t.index ["destination_id"], name: "index_voyages_on_destination_id", using: :btree
-    t.index ["region_id"], name: "index_voyages_on_region_id", using: :btree
     t.index ["ship_id"], name: "index_voyages_on_ship_id", using: :btree
   end
 
@@ -370,7 +378,6 @@ ActiveRecord::Schema.define(version: 20170222135346) do
   add_foreign_key "histories", "destinations"
   add_foreign_key "ships", "operators"
   add_foreign_key "voyages", "destinations"
-  add_foreign_key "voyages", "regions"
   add_foreign_key "voyages", "ships"
   add_foreign_key "wildlife_groupings", "destinations"
   add_foreign_key "wildlife_groupings", "wildlives"

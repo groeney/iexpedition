@@ -1,9 +1,11 @@
-<div class="image-slider slider-all-controls controls-inside">
+<% width = "512" %>
+<div class="image-slider slider-all-controls controls-inside col-centered" style="max-width: <%= width %>px;">
   <ul class="slides">
     <% collection.each do |item| %>
       <li>
-        <div class="image-caption cast-shadow hover-caption" data-caption="<%= item.description %>">
-          <%= image_tag(item.image.url) %>
+        <div class="image-caption hover-caption">
+          <%= image_tag(item.image.url, style: "width:#{width}px;") %>
+          <div class="caption" data-caption="<%= item.description %>"></div>
         </div>
       </li>
     <% end -%>

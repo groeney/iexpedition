@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# Run this script to set up a review app's database and worker dyno
+
+set -e
+
+if [ -z "$1" ]; then
+  printf "You must provide a seed type (example, data).\n"
+  exit 64
+fi
+
+seed_type=$1 rails db:migrate:reset db:seed &> log/seed.log && cat log/seed.log | grep -e "### Missing" -e "### Model" -e "### New" -A 1 &> log/seed_errors.log

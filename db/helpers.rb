@@ -106,3 +106,7 @@ end
 def resource_error(resource)
   puts "### Model errors ### #{resource.errors.full_messages}"
 end
+
+def new_resource(resource_name)
+  puts "### New resource ### #{resource_name}"
+end

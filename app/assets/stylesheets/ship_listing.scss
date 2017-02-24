@@ -23,3 +23,81 @@
     }
   }
 }
+
+@media only screen and (max-width: 1199px) {
+
+  .ship-listing {
+
+    .search-filters {
+      margin-right: 50px;
+    }
+
+    .ship-results {
+      width: calc(100% - 336px);
+    }
+
+    .ship-pile {
+
+      .ship-hover {
+
+        .ship-data {
+          margin-top: 13px;
+          margin-bottom: 13px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 991px) {
+
+  .ship-listing {
+
+    .ship-results {
+
+      .ship-wrap {
+
+        &:nth-child(odd) {
+          padding-right: 0;
+        }
+
+        &:nth-child(even) {
+          padding-left: 0;
+        }
+      }
+
+      .ship-pile {
+
+        .ship-hover {
+
+          .ship-description {
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+
+  .ship-listing {
+    flex-direction: column;
+
+    .search-filters {
+      width: 100%;
+      margin-right: 0;
+    }
+
+    .ship-results {
+      width: 100%;
+      margin: 0 auto;
+
+      .ship-wrap {
+        max-width: 400px;
+        margin: 0 auto;
+        margin-bottom: 40px;
+      }
+    }
+  }
+}

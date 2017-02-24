@@ -1,0 +1,262 @@
+// $voyage_color: #0d4863;
+// $date_color: #084863;
+// $ship_color: #464646;
+// $lightbox-buttons: #5194b1;
+@import "variables";
+
+.lb-album {
+  position: static;
+
+  .cabin-options {
+    display: none;
+    position: absolute;
+    top: -45px;
+    left: calc(50% + 80px);
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid $voyage_color;
+  }
+}
+
+.wrap-li {
+  width: auto!important;
+}
+
+.lb-album .wrap-sub-li {
+  position: relative;
+}
+
+.lb-album .wrap-sub-li > span{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(27,54,81,0.8);
+  text-shadow: 0px 1px 1px rgba(255,255,255,0.6);
+  font-size: 24px;
+  opacity: 0;
+  background: $voyage_color;
+  background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%, $voyage_color 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,255,255,0.56)), color-stop(100%,$voyage_color));
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%,$voyage_color 100%);
+  background: -o-radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%,$voyage_color 100%);
+  background: -ms-radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%,$voyage_color 100%);
+  background: radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%,$voyage_color 100%);
+  transition: opacity 0.3s ease-in-out;
+}
+
+.lb-album .wrap-sub-li:hover span{
+  opacity: 1;
+  cursor: pointer;
+}
+
+.not_offset .lb-overlay {
+  min-height: auto;
+}
+
+.lb-overlay{
+  display: none;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  position: absolute;
+  overflow: hidden;
+  left: 0px;
+  top: 0px;
+  padding: 80px 0px 50px 0px;
+  z-index: 99;
+  text-align: center;
+  background: rgba($voyage_color, 0.95);
+
+  .lb-content {
+    position: relative;
+    animation: fadeInScale 0.8s ease-in-out;
+
+    &.left {
+      animation: fadeInLeft 0.8s ease-in-out;
+    }
+
+    &.right {
+      animation: fadeInRight 0.8s ease-in-out;
+    }
+  }
+
+
+  h3 {
+    line-height: 1;
+    font-size: 60px;
+    color: #fff;
+    margin-top: 88px;
+    margin-bottom: 95px;
+    font-weight: 300;
+  }
+
+  .description
+
+  .custom-container,
+  .description {
+    color: #fff;
+    width: 60%;
+    margin: 0 auto;
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 80px;
+
+    p.cabin-text {
+      font-size: 16px;
+    }
+
+    ul.cabin-list {
+      line-height: 3;
+      font-size: 16px;
+      margin-top: -10px;
+    }
+  }
+
+
+  h4 {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 400;
+    font-family: 'Raleway', sans-serif;
+  }
+
+  .lightbox-list {
+    margin-top: 92px;
+    margin-bottom: 133px;
+
+    ul {
+      font-size: 21px;
+      color: #fff;
+      list-style-type: disc;
+      width: auto;
+      display: table;
+      text-align: left;
+      margin: 0 auto;
+      padding-left: 33px;
+
+      li {
+        line-height: 38px;
+      }
+    }
+  }
+
+  .lightbox-buttons {
+    align-self: center;
+    width: 185px;
+    margin: 0 auto;
+  }
+
+  .next-lightbox, .prev-lightbox, .close-lightbox {
+    width: 47px;
+    height: 47px;
+    background-color: $lightbox-buttons;
+    border-radius: 50%;
+    cursor: pointer;
+    background-size: 65%;
+    background-repeat: no-repeat;
+  }
+
+  .next-lightbox {
+    background-image: url('lightbox/next.png');
+    background-position: 100% 50%;
+  }
+
+  .prev-lightbox {
+    background-image: url('lightbox/prev.png');
+    background-position: 0% 50%;
+  }
+
+  .close-lightbox {
+    background-image: url('lightbox/close.png');
+    background-size: 50%;
+    background-position: 50% 50%;
+  }
+}
+
+.with-main-slider .flex-direction-nav {
+  
+  a.flex-prev {
+    opacity: 1;
+    height: 34px;
+  }
+  
+  a.flex-next {
+    opacity: 1;
+    height: 34px;
+
+    &:before {
+      content: "\e649";
+    }
+  }
+}
+
+@keyframes fadeInScale {
+ 0% { transform: scale(0.6); opacity: 0; }
+ 100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeInLeft {
+ 0% { transform: rotateY(-90deg) skewY(-10deg); left: -50%; opacity: 0; }
+ 100% { transform: rotateY(0deg) skewY(0deg); left: 0; opacity: 1; }
+}
+
+@keyframes fadeInRight {
+ 0% { transform: rotateY(90deg) skewY(10deg); right: -50%; opacity: 0; }
+ 100% { transform: rotateY(0deg) skewY(0deg); right: 0; opacity: 1; }
+}
+
+
+@media only screen and (max-width: 1200px) {
+  .lb-album .cabin-options {
+    left: calc(50% + 60px);
+  }
+}
+
+@media only screen and (max-width: 991px) {
+
+  .lb-album .cabin-options {
+    left: calc(50% + 40px);
+  }
+
+  .lb-overlay{
+
+    h3 {
+      font-size: 45px;
+    }
+
+    .lb-content {
+
+
+
+      .big-image-container {
+        margin-left: 50px;
+        margin-right: 50px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 619px) {
+
+  .lb-overlay{
+
+    h3 {
+      font-size: 30px;
+    }
+
+    .lb-content {
+
+      .big-image-container {
+        margin-left: 25px;
+        margin-right: 25px;
+      }
+    }
+  }
+}

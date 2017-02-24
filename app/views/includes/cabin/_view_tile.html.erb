@@ -1,6 +1,56 @@
-<div class="cabin-tile flex xs-flex-reverse" style="text-align: left;">
+<div class="cabin-tile flex wrap-li xs-flex-reverse" style="text-align: left;">
   <div class="col-md-3 xs-center-img">
     <%= image_tag(cabin.image.url, class: "cabin-img") %>
+  </div>
+  <div class="lb-overlay" data-order="<%= cab_index %>">
+    <div class="flex flex-wrap flex-between lightbox-buttons">
+      <div class="prev-lightbox"></div>
+      <div class="close-lightbox"></div>
+      <div class="next-lightbox"></div>
+    </div>
+    <div class="lb-content" data-order="<%= cab_index %>">
+      <div class="flex-column">
+        <h3>Premier Cabins</h3>
+        <div class="big-image-container">
+          <%= image_tag(cabin.image.url) %>
+        </div>
+        <div class="custom-container container pt64 text-left" style="color: white;">
+          <div class="row">
+            <div class="col-sm-8">
+              <h4><%= cabin.name %></h4>
+              <div class="cabin-data">
+                <div class="cabin-aria">
+                  <%= cabin.square_meter %>m<sup>2</sup> / <%= cabin.square_feet %>ft<sup>2</sup>
+                </div>
+                <div class="cabin-facilities">
+                  <!-- Private bathroom & facilities -->
+                </div>
+              </div>
+              <p class="cabin-text mt16"><%= cabin.overview %></p>
+              <h4 class="mt64">
+                Description
+              </h4>
+              <p class="cabin-text">
+                <%= cabin.description %>
+              </p>
+            </div>
+            <div class="col-sm-4">
+              <h4>Cabin Features</h4>
+              <ul class="cabin-list">
+                <% cabin.features.each do |feature| %>
+                  <li> - <%= feature.name %></li>
+                <% end -%>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pt16 flex flex-wrap flex-between lightbox-buttons">
+      <div class="prev-lightbox"></div>
+      <div class="close-lightbox"></div>
+      <div class="next-lightbox"></div>
+    </div>
   </div>
   <div class="col-md-8 cabin-tile-content flex-column">
     <h3><%= cabin.name %></h3>
@@ -15,7 +65,7 @@
     <div class="cabin-description">
       <%= cabin.overview %>
     </div>
-    <div class="view-cabin-button flex">
+    <div class="view-cabin-button flex region-select-js">
       <span>View Cabin</span>
     </div>
   </div>

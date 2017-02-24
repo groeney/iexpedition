@@ -1,0 +1,17 @@
+<div class="lb-overlay" data-order="1">
+  <%= render partial: "includes/lightbox/lightbox_buttons" %>
+  <div class="lb-content" data-order="1">
+    <div class="flex-column">
+      <h3>The Arctic</h3>
+      <div>
+        <%= image_tag("regions/region_large.png") %>
+      </div>
+      <%= render partial: "includes/arctic/region_descriptions" %>
+      <div class="lightbox-list">
+        <h4>Region Highlights</h4>
+        <%= render partial: "includes/arctic/region_highlights" %>
+      </div>
+    </div>
+  </div>
+  <%= render partial: "includes/lightbox/lightbox_buttons" %>
+</div>

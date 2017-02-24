@@ -44,7 +44,7 @@
       <div class="flex col-md-8 col-md-offset-4">
         <!-- <a href="<%=  %>" class="btn voyage-explore-button">Reserve now</a> -->
         <a class="btn btn-icon favourite-voyage" data-toggle="tooltip" data-original-title="add to wishlist" data-voyage-id="<%= @voyage.id %>">
-          <i class="fa <%= voyage_in_wishlist?(voyage) ? 'fa-star' : 'fa-star-o' %>"></i>
+          <i class="fa <%= voyage_in_wishlist?(@voyage) ? 'fa-star' : 'fa-star-o' %>"></i>
         </a>
       </div>
     </div>

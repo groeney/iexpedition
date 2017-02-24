@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get "wishlist" => "pages#wishlist"
   get "contact_us" => "pages#contact_us"
   post "contact/create" => "contact_requests#create", as: :create_contact
+  get "arctic" => "pages#arctic_page"
   resources :voyages, only: [:show]
   resources :destinations, only: [:show]
   resources :ships, only: [:show]

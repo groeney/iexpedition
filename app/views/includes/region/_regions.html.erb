@@ -1,11 +1,17 @@
-<section class="lb-album flex">
-  <% regions.each do |region| %>
-    <div class="wrap-li">
-      <div class="wrap-sub-li">
-        <%= image_tag(region.image.url) %>
-        <%= render partial: "includes/region/name", locals: { region: region } %>
-      </div>
-      <%= render partial: "includes/region/modal", locals: { region: region } %>
-    </div>
-  <% end -%>
+<section class="lb-album not_offset with-main-slider">
+  <div class="image-slider slider-all-controls controls-inside">
+    <ul class="slides">
+      <% regions.each.with_index(1) do |region, index| %>
+        <li class="flex-active-slide" >
+          <div class="wrap-li" data-main-order="<%= index %>">
+            <div class="wrap-sub-li">
+              <%= image_tag(region.image.url) %>
+              <%= render partial: "includes/region/name", locals: { region: region } %>
+            </div>
+            <%= render partial: "includes/region/modal", locals: { region: region, index: index } %>
+          </div>
+        </li>
+      <% end -%>
+    </ul>
+  </div>
 </section>

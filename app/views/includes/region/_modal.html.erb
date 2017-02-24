@@ -1,9 +1,9 @@
-<div class="lb-overlay" data-order="1">
+<div class="lb-overlay" data-order="<%= index %>">
   <%= render partial: "includes/lightbox/lightbox_buttons" %>
-  <div class="lb-content" data-order="1">
+  <div class="lb-content" data-order="<%= index %>">
     <div class="flex-column">
       <h3><%= region.name %></h3>
-      <div>
+      <div class="big-image-container">
         <%= image_tag(region.image.url) %>
       </div>
       <%= render partial: "includes/region/descriptions", locals: { region: region } %>

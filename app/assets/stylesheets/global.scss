@@ -41,6 +41,10 @@
   justify-content: space-between;
 }
 
+.relative {
+  position: relative;
+}
+
 .mb12i {
   margin-bottom: 12px!important;
 }
@@ -92,4 +96,8 @@ a {
 #mc_embed_signup{
   clear:left;
   font:14px Helvetica,Arial,sans-serif;
+}
+
+.tooltip {
+  z-index: 1;
 }

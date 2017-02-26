@@ -21,10 +21,19 @@ def associate_singleton_with_collection(collection, singleton)
   elsif !(collection << singleton)
     raise "Could not associate #{singleton.name} with #{collection.name}."
   else
-    puts "Created #{singleton.class.name} #{singleton.name}"
+    puts "Created association #{singleton.class.name} #{singleton.name}"
   end
   collection
+end
 
+def associate_singleton_with_groupings_collection(groupings_collection, obj)
+  grouping = groupings_collection.create(obj)
+  if !grouping.valid?
+    resource_error(grouping)
+  else
+    puts "Created grouping #{grouping.class.name} #{grouping}"
+  end
+  groupings_collection
 end
 
 def extract_or_create_resource(class_name, obj, key)
@@ -55,15 +64,14 @@ def extract_voyage(obj)
     start_date: obj.delete(:voyage_start_date),
     end_date: obj.delete(:voyage_end_date),
   }
-  operator = extract_resource("Operator", obj, "operator_name")
-  ship = extract_ship(operator, obj)
-  return nil if !ship.try(:valid?)
+  ship = extract_ship(obj)
+  return resource_error(ship) if !ship.try(:valid?)
   voyages = ship.voyages.where(voyage_obj)
 
   voyage = nil
   if voyages.blank?
     missing_data("Voyage", voyage_obj[:name])
-    puts "Ship: #{ship.name}. Operator: #{operator.name}"
+    puts "Ship: #{ship.name}. Operator: #{ship.operator.name}"
   elsif voyages.length > 1
     raise "More than one voyage found for #{voyage_obj} and ship #{ship.name}. See for yourself: #{voyages}"
   else
@@ -72,9 +80,10 @@ def extract_voyage(obj)
   voyage
 end
 
-def extract_ship(operator, obj)
+def extract_ship(obj)
   ship = nil
   ship_name = obj.delete(:ship_name)
+  operator = extract_resource("Operator", obj, "operator_name")
   if !operator.nil?
     if (ships = operator.ships.where(name: ship_name)).empty?
       missing_data("Ship", ship_name)

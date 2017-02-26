@@ -1,7 +1,7 @@
 ActiveAdmin.register FeatureGrouping do
 
   permit_params :feature_id, :featurable_type, :featurable_id
-  filter :featurable, collection: Feature.featurables.map { |featurable| [featurable.identifier_s, featurable.id] }
+  filter :featurable, collection: Proc.new { Feature.featurables.map { |featurable| [featurable.identifier_s, featurable.id] } }
   filter :featurable_type, collection: ["Cabin", "Ship"]
   filter :feature
 

@@ -1,7 +1,6 @@
 ActiveAdmin.register ItineraryDayGrouping do
-
   permit_params :itinerary_day_id, :voyage_id, :day_number
-  filter :voyage, collection: Voyage.all.map { |voyage| [voyage.identifier_s, voyage.id] }
+  filter :voyage, collection: Proc.new { Voyage.all.map { |voyage| [voyage.identifier_s, voyage.id] } }
   filter :itinerary_day
 
   index do

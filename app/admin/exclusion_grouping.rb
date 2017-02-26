@@ -1,7 +1,7 @@
 ActiveAdmin.register ExclusionGrouping do
 
   permit_params :exclusion_id, :voyage_id
-  filter :voyage, collection: Voyage.all.map { |voyage| [voyage.identifier_s, voyage.id] }
+  filter :voyage, collection: Proc.new { Voyage.all.map { |voyage| [voyage.identifier_s, voyage.id] } }
   filter :exclusion
 
    index do

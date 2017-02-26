@@ -1,7 +1,6 @@
 ActiveAdmin.register HighlightGrouping do
-
   permit_params :highlight_id, :highlightable_type, :highlightable_id
-  filter :highlightable, collection: Highlight.highlightables.map { |highlightable| [highlightable.identifier_s, highlightable.id] }
+  filter :highlightable, collection: Proc.new { Highlight.highlightables.map { |highlightable| [highlightable.identifier_s, highlightable.id] } }
   filter :highlightable_type, collection: ["Destination", "Region", "Voyage"]
   filter :highlight
 

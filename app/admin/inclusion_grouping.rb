@@ -1,8 +1,7 @@
 ActiveAdmin.register InclusionGrouping do
-
   permit_params :inclusion_id, :voyage_id
   filter :inclusion
-  filter :voyage, collection: Voyage.all.map { |voyage| [voyage.identifier_s, voyage.id] }
+  filter :voyage, collection: Proc.new { Voyage.all.map { |voyage| [voyage.identifier_s, voyage.id] } }
 
   index do
     selectable_column

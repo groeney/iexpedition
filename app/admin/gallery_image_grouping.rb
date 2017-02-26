@@ -1,7 +1,7 @@
 ActiveAdmin.register GalleryImageGrouping do
 
   permit_params :gallery_image_id, :gallery_imageable_type, :gallery_imageable_id
-  filter :gallery_imageable, collection: GalleryImage.gallery_imageables.map { |gallery_imageable| [gallery_imageable.identifier_s, gallery_imageable.id] }
+  filter :gallery_imageable, collection: Proc.new { GalleryImage.gallery_imageables.map { |gallery_imageable| [gallery_imageable.identifier_s, gallery_imageable.id] } }
   filter :gallery_imageable_type, collection: ["Ship", "Voyage"]
   filter :gallery_image
 

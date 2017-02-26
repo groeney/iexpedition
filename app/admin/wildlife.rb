@@ -1,6 +1,4 @@
 ActiveAdmin.register Wildlife do
-
-
   permit_params :name, :overview, :label, :fact, :image
   filter :name
   filter :overview

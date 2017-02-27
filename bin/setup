@@ -22,7 +22,8 @@ fi
 
 # Set up database and add any development seed data
 echo "\n== Preparing database =="
-bin/rake dev:prime
+bin/seed_db example
+echo "\nDatabase seeded! Check log/seed.log and log/seed_errors.log for further info"
 
 # Clean out any old log/tmp files
 echo "\n== Removing old logs and tempfiles =="
@@ -43,11 +44,9 @@ fi
 
 if heroku join --app iexpedition-production > /dev/null 2>&1; then
   git remote add production git@heroku.com:iexpedition-production.git || true
-  printf "You are a collaborator on the 'iexpedition-production' Heroku app
-"
+  printf "You are a collaborator on the 'iexpedition-production' Heroku app"
 else
-  printf "Ask for access to the iexpedition heroku team and the 'iexpedition-production' Heroku app
-"
+  printf "Ask for access to the iexpedition heroku team and the 'iexpedition-production' Heroku app"
 fi
 
 git config heroku.remote staging

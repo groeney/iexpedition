@@ -33,3 +33,4 @@ app/assets/images/gallery_images/*
 
 # Data
 db/seeds/data/*
+!db/seeds/data/master-*-example.csv

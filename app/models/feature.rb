@@ -4,7 +4,7 @@ class Feature < ApplicationRecord
   has_many :cabins, through: :feature_groupings, source: :featurable, source_type: "Cabin"
   has_many :ships, through: :feature_groupings, source: :featurable, source_type: "Ship"
 
-  validates_presence_of [:name, :icon]
+  validates_presence_of [:name]
   validates_uniqueness_of :name
 
   def self.featurables

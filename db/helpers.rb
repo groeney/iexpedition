@@ -113,9 +113,19 @@ def missing_data(resource_type, name)
 end
 
 def resource_error(resource)
-  puts "### Model errors ### #{resource.errors.full_messages}"
+  puts "### Model errors ### #{resource.try(:errors)}"
 end
 
 def new_resource(resource_name)
   puts "### New resource ### #{resource_name}"
+end
+
+def extract_feature_names(obj)
+  obj.delete(:feature_names).try(:split, ',')
+end
+
+def extract_features(obj)
+  (extract_feature_names(obj) || []).map do |feature_name|
+    Feature.find_or_create_by(name: feature_name)
+  end
 end

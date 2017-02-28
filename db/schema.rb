@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170223222600) do
+ActiveRecord::Schema.define(version: 20170228103234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,6 +113,7 @@ ActiveRecord::Schema.define(version: 20170223222600) do
     t.integer  "header_image_file_size"
     t.datetime "header_image_updated_at"
     t.text     "did_you_know"
+    t.text     "voyage_info"
   end
 
   create_table "exclusion_groupings", force: :cascade do |t|

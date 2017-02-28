@@ -17,6 +17,8 @@ class Ship < ApplicationRecord
   has_attached_file :map, default_url: "/assets/missing-map.png", styles: { thumb: "150x150" }
   validates_attachment :map, content_type: { content_type: /\Aimage\/.*\z/ }
 
+  scope :destination, -> (destination_name) { joins(:destinations).where(destinations: { name: destination_name }) }
+
   def identifier_s
     self.name
   end

@@ -1,9 +1,5 @@
 $(document).on('turbolinks:load', function(){
-  $('.pages.home').ready(function(){
-    $('.input-group.date').datepicker({
-        startDate: new Date()
-    });
-
+  if ($('.pages.home').length > 0) {
     $('#duration-slider').slider({
       formatter: function(value) {
         return 'Current value: ' + value;
@@ -14,6 +10,10 @@ $(document).on('turbolinks:load', function(){
       formatter: function(value) {
         return 'Current value: $' + value + 'k AUD';
       }
+    });
+
+    $('input.datepicker').datepicker({
+      startDate: new Date()
     });
 
     $('.flexslider').flexslider({
@@ -31,6 +31,5 @@ $(document).on('turbolinks:load', function(){
       $(this).find('.voyage-hover').removeClass('animate')
       $(this).find('.voyage-header').removeClass('animate')
     })
-
-  });
+  }
 });

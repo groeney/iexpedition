@@ -33,6 +33,10 @@ gem "google_drive"
 gem "aws-sdk"
 gem "paperclip"
 
+gem "simple_form"
+gem "bootstrap-datepicker-rails"
+gem "twitter-bootstrap-rails"
+
 #allow seeding data in staging and dev
 group :development, :test, :staging do
   gem "faker"

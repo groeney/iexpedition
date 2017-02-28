@@ -1,4 +1,6 @@
 class Voyage < ApplicationRecord
+  include Filterable
+
   belongs_to :ship
   belongs_to :destination
 
@@ -30,9 +32,17 @@ class Voyage < ApplicationRecord
   has_attached_file :header_image, default_url: "/assets/missing-voyage-header-image.png"
   validates_attachment :image, content_type: { content_type: /\Aimage\/.*\z/ }
 
-  scope :destination, -> (destination_name) { joins(:destination).where(destinations: { name: destination_name }) }
-  scope :region, -> (region_name) { joins(:region_groupings).where(region_groupings: { region_id: Region.find_by_name(region_name) }) }
-  scope :ship, -> (ship_id) { joins(:ship).where(ships: { id: ship_id }) }
+  scope :destinations, -> (destination_ids) { joins(:destination).where(destinations: { id: destination_ids }) }
+  scope :regions, -> (region_ids) { joins(:region_groupings).where(region_groupings: { region_id: region_ids }) }
+  scope :ships, -> (ship_ids) { joins(:ship).where(ships: { id: ship_ids }) }
+  scope :price, -> (price) { joins(:cabins).where(cabins: { price: price.to_i..Float::INFINITY }) }
+  scope :departure_date, -> (date) { where('start_date >= ?', date) }
+  scope :duration, -> (days) { where('end_date - start_date >= ?', days.to_i) }
+  scope :names, -> (names) { where(name: names) }
+  scope :passenger_capacity, -> (capacity_range) { where(voyages: { passenger_capacity: capacity_range[0]..capacity_range[1] }) }
+  scope :embark_ports, -> (embark_ports) { where(embark_port: embark_ports) }
+  scope :highlight_names, -> (names) { joins(:highlights).where(highlights: { name: names }) }
+  scope :activity_names, -> (names) { joins(:activities).where(activities: { name: names }) }
 
   def identifier_s
     (self.nil? || self.ship.nil?) ? "[unidentifiable]" : "#{self.name} on #{self.ship.name} from #{self.start_date} to #{self.end_date}"

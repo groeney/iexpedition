@@ -1,0 +1,22 @@
+<section class="cover" style="height:150px;background:#466a7e;">
+  <div class="container mt16">
+    <span>Home / Search & Filter / Ship Listing</span>
+    <h2 style="font-weight: bolder;">Ship Listing</h2>
+  </div>
+</section>
+
+<div class="container custom-container">
+  <div class="ship-listing flex">
+    <section class="search-filters pt48">
+      <h5 class="mb0" style="text-transform: uppercase;color: #466a7e;">search results</h5>
+      <%= simple_form_for :search, url: search_ships_path, method: :get do |f| %>
+        <%= render partial: "includes/search/ship_filters", locals: { f: f } %>
+      <% end -%>
+    </section>
+    <section class="ship-results row pt48" >
+      <% @results.each do |ship| %>
+        <%= render partial: "includes/ship/tile", locals: { ship: ship } %>
+      <% end -%>
+    </section>
+  </div>
+</div>

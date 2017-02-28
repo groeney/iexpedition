@@ -1,0 +1,10 @@
+<% labels ||= values %>
+<% selected ||= [] %>
+<li>
+  <div class="title">
+    <span><%= filter_name %></span>
+  </div>
+  <% values.zip(labels).each do |value, label| %>
+    <%= render partial: "includes/search/checkbox_filter_item", locals: { group_name: group_name, value: value, label: label, selected: selected.include?(value) } %>
+  <% end -%>
+</li>

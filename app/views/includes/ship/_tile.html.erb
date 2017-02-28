@@ -8,12 +8,12 @@
       <%= render partial: "includes/ship/name", locals: { ship: ship } %>
       <%= render partial: "includes/ship/data", locals: { ship: ship } %>
       <div class="ship-description">
-        <%= simple_format("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim laborum eum, modi nemo consectetur qui perferendis debitis.") %>
+        <%= simple_format(ship.overview_tile) %>
       </div>
     </div>
   </div>
   <div class="ship-footer">
-    <a href="#"><span>Explore</span></a>
+    <a href="<%= ship_path(ship) %>"><span>Explore</span></a>
     <span class="voyage-star">
       <%= image_tag("star.png", :data => { :toggle => "tooltip" }, :title=> "add to wish list" )  %>
     </span>

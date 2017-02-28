@@ -1,0 +1,20 @@
+<section class="pt32 search-filters">
+    <ul class="accordion accordion-1 one-open filters-body">
+
+      <!-- Destination filter  -->
+      <%= render partial: "includes/search/radio_button_filter", locals: { group_name: "destinations", filter_name: "destination", labels: Destination.all.pluck(:name), values: Destination.all.pluck(:id), selected: @ship_filter_params[:destinations] } %>
+
+      <!-- Ship filter  -->
+      <% ship_data = Ship.destinations(@ship_filter_params[:destinations]).pluck(:id, :name, :passenger_capacity).uniq %>
+      <%= render partial: "includes/search/checkbox_filter", locals: { group_name: "ships", filter_name: "ship name and passenger number", values: ship_data.map(&:first), labels: ship_data.map { |data| "#{data[1]} (#{data[2]})"}, selected: @ship_filter_params[:ships].try(:map) { |e| e.to_i } } %>
+
+      <!-- Ship category filter -->
+      <%= render partial: "includes/search/checkbox_filter", locals: { group_name: "categories", filter_name: "vessel standard", values: Ship.pluck(:category).uniq, selected: @ship_filter_params[:categories] } %>
+
+      <!-- Passenger capacity filter  -->
+      <%= render partial: "includes/search/radio_button_filter", locals: { group_name: "passenger_capacity", filter_name: "ship passengers numbers", values: [[0, 60], [61, 140], [141, 200], [201, Float::INFINITY]], labels: ["Up to 60", "60 – 140", "140 – 200", "201+"], selected: @ship_filter_params[:passenger_capacity] } %>
+
+    <%= f.submit "Search", class: "dark-submit-btn" %>
+    <a href="<%= search_voyages_path %>" type="button" class="btn btn-outline-secondary">Clear</a>
+    </ul>
+</section>

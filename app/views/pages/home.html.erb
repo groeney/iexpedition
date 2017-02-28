@@ -4,7 +4,7 @@
   </div>
   <div class="container v-align-transform">
     <div class="row">
-      <%= render "includes/reusable_search_form" %>
+      <%= render partial: "includes/home_search_form" %>
     </div>
   </div>
 </section>
@@ -33,13 +33,13 @@
     <span>Featured Antarctica Expeditions</span>
   </h5>
   <div class="row mt32">
-    <%= render partial: "includes/horizontal_voyage_tiles", locals: { collection: Voyage.destination("Antarctica").sample(3) } %>
+    <%= render partial: "includes/horizontal_voyage_tiles", locals: { collection: Voyage.destinations(1).sample(3) } %>
   </div>
   <h5 class="divider">
     <span>Featured Arctic Expeditions</span>
   </h5>
   <div class="row mt32">
-    <%= render partial: "includes/horizontal_voyage_tiles", locals: { collection: Voyage.destination("The Arctic").sample(3) } %>
+    <%= render partial: "includes/horizontal_voyage_tiles", locals: { collection: Voyage.destinations(2).sample(3) } %>
   </div>
 
   <h5 class="divider clear">

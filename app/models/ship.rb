@@ -1,4 +1,5 @@
 class Ship < ApplicationRecord
+  include Filterable
   belongs_to :operator
   has_many :voyages, dependent: :destroy
 
@@ -17,7 +18,10 @@ class Ship < ApplicationRecord
   has_attached_file :map, default_url: "/assets/missing-map.png", styles: { thumb: "150x150" }
   validates_attachment :map, content_type: { content_type: /\Aimage\/.*\z/ }
 
-  scope :destination, -> (destination_name) { joins(:destinations).where(destinations: { name: destination_name }) }
+  scope :destinations, -> (destination_ids) { joins(:destinations).where(destinations: { id: destination_ids }) }
+  scope :ships, -> (ship_ids) { where(id: ship_ids) }
+  scope :categories, -> (categories) { where(category: categories) }
+  scope :passenger_capacity, -> (capacity_range) { where(ships: { passenger_capacity: capacity_range[0]..capacity_range[1] }) }
 
   def identifier_s
     self.name
@@ -26,5 +30,9 @@ class Ship < ApplicationRecord
   def cabins
     ids = Voyage.where(ship_id: self.id).map { |voyage| voyage.cabins.pluck(:id)  }.flatten.uniq
     Cabin.where(id: ids)
+  end
+
+  def name_and_capacity
+    self.name + " (#{self.passenger_capacity})"
   end
 end

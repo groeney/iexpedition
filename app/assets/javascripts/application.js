@@ -12,10 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require turbolinks
 //= require cable
-//= require bootstrap.min
-//= require bootstrap-datepicker.min
+//= require bootstrap-datepicker
 //= require bootstrap-slider.min
 //= require smooth-scroll.min
 //= require masonry.min
@@ -23,3 +23,5 @@
 //= require jquery.flexslider-min
 //= require scripts
 //= require_tree ./pages
+//= require globals
+//= require search

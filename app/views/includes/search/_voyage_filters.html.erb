@@ -1,0 +1,35 @@
+<section class="pt32 search-filters">
+    <ul class="accordion accordion-1 one-open filters-body">
+
+      <!-- Region filter  -->
+      <%= render partial: "includes/search/checkbox_filter", locals: { group_name: "regions", filter_name: "select regions", labels: @destination.regions.pluck(:name), values: @destination.regions.pluck(:id), selected: @voyage_filter_params[:regions].try(:map) { |e| e.to_i } } %>
+
+      <!-- Voyage itinerary filter  -->
+      <% voyages = Voyage.destinations(@destination.id) %>
+      <%= render partial: "includes/search/checkbox_filter", locals: { group_name: "names", filter_name: "voyage itinerary", values: voyages.pluck(:name).uniq, selected: @voyage_filter_params[:names] } %>
+
+      <!-- Passenger capacity filter  -->
+      <%= render partial: "includes/search/radio_button_filter", locals: { group_name: "passenger_capacity", filter_name: "ship passengers numbers", values: [[0, 60], [61, 140], [141, 200], [201, Float::INFINITY]], labels: ["Up to 60", "60 – 140", "140 – 200", "201+"], selected: @voyage_filter_params[:passenger_capacity] } %>
+
+      <!-- Ship filter  -->
+      <% ship_data = Ship.destinations(@destination.id).pluck(:id, :name, :passenger_capacity).uniq %>
+      <%= render partial: "includes/search/checkbox_filter", locals: { group_name: "ships", filter_name: "ship name and passenger number", values: ship_data.map(&:first), labels: ship_data.map { |data| "#{data[1]} (#{data[2]})"}, selected: @voyage_filter_params[:ships].try(:map) { |e| e.to_i } } %>
+
+      <!-- Solo traveller filter  -->
+      <!-- <%= render partial: "includes/search/radio_button_filter", locals: { group_name: "solo_traveller", filter_name: "solo traveller", values: [1, 2, 3], labels: ["Bingo", "Bango", "Bongo"] } %> -->
+
+      <!-- Embarkation point filter  -->
+      <%= render partial: "includes/search/checkbox_filter", locals: { group_name: "embark_ports", filter_name: "departing from", values: voyages.pluck(:embark_port).uniq, selected: @voyage_filter_params[:embark_ports] } %>
+
+      <!-- Highlights filter  -->
+      <% highlights = Highlight.all %>
+      <%= render partial: "includes/search/checkbox_filter", locals: { group_name: "highlight_names", filter_name: "expedition highlights", values: highlights.pluck(:name).uniq, selected: @voyage_filter_params[:highlight_names] } %>
+
+      <!-- Activities filter  -->
+      <% activities = Activity.all %>
+      <%= render partial: "includes/search/checkbox_filter", locals: { group_name: "activity_names", filter_name: "expedition activities", values: activities.pluck(:name).uniq, selected: @voyage_filter_params[:activity_names] } %>
+
+    <%= f.submit "Search", class: "dark-submit-btn" %>
+    <a href="<%= search_voyages_path %>" type="button" class="btn btn-outline-secondary">Clear</a>
+    </ul>
+</section>

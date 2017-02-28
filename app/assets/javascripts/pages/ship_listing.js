@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function(){
-  $('.pages.ship_listing').ready(function(){
+  if ($('.pages.ship_listing').length > 0) {
 
     $('.ship-wrap').hover(
       function() {
@@ -10,5 +10,5 @@ $(document).on('turbolinks:load', function(){
       $(this).find('.ship-header').removeClass('animate')
     });
 
-  });
+  }
 });

@@ -6,6 +6,37 @@
 .search-filters {
   width: 328px;
   margin-right: 47px;
+  .filters-body {
+    border: 1px solid $border_color;
+    color: #000;
+
+    .filter {
+      transition: all .2s ease-in-out;
+
+      &:hover {
+        background-color: $border_color;
+        color: #fff;
+      }
+
+      &:not(:last-child) {
+        border-bottom: 1px solid $border_color;
+      }
+    }
+
+    input[type=checkbox], input[type=radio] {
+      margin: 16px;
+      margin-left: 18px;
+      margin-right: 9px;
+    }
+
+    .filter-item {
+      font-size: 16px;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 400;
+      margin-bottom: 0;
+      cursor: pointer;
+    }
+  }
 }
 
 .search-results {
@@ -320,14 +351,10 @@
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1499px) {
-
   .search-results {
-
     .voyage-bundle {
-
       .content-pile {
         padding-left: 25px;
-
         h3 {
 
         }
@@ -346,5 +373,16 @@
         }
       }
     }
+  }
+}
+
+.dark-submit-btn {
+  border: 2px solid $theme_color !important;
+  color: $theme_color !important;
+}
+
+.search-sliders {
+  .slider-tick-label-container {
+    color: #000;
   }
 }

@@ -11,12 +11,12 @@
         <% bundle.each do |voyage| %>
           <tr>
             <td class="search-date"><%= voyage.formatted_start_date %> - <%= voyage.formatted_end_date %></td>
-            <td class="search-price">From AUD $<%= voyage.from_price.to_int %><em>pp</em></td>
+            <td class="search-price">From AUD $<%= voyage.from_price.try(:to_int) %><em>pp</em></td>
           </tr>
         <% end -%>
       </table>
       <div class="search-explore-buttons flex">
-        <div class="search-explore-button">Explore voyage</div>
+        <a href="<%= voyage_path(voyage) %>" class="search-explore-button">Explore voyage</a>
         <div class="search-star flex"><%= image_tag("star.png", :data => { :toggle => "tooltip" }, :title=> "add to wish list" ) %></div>
       </div>
     </div>

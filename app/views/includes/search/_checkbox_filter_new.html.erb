@@ -1,0 +1,21 @@
+<% labels ||= values %>
+<% options = values.zip(labels).map { |value, label| [value, label] } %>
+<li>
+  <div class="title">
+    <span><%= filter_name %></span>
+  </div>
+  <!-- f.collection_check_boxes :options, [[true, 'Yes'] ,[false, 'No']], :first, :last -- https://github.com/plataformatec/simple_form#collection-check-boxes -->
+  <%= f.collection_check_boxes(group_name.to_sym, options, :first, :last, {}, { class: "foo" }) do |b| %>
+    <%= b.label(class: "label") { b.check_box(class: "checkbox") + b.text } %>
+  <% end -%>
+<!-- <div class="content">
+  <div class="filter flex flex-center">
+    <label class="filter-item" for="">
+
+    </label>
+  </div>
+</div> -->
+<!--   <% values.zip(labels).each do |value, label| %>
+    <%= render partial: "includes/search/checkbox_filter_item", locals: { group_name: group_name, value: value, label: label } %>
+  <% end -%> -->
+</li>

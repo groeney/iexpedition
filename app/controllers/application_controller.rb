@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
     dashboard_home_path
   end
 
+  def after_sign_out_path_for(_resource)
+    root_path
+  end
+
   rescue_from ActiveRecord::RecordNotFound do
     render_404
   end

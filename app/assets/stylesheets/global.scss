@@ -1,5 +1,9 @@
 @import "variables";
 
+.no-border {
+  border: 0px!important;
+}
+
 .no-horz-pad {
   padding-left: 0!important;
   padding-right: 0!important;
@@ -31,6 +35,10 @@
 
 .flex-between {
   justify-content: space-between;
+}
+
+.mb12i {
+  margin-bottom: 12px!important;
 }
 
 .mb65 {

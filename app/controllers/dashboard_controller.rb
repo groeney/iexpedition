@@ -1,4 +1,5 @@
 class DashboardController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_personal_details_data, only: [:home, :personal_details, :update_details]
   layout "dashboard"
 

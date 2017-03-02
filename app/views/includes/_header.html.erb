@@ -1,15 +1,97 @@
 <nav class="nav-centered">
   <div class="nav-utility">
+    <div class="header-width">
       <div class="module right">
-          <a href="#" class="sub mr8">FAQs</a>
-          <a href="#" class="sub mr8">Contact Us</a>
-          <a href="#" class="sub mr8">Travel Resources</a>
-          <a href="#" class="sub mr8">Small Ships</a>
-          <a href="#" class="sub mr8">Expedition</a>
-          <a href="#" class="sub mr8">About Us</a>
+        <a href="#" class="sub mr8">FAQs</a>
+        <a href="#" class="sub mr8">Contact Us</a>
+        <a href="#" class="sub mr8">Travel Resources</a>
+        <a href="#" class="sub mr8">Small Ships</a>
+        <a href="#" class="sub mr8">Expedition</a>
+        <a href="#" class="sub">About Us</a>
+        <%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure you want to sign out?" } %>
       </div>
+    </div>
   </div>
-  <div class="text-center">
+  <div class="nav-icons header-icons header-width no-border">
+    <div class="module-group left">
+      <div class="module left user-module">
+        <ul class="menu">
+          <li class="has_dropdown">
+            <% if current_user %>
+              <%= link_to(destroy_user_session_path, method: :delete, data: { confirm: "Are you sure you want to sign out?" }, style: "opacity: 1;") do %>
+                <i class="ti-user icon"></i>
+              <% end -%>
+              <ul>
+                <li>
+                  <%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure you want to sign out?" } %>
+                </li>
+              </ul>
+            <% else %>
+              <%= link_to(new_user_session_path, style: "opacity: 1;") do %>
+                <i class="ti-user icon"></i>
+              <% end -%>
+              <ul>
+                <li>
+                  <%= link_to "Sign in", new_user_session_path %>
+                </li>
+                <li>
+                  <%= link_to "Sign up", new_user_registration_path %>
+                </li>
+              </ul>
+            <% end -%>
+          </li>
+        </ul>
+      </div>
+      <%= link_to(search_voyages_path, class: "module right search-module") do %>
+        <i class="ti-search icon"></i>
+      <% end -%>
+    </div>
+    <div class="module-group right">
+      <%= link_to(dashboard_home_path, class: "module left star-module") do %>
+        <i class="ti-star icon"></i>
+      <% end -%>
+      <div class="module widget-handle cart-widget-handle right">
+        <div class="cart">
+          <i class="ti-bag"></i>
+          <span class="label number">2</span>
+        </div>
+        <div class="function">
+          <div class="widget">
+            <ul class="cart-overview">
+              <li>
+                <a href="#">
+                  <%= image_tag('ships_cabin.png')%>
+                  <div class="description">
+                    <span class="product-title">Premium Cabin</span>
+                    <span class="product-description">Lorem ipsum dolor sit amet, consectetur adipisicing.</span>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <%= image_tag("ship-listing.png")%>
+                  <div class="description">
+                    <span class="product-title">Kayaking</span>
+                    <span class="product-description">Lorem ipsum dolor sit amet, consectetur adipisicing.</span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+            <hr>
+            <hr>
+            <div class="cart-controls">
+              <div class="list-inline pull-left">
+                <span class="number">AUD $50.500</span>
+              </div>
+              <a class="btn pull-right mb12i" href="#">Checkout</a>
+            </div>
+          </div>
+          <!--end of widget-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center logo-row">
     <a href="#">
       <div class="vnu">
         <%= image_tag("iexpedition-text.png", class: "logo logo-dark") %>
@@ -27,15 +109,15 @@
           <li>
             <a href="#">Why ixpedition </a>
           </li><li class="vpf">
-            <a href="<%= search_antarctica_voyages_path %>">Antarctic</a>
+            <%= link_to "Antarctica", search_antarctica_voyages_path %>
           </li><li class="vpf">
-            <a href="<%= search_arctic_voyages_path %>">The arctic</a>
+            <%= link_to "The Arctic", search_arctic_voyages_path %>
           </li><li class="has-dropdown">
             <a href="<%= search_ships_path %>">Expedition ships</a>
             <ul>
               <% Ship.first(20).each do |ship| %>
                 <li>
-                  <a href="<%= ship_path(ship) %>"><%= ship.name %></a>
+                  <%= link_to ship.name, ship_path(ship) %>
                 </li>
               <% end -%>
             </ul>
@@ -43,5 +125,9 @@
         </ul>
       </div>
     </div>
+  </div>
+  <div class="text-center sub-header">
+    <i>Your expedition starts here</i>
+    </a>
   </div>
 </nav>

@@ -1,0 +1,127 @@
+@import "variables";
+
+.sub-header {
+  background: linear-gradient(to top, $sub_header_color1, $sub_header_color2);
+  color: #fff;
+  padding: 4px;
+}
+
+.header-width {
+  max-width: 1315px;
+  margin: 0 auto;
+}
+
+.nav-utility {
+
+  .module.right {
+    padding-right: 0px;
+  }
+}
+
+.nav-icons {
+  max-height: 55px;
+  line-height: 53px;
+  height: 23px;
+
+  .module-group.left {
+
+    .module {
+      display: flex;
+      align-items: center;
+
+      &.search-module {
+        padding-left: 15px;
+      }
+
+      &.user-module {
+        padding-right: 15px;
+        padding-left: 3px;
+      }
+    }
+
+    .icon {
+      line-height: 53px;
+      color: $voyage_color;
+    }
+  }
+
+  .module-group.right {
+
+    .cart-widget-handle {
+      padding-right: 10px;
+      padding-left: 15px;
+
+      .ti-bag {
+        line-height: 60px;
+      }
+
+      .label.number {
+        top: 13px;
+        background: #323247;
+      }
+    }
+
+    .star-module {
+      display: flex;
+      align-items: center;
+      padding-right: 15px;
+    }
+
+    .icon{
+      color: $voyage_color;
+      line-height: 53px;
+    }
+  }
+}
+
+.widget-handle .cart .label {
+  width: 17px!important;
+  height: 17px!important;
+  line-height: 17px!important;
+}
+
+@media only screen and (max-width: 1345px) {
+  .nav-utility {
+
+    .module.right {
+      padding-right: 15px;
+    }
+  }
+
+  .nav-icons {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+@media (max-width: 990px) {
+
+  .widget-handle .function {
+    position: absolute;
+    width: auto;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+
+  .nav-icons {
+
+    .icon {
+      font-size: 22px;
+    }
+  }
+  .logo-row {
+    clear: both;
+
+    .logo.logo-dark {
+      margin-top: -10px;
+    }
+  }
+}
+
+@media only screen and (max-width: 420px) {
+
+  .widget-handle .function {
+    width: 315px;
+  }
+}

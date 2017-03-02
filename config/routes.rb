@@ -11,6 +11,12 @@ Rails.application.routes.draw do
   resources :voyages, only: [:show]
   resources :destinations, only: [:show]
   resources :ships, only: [:show]
+  resources :order_items, only: [:create, :update, :destroy]
+  get "checkout/cabins/:cabin_grouping_id" => "checkout#cabins", as: :checkout_cabins
+  get "checkout/extras" => "checkout#extras", as: :checkout_extras
+  get "checkout/cart" => "checkout#cart"
+  get "checkout/confirm" => "checkout#confirm"
+  post "checkout/signup" => "checkout#signup"
   get "dashboard/home" => "dashboard#home"
   root "pages#home"
 end

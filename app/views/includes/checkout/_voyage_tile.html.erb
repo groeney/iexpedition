@@ -1,0 +1,9 @@
+<span><%= cabin.name %></span>
+<% cabin_order_item = @order.cabin_order_item %>
+<%= simple_form_for cabin_order_item, method: :put, remote: true, html: { id: "qty-form" } do |f| %>
+  <%= f.hidden_field :id, value: cabin_order_item.id %>
+  <%= f.input :qty, collection: 1..10, label: false, input_html: { onchange: ("$('form#qty-form').trigger('submit.rails');") } %>
+<% end %>
+<div class="cabin-view-price flex">
+  <div class="cabin-view-price-now">AUD $<%= cabin.price %><em>pp</em></div>
+</div>

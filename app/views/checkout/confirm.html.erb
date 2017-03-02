@@ -1,0 +1,20 @@
+<section class="cover" style="height:150px;background:#466a7e;">
+  <div class="container mt16">
+    <span>Home / Search & Filter / Voyage / Cabins / Extras / Cart / Checkout</span>
+    <h2 style="font-weight: bolder;">Checkout</h2>
+  </div>
+</section>
+
+<div class="container">
+  <%= simple_form_for :order_details, url: checkout_signup_path do |f| %>
+    <!-- render simple_fields_for blocks for passengers -->
+    <!-- use f.country_select nationality inputs  -->
+    <!-- use bootstrap-datepicker for dob with input_html: { class: 'datepicker', readonly: "" } -->
+    <!-- render address block -->
+    <!-- use f.country_select for country input  -->
+
+    <%= f.submit "Confirm", class: "dark-submit-btn" %>
+    <%= f.submit "Reserve", class: "dark-submit-btn" %>
+  <% end -%>
+
+</div>

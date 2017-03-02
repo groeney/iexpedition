@@ -1,0 +1,2 @@
+$('#order-item-<%= @order_item.id %>').remove();
+$('#cart').append("<%= j render(partial: 'includes/checkout/cart_item', locals: { order_item: @order_item }) %>");

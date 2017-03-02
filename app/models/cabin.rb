@@ -1,4 +1,5 @@
 class Cabin < ApplicationRecord
+  has_many :order_items, as: :productable
   has_many :cabin_groupings, dependent: :destroy
   has_many :feature_groupings, as: :featurable, dependent: :destroy
 

@@ -3,8 +3,8 @@
     <%= render partial: "includes/cabin/departure_dates", locals: { voyage: voyage, date_bundle: date_bundle }%>
 
     <div class="cabin-views">
-      <% voyage.cabins.each do |cabin| %>
-        <%= render partial: "includes/cabin/reserve_tile", locals: { cabin: cabin, voyage: voyage } %>
+      <% voyage.cabin_groupings.each do |cabin_grouping| %>
+        <%= render partial: "includes/cabin/reserve_tile", locals: { cabin_grouping: cabin_grouping, cabin: cabin_grouping.cabin, voyage: voyage } %>
       <% end -%>
     </div>
   </div>

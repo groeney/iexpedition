@@ -17,8 +17,8 @@
       <div class="cabin-view-price-sale">AUD $<%= cabin.price - cabin.discount_amount %><em>pp</em></div>
     </div>
     <div class="cabin-view-buttons flex">
-      <span class="cabin-view-reserve">Reserve</span>
-      <span class="cabin-view-confirm">Confirm</span>
+      <a href="<%= checkout_cabins_path(cabin_grouping.id) %>" class="cabin-view-reserve">Reserve</a>
+      <a href="<%= checkout_cabins_path(cabin_grouping.id) %>" class="cabin-view-confirm">Confirm</a>
     </div>
   </div>
 </div>

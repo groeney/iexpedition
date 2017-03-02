@@ -1,0 +1,11 @@
+<section class="cover" style="height:150px;background:#466a7e;">
+  <div class="container mt16">
+    <span>Home / Search & Filter / Voyage / Cabins / Extras / Cart</span>
+    <h2 style="font-weight: bolder;">Cart</h2>
+  </div>
+</section>
+
+<div class="container">
+  <%= render partial: "includes/checkout/cart" %>
+  <a href="<%= checkout_confirm_path %>" class="btn">Confirm</a>
+</div>

@@ -1,0 +1,16 @@
+<section class="cover" style="height:150px;background:#466a7e;">
+  <div class="container mt16">
+    <span>Home / Search & Filter / Voyage / Cabin & Extras</span>
+    <h2 style="font-weight: bolder;">Cabin & Extras</h2>
+  </div>
+</section>
+
+<div class="container">
+  <%= render partial: "includes/checkout/cart" %>
+  <hr>
+  <div class="row">
+    <%= render partial: "includes/checkout/voyage_tile", locals: { voyage: @cabin_grouping.voyage, cabin: @cabin_grouping.cabin } %>
+  </div>
+
+  <a href="<%= checkout_extras_path %>" class="btn">Continue</a>
+</div>

@@ -1,0 +1,8 @@
+<div id="cart" class="row">
+  <span>Order id: <%= @order.id %></span>
+  <hr>
+  <% @order.order_items.each do |order_item| %>
+    <span>Item</span>
+    <%= render partial: "includes/checkout/cart_item", locals: { order_item: order_item } %>
+  <% end -%>
+</div>

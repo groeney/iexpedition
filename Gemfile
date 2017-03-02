@@ -36,6 +36,7 @@ gem "paperclip"
 gem "simple_form"
 gem "bootstrap-datepicker-rails"
 gem "twitter-bootstrap-rails"
+gem "country_select"
 
 #allow seeding data in staging and dev
 group :development, :test, :staging do

@@ -67,4 +67,8 @@ class Voyage < ApplicationRecord
   def alternative_dates
     Voyage.where(name: self.name).map { |v| [v.start_date, v.end_date] }
   end
+
+  def gst_perc
+    self.gst / 100.0
+  end
 end

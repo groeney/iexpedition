@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170304111946) do
+ActiveRecord::Schema.define(version: 20170305140217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,17 @@ ActiveRecord::Schema.define(version: 20170304111946) do
     t.datetime "updated_at",  null: false
     t.index ["activity_id"], name: "index_activity_groupings_on_activity_id", using: :btree
     t.index ["voyage_id"], name: "index_activity_groupings_on_voyage_id", using: :btree
+  end
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "unit"
+    t.string   "street"
+    t.string   "city"
+    t.string   "postcode"
+    t.string   "state"
+    t.string   "country"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "admin_users", force: :cascade do |t|
@@ -93,6 +104,14 @@ ActiveRecord::Schema.define(version: 20170304111946) do
     t.text     "overview"
     t.integer  "discount_amount",    default: 0
     t.integer  "availability",       default: 5
+  end
+
+  create_table "coupons", force: :cascade do |t|
+    t.string   "code"
+    t.float    "discount_amount"
+    t.integer  "discount_type",   default: 0
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "destinations", force: :cascade do |t|
@@ -258,6 +277,42 @@ ActiveRecord::Schema.define(version: 20170304111946) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.integer  "order_id"
+    t.string   "productable_type"
+    t.string   "productable_id"
+    t.integer  "qty",              default: 1
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["order_id"], name: "index_order_items_on_order_id", using: :btree
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "voyage_id"
+    t.integer  "status",     default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "coupon_id"
+    t.index ["coupon_id"], name: "index_orders_on_coupon_id", using: :btree
+    t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
+    t.index ["voyage_id"], name: "index_orders_on_voyage_id", using: :btree
+  end
+
+  create_table "passengers", force: :cascade do |t|
+    t.integer  "order_item_id"
+    t.string   "gender"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "phone"
+    t.datetime "dob"
+    t.string   "nationality"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["order_item_id"], name: "index_passengers_on_order_item_id", using: :btree
+  end
+
   create_table "region_groupings", force: :cascade do |t|
     t.integer  "voyage_id"
     t.integer  "region_id"
@@ -377,7 +432,7 @@ ActiveRecord::Schema.define(version: 20170304111946) do
     t.string   "header_image_content_type"
     t.integer  "header_image_file_size"
     t.datetime "header_image_updated_at"
-    t.float    "gst"
+    t.float    "gst",                       default: 0.0
     t.string   "currency",                  default: "USD"
     t.index ["destination_id"], name: "index_voyages_on_destination_id", using: :btree
     t.index ["ship_id"], name: "index_voyages_on_ship_id", using: :btree
@@ -410,6 +465,9 @@ ActiveRecord::Schema.define(version: 20170304111946) do
   add_foreign_key "gallery_image_groupings", "gallery_images"
   add_foreign_key "highlight_groupings", "highlights"
   add_foreign_key "histories", "destinations"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "orders", "coupons"
+  add_foreign_key "passengers", "order_items"
   add_foreign_key "ships", "operators"
   add_foreign_key "voyages", "destinations"
   add_foreign_key "voyages", "ships"

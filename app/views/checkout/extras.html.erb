@@ -1,0 +1,19 @@
+<section class="cover" style="height:150px;background:#466a7e;">
+  <div class="container mt16">
+    <span>Home / Search & Filter / Voyage / Extras</span>
+    <h2 style="font-weight: bolder;">Extras</h2>
+  </div>
+</section>
+
+<div class="container">
+  <%= render partial: "includes/checkout/cart" %>
+  <hr>
+
+  <h5 class="divider">
+    <span>
+      choose your extras
+    </span>
+  </h5>
+  <%= render partial: "includes/alternating_horizontal_tiles", locals: { collection: @order.voyage.activities } %>
+  <a href="<%= checkout_cart_path %>" class="btn">Continue</a>
+</div>

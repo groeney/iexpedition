@@ -295,12 +295,10 @@ footer img {
 
 .horizontal-tile {
   text-align: left;
-}
-
-.tile-text {
-  width: 60% !important;
-}
-
-.tile-image {
-  width: 40% !important;
+  .w40 {
+    width: 40% !important;
+  }
+  .w60 {
+    width: 60% !important;
+  }
 }

@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
   validates_uniqueness_of [:email]
   has_many :orders
+  has_one :address
 
   def full_name
     [self.first_name, self.last_name].join(' ')

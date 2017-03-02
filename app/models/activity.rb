@@ -1,4 +1,5 @@
 class Activity < ApplicationRecord
+  has_many :order_items, as: :productable
   has_many :activity_groupings, dependent: :destroy
   has_many :voyages, through: :activity_groupings
 

@@ -1,8 +1,12 @@
+<% is_checkout_activity = (controller_name == "checkout") && (resource.class.name == "Activity") %>
 <div class="horizontal-tile">
-  <div class="tile-right bg-secondary tile-text">
+  <div class="tile-right bg-secondary <%= is_checkout_activity ? 'w40' : 'w60' %>">
     <%= render partial: "includes/horizontal_tile_text", locals: { resource: resource } %>
+    <% if is_checkout_activity %>
+      <%= render partial: "includes/checkout/order_activity_form", locals: { resource: resource } %>
+    <% end -%>
   </div>
-  <div class="tile-left tile-image">
+  <div class="tile-left <%= is_checkout_activity ? 'w60' : 'w40' %>">
     <a href="#">
       <div class="background-image-holder fadeIn" style="background: url("<%= resource.image.url %>");">
         <img alt="image" class="background-image" src="<%= resource.image.url %>" style="display: none;">

@@ -1,0 +1,6 @@
+<%= simple_form_for :order_item, remote: true, url: order_items_path, method: :post do |f| %>
+  <%= f.hidden_field :productable_id, value: resource.id %>
+  <%= f.hidden_field :productable_type, value: resource.class.name %>
+  <%= f.submit "add", class: "dark-submit-btn" %>
+  <%= f.input :qty, label: false, placeholder: "QTY" %>
+<% end -%>

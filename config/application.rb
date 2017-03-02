@@ -11,5 +11,6 @@ module Iexpedition
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    config.session_store :cookie_store, expire_after: 24.hours
   end
 end

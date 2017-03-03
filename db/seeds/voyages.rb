@@ -6,11 +6,10 @@ Dir["./db/seeds/data/*voyages-#{TYPE}.csv"].each do |fn|
     voyage_obj = clean_data row.to_hash.symbolize_keys!
     operator = extract_resource("Operator", voyage_obj, "operator_name")
     ship = nil
-    if !operator.nil?
-      ship_name = voyage_obj.delete(:ship_name)
-      ship = operator.ships.where(name: ship_name).first
-      missing_data("Ship", ship_name) if ship.nil?
-    end
+    ship_name = voyage_obj.delete(:ship_name)
+    next if operator.nil?
+    ship = operator.ships.where(name: ship_name).first
+    missing_data("Ship", ship_name) if ship.nil?
 
     destination = extract_resource("Destination", voyage_obj, "destination_name")
     region_names = (voyage_obj.delete(:region_names) || "").split(',').map { |region_name| region_name.strip }

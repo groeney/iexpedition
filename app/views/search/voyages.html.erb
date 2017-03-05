@@ -7,17 +7,17 @@
 
 <div class="container custom-container">
   <%= simple_form_for :search, url: search_voyages_path, method: :get do |f| %>
-  <div class="row mb32 mt64">
-    <%= render partial: "includes/search/top_search_form", locals: { f: f } %>
-  </div>
-  <hr>
-  <div class="flex sm-tablet-column">
-    <%= render partial: "includes/search/voyage_filters", locals: { f: f } %>
-    <section class="pt32 search-results">
-      <% @results.each do |voyage_name, bundle| %>
-        <%= render partial: "includes/search/voyage_bundle", locals: { voyage: bundle.first, bundle: bundle } %>
-      <% end -%>
-    </section>
-  </div>
+    <div class="row mb32 mt64">
+      <%= render partial: "includes/search/top_search_form", locals: { f: f } %>
+    </div>
+    <hr>
+    <div class="flex sm-tablet-column">
+      <%= render partial: "includes/search/voyage_filters", locals: { f: f } %>
+      <section class="pt32 search-results">
+        <% @results.each do |voyage_name, bundle| %>
+          <%= render partial: "includes/search/voyage_bundle", locals: { voyage: bundle.first, bundle: bundle } %>
+        <% end -%>
+      </section>
+    </div>
   <% end -%>
 </div>

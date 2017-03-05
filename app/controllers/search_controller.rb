@@ -5,6 +5,20 @@ class SearchController < ApplicationController
     @results = Voyage.filter_and(@voyage_filter_params).group_by(&:name)
   end
 
+  def antarctica
+    voyage_filter_params
+    @destination = Destination.find_by_name("Antarctica")
+    @results = Voyage.destinations(@destination.id).group_by(&:name)
+    render "voyages"
+  end
+
+  def arctic
+    voyage_filter_params
+    @destination = Destination.find_by_name("The Arctic")
+    @results = Voyage.destinations(@destination.id).group_by(&:name)
+    render "voyages"
+  end
+
   def ships
     ship_filter_params
     @results = Ship.filter_and(@ship_filter_params)

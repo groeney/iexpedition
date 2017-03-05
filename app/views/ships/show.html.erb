@@ -47,4 +47,25 @@
       </div>
     </div>
   </div>
+  <section>
+    <div class="row">
+      <div class="col-sm-6 col-centered">
+        <i class="fa fa-ship fa-2x"></i>
+      </div>
+    </div>
+
+    <h5 class="divider" style="padding-top:16px;">
+      <span>This Ship's voyages</span>
+    </h5>
+    <div class="row mt32">
+      <%= render partial: "includes/horizontal_voyage_tiles", locals: { collection: @ship.voyages.sample(3) } %>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-centered">
+        <% destination_search_path = @destination.name == "Antarctica" ? search_antarctica_voyages_path : search_arctic_voyages_path %>
+        <a style="text-transform: uppercase;text-decoration: underline;font-size: large;" href="<%= destination_search_path %>">View all voyages in <%= @destination.name %></a>
+      </div>
+    </div>
+  </section>
 </div>

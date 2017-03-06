@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306085859) do
+ActiveRecord::Schema.define(version: 20170306130134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20170306085859) do
   end
 
   create_table "addresses", force: :cascade do |t|
+    t.integer  "user_id"
     t.string   "unit"
     t.string   "street"
     t.string   "city"
@@ -61,6 +62,7 @@ ActiveRecord::Schema.define(version: 20170306085859) do
     t.string   "country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id", using: :btree
   end
 
   create_table "admin_users", force: :cascade do |t|
@@ -136,6 +138,7 @@ ActiveRecord::Schema.define(version: 20170306085859) do
   end
 
   create_table "emergency_contacts", force: :cascade do |t|
+    t.integer  "user_id"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "phone_number"
@@ -143,6 +146,7 @@ ActiveRecord::Schema.define(version: 20170306085859) do
     t.string   "relationship"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.index ["user_id"], name: "index_emergency_contacts_on_user_id", using: :btree
   end
 
   create_table "exclusion_groupings", force: :cascade do |t|
@@ -172,6 +176,15 @@ ActiveRecord::Schema.define(version: 20170306085859) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.index ["destination_id"], name: "index_facts_on_destination_id", using: :btree
+  end
+
+  create_table "favourite_ships", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "ship_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ship_id"], name: "index_favourite_ships_on_ship_id", using: :btree
+    t.index ["user_id"], name: "index_favourite_ships_on_user_id", using: :btree
   end
 
   create_table "favourite_voyages", force: :cascade do |t|
@@ -333,6 +346,7 @@ ActiveRecord::Schema.define(version: 20170306085859) do
   end
 
   create_table "passports", force: :cascade do |t|
+    t.integer  "user_id"
     t.string   "number"
     t.date     "issue_date"
     t.date     "expiry_date"
@@ -348,6 +362,7 @@ ActiveRecord::Schema.define(version: 20170306085859) do
     t.datetime "visa_updated_at"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.index ["user_id"], name: "index_passports_on_user_id", using: :btree
   end
 
   create_table "region_groupings", force: :cascade do |t|
@@ -409,6 +424,7 @@ ActiveRecord::Schema.define(version: 20170306085859) do
   end
 
   create_table "travel_details", force: :cascade do |t|
+    t.integer  "user_id"
     t.string   "hotel_name"
     t.text     "hotel_address"
     t.string   "flight_number"
@@ -419,6 +435,7 @@ ActiveRecord::Schema.define(version: 20170306085859) do
     t.string   "reservation_code"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.index ["user_id"], name: "index_travel_details_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -427,7 +444,7 @@ ActiveRecord::Schema.define(version: 20170306085859) do
     t.string   "last_name"
     t.datetime "dob"
     t.string   "nationality"
-    t.string   "email",                   default: "", null: false
+    t.string   "email",                   default: "",    null: false
     t.string   "phone_number"
     t.text     "requirements"
     t.string   "insurance_company"
@@ -435,22 +452,22 @@ ActiveRecord::Schema.define(version: 20170306085859) do
     t.string   "boot_size"
     t.string   "jacket_size"
     t.string   "gender"
-    t.string   "encrypted_password",      default: "", null: false
+    t.string   "encrypted_password",      default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",           default: 0,  null: false
+    t.integer  "sign_in_count",           default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.boolean  "email_newsletter"
-    t.boolean  "accept_privacy_policy"
+    t.boolean  "email_newsletter",        default: false
+    t.boolean  "accept_privacy_policy",   default: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
@@ -510,7 +527,11 @@ ActiveRecord::Schema.define(version: 20170306085859) do
     t.datetime "updated_at",         null: false
   end
 
+  add_foreign_key "addresses", "users"
+  add_foreign_key "emergency_contacts", "users"
   add_foreign_key "facts", "destinations"
+  add_foreign_key "favourite_ships", "ships"
+  add_foreign_key "favourite_ships", "users"
   add_foreign_key "favourite_voyages", "users"
   add_foreign_key "favourite_voyages", "voyages"
   add_foreign_key "feature_groupings", "features"
@@ -520,7 +541,9 @@ ActiveRecord::Schema.define(version: 20170306085859) do
   add_foreign_key "order_items", "orders"
   add_foreign_key "orders", "coupons"
   add_foreign_key "passengers", "order_items"
+  add_foreign_key "passports", "users"
   add_foreign_key "ships", "operators"
+  add_foreign_key "travel_details", "users"
   add_foreign_key "voyages", "destinations"
   add_foreign_key "voyages", "ships"
   add_foreign_key "wildlife_groupings", "destinations"

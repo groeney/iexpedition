@@ -1,4 +1,4 @@
 class FavouriteVoyage < ApplicationRecord
-  belongs_to :voyages
+  belongs_to :voyage
   belongs_to :user
 end

@@ -11,7 +11,7 @@ class Order < ApplicationRecord
   # - :active: current date is within voyage.start_date & voyage.end_date
   # - :expired: current date is after voyage.end_date
 
-  validate :has_one_cabin
+  # validate :has_one_cabin
   validates_presence_of [:voyage_id]
 
   def add_product(product, qty=1)
@@ -33,7 +33,7 @@ class Order < ApplicationRecord
     order_items.each do |order_item|
       cabins += (order_item.productable_type.eql? "Cabin") ? 1 : 0
     end
-    errors.add_to_base("Order must have exactly one order_item that is a cabin") if cabins != 1
+    cabins == 1
   end
 
   def sub_total

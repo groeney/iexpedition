@@ -1,6 +1,7 @@
 class CreateTravelDetails < ActiveRecord::Migration[5.0]
   def change
     create_table :travel_details do |t|
+      t.references :user, foreign_key: true
       t.string :hotel_name
       t.text :hotel_address
       t.string :flight_number

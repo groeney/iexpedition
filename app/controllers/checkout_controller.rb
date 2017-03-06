@@ -31,7 +31,7 @@ class CheckoutController < ApplicationController
     elsif params[:commit] == "Reserve"
       @order.reserved!
     end
-    binding.pry
+    # validate @order.has_one_cabin
     # map passenger 1 and address details to create a new @user
     # create all passenger records and associate them with @order
     # sign_in @user

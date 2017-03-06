@@ -27,18 +27,17 @@
           <li>
             <a href="#">Why ixpedition </a>
           </li><li class="vpf">
-            <a href="#">Antarctic</a>
+            <a href="<%= search_antarctica_voyages_path %>">Antarctic</a>
           </li><li class="vpf">
-            <a href="#">The arctic</a>
+            <a href="<%= search_arctic_voyages_path %>">The arctic</a>
           </li><li class="has-dropdown">
-            <a href="#">Expedition ships</a>
+            <a href="<%= search_ships_path %>">Expedition ships</a>
             <ul>
-              <li>
-                <a href="#">Ms Expedition</a>
-              </li>
-              <li>
-                <a href="#">Sea Spirit</a>
-              </li>
+              <% Ship.first(20).each do |ship| %>
+                <li>
+                  <a href="<%= ship_path(ship) %>"><%= ship.name %></a>
+                </li>
+              <% end -%>
             </ul>
           </li>
         </ul>

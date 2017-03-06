@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170305140217) do
+ActiveRecord::Schema.define(version: 20170306085859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -135,6 +135,16 @@ ActiveRecord::Schema.define(version: 20170305140217) do
     t.text     "voyage_info"
   end
 
+  create_table "emergency_contacts", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone_number"
+    t.string   "email"
+    t.string   "relationship"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "exclusion_groupings", force: :cascade do |t|
     t.integer  "voyage_id"
     t.integer  "exclusion_id"
@@ -162,6 +172,15 @@ ActiveRecord::Schema.define(version: 20170305140217) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.index ["destination_id"], name: "index_facts_on_destination_id", using: :btree
+  end
+
+  create_table "favourite_voyages", force: :cascade do |t|
+    t.integer  "voyage_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_favourite_voyages_on_user_id", using: :btree
+    t.index ["voyage_id"], name: "index_favourite_voyages_on_voyage_id", using: :btree
   end
 
   create_table "feature_groupings", force: :cascade do |t|
@@ -313,6 +332,24 @@ ActiveRecord::Schema.define(version: 20170305140217) do
     t.index ["order_item_id"], name: "index_passengers_on_order_item_id", using: :btree
   end
 
+  create_table "passports", force: :cascade do |t|
+    t.string   "number"
+    t.date     "issue_date"
+    t.date     "expiry_date"
+    t.string   "place_of_birth"
+    t.string   "nationality"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "visa_file_name"
+    t.string   "visa_content_type"
+    t.integer  "visa_file_size"
+    t.datetime "visa_updated_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
   create_table "region_groupings", force: :cascade do |t|
     t.integer  "voyage_id"
     t.integer  "region_id"
@@ -369,6 +406,19 @@ ActiveRecord::Schema.define(version: 20170305140217) do
     t.integer  "header_image_file_size"
     t.datetime "header_image_updated_at"
     t.index ["operator_id"], name: "index_ships_on_operator_id", using: :btree
+  end
+
+  create_table "travel_details", force: :cascade do |t|
+    t.string   "hotel_name"
+    t.text     "hotel_address"
+    t.string   "flight_number"
+    t.string   "departure_airport"
+    t.datetime "departure_date"
+    t.string   "arrival_airport"
+    t.datetime "arrival_date"
+    t.string   "reservation_code"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -461,6 +511,8 @@ ActiveRecord::Schema.define(version: 20170305140217) do
   end
 
   add_foreign_key "facts", "destinations"
+  add_foreign_key "favourite_voyages", "users"
+  add_foreign_key "favourite_voyages", "voyages"
   add_foreign_key "feature_groupings", "features"
   add_foreign_key "gallery_image_groupings", "gallery_images"
   add_foreign_key "highlight_groupings", "highlights"

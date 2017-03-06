@@ -1,0 +1,2 @@
+module FavouriteShipsHelper
+end

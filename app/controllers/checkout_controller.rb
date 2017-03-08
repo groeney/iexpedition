@@ -11,6 +11,7 @@ class CheckoutController < ApplicationController
     @order_item = @order.cabin_order_item! @cabin_grouping.cabin
     @order.voyage = @cabin_grouping.voyage
     session[:order_id] = @order.id if @order.save
+    current_user.orders << @order if current_user
   end
 
   def extras

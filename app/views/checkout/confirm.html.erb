@@ -9,7 +9,7 @@
   <%= simple_form_for :order_details, url: checkout_signup_path do |f| %>
     <!-- render simple_fields_for blocks for passengers -->
     <!-- use f.country_select nationality inputs  -->
-    <!-- use bootstrap-datepicker for dob with input_html: { class: 'datepicker', readonly: "" } -->
+    <!-- use <%= f.input :dob, as: :date, input_html: { class: "datepicker", readonly: "", style: "width:100%;" }, html5: true, label_html: { style: "display:block;" } %> for dob -->
     <!-- render address block -->
     <!-- use f.country_select for country input  -->
 

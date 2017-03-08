@@ -12,11 +12,12 @@ class DashboardController < ApplicationController
   end
 
   def order_history
-
+    @orders = current_user.orders
   end
 
   def confirmed_itinerary
-    @order = current_user.latest_order
+    @order = current_user.latest_current_order
+    @voyage = @order.try(:voyage)
   end
 
   def wishlist

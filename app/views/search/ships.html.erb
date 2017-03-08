@@ -14,9 +14,7 @@
       <% end -%>
     </section>
     <section class="ship-results row pt48" >
-      <% @results.each do |ship| %>
-        <%= render partial: "includes/ship/tile", locals: { ship: ship } %>
-      <% end -%>
+      <%= render partial: "includes/horizontal_ship_tiles", locals: { collection: @results } %>
     </section>
   </div>
 </div>

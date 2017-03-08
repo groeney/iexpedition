@@ -24,8 +24,11 @@ class User < ApplicationRecord
     [self.first_name, self.last_name].join(' ')
   end
 
-  def latest_order
+  def latest_current_order
+    self.current_orders.order("updated_at DESC").first
+  end
+
+  def current_orders
     self.orders.where(status: ["cart", "reserved", "deposit", "confirmed", "paid"])
-        .order("updated_at DESC").first
   end
 end

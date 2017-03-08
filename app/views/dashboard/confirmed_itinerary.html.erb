@@ -2,4 +2,62 @@
 <section>
   <h5>My iExpedition</h5>
   <hr>
+  <span style="display: block;">Upcoming voyage</span>
+  <% if @order.nil? %>
+    <span>No order for user <%= current_user.email %></span>
+  <% else %>
+    <span>ship name: <%= @order.voyage.ship.name %></span>
+    <span>operator details: <%= @order.voyage.ship.operator.name %></span>
+    <%= image_tag(@order.voyage.image) %>
+  <% end -%>
 </section>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <div class="tabbed-content button-tabs mt16">
+        <ul class="tabs">
+          <li class="active">
+            <div class="tab-title">
+              <span>itinerary</span>
+            </div>
+            <div class="tab-content voyage-itinerary-tab">
+              <%= render partial: "includes/voyage/itinerary_tab", locals: { voyage: @voyage } %>
+            </div>
+          </li>
+          <li>
+            <div class="tab-title">
+              <span>cabins & extras</span>
+            </div>
+            <div class="tab-content">
+              <%= render partial: "includes/dashboard/cabins_and_extras" %>
+            </div>
+          </li>
+          <li>
+            <div class="tab-title">
+              <span>important info</span>
+            </div>
+            <div class="tab-content">
+
+            </div>
+          </li>
+          <li>
+            <div class="tab-title">
+              <span>important docs</span>
+            </div>
+            <div class="tab-content">
+
+            </div>
+          </li>
+          <li>
+            <div class="tab-title">
+              <span>vouchers</span>
+            </div>
+            <div class="tab-content">
+
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

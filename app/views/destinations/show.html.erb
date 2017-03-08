@@ -87,5 +87,17 @@
     <div class="row">
       <!-- Image slider carousel partial. Pass in @destination.regions and link to search page with region preselected -->
     </div>
+    <section>
+      <div class="row" style="text-align: center;">
+        <i class="fa fa-ship fa-2x"></i>
+      </div>
+      <h5 class="divider pt16i">
+        <span>Search <%= @destination.name %> Expeditions</span>
+      </h5>
+      <div class="row pt32">
+        <%= render partial: "includes/reusable_search_form", locals: { destination: @destination } %>
+      </div>
+      <%= render partial: "includes/horizontal_voyage_tiles", locals: { collection: Voyage.destinations(@destination.id).sample(9) } %>
+    </section>
   </div>
 </div>

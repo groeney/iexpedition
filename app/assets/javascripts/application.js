@@ -29,3 +29,4 @@
 //= require globals
 //= require search
 //= require tabs
+//= require destinations

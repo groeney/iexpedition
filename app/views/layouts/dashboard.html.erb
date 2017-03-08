@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>iExpedition</title>
+    <%= favicon_link_tag %>
+    <%= csrf_meta_tags %>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <%= stylesheet_link_tag    "dashboard", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "dashboard", "data-turbolinks-track": "reload" %>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400%7CRaleway:100,400,300,500,600,700%7COpen+Sans:400,500,600' rel='stylesheet' type='text/css'>
+  </head>
+
+  <body class="<%= controller_name %> <%= action_name %>">
+    <%= render "includes/header" %>
+    <%= render "includes/flash_notices" -%>
+    <section class="cover" style="height:150px;background:#466a7e;">
+      <div class="container mt16">
+        <span>Home / Dashboard</span>
+        <h2 style="font-weight: bolder;">My iX</h2>
+      </div>
+    </section>
+    <div class="container">
+      <div class="col-md-2">
+        <%= render partial: "includes/dashboard/sidebar" %>
+      </div>
+      <div class="col-md-10">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+
+  <%= render "includes/footer" %>
+</html>

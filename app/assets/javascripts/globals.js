@@ -7,4 +7,13 @@ $(document).on('turbolinks:load', function(){
     $(this).find('.voyage-hover').removeClass('animate')
     $(this).find('.voyage-header').removeClass('animate')
   });
+
+  $('.ship-wrap').hover(
+    function() {
+      $(this).find('.ship-hover').addClass('animate')
+      $(this).find('.ship-header').addClass('animate')
+  }, function() {
+    $(this).find('.ship-hover').removeClass('animate')
+    $(this).find('.ship-header').removeClass('animate')
+  });
 });

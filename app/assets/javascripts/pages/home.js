@@ -17,7 +17,7 @@ $(document).on('turbolinks:load', function(){
     });
 
     $('.flexslider').flexslider({
-      animation: "slide",
+      animation: 'slide',
       animationLoop: false,
       itemWidth: 300,
       itemMargin: 5

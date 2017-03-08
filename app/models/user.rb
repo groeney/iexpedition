@@ -23,4 +23,9 @@ class User < ApplicationRecord
   def full_name
     [self.first_name, self.last_name].join(' ')
   end
+
+  def latest_order
+    self.orders.where(status: ["cart", "reserved", "deposit", "confirmed", "paid"])
+        .order("updated_at DESC").first
+  end
 end

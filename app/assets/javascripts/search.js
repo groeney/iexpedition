@@ -19,14 +19,5 @@ $(document).on('turbolinks:load', function(){
     $('input.datepicker').datepicker({
       startDate: new Date()
     });
-
-    $('.ship-wrap').hover(
-      function() {
-        $(this).find('.ship-hover').addClass('animate')
-        $(this).find('.ship-header').addClass('animate')
-    }, function() {
-      $(this).find('.ship-hover').removeClass('animate')
-      $(this).find('.ship-header').removeClass('animate')
-    });
   }
 });

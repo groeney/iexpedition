@@ -1,4 +1,4 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
+// This is a manifest file that'll be compiled into dashboard.js, which will include all the files
 // listed below.
 //
 // Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
@@ -15,8 +15,8 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require cable
-//= require bootstrap-datepicker
 //= require moment
+//= require bootstrap-datepicker
 //= require bootstrap-datetimepicker
 //= require pickers
 //= require bootstrap-slider.min
@@ -25,7 +25,5 @@
 //= require lightbox.min
 //= require jquery.flexslider-min
 //= require scripts
-//= require_tree ./pages
+//= require_tree ./dashboard
 //= require globals
-//= require search
-//= require tabs

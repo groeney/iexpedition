@@ -38,6 +38,9 @@ gem "bootstrap-datepicker-rails"
 gem "twitter-bootstrap-rails"
 gem "country_select"
 
+gem "momentjs-rails", "~> 2.9",  :github => "derekprior/momentjs-rails"
+gem "datetimepicker-rails", github: "zpaulovics/datetimepicker-rails", branch: "master", submodules: true
+
 #allow seeding data in staging and dev
 group :development, :test, :staging do
   gem "faker"

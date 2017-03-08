@@ -1,0 +1,33 @@
+<div class="row">
+  <h5>Passport</h5>
+  <div class="row">
+    <div class="col-md-6">
+      <%= p.input :number %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <%= p.input :issue_date, as: :date, input_html: { class: "datepicker", readonly: "", style: "width:100%;" }, html5: true, label_html: { style: "display:block;" } %>
+    </div>
+    <div class="col-md-6">
+      <%= p.input :expiry_date, as: :date, input_html: { class: "datepicker", readonly: "", style: "width:100%;" }, html5: true, label_html: { style: "display:block;" } %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <%= p.input :place_of_birth %>
+    </div>
+    <div class="col-md-6">
+      <label style="display:block;" for="passport_nationality">Nationality</label>
+      <%= p.country_select :nationality, { include_blank: "Nationality" } %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <%= p.input :image, as: :file, label: "Passport copy upload" %>
+    </div>
+    <div class="col-md-6">
+      <%= p.input :visa, as: :file, label: "Visa copy upload" %>
+    </div>
+  </div>
+</div>

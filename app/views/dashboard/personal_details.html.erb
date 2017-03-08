@@ -1,0 +1,39 @@
+<h3>Your details</h3>
+<%= simple_form_for current_user, url: dashboard_update_details_path, method: :put, remote: true do |f| %>
+  <%= render partial: "includes/dashboard/user_details", locals: { f: f } %>
+
+  <%= simple_fields_for @address do |a| %>
+    <%= render partial: "includes/dashboard/address", locals: { a: a } %>
+  <% end -%>
+
+  <%= render partial: "includes/dashboard/special_requirements", locals: { f: f } %>
+
+  <%= render partial: "includes/dashboard/insurance", locals: { f: f } %>
+
+  <%= simple_fields_for @emergency_contact do |e| %>
+    <%= render partial: "includes/dashboard/emergency_contact", locals: { e: e } %>
+  <% end -%>
+
+  <%= simple_fields_for @passport do |p| %>
+    <%= render partial: "includes/dashboard/passport", locals: { p: p } %>
+  <% end -%>
+
+  <!-- TODO: separate these in form submit.
+    Currently we have:
+      params[:travel_detail]
+
+    We want:
+      params[:travel_details_pre, :travel_details_post]
+  -->
+  <%= simple_fields_for @travel_details_pre, as: :travel_details_pre do |t| %>
+    <%= render partial: "includes/dashboard/travel_details", locals: { t: t, type: "Pre-Cruise" } %>
+  <% end -%>
+
+  <%= simple_fields_for @travel_details_post, as: :travel_details_post do |t| %>
+    <%= render partial: "includes/dashboard/travel_details", locals: { t: t, type: "Post-Cruise" } %>
+  <% end -%>
+
+  <%= render partial: "includes/dashboard/equipment_sizes", locals: { f: f } %>
+
+  <%= f.submit "Save", class: "dark-submit-btn" %>
+<% end -%>

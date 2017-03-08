@@ -1,0 +1,24 @@
+<div class="row">
+  <h5>Emergency Contact Information</h5>
+  <div class="row">
+    <div class="col-md-6">
+      <%= e.input :first_name %>
+    </div>
+    <div class="col-md-6">
+      <%= e.input :last_name %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <%= e.input :phone_number, as: :string %>
+    </div>
+    <div class="col-md-6">
+      <%= e.input :email, as: :string %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <%= e.input :relationship, label: "Relationship to you" %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="row">
+  <h5>Personal Details</h5>
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.input :title, collection: ["Mr", "Mrs", "Miss"] %>
+    </div>
+  </div>
+  <div class="row name">
+    <div class="col-md-6">
+      <%= f.input :first_name %>
+    </div>
+    <div class="col-md-6">
+      <%= f.input :last_name %>
+    </div>
+  </div>
+  <div class="row dob">
+    <div class="col-md-6">
+      <%= f.input :dob, as: :date, input_html: { class: "datepicker", readonly: "", style: "width:100%;" }, html5: true, label_html: { style: "display:block;" } %>
+    </div>
+    <div class="col-md-6">
+      <label style="display:block;" for="user_nationality">Nationality</label>
+      <%= f.country_select :nationality, { include_blank: "Country of Origin" } %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.input :email, as: :string, input_html: { readonly: "" } %>
+    </div>
+    <div class="col-md-6">
+      <%= f.input :phone_number, as: :string %>
+    </div>
+  </div>
+</div>

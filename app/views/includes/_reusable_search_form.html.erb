@@ -2,7 +2,7 @@
 <div class="col-md-10 col-md-offset-1 col-sm-12 text-center">
   <%= simple_form_for :search, url: search_voyages_path, method: :get do |f| %>
     <div class="row">
-      <%= f.input :destinations, wrapper_html: { class: 'select-option col-md-6' }, prompt: "Select Destination", label: false, collection: Destination.all.map { |destination| [destination.name, destination.id] }, selected: destination.id %>
+      <%= f.input :destinations, wrapper_html: { class: 'select-option col-md-6' }, prompt: "Select Destination", label: false, collection: Destination.all.map { |destination| [destination.name, destination.id] }, selected: destination.try(:id) %>
 
       <%= f.input :departure_date, wrapper_html: { class: 'select-option col-md-6' }, placeholder: 'Select Departure Date', input_html: { class: 'datepicker' }, label: false %>
     </div>

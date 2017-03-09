@@ -31,3 +31,6 @@
 //= require tabs
 //= require destinations
 //= require js.cookie-2.1.3.min.js
+//= require contact_requests
+//= require rails.validations
+//= require rails.validations.simple_form

@@ -1,8 +1,8 @@
 require "mandrill"
 class BaseMandrillMailer < Devise::Mailer
   default(
-    from: "admin1@iexpedition.com",
-    reply_to: "admin1@iexpedition.com"
+    from: "info@iexpedition.com",
+    reply_to: "info@iexpedition.com"
   )
 
   private

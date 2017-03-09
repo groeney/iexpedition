@@ -104,6 +104,13 @@ GEM
       thor (~> 0.19)
     builder (3.2.3)
     byebug (9.0.6)
+    client_side_validations (9.1.0)
+      jquery-rails (~> 4.2)
+      js_regex (~> 1.2)
+      rails (>= 5.0.0.1, < 5.2)
+    client_side_validations-simple_form (6.0.0)
+      client_side_validations (~> 9.0)
+      simple_form (~> 3.4)
     climate_control (0.1.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
@@ -193,6 +200,8 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
+    js_regex (1.2.1)
+      regexp_parser (>= 0.3.6, <= 0.4.2)
     json (1.8.6)
     jwt (1.5.6)
     kaminari (1.0.1)
@@ -207,6 +216,8 @@ GEM
       activerecord
       kaminari-core (= 1.0.1)
     kaminari-core (1.0.1)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     less (2.6.0)
       commonjs (~> 0.2.7)
     less-rails (2.8.0)
@@ -214,6 +225,8 @@ GEM
       less (~> 2.6.0)
       sprockets (> 2, < 4)
       tilt
+    letter_opener (1.4.1)
+      launchy (~> 2.2)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -296,6 +309,7 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.8)
       ffi (>= 0.5.0)
+    regexp_parser (0.4.2)
     representable (3.0.3)
       declarative (< 0.1.0)
       declarative-option (< 0.2.0)
@@ -386,6 +400,8 @@ DEPENDENCIES
   aws-sdk
   bootstrap-datepicker-rails
   byebug
+  client_side_validations
+  client_side_validations-simple_form
   country_select
   datetimepicker-rails!
   devise
@@ -397,6 +413,7 @@ DEPENDENCIES
   inherited_resources!
   intercom-rails
   jquery-rails
+  letter_opener
   listen (~> 3.0.5)
   mandrill-api
   momentjs-rails (~> 2.9)!
@@ -420,4 +437,4 @@ RUBY VERSION
    ruby 2.4.0p0
 
 BUNDLED WITH
-   1.14.3
+   1.14.6

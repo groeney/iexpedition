@@ -1,0 +1,606 @@
+@import "variables.scss";
+
+.presentation-header {
+  height: 600px;
+  background-image: url("/contact_us.png");
+  background-position: center center;
+  background-size: cover;
+
+  h1 {
+    float: left;
+    font-size: 110px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    color: #fff;
+    text-transform: capitalize;
+    margin-left: -111px;
+    margin-top: auto;
+    margin-bottom: 115px;
+  }
+}
+
+.contact_us {
+
+  #success_contact_request_message, #error_contact_request_message {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 20;
+    margin-left: 10px;
+    background-color: #fff;
+    display: none;
+
+    .close {
+      margin-bottom: 0;
+    }
+  }
+
+  .contact-left-part,
+  .contact-right-part {
+    padding-top: 68px;
+    padding-bottom: 50px;
+  }
+
+  h2 {
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: 700;
+      color: #fff;
+  }
+
+  hr {
+    opacity: 1;
+  }
+
+  h3 {
+    line-height: 27px;
+  }
+
+  .contact-left-part {
+    color: #fff;
+    background-color: $voyage_color;
+    padding-left: 17%;
+    font-family: 'Raleway', sans-serif;
+
+    h2 {
+      color: #fff;
+    }
+
+    h3 {
+      font-family: 'Open sans', sans-serif;
+      font-size: 18px;
+      text-transform: capitalize;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    hr {
+      width: 90%;
+      border-color: #fff;
+    }
+
+    .contact-section {
+      padding: 0 0;
+
+      table {
+        float: left;
+
+        td {
+          font-size: 18px;
+          font-family: 'Open sans', sans-serif;
+          padding-right: 20px;
+          padding-bottom: 3px;
+          vertical-align: top;
+
+          &.empty {
+            padding-top: 20px;
+          }
+
+          a {
+            color: #fff;
+
+            &:hover {
+              color: $linl_hover;
+            }
+          }
+
+        }
+      }
+    }
+
+    form {
+      margin-top: 75px;
+
+      & > div {
+        padding-right: 25%;
+      }
+
+      label {
+        font-size: 24px;
+        text-transform: uppercase;
+        font-weight: 400;
+      }
+
+      select {
+        font-size: 15px;
+      }
+
+      .textarea {
+        padding-right: 0;
+        width: calc(90% - 15px);
+      }
+
+      .select-option {
+        height: auto;
+
+        &.number {
+
+          .input.select:after{
+            height: 50px;
+            display: flex;
+            align-items: center;
+            right: calc(75% + 15px);
+            top: 29px;
+            padding-left: 14px;
+            border-left: 1px solid $border-color;
+          }
+
+          label {
+            display: block;
+          }
+
+          select {
+            width: 25%;
+          }
+        }
+      }
+
+      .day-picker {
+
+        .input {
+          position: relative;
+
+          &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 40px;
+            height: 35px;
+            bottom: 34px;
+            right: 12px;
+            background-image: url("/icons/calendar.png")
+          }
+        }
+      }
+
+      .input.select {
+        position: relative;
+
+        &:after {
+          content: "\e64b";
+          font-family: 'themify';
+          color: $border_color;
+          position: absolute;
+          font-size: 18px;
+          right: 20px;
+          top: 42px;
+          z-index: 2;
+          pointer-events: none;
+          transition: all 0.3s ease;
+          -webkit-transition: all 0.3s ease;
+        }
+      }
+
+      input,
+      textarea {
+        color: #000;
+        font-size: 16px;
+      }
+
+      ::-webkit-input-placeholder {color:#acacac; font-size: 16px; font-family: 'Open sans', sans-serif; text-transform: none;}
+      ::-moz-placeholder          {color:#acacac; font-size: 16px; font-family: 'Open sans', sans-serif; text-transform: none;}/* Firefox 19+ */
+      :-moz-placeholder           {color:#acacac; font-size: 16px; font-family: 'Open sans', sans-serif; text-transform: none;}/* Firefox 18- */
+      :-ms-input-placeholder      {color:#acacac; font-size: 16px; font-family: 'Open sans', sans-serif; text-transform: none;}
+
+      input[type="submit"] {
+        font-size: 22px;
+        width: auto;
+        color: #fff;
+        padding: 5px 45px;
+        height: auto;
+        transition: all .3s ease-in-out;
+
+        &:hover {
+          background-color: #fff;
+          color: $voyage_color;
+        }
+      }
+
+      .error {
+        color: $sale_color;
+      }
+
+    }
+
+  }
+
+  .contact-right-part {
+    // padding-right: 14%;
+    width: 35%;
+
+    & > * {
+      padding-left: 10%;
+    }
+
+    hr {
+      margin-left: 10%;
+      border-color: $voyage_color;
+      width: 80%;
+
+    }
+
+    h2 {
+      color: $voyage_color;
+    }
+
+    .faq-section {
+      padding-top: 0px;
+      padding-bottom: 30px;
+      color: $voyage_color;
+
+      h3 {
+        color: $voyage_color;
+        font-family: 'Open sans', sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+
+        &.shadow-head {
+          font-size: 17px;
+          color: #999;
+
+        }
+      }
+
+      p {
+        font-family: 'Open sans', sans-serif;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 20px;
+      }
+    }
+
+    ul.tabs {
+      display: flex;
+      align-items: stretch;
+
+      & > li {
+        width: 20%;
+
+        &.active .tab-title {
+          background-color: $voyage-color;
+          color: #fff;
+        }
+
+        .tab-title {
+          min-width: inherit;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #ebebeb;
+          color: $voyage-color;
+          font-size: 13px;
+
+          span {
+            line-height: 17px;
+            text-transform: none;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+
+    h5 {
+      color: $voyage_color;
+      font-weight: 500;
+      margin-bottom: 15px;
+
+      span {
+        font-size: 27px;
+        position: relative;
+        top: 1px;
+
+        &.relative {
+          top: 3px;
+        }
+      }
+    }
+
+    ul.accordion {
+
+      & > li {
+        border: 1px solid $accordeon_border_color;
+        margin-bottom: 15px;
+      }
+
+      .title {
+        position: relative;
+        border-bottom: none;
+
+        span {
+          padding-left: 50px;
+          display: block;
+          font-family: 'Raleway', sans-serif;
+          font-weight: 700;
+          font-size: 18px;
+        }
+
+        &:before {
+          content: '\e61a';
+          font-size: 35px;
+          color: $accordeon_border_color;
+          position: absolute;
+          top: 10px;
+          left: 8px;
+        }
+      }
+
+      .content {
+        border-top: none;
+        padding-left: 50px;
+        padding-right: 40px;
+      }
+
+      .active {
+        border: none;
+
+        .title {
+          background-color: $voyage_color;
+
+          span {
+            color: #fff;
+          }
+
+          &:before {
+            content: '\e622';
+            color: #fff;
+          }
+        }
+
+        .content {
+          border: 1px solid $accordeon_border_color;
+          border-top: none;
+          height: auto;
+          max-height: inherit;
+          padding-bottom: 20px;
+
+          ul,
+          ol {
+            padding-left: 16px;
+            padding-top: 16px;
+
+            ul {
+              padding-top: 0px;
+            }
+          }
+
+          p {
+            margin-bottom: 0;
+            padding-bottom: 0;
+          }
+
+          table {
+            margin-top: 16px;
+            width: 100%;
+
+            td {
+              border: 1px solid #000;
+              text-align: center;
+            }
+          }
+
+          .faq-width-65 {
+            width: 65px;
+            display: block;
+            float: left;
+          }
+        }
+      }
+    }
+
+    .button-tabs .tab-title:hover {
+       background: #f9f9f9;
+    }
+  }
+}
+
+@media only screen and (max-width: 1800px) {
+
+  .presentation-header h1 {
+    margin-left: 0;
+  }
+
+  .presentation-header {
+
+    .large-container {
+      width: 100%;
+
+      h1 {
+        margin-left: 2.5%;
+      }
+    }
+  }
+
+  .contact_us {
+
+    .contact-left-part {
+      padding-left: 5%;
+    }
+
+    .contact-right-part {
+      width: 45%;
+
+      ul.tabs > li:nth-of-type(4) {
+
+        .tab-title span {
+          font-size: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+
+  .presentation-header .large-container h1 {
+    font-size: 80px;
+    margin-left: 0;
+  }
+
+  .contact_us {
+
+    .contact-left-part {
+      padding-left: 2.5%;
+
+      form {
+
+        .select-option.number {
+
+          .input.select:after {
+            right: calc(65% + 15px);
+          }
+
+          select {
+            width: 35%;
+          }
+        }
+
+        label {
+          font-size: 20px;
+        }
+      }
+
+      hr {
+        width: 95%;
+      }
+    }
+
+    .contact-right-part {
+      width: 50%;
+
+      & > * {
+        padding-left: 5%;
+      }
+
+      hr {
+        margin-left: 5%;
+        width: 90%;
+      }
+
+      .faq-section {
+        padding-left: 5%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 991px) {
+
+  .contact_us {
+
+    br {
+      display: block;
+    }
+
+    .contact-message {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .contact-right-part {
+
+      ul.tabs {
+        flex-direction: column;
+
+        li {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+
+  .presentation-header {
+    height: 400px;
+
+    .large-container {
+
+      h1 {
+        margin-left: 0.5%;
+        margin-bottom: 65px;
+      }
+    }
+  }
+
+  .contact_us {
+
+    .flex {
+      display: block;
+    }
+
+    .contact-left-part {
+      padding-left: 5%;
+    }
+
+    .contact-right-part {
+      width: 95%;
+
+      ul.tabs {
+        flex-direction: row;
+
+        li {
+          width: 20%;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+
+  .presentation-header {
+      height: 300px;
+
+      h1 {
+        line-height: 1;
+      }
+  }
+
+  .contact_us {
+
+    .contact-left-part form {
+
+      .textarea {
+        width: 95%;
+      }
+
+      & > div {
+        padding-right: 5%;
+      }
+    }
+
+    .contact-right-part {
+
+      ul.tabs {
+        flex-direction: column;
+
+        li {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,95 @@
+<div class="container-fluid presentation-header flex">
+  <div class="large-container container flex">
+    <h1>About us</h1>
+  </div>
+</div>
+<div class="container-fluid contact_us">
+  <div class="row flex">
+    <div class="col-sm-6 contact-left-part">
+      <h2>Contact us</h2>
+      <hr>
+      <section class="contact-section">
+        <h3>Phone & Livechat Hourd</h3>
+        <table>
+          <tr>
+            <td>Weekdays</td>
+            <td>8am - 8pm AEST</td>
+          </tr>
+          <tr>
+            <td>Weekends</td>
+            <td>8am - 6pm AEST</td>
+          </tr>
+          <tr>
+            <td>Australia</td>
+            <td>1300 XXX XXX <br>
+            +61 X XXX XXX</td>
+          </tr>
+          <tr>
+            <td class="empty"></td>
+            <td class="empty"></td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td><a href="mailto:info@iexpedition.com">info@iexpedition.com</a></td>
+          </tr>
+        </table>
+        <div class="contact-message">
+          <%= image_tag("talk.png") %>
+        </div>
+      </section>
+      <hr>
+      <%= simple_form_for @contact_request, url: create_contact_path, remote: true, validate: true do |f| %>
+          <%= f.input :first_name, label: "FIRST NAME" %>
+          <%= f.input :last_name, label: "LAST NAME" %>
+          <%= f.input :email, label: "EMAIL", as: :string  %>
+          <%= f.input :phone_number, label: "PHONE NUMBER", as: :string  %>
+          <div class="select-option">
+            <%= f.input :destination, label: "DESTINATION", as: :select, collection: Destination.pluck(:name) %>
+          </div>
+          <div class="day-picker">
+            <%= f.input :travel_date, label: "MONTH / YEAR OF TRAVEL", as: :string, input_html: { class: 'datepicker' } %>
+          </div>
+          <div class="select-option number">
+            <%= f.input :number_of_people, label: "NUMBER OF PEOPLE", as: :select, collection: 1..10 %>
+          </div>
+          <div class="textarea">
+            <%= f.input :message, label: "MESSAGE", placeholder: "If you are marking a new enquiry, please let us know", input_html: { rows: 10 } %>
+          </div>
+
+          <%= f.button :submit, "SUBMIT" %>
+      <% end %>
+      <div class="alert alert-success alert-dismissible" id="success_contact_request_message" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        Your request has been submitted and we will be in contact with you shortly!
+      </div>
+      <div class="alert alert-danger alert-dismissible" id="error_contact_request_message" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        Please fill in required fields
+      </div>
+    </div>
+    <div class="col-sm-6 contact-right-part">
+      <h2>FAQs</h2>
+      <hr>
+      <section class="faq-section">
+        <h3 class="shadow-head">5 Most Common Questions Asked</h3>
+        <h3>Q1 - Why should I travel with iExpedition?</h3>
+        <p>At iExpedition our focus is to find you the expedition voyage that best suits your personal interests, your travel dates and budget requirements. We work with only expeditions that provide a dedicated expedition experience, this means small vessels from 20 – 400 passengers and the vessels must have an on board education program, staffed by experts in the field, with an aim to create ambassadors for these sensitive environmental regions.</p>
+        <h3>Q2 - Is there a doctor on the expedition?</h3>
+        <p>Yes, it a requirement of all expedition vessels to travel with a qualified medical doctor on board. The doctor on board, will operate a small, but well equipped infirmary. The ship doctor will be introduced to you on board and you will be made well aware of the location of the infirmary.</p>
+        <h3>Q3 - Is the expedition vessel air-conditioned?</h3>
+        <p>All of our expedition vessels are climate controlled throughout the cabins and common areas. When you are inside the vessel you can be assured it will be pleasant.</p>
+        <h3>Q4 - What are you payment terms?</h3>
+        <p>All of our products have a requirement of a 25% deposit in the currency of your booking to confirm. You then do not need to make any further payments until your final payment is due 95-125 days from your departure. As is standard across the travel industry, all deposit payments are non-refundable.</p>
+        <h3>Q5 - Do I need travel insurance?</h3>
+        <p>Travel insurance is mandatory on all of our expeditions. Each destination, has slightly different requirements, so please be sure to check your travel documents or ask your iExpedition consult.
+If you do not have the appropriate level of cover you may be refused joining the expedition.</p>
+      </section>
+      <hr>
+      <%= render partial: "includes/contact_us/expedition_tabs" %>
+    </div>
+  </div>
+</div>

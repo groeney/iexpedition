@@ -11,4 +11,8 @@ class PagesController < ApplicationController
     @voyages = Voyage.where(id: JSON.parse(cookies[:favourite_voyage_ids] || []))
     @ships = Ship.where(id: JSON.parse(cookies[:favourite_ship_ids] || []))
   end
+
+  def contact_us
+    @contact_request = ContactRequest.new
+  end
 end

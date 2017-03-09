@@ -109,6 +109,19 @@ ActiveRecord::Schema.define(version: 20170316102729) do
     t.boolean  "dedicated_sole_occupancy", default: false, null: false
   end
 
+  create_table "contact_requests", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "phone_number"
+    t.string   "destination"
+    t.datetime "travel_date"
+    t.integer  "number_of_people"
+    t.text     "message"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
   create_table "coupons", force: :cascade do |t|
     t.string   "code"
     t.float    "discount_amount"

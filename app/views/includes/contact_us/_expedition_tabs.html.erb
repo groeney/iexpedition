@@ -1,0 +1,36 @@
+<div class="tabbed-content button-tabs">
+  <ul class="tabs">
+    <li class="active">
+      <div class="tab-title">
+        <span>Expedition Info</span>
+      </div>
+    </li>
+    <li class="">
+      <div class="tab-title">
+        <span>Vessels & Lodges</span>
+      </div>
+    </li>
+    <li class="">
+      <div class="tab-title">
+        <span>Booking</span>
+      </div>
+    </li>
+    <li>
+      <div class="tab-title">
+        <span>Cancellations</span>
+      </div>
+    </li>
+    <li>
+      <div class="tab-title">
+        <span>My Account</span>
+      </div>
+    </li>
+  </ul>
+  <ul class="content">
+    <%= render partial: "includes/contact_us/expedition_info_tab" %>
+    <%= render partial: "includes/contact_us/vassels_tab" %>
+    <%= render partial: "includes/contact_us/booking_tab" %>
+    <%= render partial: "includes/contact_us/cancellations_tab" %>
+    <%= render partial: "includes/contact_us/my_account_tab" %>
+  </ul>
+</div>

@@ -31,6 +31,9 @@ app/assets/images/voyages/*
 app/assets/images/wildlives/*
 app/assets/images/gallery_images/*
 
+.ruby-version
+.ruby-gemset
+
 # Data
 db/seeds/data/*
 !db/seeds/data/master-*-example.csv

@@ -34,6 +34,8 @@ gem "aws-sdk"
 gem "paperclip"
 
 gem "simple_form"
+gem "client_side_validations"
+gem "client_side_validations-simple_form"
 gem "bootstrap-datepicker-rails"
 gem "twitter-bootstrap-rails"
 gem "country_select"
@@ -65,4 +67,5 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
+  gem "letter_opener"
 end

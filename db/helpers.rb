@@ -113,7 +113,7 @@ def missing_data(resource_type, name)
 end
 
 def resource_error(resource)
-  puts "### Model errors ### #{resource.try(:errors)}"
+  puts "### Model errors ### #{resource.try(:errors).try(:full_messages)}"
 end
 
 def new_resource(resource_name)

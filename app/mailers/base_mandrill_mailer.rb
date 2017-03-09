@@ -8,11 +8,22 @@ class BaseMandrillMailer < Devise::Mailer
   private
 
   def make_email(email, meta_data, attributes)
-    if false # Rails.env.development? || Rails.env.test?
-      write_to_cmd_line(email, attributes.inspect)
+    if Rails.env.development? || Rails.env.test?
+      write_to_cmd_line(email, meta_data["id"], attributes.inspect)
     else
       send_email(email, meta_data, attributes)
     end
+  end
+
+  # used only for development
+  def write_to_cmd_line(email, email_id, content)
+    log = "\n\n\n\n\n"
+    log += "#############   EMAIL SENT TO: #{email}   ############\n"
+    log += "TEMPLATE: #{email_id}\n"
+    log += "#{content}\n"
+    log += "###########################################################"
+    log += "\n\n\n\n\n"
+    Rails.logger.info log
   end
 
   def send_email(email, meta_data, attributes)

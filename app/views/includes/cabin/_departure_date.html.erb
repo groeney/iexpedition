@@ -1,6 +1,6 @@
-<div class="departure-date flex flex-center">
+<a class="departure-date flex flex-center" target="blank" href="<%= voyage_path(voyage) %>">
   <label class="departure-item" for="">
-    <input type="radio" name="dates" <%= checked ? "checked" : ""%>>
+    <input type="radio" name="alternative_voyages" <%= checked ? "checked" : ""%> data-voyage-id="<%= voyage.id %>">
     <span><%= [start_date.strftime('%d %b'), end_date.strftime('%d %b %Y')].join(' - ') %></span>
   </label>
-</div>
+</a>

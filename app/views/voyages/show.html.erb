@@ -87,6 +87,6 @@
     <h5 class="divider">
       <span>Departure Dates & Cabins</span>
     </h5>
-    <%= render partial: "includes/voyage/cabins_layout", locals: { voyage: @voyage, date_bundle: @voyage.alternative_dates } %>
+    <%= render partial: "includes/voyage/cabins_layout", locals: { voyage: @voyage, alternative_voyages: @voyage.alternative_voyages } %>
   </div>
 </div>

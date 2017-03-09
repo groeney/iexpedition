@@ -1,6 +1,6 @@
 <div class="custom-container container mt64">
   <div class="departure-layout flex flex-wrap">
-    <%= render partial: "includes/cabin/departure_dates", locals: { voyage: voyage, date_bundle: date_bundle }%>
+    <%= render partial: "includes/cabin/departure_dates", locals: { voyage: voyage, alternative_voyages: alternative_voyages }%>
 
     <div class="cabin-views">
       <% voyage.cabin_groupings.each do |cabin_grouping| %>

@@ -64,11 +64,15 @@ class Voyage < ApplicationRecord
     self.end_date.strftime('%d %b %Y')
   end
 
-  def alternative_dates
-    Voyage.where(name: self.name).map { |v| [v.start_date, v.end_date] }
+  def alternative_voyages
+    Voyage.where(name: self.name, ship_id: self.ship.id)
   end
 
   def gst_perc
     self.gst / 100.0
+  end
+
+  def duration
+    (self.end_date - self.start_date).to_i
   end
 end

@@ -1,0 +1,9 @@
+welcome_test:
+  id: "welcome-test"
+  subject: "Welcome to iExpedition"
+confirm_email:
+  id: "confirm-email"
+  subject: "Please confirm your email"
+reset_password:
+  id: "reset-password"
+  subject: "Reset password instructions"

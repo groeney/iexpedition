@@ -139,6 +139,7 @@ GEM
       dotenv (= 2.2.0)
       railties (>= 3.2, < 5.1)
     erubis (2.7.0)
+    excon (0.55.0)
     execjs (2.7.0)
     factory_girl (4.8.0)
       activesupport (>= 3.0.0)
@@ -190,6 +191,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
+    json (1.8.6)
     jwt (1.5.6)
     kaminari (1.0.1)
       activesupport (>= 4.1.0)
@@ -221,6 +223,9 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
+    mandrill-api (1.0.53)
+      excon (>= 0.16.0, < 1.0)
+      json (>= 1.7.7, < 2.0)
     memoist (0.15.0)
     method_source (0.8.2)
     mime-types (3.1)
@@ -390,6 +395,7 @@ DEPENDENCIES
   inherited_resources!
   jquery-rails
   listen (~> 3.0.5)
+  mandrill-api
   momentjs-rails (~> 2.9)!
   paperclip
   pg

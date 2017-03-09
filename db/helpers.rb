@@ -120,12 +120,13 @@ def new_resource(resource_name)
   puts "### New resource ### #{resource_name}"
 end
 
-def extract_feature_names(obj)
-  obj.delete(:feature_names).try(:split, ',')
+def extract_names(obj, key)
+  obj.delete(key).try(:split, ',')
 end
 
-def extract_features(obj)
-  (extract_feature_names(obj) || []).map do |feature_name|
-    Feature.find_or_create_by(name: feature_name)
+def extract_named_resources(obj, key, class_name)
+  (extract_names(obj, key) || []).map do |name|
+    klass = Object.const_get class_name
+    klass.find_or_create_by(name: name)
   end
 end

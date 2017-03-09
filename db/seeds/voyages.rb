@@ -18,15 +18,28 @@ Dir["./db/seeds/data/*voyages-#{TYPE}.csv"].each do |fn|
                                   missing_data("Region", region_name) if region.nil?
                                   region
                                }
+    inclusions = extract_named_resources(cabin_obj, :inclusion_names, "Inclusion")
+    exclusions = extract_named_resources(cabin_obj, :exclusion_names, "Exclusion")
+
     voyage_obj.merge!({
       destination: destination,
       ship: ship,
     })
 
     singleton = create_singleton("Voyage", voyage_obj)
+
     regions.each do |region|
-      associate_singleton_with_collection(singleton.regions, region) if !region.nil?
+      associate_singleton_with_collection(singleton.regions, region) unless region.nil?
     end
-    associate_singleton_with_collection(ship.voyages, singleton) if !ship.nil?
+
+    inclusions.each do |inclusion|
+      associate_singleton_with_collection(singleton.inclusions, inclusion) unless inclusion.nil?
+    end
+
+    exclusions.each do |exclusion|
+      associate_singleton_with_collection(singleton.exclusions, exclusion) unless exclusion.nil?
+    end
+
+    associate_singleton_with_collection(ship.voyages, singleton) unless ship.nil?
   end
 end

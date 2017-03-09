@@ -35,8 +35,8 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit([:sign_in, :sign_up]) do |user_params|
-      user_params.permit(:first_name, :last_name, :email, { registration_options: [:email_newsletter, :accept_privacy_policy] })
+    devise_parameter_sanitizer.permit(:sign_up) do |user_params|
+      user_params.permit(:first_name, :last_name, :email, :email_newsletter, :accept_privacy_policy, :password)
     end
   end
 

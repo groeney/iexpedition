@@ -1,0 +1,354 @@
+@import 'variables.scss';
+
+.registration {
+  background-image: url('/sign_in.png');
+  background-position: center center;
+  height: 1033px;
+
+  .registration-content {
+    margin: auto;
+
+    .details {
+      width: 465px;
+      padding-left: 40px;
+      padding-right: 55px;
+
+      .email,
+      .password,
+      .name {
+        font-size: 16px;
+
+        input {
+          background: #f5f5f5;
+          border: none;
+          width: 100%;
+          height: 50px;
+          padding-left: 20px;
+          font-weight: 500;
+          margin-bottom: 16px;
+          border-radius: 0;
+          background: #fff;
+
+          &:focus {
+            outline: 2px solid #466a7e
+          }
+        }
+      }
+
+      ::-webkit-input-placeholder {color:$placeholder-color; text-transform: capitalize; font-size: 16px; font-family: 'Open sans', sans-serif;}
+      ::-moz-placeholder          {color:$placeholder-color; text-transform: capitalize; font-size: 16px; font-family: 'Open sans', sans-serif;}/* Firefox 19+ */
+      :-moz-placeholder           {color:$placeholder-color; text-transform: capitalize; font-size: 16px; font-family: 'Open sans', sans-serif;}/* Firefox 18- */
+      :-ms-input-placeholder      {color:$placeholder-color; text-transform: capitalize; font-size: 16px; font-family: 'Open sans', sans-serif;}
+
+      h2 {
+        font-size: 25px;
+        margin-bottom: 10px;
+        color: $voyage_color;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+      .animate-button {
+        width: 240px;
+        position: relative;
+        display: table;
+        overflow: hidden;
+
+        .btn {
+          padding-top: 5px;
+          height: 50px;
+          font-family: 'Raleway', sans-serif;
+          font-size: 24px;
+          width: 100%;
+          background-color: $voyage_color;
+          border: 2px solid $voyage_color;
+          margin-bottom: 0;
+          transition: all .0s ;
+
+          &:hover {
+            background-color: transparent;
+            color: $voyage_color;
+          }
+        }
+
+        &:after {
+          content: '';
+          position: absolute;
+          right: 65px;
+          width: 12px;
+          height: 12px;
+          top: 21px;
+          border-bottom: 2px solid #fff;
+          border-right: 2px solid #fff;
+          transform: rotate(-45deg);
+        }
+
+        &:hover:after{
+          transition: right .3s ease-in-out;
+          right: -10px;
+          border-color: $voyage_color;
+        }
+      }
+
+      .details-link {
+        margin-top: 10px;
+
+        a {
+          color: $voyage_color;
+          font-weight: 600;
+          font-size: 16px;
+
+          &:hover {
+            color: #398f5d;
+          }
+        }
+      }
+    }
+
+    .right-part {
+      width: 300px;
+      padding-left: 50px;
+      padding-right: 25px;
+
+      h3 {
+        margin-top: 10px;
+        font-size: 18px;
+        color: $voyage_color;
+        font-weight: 600;
+        line-height: 25px;
+      }
+
+      .google-button,
+      .facebook-button {
+        transition: transform .3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+          transform: scale(0.9)
+        }
+      }
+
+      .google-button {
+        margin-top: 13px;
+      }
+    }
+  }
+}
+
+.registrations {
+
+  .registration {
+
+    .details {
+      width: 550px;
+      background-color: $voyage_color;
+
+      h2,h3,h4, p {
+        color: #fff;
+        font-family: 'Open sans', sans-serif;
+        font-weight: 700;
+      }
+
+      h3 {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size: 24px;
+      }
+
+      h4 {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      .details-checkboxes {
+        margin-bottom: 60px;
+
+        color: #fff;
+
+        label {
+          position: relative;
+          padding-left: 20px;
+
+          input[type="checkbox"] {
+            position: absolute;
+            left: 0;
+          }
+        }
+      }
+
+      .animate-button {
+        width: 295px;
+
+        .btn {
+          color: $voyage_color!important;
+          background-color: #fff;
+
+          &:hover {
+            background-color: $voyage_color;
+            color: #fff!important;
+            border: 2px solid #fff!important;
+          }
+        }
+
+        &:after {
+          border-bottom: 2px solid $voyage_color;
+          border-right: 2px solid $voyage_color;
+          right: 20px;
+        }
+
+        &:hover:after {
+          border-bottom: 2px solid #fff;
+          border-right: 2px solid #fff;
+        }
+      }
+
+      .details-link {
+        margin-bottom: 30px;
+
+        a {
+          color: #fff;
+        }
+      }
+    }
+
+    .right-part {
+      display: flex;
+      width: 335px;
+      background-color: rgba(#fff, .5);
+
+      .centered {
+        margin: auto;
+
+        .fix-centered {
+          margin-top: -110px;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1499px) {
+
+  .registrations {
+
+    .registration {
+      background-position: 41% 100%;
+    }
+  }
+}
+
+@media only screen and (max-width: 1199px) {
+
+  .sessions {
+
+    .registration {
+      height: 800px;
+    }
+  }
+
+  .registrations {
+
+    .registration {
+      background-position: 32% 100%;
+    }
+  }
+}
+
+@media only screen and (max-width: 999px) {
+
+  .sessions {
+
+    .registration {
+      height: 640px;
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+
+  .registration {
+    background-image: url("/sign_in_small.jpg");
+    height: auto;
+    background-position: 38% 100%;
+
+    .registration-content {
+      flex-direction: column;
+      margin-left: 0;
+
+      .details-link {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .right-part {
+        margin-top: 50px;
+        padding-left: 40px;
+      }
+    }
+  }
+
+  .sessions {
+
+    .registration {
+      height: auto;
+    }
+  }
+
+  .registrations {
+
+    .registration-content {
+      width: 100%;
+
+      .details {
+        width: 100%;
+
+        .animate-button {
+          width: 100%;
+        }
+      }
+
+      .right-part {
+        margin-top: 0;
+        width: 100%;
+
+        .google-button,
+        .facebook-button {
+          width: 233px;
+          margin: 15px auto;
+        }
+
+        .centered .fix-centered {
+          margin-top: 0px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 499px) {
+
+ .registration {
+    background-position: 0% center;
+
+    .registration-content {
+      width: 100%;
+
+      .details {
+        width: 100%;
+        padding-left: 30px;
+        padding-right: 30px;
+
+        .animate-button {
+          width: 100%;
+
+          .btn {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}

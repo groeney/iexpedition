@@ -4,17 +4,36 @@
     <h2 style="font-weight: bolder;">Login</h2>
   </div>
 </section>
+<section class="registration flex">
+  <div class="registration-content container custom-container flex">
+    <div class="details">
+      <h2>Enter your details</h2>
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-inputs">
+          <%= f.input :email, required: false, autofocus: true, label: false, placeholder: 'Email' %>
+          <%= f.input :password, required: false, label: false, placeholder: 'Password' %>
+          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        </div>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email, required: false, autofocus: true %>
-    <%= f.input :password, required: false %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        <div class="form-actions">
+          <div class="animate-button">
+            <%= f.button :submit, "LOGIN" %>
+          </div>
+        </div>
+      <% end %>
+      <div class="details-link">
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+    <div class="right-part">
+      <h3>Or sign with Facebook or Google to get started now</h3>
+      <div class="facebook-button">
+        <%= image_tag("buttons/facebook_button.png") %>
+      </div>
+      <div class="google-button">
+        <%= image_tag("buttons/google_button.png") %>
+      </div>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</section>

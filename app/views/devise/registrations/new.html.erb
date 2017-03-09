@@ -4,18 +4,49 @@
     <h2 style="font-weight: bolder;">Register</h2>
   </div>
 </section>
+<section class="registration flex">
+  <div class="registration-content container custom-container flex">
+     <div class="details">
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+        <h3>My iX</h3>
+        <h4>Your expedition starts here</h4>
+        <p>Create your My iX now and receive a $250 expedition voucher! We’ll also keep you up to date with our latest expedition news and inform you of expedition promotions before they are on Expedition.com. Your saved voyages in your My iX will be available across all of your deviced too.</p>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+        <h2>Enter details</h2>
+        <div class="form-inputs">
+          <%= f.input :first_name, required: true, autofocus: true, label: false, placeholder: 'First name' %>
+          <%= f.input :last_name, required: true, autofocus: true, label: false, placeholder: 'Last name' %>
+          <%= f.input :email, required: true, label: false, placeholder: 'Email' %>
+          <%= f.input :password, required: true, label: false, placeholder: 'Password'%>
+          <div class="details-checkboxes">
+            <%= f.input :email_newsletter, as: :boolean, boolean_style: :inline, label: "Tick here if you wish to receive material from us" %>
+            <%= f.input :accept_privacy_policy, as: :boolean, boolean_style: :inline, label: "I understand that iX will treat the information that I provide in accordance with their privacy policy", label_html: { style: "display:inline;" } %>
+          </div>
+        </div>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+        <div class="form-actions">
+          <div class="animate-button">
+            <%= f.button :submit, "Create Account", class: "dark-submit-btn" %>
+          </div>
+        </div>
+      <% end %>
+      <div class="details-link">
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+    <div class="right-part">
+      <div class="centered">
+        <div class="fix-centered">
+          <h3>Or sign with Facebook or Google to get started now</h3>
+          <div class="facebook-button">
+            <%= image_tag("buttons/facebook_button.png") %>
+          </div>
+          <div class="google-button">
+            <%= image_tag("buttons/google_button.png") %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up", class: "dark-submit-btn" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</section>

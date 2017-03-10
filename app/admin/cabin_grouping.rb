@@ -10,8 +10,14 @@ ActiveAdmin.register CabinGrouping do
     column "Voyage" do |cg|
       link_to cg.voyage.identifier_s, admin_voyage_path(cg.voyage)
     end
+    column "Voyage ID" do |cg|
+      cg.voyage_id
+    end
     column "Cabin" do |cg|
       link_to cg.cabin.identifier_s, admin_cabin_path(cg.cabin)
+    end
+    column "Cabin ID" do |cg|
+      cg.cabin_id
     end
     actions
   end

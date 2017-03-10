@@ -8,6 +8,7 @@ ActiveAdmin.register Cabin do
 
   index do
     selectable_column
+    column :id
     column :name
     column :price
     column :single_supplement
@@ -19,6 +20,7 @@ ActiveAdmin.register Cabin do
 
   show do |cabin|
     attributes_table do
+      row :id
       row :name
       row :price
       row :single_supplement

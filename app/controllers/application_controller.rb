@@ -9,7 +9,10 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(_resource)
-    dashboard_home_path
+    unless _resource.class.name == "AdminUser"
+      return dashboard_home_path
+    end
+    root_path
   end
 
   def after_sign_out_path_for(_resource)

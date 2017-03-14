@@ -2,6 +2,7 @@ require_relative "../helpers"
 require "csv"
 
 Dir["./db/seeds/data/*voyages-#{TYPE}.csv"].each do |fn|
+  new_file(fn)
   CSV.foreach(fn, :headers => true) do |row|
     voyage_obj = clean_data row.to_hash.symbolize_keys!
     operator = extract_resource("Operator", voyage_obj, "operator_name")
@@ -18,8 +19,8 @@ Dir["./db/seeds/data/*voyages-#{TYPE}.csv"].each do |fn|
                                   missing_data("Region", region_name) if region.nil?
                                   region
                                }
-    inclusions = extract_named_resources(cabin_obj, :inclusion_names, "Inclusion")
-    exclusions = extract_named_resources(cabin_obj, :exclusion_names, "Exclusion")
+    inclusions = extract_named_resources(voyage_obj, :inclusion_names, "Inclusion")
+    exclusions = extract_named_resources(voyage_obj, :exclusion_names, "Exclusion")
 
     voyage_obj.merge!({
       destination: destination,

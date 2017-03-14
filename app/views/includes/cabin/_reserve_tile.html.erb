@@ -1,7 +1,7 @@
 <div class="cabin-view flex">
   <div class="cabin-view-img">
     <%= image_tag(cabin.image.url, class: "departure-cabin-img") %>
-    <div class="<%= cabin.notice_class %>-block"></div>
+    <div class="<%= cabin_grouping.notice_class %>-block"></div>
   </div>
   <div class="cabin-view-content flex flex-column">
     <h3><%= cabin.name %></h3>

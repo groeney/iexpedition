@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170307095727) do
+ActiveRecord::Schema.define(version: 20170314135742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,27 +85,28 @@ ActiveRecord::Schema.define(version: 20170307095727) do
   create_table "cabin_groupings", force: :cascade do |t|
     t.integer  "voyage_id"
     t.integer  "cabin_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "availability",    default: 5, null: false
+    t.integer  "discount_amount", default: 0, null: false
     t.index ["cabin_id"], name: "index_cabin_groupings_on_cabin_id", using: :btree
     t.index ["voyage_id"], name: "index_cabin_groupings_on_voyage_id", using: :btree
   end
 
   create_table "cabins", force: :cascade do |t|
-    t.string   "name",                             null: false
-    t.float    "price",                            null: false
-    t.float    "single_supplement",  default: 1.0, null: false
+    t.string   "name",                                     null: false
+    t.float    "price",                                    null: false
+    t.float    "single_supplement",        default: 1.0,   null: false
     t.text     "description"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.integer  "square_meter"
     t.text     "overview"
-    t.integer  "discount_amount",    default: 0
-    t.integer  "availability",       default: 5
+    t.boolean  "dedicated_sole_occupancy", default: false, null: false
   end
 
   create_table "coupons", force: :cascade do |t|

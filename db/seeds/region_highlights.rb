@@ -1,5 +1,6 @@
 require "csv"
 Dir["./db/seeds/data/*region-highlights-#{TYPE}.csv"].each do |fn|
+  new_file(fn)
   CSV.foreach(fn, :headers => true) do |row|
     highlight_obj = clean_data row.to_hash.symbolize_keys!
     destination = extract_resource("Region", highlight_obj, "region_name")

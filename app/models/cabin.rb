@@ -21,16 +21,4 @@ class Cabin < ApplicationRecord
   def square_feet
     (self.square_meter || 0) * 10.7639 # conversion rate from google
   end
-
-  def notice_class
-    return "sale" if self.discount_amount > 0
-    case self.availability
-    when 0..1
-      "on-request"
-    when 2..4
-      "limited"
-    else
-      "available"
-    end
-  end
 end

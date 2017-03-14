@@ -99,7 +99,8 @@ end
 
 def clean_data(obj)
   date_keys = [:start_date, :end_date, :voyage_start_date, :voyage_end_date]
-  obj.delete_if { |key,value| key == :single_supplement && value.nil? }
+  not_nullable_keys = [:single_supplement, :availability, :dedicated_sole_occupancy, :discount_amount]
+  obj.delete_if { |key,value| not_nullable_keys.include?(key) && value.nil? }
   obj.update(obj) {
     |key,value| (date_keys.include?(key) && !value.nil?) ? Date.parse(value) : value
   }
@@ -118,6 +119,10 @@ end
 
 def new_resource(resource_name)
   puts "### New resource ### #{resource_name}"
+end
+
+def new_file(filename)
+  puts "### New file ### #{filename}"
 end
 
 def extract_names(obj, key)

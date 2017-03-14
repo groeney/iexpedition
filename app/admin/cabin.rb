@@ -1,6 +1,6 @@
 ActiveAdmin.register Cabin do
 
-  permit_params :name, :price, :single_supplement, :description, :square_meter, :overview, :image
+  permit_params :name, :price, :single_supplement, :description, :square_meter, :overview, :image, :dedicated_sole_occupancy
   filter :name
   filter :price
   filter :single_supplement
@@ -12,6 +12,7 @@ ActiveAdmin.register Cabin do
     column :name
     column :price
     column :single_supplement
+    column :dedicated_sole_occupancy
     column "Image", sortable: false do |cabin|
       link_to "<img src='#{cabin.image.url}' alt='cabin image' style='height:48px;display:block;margin-left:auto;margin-right:auto;'".html_safe, cabin.image.url
     end
@@ -30,6 +31,7 @@ ActiveAdmin.register Cabin do
       row :image do
         image_tag(cabin.image.url)
       end
+      row :dedicated_sole_occupancy
     end
   end
 
@@ -42,6 +44,7 @@ ActiveAdmin.register Cabin do
       f.input :square_meter
       f.input :overview
       f.input :image, hint: f.cabin.image? ? image_tag(f.cabin.image.url, height: "100") : content_tag(:span, "Upload JPG/PNG/GIF image")
+      f.input :dedicated_sole_occupancy
     end
     f.actions
   end

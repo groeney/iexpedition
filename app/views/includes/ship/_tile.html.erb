@@ -14,8 +14,8 @@
   </div>
   <div class="ship-footer">
     <a href="<%= ship_path(ship) %>"><span>Explore</span></a>
-    <span class="voyage-star">
-      <%= image_tag("star.png", :data => { :toggle => "tooltip" }, :title=> "add to wish list" )  %>
-    </span>
+    <a class="voyage-star favourite-ship" data-ship-id="<%= ship.id %>" data-toggle="tooltip" data-original-title="add to wishlist">
+      <i class="fa <%= ship_in_wishlist?(ship) ? 'fa-star' : 'fa-star-o' %>"></i>
+    </a>
   </div>
 </div>

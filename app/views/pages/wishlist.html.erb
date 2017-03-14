@@ -1,0 +1,15 @@
+<div class="container">
+  <h5 class="divider">
+    <span>Voyages in Wishlist</span>
+  </h5>
+  <div class="row mt32">
+    <%= render partial: "includes/horizontal_voyage_tiles", locals: { collection: @voyages } %>
+  </div>
+
+  <h5 class="divider">
+    <span>Ships in Wishlist</span>
+  </h5>
+  <div class="row mt32">
+    <%= render partial: "includes/horizontal_ship_tiles", locals: { collection: @ships } %>
+  </div>
+</div>

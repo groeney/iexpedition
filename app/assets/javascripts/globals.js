@@ -16,4 +16,32 @@ $(document).on('turbolinks:load', function(){
     $(this).find('.ship-hover').removeClass('animate')
     $(this).find('.ship-header').removeClass('animate')
   });
+
+  $('.favourite-voyage').on('click', function(){
+    var KEY = 'favourite_voyage_ids';
+    var voyageFavs = Cookies.getJSON(KEY) || [];
+    var voyageID = $(this).data('voyage-id');
+    var i = voyageFavs.indexOf(voyageID)
+    if (i > 0){
+      voyageFavs.splice(i, 1);
+    } else {
+      voyageFavs.push(voyageID);
+    }
+    Cookies.set(KEY, $.unique(voyageFavs));
+    $(this).find('i').toggleClass('fa-star fa-star-o')
+  });
+
+  $('.favourite-ship').on('click', function(){
+    var KEY = 'favourite_ship_ids';
+    var shipFavs = Cookies.getJSON(KEY) || [];
+    var shipID = $(this).data('ship-id');
+    var i = shipFavs.indexOf(shipID);
+    if (i > 0){
+      shipFavs.splice(i, 1);
+    } else {
+      shipFavs.push(shipID);
+    }
+    Cookies.set(KEY, $.unique(shipFavs));
+    $(this).find('i').toggleClass('fa-star fa-star-o')
+  });
 });

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "search/ships" => "search#ships", as: :search_ships
   get "search" => "pages#search"
   get "ship_listing" => "pages#ship_listing"
+  get "wishlist" => "pages#wishlist"
   resources :voyages, only: [:show]
   resources :destinations, only: [:show]
   resources :ships, only: [:show]

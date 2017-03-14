@@ -30,3 +30,4 @@
 //= require search
 //= require tabs
 //= require destinations
+//= require js.cookie-2.1.3.min.js

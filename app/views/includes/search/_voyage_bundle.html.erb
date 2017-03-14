@@ -17,8 +17,8 @@
       </table>
       <div class="search-explore-buttons flex">
         <a href="<%= voyage_path(voyage) %>" class="search-explore-button">Explore voyage</a>
-        <div class="search-star flex" data-voyage-id="<%= bundle.first.id %>">
-          <%= image_tag("star.png", :data => { :toggle => "tooltip" }, :title=> "add to wish list" ) %>
+        <div class="search-star flex favourite-voyage" data-voyage-id="<%= bundle.first.id %>">
+          <i class="fa <%= voyage_in_wishlist?(voyage) ? 'fa-star' : 'fa-star-o' %>"></i>
         </div>
       </div>
     </div>

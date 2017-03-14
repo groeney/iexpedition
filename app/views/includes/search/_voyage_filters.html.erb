@@ -4,10 +4,6 @@
       <!-- Region filter  -->
       <%= render partial: "includes/search/checkbox_filter", locals: { group_name: "regions", filter_name: "select regions", labels: @destination.regions.pluck(:name), values: @destination.regions.pluck(:id), selected: @voyage_filter_params[:regions].try(:map) { |e| e.to_i } } %>
 
-      <!-- Voyage itinerary filter  -->
-      <% voyages = Voyage.destinations(@destination.id) %>
-      <%= render partial: "includes/search/checkbox_filter", locals: { group_name: "names", filter_name: "voyage itinerary", values: voyages.pluck(:name).uniq, selected: @voyage_filter_params[:names] } %>
-
       <!-- Passenger capacity filter  -->
       <%= render partial: "includes/search/radio_button_filter", locals: { group_name: "passenger_capacity", filter_name: "ship passengers numbers", values: [[0, 60], [61, 140], [141, 200], [201, Float::INFINITY]], labels: ["Up to 60", "60 – 140", "140 – 200", "201+"], selected: @voyage_filter_params[:passenger_capacity] } %>
 
@@ -19,6 +15,7 @@
       <!-- <%= render partial: "includes/search/radio_button_filter", locals: { group_name: "solo_traveller", filter_name: "solo traveller", values: [1, 2, 3], labels: ["Bingo", "Bango", "Bongo"] } %> -->
 
       <!-- Embarkation point filter  -->
+      <% voyages = Voyage.destinations(@destination.id) %>
       <%= render partial: "includes/search/checkbox_filter", locals: { group_name: "embark_ports", filter_name: "departing from", values: voyages.pluck(:embark_port).uniq, selected: @voyage_filter_params[:embark_ports] } %>
 
       <!-- Highlights filter  -->

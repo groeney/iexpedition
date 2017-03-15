@@ -1,11 +1,11 @@
 <section style="text-align: center;">
   <div class="row">
     <h5>Favourite Voyages</h5>
-    <%= render partial: "includes/horizontal_voyage_tiles", locals: { collection: Voyage.first(5) } %>
+    <%= render partial: "includes/horizontal_voyage_tiles", locals: { collection: @voyages } %>
   </div>
 
   <div class="row">
     <h5>Favourite Ships</h5>
-    <%= render partial: "includes/horizontal_ship_tiles", locals: { collection: Ship.first(5) } %>
+    <%= render partial: "includes/horizontal_ship_tiles", locals: { collection: @ships } %>
   </div>
 </section>

@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { confirmations: "confirmations" }
+  devise_for :users, controllers: {
+    confirmations: "confirmations",
+    sessions: "sessions"
+  }
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   get "search/voyages" => "search#voyages", as: :search_voyages

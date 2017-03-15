@@ -21,7 +21,8 @@ class DashboardController < ApplicationController
   end
 
   def wishlist
-
+    @voyages = Voyage.where(id: JSON.parse(cookies[:favourite_voyage_ids] || []))
+    @ships = Ship.where(id: JSON.parse(cookies[:favourite_ship_ids] || []))
   end
 
   def update_details

@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get "expedition_travel" => "pages#expedition_travel"
   post "contact/create" => "contact_requests#create", as: :create_contact
   get "arctic" => "pages#arctic_page"
+  get "about" => "pages#about_us"
+  get "about_us" => "pages#about_us"
   resources :voyages, only: [:show]
   resources :destinations, only: [:show]
   resources :ships, only: [:show]

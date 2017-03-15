@@ -17,6 +17,14 @@ $(document).on('turbolinks:load', function(){
     $(this).find('.ship-header').removeClass('animate')
   });
 
+  $('.image-region').hover(
+    function() {
+      $(this).find('.regions-info-hover').addClass('animate')
+  }, function() {
+    $(this).find('.regions-info-hover').removeClass('animate')
+  });
+
+
   $('.favourite-voyage').on('click', function(){
     var KEY = 'favourite_voyage_ids';
     var voyageFavs = Cookies.getJSON(KEY) || [];

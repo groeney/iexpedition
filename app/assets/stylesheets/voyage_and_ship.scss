@@ -15,12 +15,13 @@
 }
 
 .voyage-name,
-.ship-pile {
+.ship-pile,
+.image-region {
   overflow: hidden;
   position: relative;
 
   .voyage-header,
-  .ship-header{
+  .ship-header {
     position: absolute;
     top: 0;
     width: 100%;
@@ -56,7 +57,8 @@
   }
 
   .voyage-hover,
-  .ship-hover {
+  .ship-hover,
+  .regions-info-hover {
     padding: 20px;
     position: absolute;
     width: 100%;

@@ -1,0 +1,64 @@
+<div class="container-fluid presentation-header about flex">
+  <div class="large-container container flex">
+    <h1>About us</h1>
+  </div>
+</div>
+<section class="about_description text-center">
+  <div class="container container-max-935">
+    <div class="row">
+      <div class="col-xs-12 no-horz-pad">
+        <hr class="bold-short-line"/>
+        <h2>
+          At iExpedition we are dedicated to providing the best land and sea based expeditions!
+        </h2>
+        <p>
+          Our unique understanding of the expedition industry, allows us the position to present an array of experiences that are most well suited to you. As an adventurer you will have access to online availability on select expeditions, across an extensive and unique collection of once in a lifetime experiences through iExpedition. Our online advanced search platform, allows you to easily find expeditions that tick all your important boxes, check availability on select expeditions and reserve/book online with ease.
+        </p>
+        <p>
+          Our dedicated expedition team are available 7 days a week and aren’t just experts in Polar destinations, we have extensive knowledge in the following destinations too.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="about-regions text-center">
+  <div class="container no-horz-pad">
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>
+          Select a region below to find out more
+        </h2>
+        <div class="down-border-arrow"></div>
+        <div class="regions-container flex">
+          <div class="container-fluid no-horz-pad arctic-lightbox relative">
+            <%= render partial: "includes/region/regions", locals: { regions: Region.all } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="following_us text-center">
+   <div class="container container-max-935">
+    <div class="row">
+      <div class="col-xs-12">
+        <hr class="bold-short-line"/>
+        <h2>
+          Sign up for our newsletter, join us on Facebook and follow us on Instagram to keep up to date on the latest expedition news, promotions and availability.
+        </h2>
+
+        <div class="following-items">
+          <div class="facebook-item">
+            <%= image_tag("about/facebook_logo.png") %>
+          </div>
+          <div class="instagram-item">
+            <%= image_tag("about/instagram_logo.png") %>
+          </div>
+          <div class="newsletter-item">
+            <%= image_tag("about/newsletter_logo.png") %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

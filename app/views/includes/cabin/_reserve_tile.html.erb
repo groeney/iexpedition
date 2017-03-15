@@ -18,7 +18,9 @@
     </div>
     <div class="cabin-view-buttons flex">
       <a href="<%= checkout_cabins_path(cabin_grouping.id) %>" class="cabin-view-reserve">Reserve</a>
-      <a href="<%= checkout_cabins_path(cabin_grouping.id) %>" class="cabin-view-confirm">Confirm</a>
+      <% if cabin_grouping.availability >= 5 %>
+        <a href="<%= checkout_cabins_path(cabin_grouping.id) %>" class="cabin-view-confirm">Confirm</a>
+      <% end -%>
     </div>
   </div>
 </div>

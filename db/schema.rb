@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170322164826) do
+ActiveRecord::Schema.define(version: 20170329141245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -347,8 +347,8 @@ ActiveRecord::Schema.define(version: 20170322164826) do
     t.integer  "user_id"
     t.integer  "voyage_id"
     t.integer  "status",                       default: 0
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
     t.integer  "coupon_id"
     t.string   "deposit_invoice_link"
     t.string   "deposit_invoice_file_name"
@@ -361,6 +361,10 @@ ActiveRecord::Schema.define(version: 20170322164826) do
     t.integer  "payment_invoice_file_size"
     t.datetime "payment_invoice_updated_at"
     t.text     "payment_summary"
+    t.boolean  "solo_traveller",               default: false, null: false
+    t.float    "deposit_perc",                 default: 25.0
+    t.integer  "cabin_grouping_id"
+    t.index ["cabin_grouping_id"], name: "index_orders_on_cabin_grouping_id", using: :btree
     t.index ["coupon_id"], name: "index_orders_on_coupon_id", using: :btree
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
     t.index ["voyage_id"], name: "index_orders_on_voyage_id", using: :btree
@@ -372,7 +376,7 @@ ActiveRecord::Schema.define(version: 20170322164826) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
-    t.string   "phone"
+    t.string   "phone_number"
     t.datetime "dob"
     t.string   "nationality"
     t.datetime "created_at",    null: false
@@ -578,6 +582,7 @@ ActiveRecord::Schema.define(version: 20170322164826) do
   add_foreign_key "highlight_groupings", "highlights"
   add_foreign_key "histories", "destinations"
   add_foreign_key "order_items", "orders"
+  add_foreign_key "orders", "cabin_groupings"
   add_foreign_key "orders", "coupons"
   add_foreign_key "passengers", "order_items"
   add_foreign_key "passports", "users"

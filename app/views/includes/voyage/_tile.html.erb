@@ -15,7 +15,7 @@
     </div>
   </div>
   <div class="voyage-footer">
-    <a href="<%= voyage_path(voyage) %>"><span>Explore</span></a>
+    <a href="<%= voyage_path(voyage) %>" target="_blank"><span>Explore</span></a>
     <a data-voyage-id="<%= voyage.id %>" class="voyage-star favourite-voyage">
       <i class="fa <%= voyage_in_wishlist?(voyage) ? 'fa-star' : 'fa-star-o' %>"></i>
     </a>

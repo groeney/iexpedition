@@ -1,0 +1,35 @@
+<table class="total">
+  <tr>
+    <td>subtotal</td>
+    <td><%= order.decorate.sub_total %></td>
+  </tr>
+  <tr>
+    <td>tax</td>
+    <td><%= order.decorate.tax %></td>
+  </tr>
+  <% if order.solo_traveller %>
+    <tr>
+      <td>Single supplement fee</td>
+      <td><%= order.decorate.solo_traveller_fee %></td>
+    </tr>
+  <% end %>
+  <tr>
+    <td>deposit</td>
+    <td><%= order.decorate.deposit_perc %></td>
+  </tr>
+  <% if order.coupon.present? %>
+    <tr>
+      <td>discount</td>
+      <td><%= order.decorate.discount_amount %></td>
+    </tr>
+  <% else %>
+    <tr id="display-tr">
+      <td>discount</td>
+      <td id="discount"></td>
+    </tr>
+  <% end %>
+  <tr>
+    <td>total</td>
+    <td id="total_with_discount"><%= order.decorate.total_or_with_discount %></td>
+  </tr>
+</table>

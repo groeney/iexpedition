@@ -1,0 +1,9 @@
+<% order_items.each do |order_item| %>
+  <li>
+    <%= image_tag(order_item.productable.image.url) %>
+    <div class="description">
+      <span class="product-title"><%= order_item.productable.name %></span>
+      <span class="product-description"><%= order_item.decorate.description %></span>
+    </div>
+  </li>
+<% end %>

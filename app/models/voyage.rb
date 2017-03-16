@@ -69,7 +69,7 @@ class Voyage < ApplicationRecord
   end
 
   def gst_perc
-    self.gst / 100.0
+    (self.gst || 0.0) / 100.0
   end
 
   def duration

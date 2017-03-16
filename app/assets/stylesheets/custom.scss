@@ -429,11 +429,31 @@ footer {
 
 .horizontal-tile {
   text-align: left;
+
   .w40 {
     width: 40% !important;
   }
+
+  .md-w40 {
+    @media only screen and (min-width: 992px) {
+      width: 40% !important;
+    }
+  }
+
+  .m-md-w100 {
+    @media only screen and (max-width: 991px) {
+      width: 100% !important;
+    }
+  }
+
   .w60 {
     width: 60% !important;
+  }
+
+  .md-w60 {
+    @media only screen and (min-width: 992px) {
+      width: 60% !important;
+    }
   }
 }
 

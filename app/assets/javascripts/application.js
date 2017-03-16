@@ -34,3 +34,4 @@
 //= require contact_requests
 //= require rails.validations
 //= require rails.validations.simple_form
+//= require checkout

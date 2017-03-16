@@ -1,0 +1,6 @@
+$('.cart-overview').html("<%= j render partial: 'includes/checkout/cart_items', locals: { order_items: @order.order_items } %>");
+$('#totals_table').html("<%= j render partial: 'includes/checkout/totals_table', locals: { order: @order }  %>");
+$('#cart_table').html("<%= j render partial: 'includes/checkout/cart_table', locals: { order: @order }  %>");
+$('#order_items_count').text('<%= @order.order_items.count %>');
+$('#price').text('<%= @order.decorate.total_or_with_discount %>');
+$("#success_update_coupon_message").text('<%= message %>').fadeIn().delay(5000).fadeOut();

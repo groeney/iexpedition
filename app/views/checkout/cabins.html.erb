@@ -1,16 +1,53 @@
 <section class="cover" style="height:150px;background:#466a7e;">
-  <div class="container mt16">
+  <div class="container custom-container mt16">
     <span>Home / Search & Filter / Voyage / Cabin & Extras</span>
     <h2 style="font-weight: bolder;">Cabin & Extras</h2>
   </div>
 </section>
 
-<div class="container">
-  <%= render partial: "includes/checkout/cart" %>
-  <hr>
-  <div class="row">
-    <%= render partial: "includes/checkout/voyage_tile", locals: { voyage: @cabin_grouping.voyage, cabin: @cabin_grouping.cabin } %>
+<section class="select_cabin">
+  <div class="container custom-container">
+    <div class="row md-flex">
+      <div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="image-slider slider-thumb-controls controls-inside">
+          <div class="flex-viewport">
+            <ul class="slides">
+              <li data-thumb="<%= @cabin_grouping.cabin.image.url(:thumb) %>" class="clone" aria-hidden="true">
+                <%= image_tag(@cabin_grouping.cabin.image.url) %>
+              </li>
+              <% @cabin_grouping.cabin.gallery_images.each do |gallery_image| %>
+                <li data-thumb="<%= gallery_image.url(:thumb) %>" class="clone" aria-hidden="true">
+                  <%= image_tag(gallery_image.url(:thumb)) %>
+                </li>
+              <% end -%>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <%= render partial: "includes/checkout/voyage_tile", locals: { voyage: @cabin_grouping.voyage, cabin: @cabin_grouping.cabin } %>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="steps">
+          <div class="short-line"></div>
+          <div class="sipmle-step fill">
+            <span>1. Select your cabin</span>
+          </div>
+          <div class="long-line"></div>
+          <div class="sipmle-step">
+            <span>2. Choose your extras</span>
+          </div>
+          <div class="long-line"></div>
+          <div class="sipmle-step">
+            <span>3. Confirm your reservation</span>
+          </div>
+          <div class="long-line"></div>
+          <div class="sipmle-step">
+            <span>4. Personal details & deposit payment</span>
+          </div>
+          <div class="short-line"></div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <a href="<%= checkout_extras_path %>" class="btn">Continue</a>
-</div>
+</section>

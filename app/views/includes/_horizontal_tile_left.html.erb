@@ -1,15 +1,15 @@
 <% is_checkout_activity = (controller_name == "checkout") && (resource.class.name == "Activity") %>
 <% is_order_item = resource.class.name == "OrderItem" %>
 <% image = is_order_item ? resource.productable.image : resource.image %>
-<div class="horizontal-tile">
-  <div class="tile-left <%= is_checkout_activity ? 'w60' : 'w40' %>">
+<div class="horizontal-tile md-flex">
+  <div class="tile-left <%= is_checkout_activity ? 'md-w60 m-md-w100 flex-column' : 'md-w40 m-md-w100 flex-column' %>">
     <a href="#">
       <div class="background-image-holder fadeIn" style="background: url("<%= image %>");">
         <img alt="image" class="background-image" src="<%= image %>" style="display: none;">
       </div>
     </a>
   </div>
-  <div class="tile-right bg-secondary <%= is_checkout_activity ? 'w40' : 'w60' %>">
+  <div class="tile-right bg-secondary <%= is_checkout_activity ? 'md-w40 m-md-w100 flex-column' : 'md-w60 m-md-w100 flex-column' %>">
     <%= render partial: "includes/horizontal_tile_text", locals: { resource: resource } %>
     <% if is_checkout_activity %>
       <%= render partial: "includes/checkout/order_activity_form", locals: { resource: resource } %>

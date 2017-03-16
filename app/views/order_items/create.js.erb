@@ -1,2 +1,3 @@
-$('#order-item-<%= @order_item.id %>').remove();
-$('#cart').append("<%= j render(partial: 'includes/checkout/cart_item', locals: { order_item: @order_item }) %>");
+$('.cart-overview').html("<%= j render partial: 'includes/checkout/cart_items', locals: { order_items: @order.order_items } %>");
+$('#order_items_count').text('<%= @order.order_items.count %>');
+$('#price').text('<%= @order.decorate.total_or_with_discount %>');

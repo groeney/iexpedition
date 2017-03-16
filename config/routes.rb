@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   resources :voyages, only: [:show]
   resources :destinations, only: [:show]
   resources :ships, only: [:show]
+  resources :orders, only: [:update]
   resources :order_items, only: [:create, :update, :destroy]
   resources :favourite_voyages, only: [:create, :destroy]
   resources :favourite_ships, only: [:create, :destroy]
@@ -32,6 +33,8 @@ Rails.application.routes.draw do
   get "checkout/cart" => "checkout#cart"
   get "checkout/confirm" => "checkout#confirm"
   post "checkout/signup" => "checkout#signup"
+  post "checkout/apply_coupon" => "checkout#apply_coupon", as: :apply_coupon
+  delete "checkout/remove_order_item/:id" => "checkout#remove_order_item", as: :remove_order_item
 
   get "dashboard/home" => "dashboard#home"
   get "dashboard/personal_details" => "dashboard#personal_details"

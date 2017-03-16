@@ -1,11 +1,96 @@
 <section class="cover" style="height:150px;background:#466a7e;">
-  <div class="container mt16">
+  <div class="custom-container container mt16">
     <span>Home / Search & Filter / Voyage / Cabins / Extras / Cart</span>
     <h2 style="font-weight: bolder;">Cart</h2>
   </div>
 </section>
 
-<div class="container">
-  <%= render partial: "includes/checkout/cart" %>
-  <a href="<%= checkout_confirm_path %>" class="btn">Confirm</a>
-</div>
+<section class="select_cart">
+  <div class="container custom-container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="steps">
+          <div class="short-line"></div>
+          <div class="sipmle-step fill">
+            <span>1. Select your cabin</span>
+          </div>
+          <div class="long-line"></div>
+          <div class="sipmle-step fill">
+            <span>2. Choose your extras</span>
+          </div>
+          <div class="long-line"></div>
+          <div class="sipmle-step fill">
+            <span>3. Confirm your reservation</span>
+          </div>
+          <div class="long-line"></div>
+          <div class="sipmle-step">
+            <span>4. Personal details & deposit payment</span>
+          </div>
+          <div class="short-line"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row md-flex">
+      <div class="col-lg-6 flex flex-column cart-description">
+        <h3>Your cart</h3>
+        <p>
+          Confirm your booking now with the required deposits or request an obligation free reservation. Our obligation free reservations are available for 72 hours and allow you the time to consider your expedition and discuss in detail with your travel companions.
+        </p>
+      </div>
+      <div class="col-lg-6 bubble">
+        <p class="bubble-top">Nees to speak with an expert?</p>
+        <p class="bubble-middle">Call us now on 1300 123 321</p>
+        <p class="bubble-bottom">
+          or <br>
+          Use our LiveChart at the bottom of your screen
+        </p>
+      </div>
+    </div>
+
+    <div class="row mt64">
+      <div class="col-xs-12 mt64" id="cart_table">
+      <%= render partial: "includes/checkout/cart_table", locals: { order: @order } %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-5 col-sm-6">
+      <%= simple_form_for :coupon, url: apply_coupon_path, method: :post, remote: true, class: 'form-coupon' do |f| %>
+        <div class="coupon-code flex">
+          <div class="coupon-name">coupon code</div>
+          <%= f.input :code, label: false, input_html: { class: 'w-100' } %>
+        </div>
+        <%= f.submit 'Apply', class: 'btn btn-filled btn-short' %>
+      <% end %>
+      </div>
+      <div class="col-lg-4 col-md-2 col-sm-6"></div>
+      <div class="col-lg-4 col-md-5 col-sm-6" id="totals_table">
+        <%= render partial: "includes/checkout/totals_table", locals: { order: @order } %>
+      </div>
+    </div>
+    <div class="alert alert-success alert-dismissible" id="success_update_coupon_message" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="alert alert-danger alert-dismissible" id="error_update_coupon_message" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="row mt32">
+      <div class="col-lg-4 col-md-5 col-sm-6">
+      	<div class="buttons-group return">
+        	<a href="<%= checkout_extras_path %>" class="btn btn-short">Return</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-2 col-sm-6"></div>
+      <div class="col-lg-4 col-md-5 col-sm-6">
+        <div class="buttons-group flex">
+          <div class="btn mr8i">Reserve</div>
+          <a href="<%= checkout_confirm_path %>" class="btn btn-filled">confirm</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

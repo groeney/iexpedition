@@ -51,43 +51,32 @@
         <i class="ti-star icon"></i>
       <% end -%>
       <div class="module widget-handle cart-widget-handle right">
-        <div class="cart">
-          <i class="ti-bag"></i>
-          <span class="label number">2</span>
-        </div>
-        <div class="function">
-          <div class="widget">
-            <ul class="cart-overview">
-              <li>
-                <a href="#">
-                  <%= image_tag('ships_cabin.png')%>
-                  <div class="description">
-                    <span class="product-title">Premium Cabin</span>
-                    <span class="product-description">Lorem ipsum dolor sit amet, consectetur adipisicing.</span>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <%= image_tag("ship-listing.png")%>
-                  <div class="description">
-                    <span class="product-title">Kayaking</span>
-                    <span class="product-description">Lorem ipsum dolor sit amet, consectetur adipisicing.</span>
-                  </div>
-                </a>
-              </li>
-            </ul>
-            <hr>
-            <hr>
-            <div class="cart-controls">
-              <div class="list-inline pull-left">
-                <span class="number">AUD $50.500</span>
-              </div>
-              <a class="btn pull-right mb12i" href="#">Checkout</a>
+        <% if @order.present? %>
+            <div class="cart">
+              <i class="ti-bag"></i>
+              <span class="label number" id="order_items_count"><%= @order.order_items.count %></span>
             </div>
-          </div>
-          <!--end of widget-->
-        </div>
+            <div class="function">
+              <div class="widget">
+                <ul class="cart-overview">
+                  <%= render(partial: 'includes/checkout/cart_items', locals: { order_items: @order.order_items }) %>
+                </ul>
+                <hr>
+                <hr>
+                <div class="cart-controls">
+                  <div class="list-inline pull-left">
+                    <span class="number" id="price"><%= @order.decorate.total_or_with_discount %></span>
+                  </div>
+                  <a class="btn pull-right mb12i" href="#">Checkout</a>
+                </div>
+              </div>
+              <!--end of widget-->
+            </div>
+      <% else %>
+            <div class="cart">
+              <i class="ti-bag"></i>
+            </div>
+      <% end %>
       </div>
     </div>
   </div>

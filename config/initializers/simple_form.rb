@@ -7,6 +7,7 @@ SimpleForm.setup do |config|
   # whole input.
 
   config.wrappers :default, class: :input,
+
     hint_class: :field_with_hint, error_class: :field_with_errors do |b|
     ## Extensions enabled by default
     # Any of these extensions can be disabled for a
@@ -54,6 +55,11 @@ SimpleForm.setup do |config|
     # use the component :full_error, like:
     #
     # b.use :full_error, wrap_with: { tag: :span, class: :error }
+  end
+
+  config.wrappers :left_label do |b|
+    b.use :label
+    b.use :input
   end
 
   # The default wrapper to be used by the FormBuilder.
@@ -134,7 +140,7 @@ SimpleForm.setup do |config|
 
   # Custom wrappers for input types. This should be a hash containing an input
   # type as key and the wrapper that will be used for all inputs with specified type.
-  # config.wrapper_mappings = { string: :prepend }
+  config.wrapper_mappings = { :boolean => :left_label }
 
   # Namespaces where SimpleForm should look for custom input classes that
   # override default inputs.

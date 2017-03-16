@@ -1,9 +1,44 @@
-<span><%= cabin.name %></span>
-<% cabin_order_item = @order.cabin_order_item %>
-<%= simple_form_for cabin_order_item, method: :put, remote: true, html: { id: "qty-form" } do |f| %>
-  <%= f.hidden_field :id, value: cabin_order_item.id %>
-  <%= f.input :qty, collection: 1..10, label: false, input_html: { onchange: ("$('form#qty-form').trigger('submit.rails');") } %>
-<% end %>
-<div class="cabin-view-price flex">
-  <div class="cabin-view-price-now">AUD $<%= cabin.price %><em>pp</em></div>
+<div class="col-lg-5 col-md-8 col-sm12 flex-column">
+  <h3><%= cabin.name %></h3>
+  <h4><%= voyage.currency %> $<%= cabin.price %><em>pp</em></h4>
+  <p><%= cabin.overview %></p>
+  <% cabin_order_item = @order.cabin_order_item %>
+  <%= simple_form_for cabin_order_item, method: :put, remote: true, html: { id: "order-item-form" } do |f| %>
+    <%= f.hidden_field :id, value: cabin_order_item.id %>
+    <%= f.input :qty, collection: 1..10, label: "PASSENGERS", include_blank: false, input_html: { onchange: ("$('form#order-item-form').trigger('submit.rails');") } %>
+  <% end -%>
+  <div class="alert alert-success alert-dismissible" id="success_order_item_message" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">×</span>
+    </button>
+    Cabin quantity has been updated on your order
+  </div>
+  <div class="alert alert-danger alert-dismissible" id="error_order_item_message" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">×</span>
+    </button>
+    Something went wrong when updating cabin quantity for this order
+  </div>
+
+  <% if @order.cabin.single_supplement > 1 %>
+    <%= simple_form_for @order, method: :put, remote: true, html: { id: "order-form" } do |f| %>
+      <%= f.hidden_field :id, value: @order.id %>
+      <%= f.input :solo_traveller, label: "TRAVELLING SOLO?", label_html: { style: "padding-right: 10px;" }, input_html: { onchange: ("$('form#order-form').trigger('submit.rails');") } %>
+    <% end %>
+    <div class="alert alert-success alert-dismissible" id="success_order_message" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+      Successfully updated travelling solo
+    </div>
+    <div class="alert alert-danger alert-dismissible" id="error_order_message" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+      Something went wrong when updating travelling solo for this order
+    </div>
+  <% end -%>
+  <div class="submit">
+    <a href="<%= checkout_extras_path %>" class="btn">Continue</a>
+  </div>
 </div>

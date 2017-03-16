@@ -19,8 +19,9 @@ class OrderItemsController < ApplicationController
   end
 
   def update
-    if @order_item.update_attributes(qty: order_item_params[:qty])
-    else
+    respond_to do |format|
+      return format.js if @order_item.update_attributes(qty: order_item_params[:qty])
+      format.js { render 'error' }
     end
   end
 

@@ -1,0 +1,26 @@
+<h5>Address Details</h5>
+<div class="row">
+  <div class="col-md-6 label-in">
+    <%= a.input :unit %>
+  </div>
+  <div class="col-md-6 label-in">
+    <%= a.input :street %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 label-in">
+    <%= a.input :city %>
+  </div>
+  <div class="col-md-6 label-in">
+    <%= a.input :postcode %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 label-in">
+    <%= a.input :state %>
+  </div>
+  <div class="col-md-6 label-in">
+    <label style="display:block;" for="user_dob">Country</label>
+    <%= a.country_select :country, { include_blank: "Select Country" } %>
+  </div>
+</div>

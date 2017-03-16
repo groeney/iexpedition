@@ -25,6 +25,13 @@
   flex-direction: column;
 }
 
+.m-md-flex-column-reverse {
+  @media only screen and (max-width: 991px){
+    flex-direction: column-reverse;
+
+  }
+}
+
 .flex-between {
   justify-content: space-between;
 }
@@ -47,6 +54,34 @@
 
 .mb12i {
   margin-bottom: 12px!important;
+}
+
+.lg-flex {
+  display: block;
+  @media only screen and (max-width: 1920px) and (min-width: 1200px) {
+    display: flex;
+  }
+}
+
+.md-flex {
+  display: block;
+  @media only screen and (max-width: 1920px) and (min-width: 992px) {
+    display: flex;
+  }
+}
+
+.lg-flex {
+  display: block;
+  @media only screen and (max-width: 1920px) and (min-width: 1200px) {
+    display: flex;
+  }
+}
+
+.md-flex {
+  display: block;
+  @media only screen and (max-width: 1920px) and (min-width: 992px) {
+    display: flex;
+  }
 }
 
 .mb65 {
@@ -80,6 +115,31 @@ a {
   margin: 0 auto;
 }
 
+a.btn.btn-filled {
+  color: #fff;
+
+  &:hover {
+    background-color: #fff;
+    color: $theme_color;
+  }
+}
+
+.btn-filled {
+
+  &:hover {
+    background-color: #fff;
+    color: $theme_color;
+  }
+}
+
+.btn-short {
+  max-width: 170px;
+}
+
+.btn-h-50 {
+  height: 50px;
+}
+
 .theme-header {
   color: $theme_color;
   font-weight: 500;
@@ -100,6 +160,10 @@ hr.bold-short-line {
   margin: 0 auto;
   margin-bottom: 60px;
   opacity: 1;
+}
+
+.w-100 {
+  width: 100%!important;
 }
 
 .voyage-overview-tab,
@@ -125,7 +189,7 @@ hr.bold-short-line {
   top: -40%;
 }
 
-#mc_embed_signup{
+#mc_embed_signup {
   clear:left;
   font:14px Helvetica,Arial,sans-serif;
 }
@@ -221,6 +285,52 @@ hr.bold-short-line {
         font-size: 60px;
         line-height: 1;
       }
+    }
+  }
+}
+
+.input.select {
+  position: relative;
+}
+
+.input.select:after {
+  content: "\e64b";
+  font-family: 'themify';
+  color: #cacac9;
+  position: absolute;
+  font-size: 18px;
+  right: 20px;
+  top: 42px;
+  z-index: 2;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+}
+
+.label-in {
+  input[type="text"],
+  input[type="password"],
+  input.date.datepicker,
+  select,
+  textarea {
+    padding-left: 20px;
+    background: transparent;
+    border: 1px solid $border_color;
+    font-size: 16px;
+    border-radius: 0;
+
+    &:hover {
+      border: 1px solid $border_color;
+    }
+
+    &:active {
+      border: 1px solid $border_color;
+    }
+
+    &:focus {
+      background: transparent;
+      border: 1px solid $border_color;
+
     }
   }
 }
@@ -388,3 +498,36 @@ ul.accordion {
 }
 
 /*=====  End of Section accordion  ======*/
+
+.label-in label {
+  font-size: 24px;
+  font-family: 'Raleway', sans-serif;    
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #000;
+}
+
+#display-tr {
+  display: none;
+}
+
+/*==============================================
++=            Section alert-messages           =
++==============================================*/
+
+#success_update_coupon_message,
+#error_update_coupon_message {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 20;
+  margin-left: 10px;
+  background-color: #fff;
+  display: none;
+
+   .close {
+     margin-bottom: 0;
+   }
+}
+
+/*=====  End of Section alert-messages  ======*/

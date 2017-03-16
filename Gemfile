@@ -42,6 +42,7 @@ gem "country_select"
 gem "mandrill-api"
 gem "intercom-rails"
 gem "omniauth-facebook"
+gem "draper", "3.0.0.pre1"
 
 gem "momentjs-rails", "~> 2.9",  :github => "derekprior/momentjs-rails"
 gem "datetimepicker-rails", github: "zpaulovics/datetimepicker-rails", branch: "master", submodules: true

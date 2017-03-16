@@ -1,0 +1,17 @@
+
+.select_cabin {
+  #success_order_message, #error_order_message,
+  #success_order_item_message, #error_order_item_message {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 20;
+    margin-left: 10px;
+    background-color: #fff;
+    display: none;
+
+    .close {
+      margin-bottom: 0;
+    }
+  }
+}

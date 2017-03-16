@@ -1,0 +1,38 @@
+<h5>Passenger <%= user_counter %></h5>
+<div class="row">
+  <div class="col-md-6 gender">
+    <%= u.collection_radio_buttons "gender", [['Male'] ,['Female']], :first, :last do |b| %>
+      <div class="radio-option">
+        <span class="inner"></span>
+        <%= b.radio_button %>
+      </div>
+      <span class="pl8"><%= b.label %></span>
+    <% end %>
+  </div>
+</div>
+<div class="row name">
+  <div class="col-md-6 label-in">
+    <%= u.input :first_name %>
+  </div>
+  <div class="col-md-6 label-in">
+    <%= u.input :last_name %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 label-in">
+    <%= u.input :email, as: :string %>
+  </div>
+  <div class="col-md-6 label-in">
+    <%= u.input :phone_number, as: :string %>
+  </div>
+</div>
+<div class="row dob">
+  <div class="col-md-6 label-in">
+    <%= u.input :dob, as: :date, input_html: { class: "datepicker", readonly: "", style: "width:100%;" }, html5: true, label_html: { style: "display:block;" } %>
+  </div>
+  <div class="col-md-6 label-in">
+    <div class="input select country_select_validation">
+      <%= u.input :nationality, as: :country, include_blank: "Country of Origin" %>
+    </div>
+  </div>
+</div>

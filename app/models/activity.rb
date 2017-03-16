@@ -3,7 +3,7 @@ class Activity < ApplicationRecord
   has_many :activity_groupings, dependent: :destroy
   has_many :voyages, through: :activity_groupings
 
-  has_attached_file :image, default_url: "/assets/missing-activity.png"
+  has_attached_file :image, default_url: "/assets/missing-activity.png", styles: { original: "512x512>", thumb: "100x100>" }
   validates_attachment :image, content_type: { content_type: /\Aimage\/.*\z/ }
 
   validates_uniqueness_of :name, scope: [:price, :overview], message: ", price and overview should be unique"

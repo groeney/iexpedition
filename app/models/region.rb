@@ -9,6 +9,9 @@ class Region < ApplicationRecord
 
   validates_uniqueness_of :name
 
+  has_attached_file :image, default_url: "/assets/missing-destination-header-image.png"
+  validates_attachment :image, content_type: { content_type: /\Aimage\/.*\z/ }
+
   def identifier_s
     self.name
   end

@@ -1,0 +1,11 @@
+<section class="lb-album flex">
+  <% regions.each do |region| %>
+    <div class="wrap-li">
+      <div class="wrap-sub-li">
+        <%= image_tag(region.image.url) %>
+        <%= render partial: "includes/region/name", locals: { region: region } %>
+      </div>
+      <%= render partial: "includes/region/modal", locals: { region: region } %>
+    </div>
+  <% end -%>
+</section>

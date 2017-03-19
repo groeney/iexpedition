@@ -12,9 +12,9 @@ $(document).on('turbolinks:load', function(){
       }
     });
 
-    let top = $('.lb-album').offset().top
-    const sum = $('.lb-overlay').length
-    let order = '';
+    var top = $('.lb-album').offset().top;
+    const sum = $('.lb-overlay').length;
+    var order = '';
 
     open_modal();
     next_button();
@@ -34,10 +34,10 @@ $(document).on('turbolinks:load', function(){
     function next_button() {
       $('.next-lightbox').on('click', function(){
         if (order < sum) {
-          $(`[data-order=${+order}]`).hide()
+          $('[data-order=${+order}]').hide()
           ++order
           reset_animation()
-          $(`[data-order=${+order}]`).addClass('right').show().parent().css('top', top + 25)
+          $('[data-order=${+order}]').addClass('right').show().parent().css('top', top + 25)
         }
       })
     }
@@ -45,10 +45,10 @@ $(document).on('turbolinks:load', function(){
     function prev_button() {
       $('.prev-lightbox').on('click', function(){
         if ((order > 1) && (order <= sum)) {
-          $(`[data-order=${+order}]`).hide();
+          $('[data-order=${+order}]').hide();
           --order
           reset_animation()
-          $(`[data-order=${+order}]`).addClass('left').show().parent().css('top', top + 25);
+          $('[data-order=${+order}]').addClass('left').show().parent().css('top', top + 25);
         }
       })
     }

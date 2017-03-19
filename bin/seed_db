@@ -9,4 +9,10 @@ if [ -z "$1" ]; then
   exit 64
 fi
 
-seed_type=$1 rails db:migrate:reset db:seed &> log/seed.log && cat log/seed.log | grep -e "### Missing" -e "### Model" -e "### New" -A 1 &> log/seed_errors.log
+if [ "$RAILS_ENV" != "production" ];
+  then
+    rails db:migrate:reset
+  else
+    rails db:migrate
+fi
+seed_type=$1 rails db:seed &> log/seed.log && cat log/seed.log | grep -e "### Missing" -e "### Model" -e "### New" -A 1 &> log/seed_errors.log

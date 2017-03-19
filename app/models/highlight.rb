@@ -9,7 +9,7 @@ class Highlight < ApplicationRecord
 
   validates_attachment :image, content_type: { content_type: /\Aimage\/.*\z/ }
   validates_uniqueness_of :name
-  validates_presence_of [:name, :overview]
+  # validates_presence_of [:name, :overview]
 
   def self.highlightables
     Destination.all + Region.all + Voyage.all

@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :coupon_code do
+  factory :coupon do
 
   end
 end

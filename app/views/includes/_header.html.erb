@@ -2,12 +2,11 @@
   <div class="nav-utility">
     <div class="header-width">
       <div class="module right">
-        <a href="#" class="sub mr8">FAQs</a>
-        <a href="#" class="sub mr8">Contact Us</a>
-        <a href="#" class="sub mr8">Travel Resources</a>
-        <a href="#" class="sub mr8">Small Ships</a>
-        <a href="#" class="sub mr8">Expedition</a>
-        <a href="#" class="sub">About Us</a>
+        <%= link_to "FAQs", "#" %>
+        <%= link_to "Contact Us", contact_us_path %>
+        <%= link_to "Travel Resources", "#" %>
+        <%= link_to "Expedition Travel", "#" %>
+        <%= link_to "About Us", about_us_path %>
         <%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure you want to sign out?" } %>
       </div>
     </div>

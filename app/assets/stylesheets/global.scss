@@ -74,6 +74,23 @@ a {
   font-weight: 500;
 }
 
+.w-1030 {
+  width: 1030px;
+}
+
+.m-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+hr.bold-short-line {
+  width: 90px;
+  border-bottom: 3px solid $voyage-color;
+  margin: 0 auto;
+  margin-bottom: 60px;
+  opacity: 1;
+}
+
 .voyage-overview-tab, .voyage-vessel-tab,
 .destination-info-tab, .ship-vessel-tab,
 .ship-cabins-tab {
@@ -101,3 +118,258 @@ a {
 .tooltip {
   z-index: 1;
 }
+
+.overflow {
+  overflow: auto;
+}
+
+@media only screen and (min-width: 992px) {
+
+  .container-max-935 {
+    width: 935px;
+  }
+}
+
+@media only screen and (min-width: 1201px) {
+
+  .container-max-lg-1030 {
+    width: 1030px;
+  }
+}
+/*===========================================================
+=            Section comment presentation-header            =
+===========================================================*/
+
+.presentation-header {
+  height: 600px;
+  background-position: center center;
+  background-size: cover;
+
+  h1 {
+    float: left;
+    font-size: 110px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    color: #fff;
+    text-transform: capitalize;
+    margin-left: -111px;
+    margin-top: auto;
+    margin-bottom: 115px;
+  }
+}
+
+@media only screen and (max-width: 1800px) {
+
+  .presentation-header {
+
+    .large-container {
+      width: 100%;
+
+      h1 {
+        margin-left: 2.5%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+
+  .presentation-header .large-container h1 {
+    font-size: 80px;
+    margin-left: 0;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+
+  .presentation-header {
+    height: 400px;
+
+    .large-container {
+
+      h1 {
+        margin-left: 0.5%;
+        margin-bottom: 65px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+
+  .presentation-header {
+    height: 300px;
+
+    .large-container {
+
+      h1 {
+        font-size: 60px;
+        line-height: 1;
+      }
+    }
+  }
+}
+
+/*=====  End of Section comment presentation-header  ======*/
+
+/*====================================
+=            Section tabs            =
+====================================*/
+
+.tabbed-content.button-tabs {
+  ul.tabs {
+    display: flex;
+    align-items: stretch;
+
+    & > li {
+      width: 20%;
+
+      &.active div.tab-title {
+        background-color: $voyage-color;
+        color: #fff;
+      }
+
+      .tab-title {
+        min-width: inherit;
+        width: calc(100% - 3px);
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #ebebeb;
+        color: $voyage-color;
+        font-size: 13px;
+
+        &:hover {
+          background-color: #f9f9f9;
+        } 
+
+        span {
+          line-height: 17px;
+          text-transform: none;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+/*=====  End of Section tabs  ======*/
+
+/*=========================================
+=            Section accordion            =
+=========================================*/
+
+.expand {
+      
+  h5 {
+    color: $voyage_color;
+    font-weight: 500;
+    margin-bottom: 15px;
+
+    span {
+      font-size: 27px;
+      position: relative;
+      top: 1px;
+
+      &.relative {
+        top: 3px;
+      }
+    }
+  }
+}
+
+ul.accordion {
+
+  & > li {
+    border: 1px solid $accordeon_border_color;
+    margin-bottom: 15px;
+  }
+
+  .title {
+    position: relative;
+    border-bottom: none;
+
+    span {
+      padding-left: 50px;
+      display: block;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    &:before {
+      content: '\e61a';
+      font-size: 35px;
+      color: $accordeon_border_color;
+      position: absolute;
+      top: 10px;
+      left: 8px;
+    }
+  }
+
+  .content {
+    border-top: none;
+    padding-left: 50px;
+    padding-right: 40px;
+  }
+
+  .active {
+    border: none;
+
+    .title {
+      background-color: $voyage_color;
+
+      span {
+        color: #fff;
+      }
+
+      &:before {
+        content: '\e622';
+        color: #fff;
+      }
+    }
+
+    .content {
+      border: 1px solid $accordeon_border_color;
+      border-top: none;
+      height: auto;
+      max-height: inherit;
+      padding-bottom: 20px;
+
+      ul,
+      ol {
+        padding-left: 16px;
+        padding-top: 16px;
+
+        ul {
+          padding-top: 0px;
+        }
+      }
+
+      p {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        color: #000;
+      }
+
+      table {
+        margin-top: 16px;
+        width: 100%;
+
+        td {
+          border: 1px solid #000;
+          text-align: center;
+        }
+      }
+
+      .faq-width-65 {
+        width: 65px;
+        display: block;
+        float: left;
+      }
+    }
+  }
+}
+
+/*=====  End of Section accordion  ======*/

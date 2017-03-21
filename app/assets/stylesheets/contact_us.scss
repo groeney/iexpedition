@@ -1,22 +1,7 @@
 @import "variables.scss";
 
-.presentation-header {
-  height: 600px;
+.presentation-header.contact_us-header {
   background-image: url("/contact_us.png");
-  background-position: center center;
-  background-size: cover;
-
-  h1 {
-    float: left;
-    font-size: 110px;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 300;
-    color: #fff;
-    text-transform: capitalize;
-    margin-left: -111px;
-    margin-top: auto;
-    margin-bottom: 115px;
-  }
 }
 
 .contact_us {
@@ -269,168 +254,156 @@
       }
     }
 
-    ul.tabs {
-      display: flex;
-      align-items: stretch;
+    // ul.tabs {
+    //   display: flex;
+    //   align-items: stretch;
 
-      & > li {
-        width: 20%;
+    //   & > li {
+    //     width: 20%;
 
-        &.active .tab-title {
-          background-color: $voyage-color;
-          color: #fff;
-        }
+    //     &.active .tab-title {
+    //       background-color: $voyage-color;
+    //       color: #fff;
+    //     }
 
-        .tab-title {
-          min-width: inherit;
-          width: 100%;
-          height: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background-color: #ebebeb;
-          color: $voyage-color;
-          font-size: 13px;
+    //     .tab-title {
+    //       min-width: inherit;
+    //       width: calc(100% - 3px);
+    //       height: 100%;
+    //       display: flex;
+    //       align-items: center;
+    //       justify-content: center;
+    //       background-color: #ebebeb;
+    //       color: $voyage-color;
+    //       font-size: 13px;
 
-          span {
-            line-height: 17px;
-            text-transform: none;
-            font-weight: 500;
-          }
-        }
-      }
-    }
+    //       span {
+    //         line-height: 17px;
+    //         text-transform: none;
+    //         font-weight: 500;
+    //       }
+    //     }
+    //   }
+    // }
 
-    h5 {
-      color: $voyage_color;
-      font-weight: 500;
-      margin-bottom: 15px;
+    // .expand {
+      
+    //   h5 {
+    //     color: $voyage_color;
+    //     font-weight: 500;
+    //     margin-bottom: 15px;
 
-      span {
-        font-size: 27px;
-        position: relative;
-        top: 1px;
+    //     span {
+    //       font-size: 27px;
+    //       position: relative;
+    //       top: 1px;
 
-        &.relative {
-          top: 3px;
-        }
-      }
-    }
+    //       &.relative {
+    //         top: 3px;
+    //       }
+    //     }
+    //   }
+    // }
 
-    ul.accordion {
+    // ul.accordion {
 
-      & > li {
-        border: 1px solid $accordeon_border_color;
-        margin-bottom: 15px;
-      }
+    //   & > li {
+    //     border: 1px solid $accordeon_border_color;
+    //     margin-bottom: 15px;
+    //   }
 
-      .title {
-        position: relative;
-        border-bottom: none;
+    //   .title {
+    //     position: relative;
+    //     border-bottom: none;
 
-        span {
-          padding-left: 50px;
-          display: block;
-          font-family: 'Raleway', sans-serif;
-          font-weight: 700;
-          font-size: 18px;
-        }
+    //     span {
+    //       padding-left: 50px;
+    //       display: block;
+    //       font-family: 'Raleway', sans-serif;
+    //       font-weight: 700;
+    //       font-size: 18px;
+    //     }
 
-        &:before {
-          content: '\e61a';
-          font-size: 35px;
-          color: $accordeon_border_color;
-          position: absolute;
-          top: 10px;
-          left: 8px;
-        }
-      }
+    //     &:before {
+    //       content: '\e61a';
+    //       font-size: 35px;
+    //       color: $accordeon_border_color;
+    //       position: absolute;
+    //       top: 10px;
+    //       left: 8px;
+    //     }
+    //   }
 
-      .content {
-        border-top: none;
-        padding-left: 50px;
-        padding-right: 40px;
-      }
+    //   .content {
+    //     border-top: none;
+    //     padding-left: 50px;
+    //     padding-right: 40px;
+    //   }
 
-      .active {
-        border: none;
+    //   .active {
+    //     border: none;
 
-        .title {
-          background-color: $voyage_color;
+    //     .title {
+    //       background-color: $voyage_color;
 
-          span {
-            color: #fff;
-          }
+    //       span {
+    //         color: #fff;
+    //       }
 
-          &:before {
-            content: '\e622';
-            color: #fff;
-          }
-        }
+    //       &:before {
+    //         content: '\e622';
+    //         color: #fff;
+    //       }
+    //     }
 
-        .content {
-          border: 1px solid $accordeon_border_color;
-          border-top: none;
-          height: auto;
-          max-height: inherit;
-          padding-bottom: 20px;
+    //     .content {
+    //       border: 1px solid $accordeon_border_color;
+    //       border-top: none;
+    //       height: auto;
+    //       max-height: inherit;
+    //       padding-bottom: 20px;
 
-          ul,
-          ol {
-            padding-left: 16px;
-            padding-top: 16px;
+    //       ul,
+    //       ol {
+    //         padding-left: 16px;
+    //         padding-top: 16px;
 
-            ul {
-              padding-top: 0px;
-            }
-          }
+    //         ul {
+    //           padding-top: 0px;
+    //         }
+    //       }
 
-          p {
-            margin-bottom: 0;
-            padding-bottom: 0;
-          }
+    //       p {
+    //         margin-bottom: 0;
+    //         padding-bottom: 0;
+    //       }
 
-          table {
-            margin-top: 16px;
-            width: 100%;
+    //       table {
+    //         margin-top: 16px;
+    //         width: 100%;
 
-            td {
-              border: 1px solid #000;
-              text-align: center;
-            }
-          }
+    //         td {
+    //           border: 1px solid #000;
+    //           text-align: center;
+    //         }
+    //       }
 
-          .faq-width-65 {
-            width: 65px;
-            display: block;
-            float: left;
-          }
-        }
-      }
-    }
+    //       .faq-width-65 {
+    //         width: 65px;
+    //         display: block;
+    //         float: left;
+    //       }
+    //     }
+    //   }
+    // }
 
-    .button-tabs .tab-title:hover {
-       background: #f9f9f9;
-    }
+    // .button-tabs .tab-title:hover {
+    //    background: #f9f9f9;
+    // }
   }
 }
 
 @media only screen and (max-width: 1800px) {
-
-  .presentation-header h1 {
-    margin-left: 0;
-  }
-
-  .presentation-header {
-
-    .large-container {
-      width: 100%;
-
-      h1 {
-        margin-left: 2.5%;
-      }
-    }
-  }
 
   .contact_us {
 
@@ -452,11 +425,6 @@
 }
 
 @media only screen and (max-width: 1200px) {
-
-  .presentation-header .large-container h1 {
-    font-size: 80px;
-    margin-left: 0;
-  }
 
   .contact_us {
 
@@ -533,19 +501,7 @@
 
 @media only screen and (max-width: 767px) {
 
-  .presentation-header {
-    height: 400px;
-
-    .large-container {
-
-      h1 {
-        margin-left: 0.5%;
-        margin-bottom: 65px;
-      }
-    }
-  }
-
-  .contact_us {
+  div.contact_us {
 
     .flex {
       display: block;

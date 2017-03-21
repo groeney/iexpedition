@@ -1,0 +1,165 @@
+@import "variables.scss";
+
+.travel-resources-header {
+  background-image: url("/travel_resources.png");
+
+  h1 {
+    line-height: 1;
+  }
+}
+
+.travel-resources {
+
+  h2 {
+    font-size: 30px;
+  }
+
+  .map {
+    position: relative;
+    top: 30px;
+  }
+  
+  .videos {
+
+    iframe {
+      margin-top: 24px;
+    }
+  }
+
+  ul.accordion .active .content table {
+    
+    tr {
+      border-bottom: 1px solid $border_color;
+    }
+
+    td, th {
+      border: 0px;
+      text-align: left;
+      font-size: 14px;
+      height: 50px;
+      padding-right: 50px;
+      color: #000;
+
+      em {
+        font-size: 12px;
+      }
+    }
+
+    th {
+      color: $voyage_color;
+      font-size: 16px;
+      font-weight: 600;
+      text-align: center;
+    }
+    
+    .expedia-img img{
+      min-width: 100px;
+      // max-width: auto;
+    }
+
+    &.min-pad {
+
+      td, th {
+        padding-right: 15px;
+      }
+    }
+  }
+
+  .tabbed-content.button-tabs {
+    
+    ul.tabs > li .tab-title span{ 
+      font-size: 24px;
+      line-height: 1.2;
+    }
+  }
+}
+
+@media only screen and (max-width: 1500px) {
+
+  .travel-resources {
+
+    .inherit {
+      width: inherit;
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+
+  .travel-resources {
+
+    .mt120 {
+      margin-top: 64px;
+    }
+
+    .tabbed-content.button-tabs {
+    
+      ul.tabs > li .tab-title span{ 
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 991px) {
+
+  .travel-resources {
+
+    .tabbed-content.button-tabs {
+    
+      ul.tabs > li .tab-title span{ 
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+
+  .travel-resources {
+
+    .tabbed-content.button-tabs {
+    
+      ul.tabs > li .tab-title span{ 
+        font-size: 12px;
+      }
+    }
+
+    ul.accordion .active .content table {
+      
+      td, th {
+        font-size: 12px;
+        padding-right: 20px;
+
+        br {
+          display: block;
+        }
+
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 619px) {
+
+  .travel-resources {
+
+    .tabbed-content.button-tabs {
+    
+      ul.tabs {
+        flex-direction: column;
+
+        & > li {
+          width: 100%;
+
+          .tab-title span { 
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+@import "variables.scss";
+
+.expedition-travel-header {
+  background-image: url("/expedition_travel.png");
+
+  h1 {
+    line-height: 1;
+  }
+}
+
+.expedition-travel {
+  
+  h2 {
+    font-size: 30px;
+  }
+
+  p {
+    font-size: 16px;
+    color: #000;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .expedition-travel {
+
+    .mt120 {
+      margin-top: 60px;
+    }
+  }
+}

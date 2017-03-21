@@ -13,14 +13,9 @@ Dir["./db/seeds/data/*voyages-#{TYPE}.csv"].each do |fn|
     missing_data("Ship", ship_name) if ship.nil?
 
     destination = extract_resource("Destination", voyage_obj, "destination_name")
-    region_names = (voyage_obj.delete(:region_names) || "").split(',').map { |region_name| region_name.strip }
-    regions = region_names.map { |region_name|
-                                  region = Region.find_by_name(region_name)
-                                  missing_data("Region", region_name) if region.nil?
-                                  region
-                               }
-    inclusions = extract_named_resources(voyage_obj, :inclusion_names, "Inclusion")
-    exclusions = extract_named_resources(voyage_obj, :exclusion_names, "Exclusion")
+    regions = extract_named_resources(voyage_obj, :region_names, "Region")
+    inclusions = extract_or_create_named_resources(voyage_obj, :inclusion_names, "Inclusion")
+    exclusions = extract_or_create_named_resources(voyage_obj, :exclusion_names, "Exclusion")
 
     voyage_obj.merge!({
       destination: destination,

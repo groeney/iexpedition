@@ -10,18 +10,18 @@ def create_singleton(class_name, obj)
   elsif !singleton.valid?
     resource_error(singleton)
   else
-    puts "Created #{class_name} #{singleton.name}."
+    puts "Created #{class_name} #{singleton.inspect}."
   end
   singleton
 end
 
 def associate_singleton_with_collection(collection, singleton)
   if collection.exists?(singleton.id)
-    puts "Association between #{singleton.name} and #{collection.name} already exists."
+    puts "Association between #{singleton.inspect} and #{collection.name} already exists."
   elsif !(collection << singleton)
-    raise "Could not associate #{singleton.name} with #{collection.name}."
+    raise "Could not associate #{singleton.inspect} with #{collection.name}."
   else
-    puts "Created association #{singleton.class.name} #{singleton.name}"
+    puts "Created association #{singleton.class.name} #{singleton.inspect}"
   end
   collection
 end
@@ -114,7 +114,8 @@ def missing_data(resource_type, name)
 end
 
 def resource_error(resource)
-  puts "### Model errors ### #{resource.try(:errors).try(:full_messages)}"
+  puts "### Model errors ### #{resource.try(:class).try(:name)}: #{resource.try(:errors).try(:full_messages)}"
+  puts "Details: #{resource.try(:inspect)}"
 end
 
 def new_resource(resource_name)
@@ -126,12 +127,21 @@ def new_file(filename)
 end
 
 def extract_names(obj, key)
-  obj.delete(key).try(:split, ',')
+  (obj.delete(key) || "").split(',').map { |name| name.strip }
+end
+
+def extract_or_create_named_resources(obj, key, class_name)
+  extract_names(obj, key).map do |name|
+    klass = Object.const_get class_name
+    klass.find_or_create_by(name: name)
+  end
 end
 
 def extract_named_resources(obj, key, class_name)
-  (extract_names(obj, key) || []).map do |name|
+  extract_names(obj, key).map do |name|
     klass = Object.const_get class_name
-    klass.find_or_create_by(name: name)
+    resource = klass.find_by_name(name)
+    missing_data(resource.class.name, resource) if resource.nil?
+    resource
   end
 end

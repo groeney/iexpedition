@@ -6,7 +6,7 @@ Dir["./db/seeds/data/*cabins-#{TYPE}.csv"].each do |fn|
 
     voyage = extract_voyage(cabin_obj)
     next unless voyage.try(:valid?)
-    features = extract_named_resources(cabin_obj, :feature_names, "Feature")
+    features = extract_or_create_named_resources(cabin_obj, :feature_names, "Feature")
     cabin_grouping_attrs = {
       availability: cabin_obj.delete(:availability),
       discount_amount: cabin_obj.delete(:discount_amount)

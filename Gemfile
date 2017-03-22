@@ -41,6 +41,7 @@ gem "twitter-bootstrap-rails"
 gem "country_select"
 gem "mandrill-api"
 gem "intercom-rails"
+gem "omniauth-facebook"
 
 gem "momentjs-rails", "~> 2.9",  :github => "derekprior/momentjs-rails"
 gem "datetimepicker-rails", github: "zpaulovics/datetimepicker-rails", branch: "master", submodules: true

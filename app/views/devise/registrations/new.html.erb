@@ -39,7 +39,7 @@
         <div class="fix-centered">
           <h3>Or sign with Facebook or Google to get started now</h3>
           <div class="facebook-button">
-            <%= image_tag("buttons/facebook_button.png") %>
+            <%= link_to image_tag("buttons/facebook_button.png"), user_facebook_omniauth_authorize_path %>
           </div>
           <div class="google-button">
             <%= image_tag("buttons/google_button.png") %>

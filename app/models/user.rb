@@ -1,6 +1,9 @@
 class User < ApplicationRecord
+  include User::Auth
+
   devise :database_authenticatable, :registerable, :confirmable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,
+         :omniauthable, omniauth_providers: [:facebook]
 
   validates_uniqueness_of [:email]
   has_many :orders

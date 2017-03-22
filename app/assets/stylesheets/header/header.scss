@@ -80,6 +80,19 @@
   line-height: 17px!important;
 }
 
+.module.telephone-module {
+  color: $voyage_color;
+  font-weight: 900;
+  font-size: 26px;
+  position: absolute;
+  padding-right: 0;
+  top: 25px;
+
+  .icon {
+    color: $voyage_color;
+  }
+}
+
 @media only screen and (max-width: 1345px) {
   .nav-utility {
 
@@ -92,6 +105,10 @@
     padding-right: 15px;
     padding-left: 15px;
   }
+
+  .module.telephone-module {
+    padding-right: 10px;
+  }
 }
 
 @media (max-width: 990px) {
@@ -99,6 +116,19 @@
   .widget-handle .function {
     position: absolute;
     width: auto;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .module.telephone-module {
+    top: 33px;
+    font-size: 18px;
+
+    .icon {
+      font-size: 18px;
+      color: $voyage_color;
+    }
   }
 }
 
@@ -113,9 +143,19 @@
   .logo-row {
     clear: both;
 
-    .logo.logo-dark {
-      margin-top: -10px;
-    }
+    // .logo.logo-dark {
+    //   margin-top: 0px;
+    // }
+  }
+
+  .module.telephone-module {
+    top: -15px;
+    font-size: 14px;
+
+    // .icon {
+    //   font-size: 18px;
+    //   color: $voyage_color;
+    // }
   }
 }
 

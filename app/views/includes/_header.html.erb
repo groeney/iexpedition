@@ -6,7 +6,7 @@
         <%= link_to "Contact Us", contact_us_path %>
         <%= link_to "Travel Resources", "#" %>
         <%= link_to "Expedition Travel", "#" %>
-        <%= link_to "About Us", "#" %>
+        <%= link_to "About Us","#" %>
         <%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure you want to sign out?" } %>
       </div>
     </div>
@@ -91,11 +91,17 @@
     </div>
   </div>
   <div class="text-center logo-row">
-    <a href="#">
-      <div class="vnu">
-        <%= image_tag("iexpedition-text.png", class: "logo logo-dark") %>
+    <div class="header-width relative">
+      <a href="#">
+        <div class="vnu">
+          <%= image_tag("iexpedition-text.png", class: "logo logo-dark") %>
+        </div>
+      </a>
+      <div class="module telephone-module right clear">
+        <span class="ti-headphone-alt icon"></span>
+        <span>1300 123 321</span>
       </div>
-    </a>
+    </div>
   </div>
 
   <div class="nav-bar text-center">

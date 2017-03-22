@@ -21,13 +21,44 @@ class DashboardController < ApplicationController
   end
 
   def wishlist
-    @voyages = Voyage.where(id: JSON.parse(cookies[:favourite_voyage_ids] || []))
-    @ships = Ship.where(id: JSON.parse(cookies[:favourite_ship_ids] || []))
+    @voyages = Voyage.where(id: JSON.parse(cookies[:favourite_voyage_ids] || '[]'))
+    @ships = Ship.where(id: JSON.parse(cookies[:favourite_ship_ids] || '[]'))
+  end
+
+  def payments
+    @orders = current_user.orders
+  end
+
+  def download_payment_invoice
+    order = Order.find(params[:id])
+    if order.payment_invoice.path
+      send_file(
+        order.payment_invoice.path,
+        filename: order.payment_invoice_file_name,
+        type: order.payment_invoice_content_type
+      )
+    end
+  end
+
+  def download_deposit_invoice
+    order = Order.find(params[:id])
+    if order.deposit_invoice.path
+      send_file(
+        order.deposit_invoice.path,
+        filename: order.deposit_invoice_file_name,
+        type: order.deposit_invoice_content_type
+      )
+    end
   end
 
   def update_details
-    return render json: {}, status: 422 unless update_all_details
-    render json: {}, status: 204
+    respond_to do |format|
+      if update_all_details
+        format.all { render body: nil, status: 204 }
+      else
+        format.all { render body: nil, status: 422 }
+      end
+    end
   end
 
   protected
@@ -74,15 +105,15 @@ class DashboardController < ApplicationController
   end
 
   def passport_params
-    params.fetch(:passport, {}).permit(:number, :issue_date, :expiry_date, :place_of_birth, :nationality, )
+    params.fetch(:passport, {}).permit(:number, :issue_date, :expiry_date, :place_of_birth, :nationality, :image, :visa)
   end
 
   def travel_details_pre_params
-    params.fetch(:travel_details_pre, {}).permit(:hotel_name, :hotel_address, :flight_number, :departing_airport, :departure_date, :arrival_airport, :arrival_date, :reservation_code)
+    params.fetch(:travel_details_pre, {}).permit(:hotel_name, :hotel_address, :flight_number, :departure_airport, :departure_date, :arrival_airport, :arrival_date, :reservation_code)
   end
 
   def travel_details_post_params
-    params.fetch(:travel_details_post, {}).permit(:hotel_name, :hotel_address, :flight_number, :departing_airport, :departure_date, :arrival_airport, :arrival_date, :reservation_code)
+    params.fetch(:travel_details_post, {}).permit(:hotel_name, :hotel_address, :flight_number, :departure_airport, :departure_date, :arrival_airport, :arrival_date, :reservation_code)
   end
 
   def set_personal_details_data

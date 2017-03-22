@@ -17,16 +17,16 @@
     <%= render "includes/header" %>
     <%= render "includes/flash_notices" -%>
     <section class="cover" style="height:150px;background:#466a7e;">
-      <div class="container mt16">
+      <div class="container custom-container mt16">
         <span>Home / Dashboard</span>
         <h2 style="font-weight: bolder;">My iX</h2>
       </div>
     </section>
-    <div class="container">
-      <div class="col-md-2">
+    <div class="container custom-container">
+      <div class="col-md-3">
         <%= render partial: "includes/dashboard/sidebar" %>
       </div>
-      <div class="col-md-10">
+      <div class="col-md-9">
         <%= yield %>
       </div>
     </div>

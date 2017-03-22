@@ -1,39 +1,38 @@
+<hr class="details-line with_arrow">
+<h5>Travel Details (<%= type %>)</h5>
 <div class="row">
-  <h5>Travel Details (<%= type %>)</h5>
-  <div class="row">
-    <div class="col-md-6">
-      <%= t.input :hotel_name %>
-    </div>
+  <div class="col-md-6">
+    <%= t.input :hotel_name %>
   </div>
-  <div class="row">
-    <div class="col-md-12">
-      <%= t.input :hotel_address %>
-    </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <%= t.input :hotel_address, input_html: { rows: "1" } %>
   </div>
-  <div class="row">
-    <div class="col-md-6">
-      <%= t.input :flight_number %>
-    </div>
-    <div class="col-md-6">
-      <%= t.input :reservation_code, placeholder: "ie. 6NM4BC" %>
-    </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <%= t.input :flight_number %>
   </div>
-  <div class="row">
-    <div class="col-md-6">
-      <%= t.input :departure_airport  %>
-    </div>
-    <div class="col-md-6">
-      <!-- TODO: must fix time portion of this picker -->
-      <%= t.input :departure_date, as: :datetime_picker  %>
-    </div>
+  <div class="col-md-6">
+    <%= t.input :reservation_code, placeholder: "ie. 6NM4BC" %>
   </div>
-  <div class="row">
-    <div class="col-md-6">
-      <%= t.input :arrival_airport  %>
-    </div>
-    <div class="col-md-6">
-      <!-- TODO: see :departure_date -->
-      <%= t.input :arrival_date, as: :datetime_picker %>
-    </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <%= t.input :departure_airport  %>
+  </div>
+  <div class="col-md-6">
+    <!-- TODO: must fix time portion of this picker -->
+    <%= t.input :departure_date, as: :datetime_picker  %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <%= t.input :arrival_airport  %>
+  </div>
+  <div class="col-md-6">
+    <!-- TODO: see :departure_date -->
+    <%= t.input :arrival_date, as: :datetime_picker %>
   </div>
 </div>

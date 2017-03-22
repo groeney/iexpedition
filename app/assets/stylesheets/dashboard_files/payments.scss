@@ -1,0 +1,70 @@
+@import "variables";
+
+.payments_page {
+  padding-top: 193px;
+
+  h5 {
+    font-weight: 900;
+    letter-spacing: 0.5px;
+  }
+  
+  table {
+    width: 100%;
+  }
+
+  td,
+  th {
+    height: 80px;
+    color: #000;
+    font-size: 16px;
+    padding-right: 15px;
+  }
+
+  th {
+    font-weight: 900;
+    font-family: "Raleway", sans-serif;
+  }
+
+  tr {
+    border-bottom: 1px solid $border_color;
+
+    &:first-child {
+      border-top: 1px solid $border_color;
+    }
+  }
+
+  .btn {
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: auto;
+    width: auto;
+    font-size: 16px;
+    font-weight: 400;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .payments_page {
+    padding-top: 75px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .payments_page {
+    padding-top: 50px;
+
+    td,
+    th {
+      font-size: 14px;
+    }
+    
+    .btn {
+      font-size: 14px;
+      white-space: pre-wrap;
+      line-height: 1.5;
+    }
+
+  }
+}

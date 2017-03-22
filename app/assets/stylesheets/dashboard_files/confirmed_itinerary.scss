@@ -1,0 +1,94 @@
+@import "variables";
+
+.confirmed_itinerary_page {
+  padding-top: 55px;
+
+  .btn {
+    font-size: 18px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  & > h5 {
+    margin-top: 72px;
+    font-weight: bold;
+    color: $voyage_color;
+  }
+
+  .text-uppercase {
+    font-size: 14px;
+    font-weight: 700;
+    color: #959595;
+  }
+
+  h4 {
+    text-transform: capitalize;
+    color: $voyage_color;
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  .details {
+
+    & > div {
+      margin-bottom: 24px;
+    }
+    
+    span {
+      font-size: 18px;
+      color: #000;
+    }
+  }
+
+  .tabbed-content.button-tabs ul.tabs > li .tab-title span {
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+
+  .confirmed_itinerary_page {
+    text-align: center;
+
+    .accordion {
+      text-align: left;
+    }
+
+    h4 {
+      margin-top: 24px;
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+
+  .confirmed_itinerary_page {
+
+    .tabbed-content.button-tabs ul.tabs {
+      flex-direction: column;
+
+      & > li {
+        width: 100%; 
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 479px) {
+
+  .confirmed_itinerary_page {
+
+    & > h5 {
+      margin-top: 50px;
+    }
+
+    .btn {
+      font-size: 14px;
+      min-width: 100px;
+    }
+  }
+}
+

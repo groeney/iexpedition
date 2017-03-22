@@ -1,6 +1,6 @@
-<div class="container">
-  <ul class="accordion accordion-1 one-open">
-    <% voyage.itinerary_day_groupings.group_by(&:itinerary_day_id).each do |itinerary_day_id, grouping| %>
+<ul class="accordion accordion-1 one-open clear">
+  <% if voyage %>
+    <% voyage.itinerary_day_groupings.group_by(&:itinerary_day_id).reverse_each do |itinerary_day_id, grouping| %>
       <% itinerary_day = ItineraryDay.find(itinerary_day_id) %>
       <% day_max = grouping.pluck(:day_number).max %>
       <% day_min = grouping.pluck(:day_number).min %>
@@ -14,29 +14,8 @@
           </div>
       </li>
     <% end -%>
-      <li>
-        <div class="title">
-          <span>Title</span>
-        </div>
-        <div class="content">
-          <%= simple_format("Lorem ipsum Ut magna labore reprehenderit nulla reprehenderit sit dolor id id voluptate quis. Lorem ipsum Fugiat in id nisi incididunt nisi voluptate magna nisi dolor nisi cillum.") %>
-        </div>
-    </li>
-    <li>
-        <div class="title">
-          <span>Title</span>
-        </div>
-        <div class="content">
-          <%= simple_format("Lorem ipsum Ut magna labore reprehenderit nulla reprehenderit sit dolor id id voluptate quis. Lorem ipsum Fugiat in id nisi incididunt nisi voluptate magna nisi dolor nisi cillum.") %>
-        </div>
-    </li>
-    <li>
-        <div class="title">
-          <span>Title</span>
-        </div>
-        <div class="content">
-          <%= simple_format("Lorem ipsum Ut magna labore reprehenderit nulla reprehenderit sit dolor id id voluptate quis. Lorem ipsum Fugiat in id nisi incididunt nisi voluptate magna nisi dolor nisi cillum.") %>
-        </div>
-    </li>
-  </ul>
-</div>
+  <% else %>
+    <h4>Voyage does not exist</h4>
+  <% end -%>
+</ul>
+

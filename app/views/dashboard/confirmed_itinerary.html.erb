@@ -1,26 +1,43 @@
-<h3>Confirmed itinerary</h3>
-<section>
+<section class="confirmed_itinerary_page">
+  <h3>Confirmed itinerary</h3>
   <h5>My iExpedition</h5>
   <hr>
-  <span style="display: block;">Upcoming voyage</span>
+  <div class="text-uppercase">Upcoming voyage</div>
   <% if @order.nil? %>
     <span>No order for user <%= current_user.email %></span>
   <% else %>
-    <span>ship name: <%= @order.voyage.ship.name %></span>
-    <span>operator details: <%= @order.voyage.ship.operator.name %></span>
-    <%= image_tag(@order.voyage.image) %>
+    <div class="row mt16">
+      <div class="col-lg-6 col-md-6">
+        <%= image_tag(@order.voyage.image) %>
+      </div>
+      <div class="col-lg-6 col-md-6">
+        <h4>voyage</h4>
+        <div class="buttons-group flex">
+          <a class="btn btn-voyage-filled">print iterary</a>
+          <a class="btn btn-voyage">send tripcase</a>
+        </div>
+        <div class="details">
+          <div><span>Ship Name: <%= @order.voyage.ship.name %></span></div>
+          <div><span>Operator Details: <%= @order.voyage.ship.operator.name %></span></div>
+          <div class="no-mb"><span>Embarkation Port: <%= @order.voyage.embark_port %></span></div>
+          <div><span>Date & Time: <%= @order.voyage.formatted_start_date %></span></div>
+          <div class="no-mb"><span>Disembarkation Port: <%= @order.voyage.disembark_port %></span></div>
+          <div><span>Date & Time: <%= @order.voyage.formatted_end_date %></span></div>
+        </div>
+      </div>
+    </div>
   <% end -%>
-</section>
-<div class="container">
   <div class="row">
-    <div class="col-md-12 text-center">
+    <div class="col-md-12">
       <div class="tabbed-content button-tabs mt16">
         <ul class="tabs">
           <li class="active">
             <div class="tab-title">
               <span>itinerary</span>
             </div>
-            <div class="tab-content voyage-itinerary-tab">
+            <div class="tab-content voyage-itinerary-tab expand">
+              <h5 class="pull-left"><span class="relative">+</span> Expand all</h5>
+              <h5 class="pull-left pl16"><span>-</span> Collapse all</h5>
               <%= render partial: "includes/voyage/itinerary_tab", locals: { voyage: @voyage } %>
             </div>
           </li>
@@ -29,7 +46,9 @@
               <span>cabins & extras</span>
             </div>
             <div class="tab-content">
-              <%= render partial: "includes/dashboard/cabins_and_extras" %>
+              <% if @order %>
+                <%= render partial: "includes/dashboard/cabins_and_extras", locals: { order: @order } %>
+              <% end -%>
             </div>
           </li>
           <li>
@@ -44,8 +63,12 @@
             <div class="tab-title">
               <span>important docs</span>
             </div>
-            <div class="tab-content">
-
+            <div class="tab-content videos">
+              <% if @order.voyage.destination.name == "Antarctica" %>
+                <%= render partial: "includes/important_docs_antarctica" %>
+              <% else %>
+                <%= render partial: "includes/important_docs_arctic" %>
+              <% end -%>
             </div>
           </li>
           <li>
@@ -60,4 +83,4 @@
       </div>
     </div>
   </div>
-</div>
+</section>

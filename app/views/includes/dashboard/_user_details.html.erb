@@ -1,4 +1,4 @@
-<div class="row">
+<div class="user_details">
   <h5>Personal Details</h5>
   <div class="row">
     <div class="col-md-6">
@@ -15,11 +15,13 @@
   </div>
   <div class="row dob">
     <div class="col-md-6">
-      <%= f.input :dob, as: :date, input_html: { class: "datepicker", readonly: "", style: "width:100%;" }, html5: true, label_html: { style: "display:block;" } %>
+      <%= f.input :dob, as: :date, input_html: { class: "datepicker", readonly: "", style: "width:100%;" }, html5: true, label_html: { style: " display:block;" } %>
     </div>
     <div class="col-md-6">
-      <label style="display:block;" for="user_nationality">Nationality</label>
-      <%= f.country_select :nationality, { include_blank: "Country of Origin" } %>
+      <div class="input select">
+        <label style="display:block;" for="user_nationality">Nationality</label>
+        <%= f.country_select :nationality, { include_blank: "Country of Origin" } %>
+      </div>
     </div>
   </div>
   <div class="row">

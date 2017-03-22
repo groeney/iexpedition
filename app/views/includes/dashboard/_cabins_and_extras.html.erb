@@ -1,2 +1,2 @@
-<%= render partial: "includes/cabin/view_tile", locals: { cabin: @order.cabin_order_item.productable } %>
-<%= render partial: "includes/alternating_horizontal_tiles", locals: { collection: @order.order_items.where.not(productable_type: "Cabin" ) } %>
+<%= render partial: "includes/cabin/view_tile", locals: { cabin: order.cabin_order_item.productable, cabin_index: 1 } %>
+<%= render partial: "includes/alternating_horizontal_tiles", locals: { collection: order.order_items.where.not(productable_type: "Cabin" ) } %>

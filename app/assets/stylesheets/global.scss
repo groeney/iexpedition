@@ -52,6 +52,24 @@
   position: relative;
 }
 
+.lg-flex {
+  display: block;
+  @media only screen and (max-width: 1920px) and (min-width: 1200px) {
+    display: flex;
+  }
+}
+
+.md-flex {
+  display: block;
+  @media only screen and (max-width: 1920px) and (min-width: 992px) {
+    display: flex;
+  }
+}
+
+.no-mb {
+  margin-bottom: 0!important;
+}
+
 .mb12i {
   margin-bottom: 12px!important;
 }
@@ -117,11 +135,49 @@ a {
 
 a.btn.btn-filled {
   color: #fff;
+  border-color: $theme_color;
+  background-color: $theme_color;
+
+  &:hover {
+    color: $theme_color;
+    background-color: transparent;
+  }
+}
+
+a.btn {
+  color: $theme_color;
+  border-color: $theme_color;
+
+  &:hover {
+    color: #fff;
+    background-color: $theme_color;
+  }
+}
+
+
+a.btn.btn-voyage-filled {
+  color: #fff;
+  background-color: $voyage_color;
+  border-color: $voyage_color;
 
   &:hover {
     background-color: #fff;
-    color: $theme_color;
+    color: $voyage_color;
   }
+}
+
+a.btn.btn-voyage {
+  color: $voyage_color;
+  border-color: $voyage_color;
+
+  &:hover {
+    color: #fff;
+    background-color: $voyage_color;
+  }
+}
+
+.over-auto {
+  overflow: auto;
 }
 
 .btn-filled {
@@ -129,6 +185,17 @@ a.btn.btn-filled {
   &:hover {
     background-color: #fff;
     color: $theme_color;
+  }
+}
+
+
+input[type="submit"].btn-voyage {
+  color: $voyage_color;
+  border-color: $voyage_color;
+
+  &:hover {
+    color: #fff;
+    background-color: $voyage_color;
   }
 }
 
@@ -171,12 +238,11 @@ hr.bold-short-line {
 .destination-info-tab,
 .ship-vessel-tab,
 .ship-cabins-tab {
+  text-align: left;
 
   p:first-of-type {
     font-size: 1.25em;
   }
-
-  text-align: left;
 }
 
 .watermark-background {
@@ -192,6 +258,27 @@ hr.bold-short-line {
 #mc_embed_signup {
   clear:left;
   font:14px Helvetica,Arial,sans-serif;
+}
+
+a.btn.btn-voyage-filled {
+  color: #fff;
+  background-color: $voyage_color;
+  border-color: $voyage_color;
+
+  &:hover {
+    background-color: #fff;
+    color: $voyage_color;
+  }
+}
+
+a.btn.btn-voyage {
+  color: $voyage_color;
+  border-color: $voyage_color;
+
+  &:hover {
+    color: #fff;
+    background-color: $voyage_color;
+  }
 }
 
 .tooltip {
@@ -215,6 +302,7 @@ hr.bold-short-line {
     width: 1030px;
   }
 }
+
 /*===========================================================
 =            Section comment presentation-header            =
 ===========================================================*/
@@ -337,6 +425,29 @@ hr.bold-short-line {
 
 /*=====  End of Section comment presentation-header  ======*/
 
+/*=================================================
+=            Section of alert-messages            =
+=================================================*/
+
+#success_contact_request_message,
+#error_contact_request_message,
+#success_update_details_message,
+#error_update_details_message {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 20;
+  margin-left: 10px;
+  background-color: #fff;
+  display: none;
+
+  .close {
+    margin-bottom: 0;
+  }
+}
+
+/*=====  End of Section alert-messages  ======*/
+
 /*====================================
 =            Section tabs            =
 ====================================*/
@@ -414,6 +525,11 @@ ul.accordion {
   .title {
     position: relative;
     border-bottom: none;
+    border-bottom: none;
+
+     &:hover {
+      background-color: transparent;
+    }
 
     span {
       padding-left: 50px;
@@ -428,6 +544,7 @@ ul.accordion {
       font-size: 35px;
       color: $accordeon_border_color;
       position: absolute;
+      font-family: 'themify';
       top: 10px;
       left: 8px;
     }
@@ -501,7 +618,7 @@ ul.accordion {
 
 .label-in label {
   font-size: 24px;
-  font-family: 'Raleway', sans-serif;    
+  font-family: 'Raleway', sans-serif;
   text-transform: uppercase;
   font-weight: 400;
   color: #000;
@@ -531,3 +648,210 @@ ul.accordion {
 }
 
 /*=====  End of Section alert-messages  ======*/
+.input.select {
+  position: relative;
+}
+
+.input.select:after {
+  content: "\e64b";
+  font-family: 'themify';
+  color: #cacac9;
+  position: absolute;
+  font-size: 18px;
+  right: 20px;
+  top: 42px;
+  z-index: 2;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+}
+
+/*==============================================
+=            Section alert-messages            =
+==============================================*/
+
+#success_contact_request_message,
+#error_contact_request_message,
+#success_update_details_message,
+#error_update_details_message {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 20;
+  margin-left: 10px;
+  background-color: #fff;
+  display: none;
+
+  .close {
+    margin-bottom: 0;
+  }
+}
+
+/*=====  End of Section alert-messages  ======*/
+
+/*====================================
+=            Section tabs            =
+====================================*/
+
+.tabbed-content.button-tabs {
+  ul.tabs {
+    display: flex;
+    align-items: stretch;
+
+    & > li {
+      width: 20%;
+
+      &.active div.tab-title {
+        background-color: $voyage-color;
+        color: #fff;
+      }
+
+      .tab-title {
+        min-width: inherit;
+        width: calc(100% - 3px);
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #ebebeb;
+        color: $voyage-color;
+        font-size: 13px;
+
+        &:hover {
+          background-color: #f9f9f9;
+        }
+
+        span {
+          line-height: 17px;
+          text-transform: none;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+/*=====  End of Section tabs  ======*/
+
+/*=========================================
+=            Section accordion            =
+=========================================*/
+
+.expand {
+
+  h5 {
+    color: $voyage_color;
+    font-weight: 500;
+    margin-bottom: 15px;
+
+    span {
+      font-size: 27px;
+      position: relative;
+      top: 1px;
+
+      &.relative {
+        top: 3px;
+      }
+    }
+  }
+}
+
+ul.accordion {
+
+  & > li {
+    border: 1px solid $accordeon_border_color;
+    margin-bottom: 15px;
+  }
+
+  .title {
+    background-color: transparent;
+    position: relative;
+    border-bottom: none;
+
+    &:hover {
+      background-color: transparent;
+    }
+
+    span {
+      padding-left: 50px;
+      display: block;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    &:before {
+      content: '\e61a';
+      font-size: 35px;
+      color: $accordeon_border_color;
+      position: absolute;
+      font-family: 'themify';
+      top: 10px;
+      left: 8px;
+    }
+  }
+
+  .content {
+    border-top: none;
+    padding-left: 50px;
+    padding-right: 40px;
+  }
+
+  .active {
+    border: none;
+
+    .title {
+      background-color: $voyage_color;
+
+      span {
+        color: #fff;
+      }
+
+      &:before {
+        content: '\e622';
+        color: #fff;
+      }
+    }
+
+    .content {
+      border: 1px solid $accordeon_border_color;
+      border-top: none;
+      height: auto;
+      max-height: inherit;
+      padding-bottom: 20px;
+
+      ul,
+      ol {
+        padding-left: 16px;
+        padding-top: 16px;
+
+        ul {
+          padding-top: 0px;
+        }
+      }
+
+      p {
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      table {
+        margin-top: 16px;
+        width: 100%;
+
+        td {
+          border: 1px solid #000;
+          text-align: center;
+        }
+      }
+
+      .faq-width-65 {
+        width: 65px;
+        display: block;
+        float: left;
+      }
+    }
+  }
+}
+
+/*=====  End of Section accordion  ======*/

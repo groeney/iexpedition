@@ -19,3 +19,63 @@
 .destination-history-tab {
   text-align: left;
 }
+
+.destination-info-tab {
+
+  .light-border-right {
+    margin-top: 70px;
+  }
+}
+
+.bgi-watermark {
+
+  .info-table-holder {
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 50px;
+  }
+
+  img {
+    margin-left: 100px;
+  }
+}
+
+@media only screen and (max-width: 1500px) {
+
+  .bgi-watermark {
+
+    .info-table-holder {
+      margin-top: 100px;
+      margin-left: 15px;
+    }
+
+    img {
+      margin-left: 30px;
+      width: 95%;
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+
+  .bgi-watermark {
+
+    .info-table-holder {
+      position: absolute;
+      margin-top: 0px;
+      margin-left: 15px;
+    }
+
+    img {
+      margin-left: 30px;
+      width: 95%;
+    }
+  }
+
+  .destination-info-tab {
+
+    .light-border-right {
+      margin-top: 40px;
+    }
+  }
+}

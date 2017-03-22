@@ -1,39 +1,49 @@
-<h3>Your details</h3>
-<%= simple_form_for current_user, url: dashboard_update_details_path, method: :put, remote: true do |f| %>
-  <%= render partial: "includes/dashboard/user_details", locals: { f: f } %>
+<section class="personal_details_page">
+  <h3>Your details</h3>
+  <hr class="details-line">
+  <%= simple_form_for current_user, html: { id: "user_update_form", multipart: true }, url: dashboard_update_details_path, method: :put, remote: true do |f| %>
+    <%= render partial: "includes/dashboard/user_details", locals: { f: f } %>
 
-  <%= simple_fields_for @address do |a| %>
-    <%= render partial: "includes/dashboard/address", locals: { a: a } %>
+    <%= simple_fields_for @address do |a| %>
+      <%= render partial: "includes/dashboard/address", locals: { a: a } %>
+    <% end -%>
+
+    <%= render partial: "includes/dashboard/special_requirements", locals: { f: f } %>
+
+    <%= render partial: "includes/dashboard/insurance", locals: { f: f } %>
+
+    <%= simple_fields_for @emergency_contact do |e| %>
+      <%= render partial: "includes/dashboard/emergency_contact", locals: { e: e } %>
+    <% end -%>
+
+    <%= simple_fields_for @passport do |p| %>
+      <%= render partial: "includes/dashboard/passport", locals: { p: p } %>
+    <% end -%>
+
+    <%= simple_fields_for :travel_details_pre, @travel_details_pre do |t| %>
+      <%= render partial: "includes/dashboard/travel_details", locals: { t: t, type: "Pre-Cruise" } %>
+    <% end -%>
+
+    <%= simple_fields_for :travel_details_post, @travel_details_post do |t| %>
+      <%= render partial: "includes/dashboard/travel_details", locals: { t: t, type: "Post-Cruise" } %>
+    <% end -%>
+
+    <%= render partial: "includes/dashboard/equipment_sizes", locals: { f: f } %>
+
+    <hr class="details-line">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= f.submit "Save", class: "btn btn-voyage btn-short" %>
   <% end -%>
-
-  <%= render partial: "includes/dashboard/special_requirements", locals: { f: f } %>
-
-  <%= render partial: "includes/dashboard/insurance", locals: { f: f } %>
-
-  <%= simple_fields_for @emergency_contact do |e| %>
-    <%= render partial: "includes/dashboard/emergency_contact", locals: { e: e } %>
-  <% end -%>
-
-  <%= simple_fields_for @passport do |p| %>
-    <%= render partial: "includes/dashboard/passport", locals: { p: p } %>
-  <% end -%>
-
-  <!-- TODO: separate these in form submit.
-    Currently we have:
-      params[:travel_detail]
-
-    We want:
-      params[:travel_details_pre, :travel_details_post]
-  -->
-  <%= simple_fields_for @travel_details_pre, as: :travel_details_pre do |t| %>
-    <%= render partial: "includes/dashboard/travel_details", locals: { t: t, type: "Pre-Cruise" } %>
-  <% end -%>
-
-  <%= simple_fields_for @travel_details_post, as: :travel_details_post do |t| %>
-    <%= render partial: "includes/dashboard/travel_details", locals: { t: t, type: "Post-Cruise" } %>
-  <% end -%>
-
-  <%= render partial: "includes/dashboard/equipment_sizes", locals: { f: f } %>
-
-  <%= f.submit "Save", class: "dark-submit-btn" %>
-<% end -%>
+</section>
+<div class="alert alert-success alert-dismissible" id="success_update_details_message" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">×</span>
+  </button>
+  Success
+</div>
+<div class="alert alert-danger alert-dismissible" id="error_update_details_message" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">×</span>
+  </button>
+  Error
+</div>

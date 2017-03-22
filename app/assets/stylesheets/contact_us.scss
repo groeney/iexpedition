@@ -6,20 +6,6 @@
 
 .contact_us {
 
-  #success_contact_request_message, #error_contact_request_message {
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    z-index: 20;
-    margin-left: 10px;
-    background-color: #fff;
-    display: none;
-
-    .close {
-      margin-bottom: 0;
-    }
-  }
-
   .contact-left-part,
   .contact-right-part {
     padding-top: 68px;

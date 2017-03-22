@@ -1,0 +1,127 @@
+@import "variables";
+
+.personal_details_page {
+  padding-top: 55px;
+
+  .details-line {
+    margin-bottom: 48px;
+    margin-top: 48px;
+    position: relative;
+    border: none;
+  	height: 2px;
+    background: -moz-linear-gradient(0deg, $sub_header_color1 0, $sub_header_color2 100%);/* FF3.6+ */
+    background: -webkit-linear-gradient(0deg, $sub_header_color1 0, $sub_header_color2 100%);/* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(0deg, $sub_header_color1 0, $sub_header_color2 100%);/* Opera 11.10+ */
+    background: -ms-linear-gradient(0deg, $sub_header_color1 0, $sub_header_color2 100%);/* IE10+ */
+    background: linear-gradient(90deg, $sub_header_color1 0, $sub_header_color2 100%);/* W3C */
+
+    &.with_arrow {
+      
+      &:after {
+        content: "\e64b";
+        padding-left: 6px;
+        padding-top: 5px;
+        font-family: 'themify';
+        color: #cacac9;
+        font-weight: 900;
+        display: block;
+        width: 30px;
+        height: 30px;
+        left: calc(50% - 15px);
+        top: -15px;
+        border-radius: 50%;
+        background-color: $voyage_color;
+        position: absolute;
+        font-size: 18px;
+        z-index: 2;
+      }
+    }
+  }
+
+
+  h5 {
+    font-weight: bold;
+  }
+
+  label {
+    font-size: 24px;
+    font-family: 'Raleway', sans-serif;    
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #000;
+  }
+
+  .date.optional.datepicker {
+    border-radius: 0; 
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input.date.datepicker,
+  select,
+  textarea {
+    padding-left: 20px;
+    background: transparent;
+    border: 1px solid $border_color;
+    font-size: 16px;
+
+    &:hover {
+      border: 1px solid $border_color;
+    }
+
+    &:active {
+      border: 1px solid $border_color;
+    }
+
+    &:focus {
+      background: transparent;
+      border: 1px solid $border_color;
+    }
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+
+  .upload_file {
+    margin-top: 10px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    margin-right: 20px
+  }
+
+  .choose_btn {
+    display: inline-block;
+    padding: 10px 20px;
+    position: relative;
+    border: 1px solid $border_color;
+    cursor: pointer;
+  }
+
+  .bootstrap-datetimepicker-widget.usetwentyfour {
+
+    .btn {
+      min-width: 100px;
+    }
+
+    .picker-switch.accordion-toggle {
+      position: relative!important;
+      top: 10px!important;
+    }
+
+    td span {
+      width: 10px;
+      height: 0px;
+      position: relative;
+      top: -15px;
+    }
+  }
+
+  .btn.btn-default {
+    border: 1px solid $border_color;
+    border-left: 1px solid $border_color;
+    height: 50px;
+    min-width: 90px;
+  }
+
+}

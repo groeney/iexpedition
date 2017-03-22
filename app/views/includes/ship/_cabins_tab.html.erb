@@ -2,7 +2,7 @@
   <div class="cabin-options"></div>
     <div class="row">
       <% ship.cabins.group_by(&:name).map { |name, items| items.first }.each.with_index(1) do |cabin, index| %>
-        <%= render partial: "includes/cabin/view_tile", locals: { cabin: cabin, cab_index: index } %>
+        <%= render partial: "includes/cabin/view_tile", locals: { cabin: cabin, cabin_index: index } %>
         <h5 class="divider"></h5>
       <% end -%>
     </div>

@@ -1,6 +1,7 @@
 TYPE = ENV.fetch("seed_type", "example")
 require_relative "./helpers"
 require_relative "./seeds/admins"
+require_relative "./seeds/users"
 
 new_resource("Destinations")
 require_relative "./seeds/destinations"

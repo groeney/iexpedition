@@ -1,29 +1,29 @@
 <footer class="footer-2 bg-ix pt-xs-40">
   <div class="container">
     <div class="row mb-xs-24">
-      <div class="col-md-3 col-sm-4">
+      <div class="footer-info col-lg-2 col-md-2 col-sm-4 col-xs-6">
         <h6 class="uppercase mb8">iexpedition</h6>
         <ul>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">iExpedition Destination</a></li>
-          <li><a href="#">Expedition Activities</a></li>
+          <li><a href="#">iX Community</a></li>
+          <li><a href="#">Destinations</a></li>
+          <li><a href="#">Expedition Vessels</a></li>
           <li><a href="#">Terms & Conditions</a></li>
           <li><a href="#">Privacy Policy</a></li>
         </ul>
       </div>
 
-      <div class="col-md-3 col-sm-4">
+      <div class="footer-info col-lg-2 col-md-2 col-sm-4">
         <h6 class="uppercase mb8">help & support</h6>
         <ul>
-          <li><a href="#">FAQs & Contact Us</a></li>
-          <li><a href="#">How to Reserve & Book</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Travel Resources</a></li>
+          <li><a href="#">Payment & Currency</a></li>
           <li><a href="#">Booking Confirmation</a></li>
-          <li><a href="#">Before you Travel</a></li>
-          <li><a href="#">Payment & Currency Information</a></li>
         </ul>
       </div>
 
-      <div class="col-md-3 col-sm-4">
+      <div class="footer-info col-lg-offset-0 col-lg-2 col-md-offset-0 col-md-2 col-sm-offset-0 col-sm-4 col-xs-offset-3 col-xs-6">
         <h6 class="uppercase mb8">follow us</h6>
         <ul class="social-list">
           <li><a href="#">
@@ -40,17 +40,17 @@
 
       <% unless controller_name == "dashboard" %>
         <!-- Begin MailChimp Signup Form -->
-        <div id="mc_embed_signup" class="col-md-4 col-sm-4">
-          <form action="//iexpedition.us12.list-manage.com/subscribe/post?u=27883ec09a85095dc609436d3&amp;id=6c8f3078cc" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <div id="mc_embed_signup" class="col-lg-6 col-md-6 col-sm-12 col-xs-12 not-clearI">
+          <form action="//iexpedition.us12.list-manage.com/subscribe/post?u=27883ec09a85095dc609436d3&amp;id=6c8f3078cc" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate footer-send-section" target="_blank" novalidate>
             <div id="mc_embed_signup_scroll">
-              <label for="mce-EMAIL">Subscribe to our mailing list</label>
-              <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required />
+              <label for="mce-EMAIL" class="email-footer-label">Subscribe to our newsletter and receive a $150 expedition voucher</label>
+              <input type="email" value="" name="EMAIL" class="email email-footer-input" id="mce-EMAIL" placeholder="email" required />
               <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
               <div style="position: absolute; left: -5000px;" aria-hidden="true">
                 <input type="text" name="b_27883ec09a85095dc609436d3_6c8f3078cc" tabindex="-1" value="">
               </div>
-              <div class="clear">
-                <input type="submit" value="Send" name="subscribe" id="mc-embedded-subscribe" class="button">
+              <div class="clear not-clearI send-btn-wrap">
+                <input type="submit" value="Send" name="subscribe" id="mc-embedded-subscribe" class="btn submit-footer-button">
               </div>
             </div>
           </form>
@@ -60,31 +60,143 @@
     </div>
     <hr>
     <div class="row mb-xs-24">
-      <div class="col-md-3 col-sm-4">
+      <div class="col-md-2 col-sm-4">
         <%= image_tag("footer-icon.png") %>
       </div>
 
-      <div class="col-md-3 col-sm-4">
+      <div class="col-md-5 col-sm-4">
         <h6 class="uppercase mb8">most popular ships</h6>
         <ul>
-          <% Ship.all.each do |ship| %>
+<!--           <% Ship.all.each do |ship| %>
             <li><a href="#"><%= ship.name %></a></li>
-          <% end -%>
+          <% end -%> -->
+          <table class="footer-ships">
+            <tr>
+              <td>Akademic Ioffe</td>
+              <td>National Geographic  Orion</td>
+            </tr>
+            <tr>
+              <td>Akademic Vavilov</td>
+              <td>Ocean Adventurer</td>
+            </tr>
+            <tr>
+              <td>Bark Europa</td>
+              <td>Ocean Diamond</td>
+            </tr>
+            <tr>
+              <td>Eclipse</td>
+              <td>Ocean Endeavour</td>
+            </tr>
+            <tr>
+              <td>Fram</td>
+              <td>Ocean Nova</td>
+            </tr>
+            <tr>
+              <td>G Expedition</td>
+              <td>Ortelius</td>
+            </tr>
+            <tr>
+              <td>Hebridean Sky</td>
+              <td>Plancius</td>
+            </tr>
+            <tr>
+              <td>Hondius</td>
+              <td>Polar Pioneer</td>
+            </tr>
+            <tr>
+              <td>Island Sky</td>
+              <td>Sea Spirit</td>
+            </tr>
+            <tr>
+              <td>Kapitan Khlebnikov</td>
+              <td>Silver Cloud</td>
+            </tr>
+            <tr>
+              <td>Le Boreal</td>
+              <td>Silver Explorer</td>
+            </tr>
+            <tr>
+              <td>Ushuaia</td>
+              <td>Spirit of Enderby</td>
+            </tr>
+            <tr>
+              <td>National Geographic Explorer</td>
+              <td>50 Years of Victory</td>
+            </tr>
+          </table>
         </ul>
       </div>
 
-      <div class="col-md-4 col-sm-4">
+      <div class="col-md-5 col-sm-4">
         <h6 class="uppercase mb8">most popular destinations</h6>
         <ul>
-          <% Region.all.each do |region| %>
+<!--           <% Region.all.each do |region| %>
             <li><a href="#"><%= region.name %></a></li>
-          <% end -%>
+          <% end -%> -->
+          <table class="footer-destinations">
+            <tr>
+              <td>Antarctic Circle</td>
+              <td>Canadian Arctic</td>
+            </tr>
+            <tr>
+              <td>Antarctic Peninsula</td>
+              <td>EUROPEAN ARCTIC</td>
+            </tr>
+            <tr>
+              <td>Commonwealth Bay</td>
+              <td>Franz Joseph Land</td>
+            </tr>
+            <tr>
+              <td>Falkland Islands</td>
+              <td>Greenland - East</td>
+            </tr>
+            <tr>
+              <td>Macquarie Island</td>
+              <td>Greenland - West</td>
+            </tr>
+            <tr>
+              <td>Patagonia Fjords</td>
+              <td>Iceland</td>
+            </tr>
+            <tr>
+              <td>Ross Sea</td>
+              <td>North Pole</td>
+            </tr>
+            <tr>
+              <td>South Georgia</td>
+              <td>Northeast Passage & Wrangle Island</td>
+            </tr>
+            <tr>
+              <td>South Sandwich Islands</td>
+              <td>Northwest Passage</td>
+            </tr>
+            <tr>
+              <td>South Shetland Islands</td>
+              <td>Norway</td>
+            </tr>
+            <tr>
+              <td>Sub-Antarctic Islands</td>
+              <td>Scotland</td>
+            </tr>
+            <tr>
+              <td>Weddell Sea</td>
+              <td>Svalbard</td>
+            </tr>
+          </table>
         </ul>
       </div>
     </div>
     <div class="row fade-half">
       <div class="col-sm-12 text-left">
-        <span style="color: #fff;">© Copyright 2016 - iExpedition</span>
+        <span style="color: #fff;">© Copyright 2017 - iExpedition</span>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid footer-white-bar mt32">
+    <div class="row">
+      <div class="col-xs-12">
+        <span class="pr32">iExpedition ABN <b>90 615 816 003</b></span>
+        <span class="pl32">iExpecition PTY LTD Lic </span>
       </div>
     </div>
   </div>

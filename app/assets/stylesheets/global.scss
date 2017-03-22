@@ -12,6 +12,10 @@
   clear: both;
 }
 
+.not-clearI {
+  clear: none!important;
+}
+
 .flex {
   display: flex;
 }

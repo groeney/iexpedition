@@ -29,6 +29,7 @@ app/assets/images/inclusions/*
 app/assets/images/itinerary_days/*
 app/assets/images/voyages/*
 app/assets/images/wildlives/*
+app/assets/images/orders/*
 app/assets/images/gallery_images/*
 
 .ruby-version

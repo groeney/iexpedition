@@ -11,6 +11,10 @@ class Order < ApplicationRecord
   # - :active: current date is within voyage.start_date & voyage.end_date
   # - :expired: current date is after voyage.end_date
 
+  has_attached_file :deposit_invoice
+  has_attached_file :payment_invoice
+  validates_attachment_content_type :deposit_invoice, :payment_invoice, content_type: %w(application/pdf)
+
   # validate :has_one_cabin
   validates_presence_of [:voyage_id]
 

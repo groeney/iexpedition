@@ -5,8 +5,10 @@ Dir["./db/seeds/data/*destination-highlights-#{TYPE}.csv"].each do |fn|
     highlight_obj = clean_data row.to_hash.symbolize_keys!
     destination = extract_resource("Destination", highlight_obj, "destination_name")
     singleton = create_singleton("Highlight", highlight_obj)
-    association_obj = { highlight_id: singleton.id }
 
+    next unless destination.try(:valid?)
+
+    association_obj = { highlight_id: singleton.id }
     associate_singleton_with_groupings_collection(destination.highlight_groupings, association_obj)
   end
 end

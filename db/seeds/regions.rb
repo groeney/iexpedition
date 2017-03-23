@@ -7,7 +7,9 @@ Dir["./db/seeds/data/*regions-#{TYPE}.csv"].each do |fn|
     destination = extract_resource("Destination", region_obj, "destination_name")
     singleton = create_singleton("Region", region_obj)
 
-    associate_singleton_with_collection(destination.regions, singleton) if destination.try(:valid?)
+    next unless destination.try(:valid?)
+
+    associate_singleton_with_collection(destination.regions, singleton)
     highlights.each do |highlight|
       associate_singleton_with_collection(singleton.highlights, highlight) unless highlight.nil?
     end

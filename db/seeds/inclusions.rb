@@ -7,6 +7,8 @@ Dir["./db/seeds/data/*inclusions-#{TYPE}.csv"].each do |fn|
     singleton = create_singleton("Inclusion", inclusion_obj)
     association_obj = { inclusion_id: singleton.id }
 
-    associate_singleton_with_groupings_collection(voyage.inclusion_groupings, association_obj) if voyage.try(:valid?)
+    next unless voyage.try(:valid?)
+
+    associate_singleton_with_groupings_collection(voyage.inclusion_groupings, association_obj)
   end
 end

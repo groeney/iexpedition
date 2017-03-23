@@ -16,6 +16,10 @@ def create_singleton(class_name, obj)
 end
 
 def associate_singleton_with_collection(collection, singleton)
+  unless singleton.try(:valid?)
+    resource_error(singleton)
+    return collection
+  end
   if collection.exists?(singleton.id)
     puts "Association between #{singleton.inspect} and #{collection.name} already exists."
   elsif !(collection << singleton)

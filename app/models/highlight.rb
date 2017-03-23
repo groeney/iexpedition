@@ -8,7 +8,7 @@ class Highlight < ApplicationRecord
   has_attached_file :image, default_url: "/assets/missing-highlight.png"
 
   validates_attachment :image, content_type: { content_type: /\Aimage\/.*\z/ }
-  validates_uniqueness_of :name
+  validates_uniqueness_of :name, scope: [:overview, :label], message: ", overview and label should be unique combinations"
   # validates_presence_of [:name, :overview]
 
   def self.highlightables

@@ -13,26 +13,14 @@
           </tr>
         </thead>
         <tbody>
+        <% @orders.each do |order| %>
           <tr>
-            <td>01/05/2017</td>
-            <td>queen elizabeth ii</td>
-            <td><a href="" class="btn btn-filled">pay invoice</a></td>
-            <td><a href="" class="btn btn-filled">download invoice</a></td>
+            <td><%= order.created_at.strftime("%m/%d/%Y") %></td>
+            <td><%= order.voyage.name %></td>
+            <td><%= link_to 'pay invoice', order.payment_invoice_link, class: 'btn btn-filled' %></td>
+            <td><%= link_to 'download invoice', download_payment_invoice_path(order.id), method: :post, class: 'btn btn-filled' %></td>
           </tr>
-          <tr class="section_line">
-            <td><b>notes</b></td>
-            <td colspan="3">$2,000 payment received by pam on 04/03/2017</td>
-          </tr>
-          <tr>
-            <td>24/10/2017</td>
-            <td>royal dutches</td>
-            <td><a href="" class="btn btn-filled">pay invoice</a></td>
-            <td><a href="" class="btn btn-filled">download invoice</a></td>
-          </tr>
-          <tr class="section_line">
-            <td><b>notes</b></td>
-            <td colspan="3">$3,500 payment received by james on 21/07/2016</td>
-          </tr>
+        <% end %>
         </tbody>
       </table>
     </div>

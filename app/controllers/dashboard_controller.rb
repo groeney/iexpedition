@@ -25,6 +25,19 @@ class DashboardController < ApplicationController
     @ships = Ship.where(id: JSON.parse(cookies[:favourite_ship_ids] || []))
   end
 
+  def payments
+    @orders = current_user.orders
+  end
+
+  def download_payment_invoice
+    order = Order.find(params[:id])
+    send_file(
+      order.payment_invoice.path,
+      filename: order.payment_invoice_file_name,
+      type: order.payment_invoice_content_type
+    )
+  end
+
   def update_details
     return render json: {}, status: 422 unless update_all_details
     render json: {}, status: 204

@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   get "dashboard/order_history" => "dashboard#order_history"
   get "dashboard/confirmed_itinerary" => "dashboard#confirmed_itinerary"
   get "dashboard/wishlist" => "dashboard#wishlist"
+  get "dashboard/payments" => "dashboard#payments"
   put "dashboard/update_details" => "dashboard#update_details"
   root "pages#home"
 end

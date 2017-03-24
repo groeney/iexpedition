@@ -1,0 +1,20 @@
+@import "variables";
+
+.payments_page {
+  
+  table {
+    width: 100%;
+  }
+
+  td {
+    height: 115px;
+  }
+
+  tr.section_line {
+    border-bottom: 2px solid $voyage_color;
+  }
+
+  .btn {
+    margin-bottom: 0;
+  }
+}

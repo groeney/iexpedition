@@ -1,28 +1,29 @@
 <section class="payments_page">
   <div class="row">
     <div class="col-lg-12">
-      <h3>Confirmed itinerary</h3>
       <h5>Your iExpedition Invoice</h5>
-      <table class="text-uppercase">
-        <thead>
-          <tr class="section_line">
-            <th>date</th>
-            <th>voyage</th>
-            <th>pay invoice</th>
-            <th>download pdf</th>
-          </tr>
-        </thead>
-        <tbody>
-        <% @orders.each do |order| %>
-          <tr>
-            <td><%= order.created_at.strftime("%m/%d/%Y") %></td>
-            <td><%= order.voyage.name %></td>
-            <td><%= link_to 'pay invoice', order.payment_invoice_link, class: 'btn btn-filled' %></td>
-            <td><%= link_to 'download invoice', download_payment_invoice_path(order.id), method: :post, class: 'btn btn-filled' %></td>
-          </tr>
-        <% end %>
-        </tbody>
-      </table>
+      <div class="over-auto">
+        <table class="text-uppercase">
+          <thead>
+            <tr class="section_line">
+              <th>date</th>
+              <th>voyage</th>
+              <th class="text-center">pay invoice</th>
+              <th class="text-center">download pdf</th>
+            </tr>
+          </thead>
+          <tbody>
+          <% @orders.each do |order| %>
+            <tr>
+              <td><%= order.created_at.strftime("%m/%d/%Y") %></td>
+              <td><%= order.voyage.name %></td>
+              <td><%= link_to 'pay invoice', order.payment_invoice_link, class: 'btn btn-filled btn-h-50' %></td>
+              <td><%= link_to 'download invoice', download_payment_invoice_path(order.id), method: :post, class: 'btn btn-h-50' %></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
 
   </div>

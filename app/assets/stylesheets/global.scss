@@ -89,7 +89,60 @@ a {
   top: -40%;
 }
 
-#mc_embed_signup{
-  clear:left;
-  font:14px Helvetica,Arial,sans-serif;
+a.btn.btn-voyage-filled {
+  color: #fff;
+  background-color: $voyage_color;
+  border-color: $voyage_color;
+
+  &:hover {
+    background-color: #fff;
+    color: $voyage_color;
+  }
+}
+
+a.btn.btn-voyage {
+  color: $voyage_color;
+  border-color: $voyage_color;
+
+  &:hover {
+    color: #fff;
+    background-color: $voyage_color;
+  }
+}
+
+.btn-filled {
+
+  &:hover {
+    background-color: #fff;
+    color: $theme_color;
+  }
+}
+
+a.btn.btn-filled {
+  color: #fff;
+  border-color: $theme_color;
+  background-color: $theme_color;
+
+  &:hover {
+    color: $theme_color;
+    background-color: transparent;
+  }
+}
+
+a.btn {
+  color: $theme_color;
+  border-color: $theme_color;
+
+  &:hover {
+    color: #fff;
+    background-color: $theme_color;
+  }
+}
+
+.btn-h-50 {
+  height: 50px;
+}
+
+.over-auto {
+  overflow: auto;
 }

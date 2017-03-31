@@ -2,11 +2,12 @@
   <div class="nav-utility">
     <div class="header-width">
       <div class="module right">
-        <%= link_to "FAQs", "#" %>
+        <%= link_to "FAQs", contact_us_path %>
         <%= link_to "Contact Us", contact_us_path %>
-        <%= link_to "Travel Resources", "#" %>
-        <%= link_to "Expedition Travel", "#" %>
-        <%= link_to "About Us","#" %>
+        <%= link_to "Travel Resources", travel_resources_path %>
+        <%= link_to "Expedition Travel", expedition_travel_path %>
+        <%= link_to "About Us", about_us_path %>
+        <!-- TODO: Delete sign out link from here -->
         <%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure you want to sign out?" } %>
       </div>
     </div>
@@ -46,7 +47,7 @@
       <% end -%>
     </div>
     <div class="module-group right">
-      <%= link_to(dashboard_home_path, class: "module left star-module") do %>
+      <%= link_to(wishlist_path, class: "module left star-module") do %>
         <i class="ti-star icon"></i>
       <% end -%>
       <div class="module widget-handle cart-widget-handle right">

@@ -8,8 +8,8 @@ class PagesController < ApplicationController
   end
 
   def wishlist
-    @voyages = Voyage.where(id: JSON.parse(cookies[:favourite_voyage_ids] || []))
-    @ships = Ship.where(id: JSON.parse(cookies[:favourite_ship_ids] || []))
+    @voyages = Voyage.where(id: JSON.parse(cookies[:favourite_voyage_ids] || '[]'))
+    @ships = Ship.where(id: JSON.parse(cookies[:favourite_ship_ids] || '[]'))
   end
 
   def contact_us

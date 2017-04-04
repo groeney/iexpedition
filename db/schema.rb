@@ -350,6 +350,7 @@ ActiveRecord::Schema.define(version: 20170329141245) do
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
     t.integer  "coupon_id"
+    t.boolean  "solo_traveller",               default: false, null: false
     t.string   "deposit_invoice_link"
     t.string   "deposit_invoice_file_name"
     t.string   "deposit_invoice_content_type"
@@ -361,7 +362,6 @@ ActiveRecord::Schema.define(version: 20170329141245) do
     t.integer  "payment_invoice_file_size"
     t.datetime "payment_invoice_updated_at"
     t.text     "payment_summary"
-    t.boolean  "solo_traveller",               default: false, null: false
     t.float    "deposit_perc",                 default: 25.0
     t.integer  "cabin_grouping_id"
     t.index ["cabin_grouping_id"], name: "index_orders_on_cabin_grouping_id", using: :btree

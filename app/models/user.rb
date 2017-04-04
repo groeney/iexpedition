@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
-  validates_presence_of :password, :email, :first_name, :dob, :nationality, :gender
+  validates_presence_of :password, :email
   validates_uniqueness_of [:email]
   has_many :orders
   has_many :voyages, through: :orders

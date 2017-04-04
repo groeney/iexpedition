@@ -34,7 +34,7 @@ ActiveAdmin.register GalleryImageGrouping do
   form do |f|
     f.inputs "Gallery Image Grouping Details" do
       f.input :gallery_image, as: :select, collection: GalleryImage.all.map { |gi| [gi.description, gi.id]  }
-      f.input :gallery_imageable_type, as: :select, collection: ["Ship", "Voyage"]
+      f.input :gallery_imageable_type, as: :select, collection: ["Ship", "Voyage", "Destination", "Cabin"]
       f.input :gallery_imageable_id, as: :select, collection: GalleryImage.gallery_imageables.map { |gallery_imageable| [gallery_imageable.identifier_s, gallery_imageable.id] }
     end
     f.actions

@@ -285,6 +285,19 @@
     }
   }
 
+  input[type="submit"].btn-filled {
+    background: transparent;
+    color: $theme_color;
+    border: 2px solid $theme_color;
+    font-size: 24px;
+    font-weight: 400;
+
+    &:hover {
+      color: #fff;
+      background-color: $theme_color;
+    }
+  }
+
   .form-coupon {
     line-height: 0;
   }

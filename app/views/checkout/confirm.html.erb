@@ -60,8 +60,14 @@
           <%= f.input :password, label: "Password", input_html: { name: 'order_details[user][password]' } %>
         </div>
       </div>
-
-      <%= f.submit "Confirm", class: "btn btn-short btn-h-50" %>
+      <div class="row mt32">
+        <div class="col-lg-4 col-md-5 col-sm-6">
+          <div class="buttons-group flex">
+            <%= f.submit 'Reserve', class: 'btn btn-filled' %>
+            <%= f.submit 'Confirm', class: 'btn' %>
+          </div>
+        </div>
+      </div>
     <% end -%>
 
   </div>

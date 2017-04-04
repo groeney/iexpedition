@@ -5,7 +5,8 @@ class OrderItemsController < ApplicationController
 
   def create
     @product = Activity.find_by(id: order_item_params[:productable_id])
-    qty = (order_item_params[:qty] || 1).to_i
+    qty = order_item_params[:qty].to_i
+    qty = qty > 0 ? qty : 1
     @order_item = @order.add_product(@product, qty)
 
     respond_to do |format|

@@ -1,6 +1,6 @@
 ActiveAdmin.register Activity do
 
-  permit_params :name, :overview, :label, :price, :image
+  permit_params :name, :overview, :label, :price, :image, :is_mandatory
   filter :name
   filter :price
   filter :label
@@ -11,6 +11,7 @@ ActiveAdmin.register Activity do
     column :overview
     column :label
     column :price
+    column :is_mandatory
     column "Image", sortable: false do |activity|
       link_to "<img src='#{activity.image.url}' alt='activity image' style='height:48px;display:block;margin-left:auto;margin-right:auto;'".html_safe, activity.image.url
     end
@@ -23,6 +24,7 @@ ActiveAdmin.register Activity do
       row :overview
       row :label
       row :price
+      row :is_mandatory
       row :image do
         image_tag(activity.image.url)
       end
@@ -35,6 +37,7 @@ ActiveAdmin.register Activity do
       f.input :overview
       f.input :label
       f.input :price
+      f.input :is_mandatory
       f.input :image, hint: f.activity.image? ? image_tag(f.activity.image.url, height: "100") : content_tag(:span, "Upload JPG/PNG/GIF image")
     end
     f.actions

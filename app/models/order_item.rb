@@ -6,6 +6,8 @@ class OrderItem < ApplicationRecord
   validates_presence_of [:order, :productable_id, :productable_type, :qty]
   validate :valid_qty
 
+  scope :activities, -> { where(productable_type: "Activity") }
+
   def price
     self.productable.price
   end

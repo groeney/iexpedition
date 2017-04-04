@@ -33,6 +33,10 @@ class Order < ApplicationRecord
     current_item
   end
 
+  def add_mandatory_activities
+    self.voyage.activities.select(&:is_mandatory).each { |activity| self.add_product(activity) }
+  end
+
   def has_exactly_one_cabin
     order_items.where(productable_type: "Cabin").count == 1
   end

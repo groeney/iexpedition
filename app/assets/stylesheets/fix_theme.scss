@@ -1,3 +1,7 @@
+/*========================================
+=            Section tab icons           =
+========================================*/
+
 .tabs li {
   vertical-align: top;
 }
@@ -5,3 +9,55 @@
 .icon-tabs .tab__title i {
   min-height: 30px;
 }
+
+@media only screen and (max-width: 1200px) {
+
+  .icon-tabs .tabs li {
+    //delete important after confirm PR/22 reordering css
+    width: 12%!important;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+
+  .icon-tabs .tabs li {
+    //delete important after confirm PR/22 reordering css
+    width: 13.5%!important;
+
+    span {
+      font-size: 11px;
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+
+  .icon-tabs .tabs li {
+    //delete important after confirm PR/22 reordering css
+    width: 25%!important;
+  }
+}
+
+@media only screen and (max-width: 599px) {
+
+  .icon-tabs .tabs li {
+    //delete important after confirm PR/22 reordering css
+    width: 30%!important;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+
+  .icon-tabs .tabs li {
+    //delete important after confirm PR/22 reordering css
+    width: 30%!important;
+
+    span {
+      font-size: 10px;
+    }
+  }
+}
+
+
+/*=====  End of Section tab icons  ======*/
+

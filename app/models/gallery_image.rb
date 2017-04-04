@@ -10,6 +10,6 @@ class GalleryImage < ApplicationRecord
   has_many :cabins, through: :gallery_image_groupings, source: :gallery_imageable, source_type: "Cabin"
 
   def self.gallery_imageables
-    Ship.all + Voyage.all + Destination.all
+    Ship.all + Voyage.all + Destination.all + Cabin.all
   end
 end

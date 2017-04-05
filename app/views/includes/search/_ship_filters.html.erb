@@ -13,8 +13,9 @@
 
       <!-- Passenger capacity filter  -->
       <%= render partial: "includes/search/radio_button_filter", locals: { group_name: "passenger_capacity", filter_name: "ship passengers numbers", values: [[0, 60], [61, 140], [141, 200], [201, Float::INFINITY]], labels: ["Up to 60", "60 – 140", "140 – 200", "201+"], selected: @ship_filter_params[:passenger_capacity] } %>
-
-    <%= f.submit "Search", class: "dark-submit-btn" %>
+    <div class="search-button">
+      <%= f.submit "Search", class: "btn" %>
+    </div>
     <a href="<%= search_voyages_path %>" type="button" class="btn btn-outline-secondary">Clear</a>
     </ul>
 </section>

@@ -25,8 +25,9 @@
       <!-- Activities filter  -->
       <% activities = Activity.all %>
       <%= render partial: "includes/search/checkbox_filter", locals: { group_name: "activity_names", filter_name: "expedition activities", values: activities.pluck(:name).uniq, selected: @voyage_filter_params[:activity_names] } %>
-
-    <%= f.submit "Search", class: "dark-submit-btn" %>
-    <a href="<%= search_voyages_path %>" type="button" class="btn btn-outline-secondary">Clear</a>
+    <div class="search-button">
+      <%= f.submit "Search", class: "btn" %>
+    </div>
+    <a href="<%= search_voyages_path %>" type="button" class="btn">Clear</a>
     </ul>
 </section>

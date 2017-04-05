@@ -28,3 +28,4 @@
 //= require_tree ./dashboard
 //= require globals
 //= require js.cookie-2.1.3.min.js
+//= require messages

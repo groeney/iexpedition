@@ -425,29 +425,6 @@ a.btn.btn-voyage {
 
 /*=====  End of Section comment presentation-header  ======*/
 
-/*=================================================
-=            Section of alert-messages            =
-=================================================*/
-
-#success_contact_request_message,
-#error_contact_request_message,
-#success_update_details_message,
-#error_update_details_message {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 20;
-  margin-left: 10px;
-  background-color: #fff;
-  display: none;
-
-  .close {
-    margin-bottom: 0;
-  }
-}
-
-/*=====  End of Section alert-messages  ======*/
-
 /*====================================
 =            Section tabs            =
 ====================================*/
@@ -628,25 +605,6 @@ ul.accordion {
   display: none;
 }
 
-/*==============================================
-+=            Section alert-messages           =
-+==============================================*/
-
-#success_update_coupon_message,
-#error_update_coupon_message {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 20;
-  margin-left: 10px;
-  background-color: #fff;
-  display: none;
-
-   .close {
-     margin-bottom: 0;
-   }
-}
-
 /*=====  End of Section alert-messages  ======*/
 .input.select {
   position: relative;
@@ -670,10 +628,7 @@ ul.accordion {
 =            Section alert-messages            =
 ==============================================*/
 
-#success_contact_request_message,
-#error_contact_request_message,
-#success_update_details_message,
-#error_update_details_message {
+#success_message, #error_message {
   position: fixed;
   top: 15px;
   right: 15px;

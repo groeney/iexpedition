@@ -48,10 +48,10 @@ $(document).on('turbolinks:load', function(){
         processData:false,        
         statusCode: {
           204: function() {
-            $("#success_update_details_message").fadeIn().delay(5000).fadeOut()
+            success_message('Success');
           },
           422: function() {
-            $("#error_update_details_message").fadeIn().delay(5000).fadeOut();
+            error_message('Error');
           }
         }
       });

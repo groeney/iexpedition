@@ -29,6 +29,7 @@
 //= require globals
 //= require search
 //= require tabs
+//= require messages
 //= require destinations
 //= require js.cookie-2.1.3.min.js
 //= require contact_requests

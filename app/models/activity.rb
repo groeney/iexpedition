@@ -10,6 +10,8 @@ class Activity < ApplicationRecord
   validates_presence_of :name, :price
 
   scope :voyage, -> (voyage_id) { joins(:activity_groupings).where(activity_groupings: { voyage_id: voyage_id }) }
+  scope :mandatory, -> { where(is_mandatory: true) }
+  scope :not_mandatory, -> { where(is_mandatory: false) }
 
   def identifier_s
     "#{self.name} for #{self.price}"

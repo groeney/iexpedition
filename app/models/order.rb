@@ -6,6 +6,8 @@ class Order < ApplicationRecord
   belongs_to :user # Only after status becomes > reserved
   belongs_to :cabin_grouping
 
+  after_create :add_mandatory_activities
+
   enum status: [:cart, :reserved, :deposit, :confirmed, :paid, :active, :expired]
   # - :deposit: the deposit has been requested
   # - :confirmed: the deposit has been paid
@@ -34,7 +36,8 @@ class Order < ApplicationRecord
   end
 
   def add_mandatory_activities
-    self.voyage.activities.select(&:is_mandatory).each { |activity| self.add_product(activity) }
+    voyage.activities.select(&:is_mandatory).each { |activity| add_product(activity) }
+    save
   end
 
   def has_exactly_one_cabin

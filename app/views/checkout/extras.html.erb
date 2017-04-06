@@ -35,7 +35,7 @@
         choose your extras
       </span>
     </h5>
-    <%= render partial: "includes/alternating_horizontal_tiles", locals: { collection: @order.voyage.activities } %>
+    <%= render partial: "includes/alternating_horizontal_tiles", locals: { collection: @order.voyage.activities.not_mandatory } %>
     <div class="row">
       <div class="col-sm-offset-9 col-sm-3 col-xs-offset-6 col-xs-6" >
       <a href="<%= checkout_cart_path %>" class="btn pull-right">Continue</a>

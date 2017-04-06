@@ -8,7 +8,9 @@
     <% if product.class.name == "Cabin" %>
       <%= link_to 'Change QTY', checkout_cabins_path(order_item.order.cabin_grouping.id), class: 'text-underline' %>
     <% else %>
-      <%= link_to 'remove item', remove_order_item_path(order_item.id), remote: true, method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-underline' %>
+      <% unless product.is_mandatory %>
+        <%= link_to 'remove item', remove_order_item_path(order_item.id), remote: true, method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-underline' %>
+      <% end -%>
     <% end -%>
   </td>
   <td>

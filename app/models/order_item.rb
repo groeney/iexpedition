@@ -3,6 +3,8 @@ class OrderItem < ApplicationRecord
   belongs_to :productable, polymorphic: true
   has_many :passengers
 
+  after_update :update_qty
+
   validates_presence_of [:order, :productable_id, :productable_type, :qty]
   validate :valid_qty
 
@@ -22,5 +24,15 @@ class OrderItem < ApplicationRecord
 
   def valid_qty
     self.qty > 0
+  end
+
+  private
+
+  def update_qty
+    if self.productable_type == 'Cabin'
+      order.order_items.activities
+        .select { |activity| activity.productable.is_mandatory }
+        .each { |activity| activity.update(qty: qty) }
+    end
   end
 end

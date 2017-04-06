@@ -9,7 +9,6 @@ class CheckoutController < ApplicationController
       @order = Order.new(user: current_user, cabin_grouping: @cabin_grouping)
       @order.cabin_order_item!(@cabin_grouping.cabin)
       @order.voyage = @cabin_grouping.voyage
-      @order.add_mandatory_activities
       session[:order_id] = @order.id if @order.save
       current_user.orders << @order if current_user
     end

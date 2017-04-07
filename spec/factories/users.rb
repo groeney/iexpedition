@@ -14,8 +14,10 @@ FactoryGirl.define do
     jacket_size { ['39', '40', '41', '42'].sample }
     gender { ['male', 'female'].sample }
 
-    email { "user-email-#{SecureRandom.hex(3)}@example.com" }
+    email { "foo@bar.com" }
     password "password"
+
+    before(:create) { |user| user.skip_confirmation!  }
 
     trait :with_reserved_order do
       after(:create) do |user|
@@ -57,6 +59,13 @@ FactoryGirl.define do
     trait :with_emergency_contact do
       after(:create) do |user|
         user.emergency_contact = FactoryGirl.create(:emergency_contact)
+      end
+    end
+
+    trait :with_travel_details do
+      after(:create) do |user|
+        user.travel_detail_pre = FactoryGirl.create(:travel_detail)
+        user.travel_detail_post = FactoryGirl.create(:travel_detail, departure_date: user.travel_detail_pre.departure_date + 2.weeks, arrival_date: user.travel_detail_pre.arrival_date + 2.weeks)
       end
     end
 

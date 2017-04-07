@@ -35,13 +35,17 @@
 
     <%= simple_form_for @user, as: :order_details, url: checkout_signup_path, validate: true do |f| %>
       <%= f.simple_fields_for @user, validate: true do |u| %>
-        <%= render partial: "includes/checkout/user_details", locals: { u: u, user_counter: 1 } %>
+        <div class="passenger-details">
+          <%= render partial: "includes/checkout/user_details", locals: { u: u, user_counter: 1 } %>
+        </div>
       <% end -%>
 
       <% if @passengers_count.present? %>
         <% 2.upto(@passengers_count) do |counter| %>
             <%= f.simple_fields_for "user_#{counter}", Passenger.new, validate: true do |u| %>
+              <div class="passenger-details">
                 <%= render partial: "includes/checkout/user_details", locals: { u: u, user_counter: counter } %>
+              </div>
             <% end -%>
         <% end -%>
       <% end -%>

@@ -1,7 +1,7 @@
 <% is_checkout_activity = (controller_name == "checkout") && (resource.class.name == "Activity") %>
 <% is_order_item = resource.class.name == "OrderItem" %>
 <% image = is_order_item ? resource.productable.image : resource.image %>
-<div class="horizontal-tile flex m-md-flex-column-reverse">
+<div class="horizontal-tile flex m-md-flex-column-reverse extra-item">
   <div class="tile-right bg-secondary <%= is_checkout_activity ? 'md-w40 m-md-w100 flex-column' : 'md-w60 m-md-w100 flex-column' %>">
     <%= render partial: "includes/horizontal_tile_text", locals: { resource: resource } %>
     <% if is_checkout_activity %>

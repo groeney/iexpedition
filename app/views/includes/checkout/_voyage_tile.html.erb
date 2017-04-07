@@ -1,7 +1,7 @@
 <div class="col-lg-5 col-md-8 col-sm12 flex-column">
-  <h3><%= cabin.name %></h3>
+  <h3 id="cabin-name"><%= cabin.name %></h3>
   <h4><%= cabin.decorate.price %><em>pp</em></h4>
-  <p><%= cabin.overview %></p>
+  <p id="cabin-overview"><%= cabin.overview %></p>
   <% cabin_order_item = @order.cabin_order_item %>
   <%= simple_form_for cabin_order_item, method: :put, remote: true, html: { id: "order-item-form" } do |f| %>
     <%= f.hidden_field :id, value: cabin_order_item.id %>

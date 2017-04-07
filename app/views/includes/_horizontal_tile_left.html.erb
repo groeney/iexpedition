@@ -1,7 +1,7 @@
 <% is_checkout_activity = (controller_name == "checkout") && (resource.class.name == "Activity") %>
 <% is_order_item = resource.class.name == "OrderItem" %>
 <% image = is_order_item ? resource.productable.image : resource.image %>
-<div class="horizontal-tile md-flex">
+<div class="horizontal-tile md-flex extra-item">
   <div class="tile-left <%= is_checkout_activity ? 'md-w60 m-md-w100 flex-column' : 'md-w40 m-md-w100 flex-column' %>">
     <div>
       <div class="background-image-holder fadeIn" style="background: url("<%= image %>");">

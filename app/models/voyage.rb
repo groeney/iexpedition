@@ -35,9 +35,9 @@ class Voyage < ApplicationRecord
   scope :destinations, -> (destination_ids) { joins(:destination).where(destinations: { id: destination_ids }) }
   scope :regions, -> (region_ids) { joins(:region_groupings).where(region_groupings: { region_id: region_ids }) }
   scope :ships, -> (ship_ids) { joins(:ship).where(ships: { id: ship_ids }) }
-  scope :price, -> (price) { joins(:cabins).where(cabins: { price: price.to_i..Float::INFINITY }) }
+  scope :price, -> (price) { joins(:cabins).where(cabins: { price: 0..price.to_i }) }
   scope :departure_date, -> (date) { where('start_date >= ?', date) }
-  scope :duration, -> (days) { where('end_date - start_date >= ?', days.to_i) }
+  scope :duration, -> (days) { where('end_date - start_date <= ?', days.to_i) }
   scope :names, -> (names) { where(name: names) }
   scope :passenger_capacity, -> (capacity_range) { where(voyages: { passenger_capacity: capacity_range[0]..capacity_range[1] }) }
   scope :embark_ports, -> (embark_ports) { where(embark_port: embark_ports) }
@@ -74,5 +74,13 @@ class Voyage < ApplicationRecord
 
   def duration
     (self.end_date - self.start_date).to_i
+  end
+
+  def elaborate_inclusions
+    self.inclusions.where.not(overview: nil)
+  end
+
+  def simple_inclusions
+    self.inclusions.where(overview: nil)
   end
 end

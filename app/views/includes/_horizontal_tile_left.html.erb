@@ -3,11 +3,11 @@
 <% image = is_order_item ? resource.productable.image : resource.image %>
 <div class="horizontal-tile md-flex">
   <div class="tile-left <%= is_checkout_activity ? 'md-w60 m-md-w100 flex-column' : 'md-w40 m-md-w100 flex-column' %>">
-    <a href="#">
+    <div>
       <div class="background-image-holder fadeIn" style="background: url("<%= image %>");">
         <img alt="image" class="background-image" src="<%= image %>" style="display: none;">
       </div>
-    </a>
+    </div>
   </div>
   <div class="tile-right bg-secondary <%= is_checkout_activity ? 'md-w40 m-md-w100 flex-column' : 'md-w60 m-md-w100 flex-column' %>">
     <%= render partial: "includes/horizontal_tile_text", locals: { resource: resource } %>

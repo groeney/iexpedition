@@ -2,6 +2,7 @@ module Filterable
   extend ActiveSupport::Concern
 
   module ClassMethods
+    # See voyage.rb scopes
     def filter_and(filter_params)
       results = self.where(nil)
       filter_params.each do |key, value|

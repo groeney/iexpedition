@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   get "about" => "pages#about_us"
   get "about_us" => "pages#about_us"
   resources :voyages, only: [:show]
+  get "destination/antarctica" => "destinations#antarctica", as: :destination_antarctica
+  get "destination/the-arctic" => "destinations#arctic", as: :destination_arctic
   resources :destinations, only: [:show]
   resources :ships, only: [:show]
   resources :orders, only: [:update]

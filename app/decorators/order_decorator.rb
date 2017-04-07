@@ -43,5 +43,4 @@ class OrderDecorator < Draper::Decorator
   def currency
     object.voyage.currency
   end
-
 end

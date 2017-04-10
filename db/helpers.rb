@@ -104,7 +104,7 @@ end
 def clean_data(obj)
   date_keys = [:start_date, :end_date, :voyage_start_date, :voyage_end_date]
   not_nullable_keys = [:single_supplement, :availability, :dedicated_sole_occupancy,
-                       :discount_amount, :gst]
+                       :discount_amount, :gst, :is_mandatory]
   obj.delete_if { |key,value| not_nullable_keys.include?(key) && value.nil? }
   obj.update(obj) {
     |key,value| (date_keys.include?(key) && !value.nil?) ? Date.parse(value) : value

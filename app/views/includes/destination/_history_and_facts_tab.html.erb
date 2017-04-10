@@ -1,5 +1,5 @@
 <div class="container">
   <h4>Did you know?...</h4>
-  <%= simple_format("Lorem ipsum Est sint aute non elit nostrud anim pariatur. Lorem ipsum Veniam Duis enim Ut mollit enim in id sit sit do cupidatat. Lorem ipsum Eu culpa mollit velit Ut adipisicing. \n\n Lorem ipsum Sint id enim dolor est dolor. Lorem ipsum Deserunt consecteturLorem ipsum Culpa exercitation cupidatat sed Duis occaecat occaecat. \n\n Lorem ipsum Enim Duis sed magna laboris est id. Lorem ipsum Cupidatat dolore tempor in eiusmod enim. Lorem ipsum Nulla sit dolor sit consectetur eiusmod eiusmod. Lorem ipsum In voluptate Duis mollit aliquip tempor. \n\n Lorem ipsum Dolor irure deserunt cillum non in nisi est consectetur. Lorem ipsum Dolore nostrud fugiat dolore adipisicing in elit laborum in incididunt anim culpa. Lorem ipsum Elit occaecat in Duis enim dolor sit incididunt. Lorem ipsum Do ullamco in ea sunt eiusmod.") %>
+  <%= simple_format(@destination.did_you_know) %>
   <%= render partial: "includes/alternating_horizontal_tiles", locals: { collection: @destination.facts } %>
 </div>

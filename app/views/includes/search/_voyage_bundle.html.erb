@@ -11,7 +11,7 @@
         <% bundle.each do |voyage| %>
           <tr>
             <td class="search-date"><%= voyage.formatted_start_date %> - <%= voyage.formatted_end_date %></td>
-            <td class="search-price">From AUD $<%= voyage.from_price.try(:to_int) %><em>pp</em></td>
+            <td class="search-price">From <%= voyage.decorate.from_price %><em>pp</em></td>
           </tr>
         <% end -%>
       </table>

@@ -6,8 +6,8 @@ class OrderDecorator < Draper::Decorator
     "#{currency} #{number_to_currency(object.sub_total, precision: 0)}"
   end
 
-  def tax
-    "#{currency} #{number_to_currency(object.voyage.gst_perc, precision: 0)}"
+  def tax_amount
+    "#{currency} #{number_to_currency(object.tax_amount, precision: 0)}"
   end
 
   def deposit_perc

@@ -49,7 +49,11 @@ class Order < ApplicationRecord
   end
 
   def total
-    (self.sub_total + self.solo_traveller_fee) * (1 + self.voyage.gst_perc) - self.discount_in_dollars
+    (self.sub_total + self.solo_traveller_fee) + self.tax_amount - self.discount_in_dollars
+  end
+
+  def tax_amount
+    (self.sub_total + self.solo_traveller_fee) * self.voyage.gst_perc
   end
 
   def cabin_order_item

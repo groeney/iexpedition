@@ -11,7 +11,7 @@ $(document).on('turbolinks:load', function(){
     if ($('#priceSlider').length == 0){
       $('#price-slider').slider({
         formatter: function(value) {
-          return 'Current value: $' + value + 'k AUD';
+          return 'Current value: $' + (value/1000) + 'k AUD';
         }
       });
     }

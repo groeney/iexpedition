@@ -31,9 +31,9 @@ class DashboardController < ApplicationController
 
   def download_payment_invoice
     order = Order.find(params[:id])
-    if order.payment_invoice.path
+    if order.payment_invoice.url
       send_file(
-        order.payment_invoice.path,
+        order.payment_invoice.url,
         filename: order.payment_invoice_file_name,
         type: order.payment_invoice_content_type
       )
@@ -42,9 +42,9 @@ class DashboardController < ApplicationController
 
   def download_deposit_invoice
     order = Order.find(params[:id])
-    if order.deposit_invoice.path
+    if order.deposit_invoice.url
       send_file(
-        order.deposit_invoice.path,
+        order.deposit_invoice.url,
         filename: order.deposit_invoice_file_name,
         type: order.deposit_invoice_content_type
       )

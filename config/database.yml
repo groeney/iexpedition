@@ -1,6 +1,0 @@
-development: &default
-  adapter: postgresql
-  database: iexpedition_development
-  encoding: utf8
-  username: postgres
-  password: ''

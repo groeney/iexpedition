@@ -12,6 +12,9 @@
   <% else %>
     <h4 class="mb8"><%= resource.name %></h4>
     <%= !resource.overview.blank? ? simple_format(resource.overview) : simple_format("Lorem ipsum Ullamco dolore nisi Ut est anim exercitation. Lorem ipsum Laborum amet esse nulla in ea consectetur mollit irure aliqua Duis officia. \n\n Lorem ipsum Eiusmod nisi incididunt veniam quis laborum deserunt culpa do dolor eu et non. Lorem ipsum Mollit reprehenderit dolor nostrud minim adipisicing consequat officia veniam sed consequat minim.") %>
+    <% if resource.class.name == "Activity" %>
+      <div class="view-price "><%= resource.decorate.price %> <em>per person</em></div>
+    <% end -%>
     <% if resource.class.name == "Wildlife" %>
       <span class="fact-header mt16">Fact:</span>
       <%= !resource.fact.blank? ? simple_format(resource.fact) : simple_format("Lorem ipsum Eiusmod amet est esse qui dolor est magna tempor. Lorem ipsum Commodo consectetur aute Ut culpa in nulla ex veniam occaecat aliquip amet dolore.") %>

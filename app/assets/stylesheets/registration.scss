@@ -166,20 +166,22 @@
 
       .details-checkboxes {
         margin-bottom: 60px;
-
         color: #fff;
 
+        .optional {
+          display: inline-block;
+        }
+
         label {
-          position: relative;
-          padding-left: 20px;
+          display: flex;
 
           input[type="checkbox"] {
-            position: absolute;
-            left: 0;
+            margin-right: 10px;
+            margin-top: 6px;
           }
         }
       }
-
+      
       .animate-button {
         width: 295px;
 

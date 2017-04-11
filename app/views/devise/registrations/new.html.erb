@@ -20,8 +20,15 @@
           <%= f.input :email, required: true, label: false, placeholder: 'Email' %>
           <%= f.input :password, required: true, label: false, placeholder: 'Password'%>
           <div class="details-checkboxes">
-            <%= f.input :email_newsletter, as: :boolean, boolean_style: :inline, label: "Tick here if you wish to receive material from us" %>
-            <%= f.input :accept_privacy_policy, as: :boolean, boolean_style: :inline, label: "I understand that iX will treat the information that I provide in accordance with their privacy policy", label_html: { style: "display:inline;" } %>
+            <label>
+              <%= f.input :email_newsletter, as: :boolean, label: false, boolean_style: :inline %>
+              Tick here if you wish to receive material from us
+            </label>
+
+            <label>
+              <%= f.input :accept_privacy_policy, as: :boolean, label: false, boolean_style: :inline %>
+              I undeI uand that iX will treat the information that I provide in accordance with their privacy policy
+            </label>
           </div>
         </div>
         <div class="form-actions">

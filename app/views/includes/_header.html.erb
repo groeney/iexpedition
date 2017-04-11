@@ -1,14 +1,35 @@
 <nav class="nav-centered">
   <div class="nav-utility">
     <div class="header-width">
-      <div class="module right">
-        <%= link_to "FAQs", contact_us_path %>
-        <%= link_to "Contact Us", contact_us_path %>
-        <%= link_to "Travel Resources", travel_resources_path %>
-        <%= link_to "Expedition Travel", expedition_travel_path %>
-        <%= link_to "About Us", about_us_path %>
-        <!-- TODO: Delete sign out link from here -->
-        <%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure you want to sign out?" } %>
+
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed ti-menu" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse n-bar" id="bs-example-navbar-collapse-1">
+        <ul class="module right nav navbar-nav">
+          <li>
+            <%= link_to "FAQs", contact_us_path %>
+          </li>
+          <li>
+            <%= link_to "Contact Us", contact_us_path %>
+          </li>
+          <li>
+            <%= link_to "Travel Resources", travel_resources_path %>
+          </li>
+          <li>
+            <%= link_to "Expedition Travel", expedition_travel_path %>
+          </li>
+          <li>
+            <%= link_to "About Us", about_us_path %>
+          </li>
+          <!-- TODO: Delete sign out link from here -->
+          <li>
+            <%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure you want to sign out?" } %>
+          </li>
+        </ul>
       </div>
     </div>
   </div>

@@ -14,7 +14,7 @@
 
   .icon-tabs .tabs li {
     //delete important after confirm PR/22 reordering css
-    width: 12%!important;
+    width: 12% !important;
   }
 }
 
@@ -22,7 +22,7 @@
 
   .icon-tabs .tabs li {
     //delete important after confirm PR/22 reordering css
-    width: 13.5%!important;
+    width: 13.5% !important;
 
     span {
       font-size: 11px;
@@ -34,7 +34,7 @@
 
   .icon-tabs .tabs li {
     //delete important after confirm PR/22 reordering css
-    width: 25%!important;
+    width: 25% !important;
   }
 }
 
@@ -42,7 +42,7 @@
 
   .icon-tabs .tabs li {
     //delete important after confirm PR/22 reordering css
-    width: 30%!important;
+    width: 30% !important;
   }
 }
 
@@ -50,7 +50,7 @@
 
   .icon-tabs .tabs li {
     //delete important after confirm PR/22 reordering css
-    width: 30%!important;
+    width: 30% !important;
 
     span {
       font-size: 10px;
@@ -58,6 +58,62 @@
   }
 }
 
-
 /*=====  End of Section tab icons  ======*/
 
+.menu > li:last-child > ul {
+  left: 0;
+}
+
+.module {
+  padding: 0 !important;
+  @media (max-width: 768px) {
+    padding: 10px !important;
+  }
+}
+
+.n-bar {
+  @media (max-width: 767px) {
+
+    position: absolute;
+    z-index: 99999999;
+    width: 100%;
+    background: #fff;
+    text-align: right;
+
+    ul {
+      width: 100%;
+      margin: 0;
+      li {
+
+        a {
+          line-height: 40px;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+.navbar-collapse {
+  padding: 0;
+}
+
+.navbar-toggle {
+  position: relative;
+  z-index: 9999;
+  font-size: 18px;
+}
+
+.parallax > .background-image-holder {
+  height: 100% !important;
+}
+
+.background-image-holder.fadeIn {
+  top: 0 !important;
+}
+
+.module-group.right {
+  @media (min-width: 1346px) {
+    margin-right: 15px;
+  }
+}

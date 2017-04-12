@@ -74,7 +74,7 @@ def extract_voyage(obj)
 
   voyage = nil
   if voyages.blank?
-    missing_data("Voyage", voyage_obj[:name])
+    missing_data("Voyage", voyage_obj)
     puts "Ship: #{ship.name}. Operator: #{ship.operator.name}"
   elsif voyages.length > 1
     raise "More than one voyage found for #{voyage_obj} and ship #{ship.name}. See for yourself: #{voyages}"

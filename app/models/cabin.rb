@@ -9,7 +9,7 @@ class Cabin < ApplicationRecord
   has_many :gallery_images, through: :gallery_image_groupings
 
   validates_presence_of [:name, :price]
-  validates_uniqueness_of :name, scope: [:price, :description], message: ", price and description should be unique combinations"
+  # validates_uniqueness_of :name, scope: [:price, :description], message: ", price and description should be unique combinations"
 
   has_attached_file :image, default_url: "/assets/missing-cabin.png", styles: { original: "512x512>", thumb: "100x100>" }
   validates_attachment :image, content_type: { content_type: /\Aimage\/.*\z/ }

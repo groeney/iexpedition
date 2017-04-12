@@ -10,6 +10,7 @@ class Destination < ApplicationRecord
   has_many :highlights, through: :highlight_groupings
   has_many :gallery_images, through: :gallery_image_groupings
   has_many :wildlives, through: :wildlife_groupings
+  has_many :destination_activities
 
   validates_uniqueness_of :name
 
@@ -28,11 +29,5 @@ class Destination < ApplicationRecord
 
   def identifier_s
     self.name
-  end
-
-  def activities
-    ids = Voyage.where(destination_id: self.id).map { |v| v.activities.pluck(:id) }
-                                         .flatten.uniq
-    Activity.where(id: ids)
   end
 end

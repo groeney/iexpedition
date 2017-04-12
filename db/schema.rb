@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170406133856) do
+ActiveRecord::Schema.define(version: 20170412101441) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -128,6 +128,20 @@ ActiveRecord::Schema.define(version: 20170406133856) do
     t.integer  "discount_type",   default: 0
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+  end
+
+  create_table "destination_activities", force: :cascade do |t|
+    t.integer  "destination_id"
+    t.string   "name",               null: false
+    t.text     "overview"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.text     "label"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["destination_id"], name: "index_destination_activities_on_destination_id", using: :btree
   end
 
   create_table "destinations", force: :cascade do |t|
@@ -571,6 +585,7 @@ ActiveRecord::Schema.define(version: 20170406133856) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "destination_activities", "destinations"
   add_foreign_key "emergency_contacts", "users"
   add_foreign_key "facts", "destinations"
   add_foreign_key "favourite_ships", "ships"

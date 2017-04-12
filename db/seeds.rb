@@ -15,6 +15,8 @@ new_resource("Cabins")
 require_relative "./seeds/cabins"
 new_resource("Activities")
 require_relative "./seeds/activities"
+new_resource("DestinationActivities")
+require_relative "./seeds/destination_activities"
 new_resource("ItineraryDays")
 require_relative "./seeds/itinerary_days"
 new_resource("Wildlife")

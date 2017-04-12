@@ -3,6 +3,7 @@ class SearchController < ApplicationController
     voyage_filter_params
     @destination = Destination.find((@voyage_filter_params[:destinations] || 1))
     @results = Voyage.filter_and(@voyage_filter_params).group_by(&:name)
+                     .sort { |x,y| x[1].first.start_date <=> y[1].first.start_date }
   end
 
   def antarctica

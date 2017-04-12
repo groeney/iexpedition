@@ -5,6 +5,7 @@ ActiveAdmin.register GalleryImage do
 
   index do
     selectable_column
+    column :id
     column :description
     column "Image", sortable: false do |gallery_image|
       link_to "<img src='#{gallery_image.image.url}' alt='gallery_image image' style='height:48px;display:block;margin-left:auto;margin-right:auto;'".html_safe, gallery_image.image.url
@@ -14,6 +15,7 @@ ActiveAdmin.register GalleryImage do
 
   show do |gallery_image|
     attributes_table do
+      row :id
       row :description
       row :image do
         image_tag(gallery_image.image.url)

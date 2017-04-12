@@ -36,7 +36,7 @@ class Voyage < ApplicationRecord
   scope :regions, -> (region_ids) { joins(:region_groupings).where(region_groupings: { region_id: region_ids }) }
   scope :ships, -> (ship_ids) { joins(:ship).where(ships: { id: ship_ids }) }
   scope :price, -> (price) { joins(:cabins).where("(currency = 'AUD' and cabins.price BETWEEN 0 and #{price.to_i}) or (currency = 'USD' and cabins.price BETWEEN 0 and #{price.to_i*0.75})") }
-  scope :departure_date, -> (date) { where('start_date >= ?', date) }
+  scope :departure_date, -> (date) { where('start_date BETWEEN ? and ?', date, date + 60.days) }
   scope :duration, -> (days) { where('end_date - start_date <= ?', days.to_i) }
   scope :names, -> (names) { where(name: names) }
   scope :passenger_capacity, -> (capacity_range) { where(voyages: { passenger_capacity: capacity_range[0]..capacity_range[1] }) }

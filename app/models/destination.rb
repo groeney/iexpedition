@@ -30,4 +30,10 @@ class Destination < ApplicationRecord
   def identifier_s
     self.name
   end
+
+  def activities
+    ids = Voyage.where(destination_id: self.id).map { |v| v.activities.pluck(:id) }
+                                         .flatten.uniq
+    Activity.where(id: ids)
+  end
 end

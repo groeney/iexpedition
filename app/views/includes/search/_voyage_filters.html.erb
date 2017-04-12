@@ -23,7 +23,7 @@
       <%= render partial: "includes/search/checkbox_filter", locals: { group_name: "highlight_names", filter_name: "expedition highlights", values: highlights.pluck(:name).uniq, selected: @voyage_filter_params[:highlight_names] } %>
 
       <!-- Activities filter  -->
-      <% activities = Activity.all %>
+      <% activities = @destination.activities %>
       <%= render partial: "includes/search/checkbox_filter", locals: { group_name: "activity_names", filter_name: "expedition activities", values: activities.pluck(:name).uniq, selected: @voyage_filter_params[:activity_names] } %>
     <div class="search-button">
       <%= f.submit "Search", class: "btn" %>

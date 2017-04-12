@@ -1,5 +1,6 @@
 require "csv"
 Dir["./db/seeds/data/*activities-#{TYPE}.csv"].each do |fn|
+  next if fn.include? "destination-activities"
   new_file(fn)
   CSV.foreach(fn, :headers => true) do |row|
     activity_obj = clean_data row.to_hash.symbolize_keys!

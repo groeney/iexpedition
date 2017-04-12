@@ -112,6 +112,13 @@ def clean_data(obj)
   obj.update(obj) {
     |key,value| value.is_a?(String) ? value.strip : value
   }
+  replace_image_id_with_image(obj)
+  obj
+end
+
+def replace_image_id_with_image(obj)
+  gallery_image = extract_gallery_image(obj, :image_id)
+  obj.merge!({ image: gallery_image.image }) if gallery_image
 end
 
 def missing_data(resource_type, name)
@@ -131,22 +138,42 @@ def new_file(filename)
   puts "### New file ### #{filename}"
 end
 
-def extract_names(obj, key)
-  (obj.delete(key) || "").split(',').map { |name| name.strip }
+def extract_string_list(obj, key)
+  (obj.delete(key) || "").split(',').map { |s| s.strip }
+end
+
+def extract_integer_list(obj, key)
+  (obj.delete(key) || "").split(',')
 end
 
 def extract_or_create_named_resources(obj, key, class_name)
-  extract_names(obj, key).map do |name|
+  extract_string_list(obj, key).map do |name|
     klass = Object.const_get class_name
     klass.find_or_create_by(name: name)
   end
 end
 
 def extract_named_resources(obj, key, class_name)
-  extract_names(obj, key).map do |name|
+  extract_string_list(obj, key).map do |name|
     klass = Object.const_get class_name
     resource = klass.find_by_name(name)
-    missing_data(resource.class.name, resource) if resource.nil?
+    missing_data(resource.class.name, resource) unless resource
     resource
+  end
+end
+
+def extract_gallery_image(obj, key)
+  id = obj.delete(key)
+  return nil unless id
+  gallery_image = GalleryImage.find_by(id: id)
+  missing_data("GalleryImage", "id: #{id}") unless gallery_image
+  gallery_image
+end
+
+def extract_gallery_images(obj)
+  extract_integer_list(obj, :gallery_image_ids).map do |id|
+    gallery_image = GalleryImage.find_by(id: id)
+    missing_data("GalleryImage", "id: #{id}") unless gallery_image
+    gallery_image
   end
 end

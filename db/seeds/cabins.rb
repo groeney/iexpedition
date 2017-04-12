@@ -12,9 +12,13 @@ Dir["./db/seeds/data/*cabins-#{TYPE}.csv"].each do |fn|
       availability: cabin_obj.delete(:availability),
       discount_amount: cabin_obj.delete(:discount_amount)
     }.reject{|k,v| v.blank?}
+    gallery_images = extract_gallery_images(cabin_obj)
     singleton = create_singleton("Cabin", cabin_obj)
     features.each do |feature|
       associate_singleton_with_collection(singleton.features, feature) unless feature.nil?
+    end
+    gallery_images.each do |gallery_image|
+      associate_singleton_with_collection(singleton.gallery_images, gallery_image) unless gallery_image.nil?
     end
 
     associate_singleton_with_collection(voyage.cabins, singleton)

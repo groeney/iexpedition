@@ -22,6 +22,8 @@ Dir["./db/seeds/data/*voyages-#{TYPE}.csv"].each do |fn|
       ship: ship,
     })
 
+    gallery_images = extract_gallery_images(voyage_obj)
+
     singleton = create_singleton("Voyage", voyage_obj)
 
     regions.each do |region|
@@ -34,6 +36,10 @@ Dir["./db/seeds/data/*voyages-#{TYPE}.csv"].each do |fn|
 
     exclusions.each do |exclusion|
       associate_singleton_with_collection(singleton.exclusions, exclusion) unless exclusion.nil?
+    end
+
+    gallery_images.each do |gallery_image|
+      associate_singleton_with_collection(singleton.gallery_images, gallery_image) unless gallery_image.nil?
     end
 
     associate_singleton_with_collection(ship.voyages, singleton) unless ship.nil?

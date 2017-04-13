@@ -218,3 +218,10 @@
     right: 60px;
   }
 }
+
+.letter {
+  &:first-letter {
+    text-transform: lowercase !important;
+  }
+}
+

@@ -225,3 +225,41 @@
   }
 }
 
+.label-wild-life {
+  position: relative;
+  display: inline-block;
+  margin: 25px 0 0 -20px;
+  padding: 5px 45px 5px 40px;
+  font-size: 14px;
+  color: #fff;
+  background: linear-gradient(to right,#15b8e3, #01a195);
+  min-height: 34px;
+
+  -webkit-transition: all .3s ease ;
+  -moz-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+
+  &:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+    left: calc(100% - 1px);
+    border-width: 17px 0 17px 17px;
+    border-style: solid;
+    border-color: transparent #01a195;
+  }
+}
+
+.background-image-holder {
+
+  &:hover {
+
+    span {
+      transform: translateX(20px) translateY(10px);
+    }
+  }
+}

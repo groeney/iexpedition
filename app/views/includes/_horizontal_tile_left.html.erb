@@ -1,4 +1,5 @@
 <% is_checkout_activity = (controller_name == "checkout") && (resource.class.name == "Activity") %>
+<% is_destination_highlight = (controller_name == "destinations") && (["Highlight", "DestinationActivity"].include?(resource.class.name)) %>
 <% is_order_item = resource.class.name == "OrderItem" %>
 <% image = is_order_item ? resource.productable.image : resource.image %>
 <div class="horizontal-tile md-flex extra-item">
@@ -6,6 +7,11 @@
     <div>
       <div class="background-image-holder fadeIn" style="background: url("<%= image %>");">
         <img alt="image" class="background-image" src="<%= image %>" style="display: none;">
+        <% if is_destination_highlight %>
+          <span class="label-wild-life">
+            <%= resource.label %>
+          </span>
+        <% end -%>
       </div>
     </div>
   </div>

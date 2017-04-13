@@ -32,6 +32,9 @@
             </div>
             <div class="tab__content voyage-itinerary-tab">
               <%= render partial: "includes/voyage/itinerary_tab", locals: { voyage: @voyage } %>
+              <p class="msg">
+                <%= @voyage.destination.voyage_info %>
+              </p>
             </div>
           </li>
           <li>
@@ -83,7 +86,7 @@
       </div>
     </div>
   </div>
-  <div class="row mt72">
+  <div class="row">
     <h5 class="divider">
       <span>Departure Dates & Cabins</span>
     </h5>

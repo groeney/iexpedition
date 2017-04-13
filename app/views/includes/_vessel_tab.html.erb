@@ -7,6 +7,11 @@
       </div>
       <div class="row mt32">
         <h5>Features & Facilities</h5>
+        <ul>
+          <% ship.features.each do |feature| %>
+            <li><%= feature.name %></li>
+          <% end %>
+        </ul>
       </div>
     </div>
     <div class="col-md-1"></div>

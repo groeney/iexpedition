@@ -10,3 +10,9 @@
   </button>
   Error
 </div>
+
+<% [:notice, :error, :alert, :success].each do |level| %>
+  <% unless flash[level].blank? %>
+    <div id="flash_message" data-message="<%= flash[level] %>" data-level="<%= level %>"></div>
+  <% end -%>
+<% end -%>

@@ -67,62 +67,14 @@
       <div class="col-md-5 col-sm-4">
         <h6 class="uppercase mb8">most popular ships</h6>
         <ul>
-<!--           <% Ship.all.each do |ship| %>
-            <li><a href="#"><%= ship.name %></a></li>
-          <% end -%> -->
           <table class="footer-ships">
-            <tr>
-              <td>Akademic Ioffe</td>
-              <td>National Geographic  Orion</td>
-            </tr>
-            <tr>
-              <td>Akademic Vavilov</td>
-              <td>Ocean Adventurer</td>
-            </tr>
-            <tr>
-              <td>Bark Europa</td>
-              <td>Ocean Diamond</td>
-            </tr>
-            <tr>
-              <td>Eclipse</td>
-              <td>Ocean Endeavour</td>
-            </tr>
-            <tr>
-              <td>Fram</td>
-              <td>Ocean Nova</td>
-            </tr>
-            <tr>
-              <td>G Expedition</td>
-              <td>Ortelius</td>
-            </tr>
-            <tr>
-              <td>Hebridean Sky</td>
-              <td>Plancius</td>
-            </tr>
-            <tr>
-              <td>Hondius</td>
-              <td>Polar Pioneer</td>
-            </tr>
-            <tr>
-              <td>Island Sky</td>
-              <td>Sea Spirit</td>
-            </tr>
-            <tr>
-              <td>Kapitan Khlebnikov</td>
-              <td>Silver Cloud</td>
-            </tr>
-            <tr>
-              <td>Le Boreal</td>
-              <td>Silver Explorer</td>
-            </tr>
-            <tr>
-              <td>Ushuaia</td>
-              <td>Spirit of Enderby</td>
-            </tr>
-            <tr>
-              <td>National Geographic Explorer</td>
-              <td>50 Years of Victory</td>
-            </tr>
+            <% popular_ships.each_slice(2) do |slice| %>
+              <tr>
+                <% slice.each do |ship| %>
+                  <td><%= link_to ship.name, ship_path(ship.id) %></td>
+                <% end -%>
+              </tr>
+            <% end -%>
           </table>
         </ul>
       </div>
@@ -130,58 +82,14 @@
       <div class="col-md-5 col-sm-4">
         <h6 class="uppercase mb8">most popular destinations</h6>
         <ul>
-<!--           <% Region.all.each do |region| %>
-            <li><a href="#"><%= region.name %></a></li>
-          <% end -%> -->
           <table class="footer-destinations">
-            <tr>
-              <td>Antarctic Circle</td>
-              <td>Canadian Arctic</td>
-            </tr>
-            <tr>
-              <td>Antarctic Peninsula</td>
-              <td>EUROPEAN ARCTIC</td>
-            </tr>
-            <tr>
-              <td>Commonwealth Bay</td>
-              <td>Franz Joseph Land</td>
-            </tr>
-            <tr>
-              <td>Falkland Islands</td>
-              <td>Greenland - East</td>
-            </tr>
-            <tr>
-              <td>Macquarie Island</td>
-              <td>Greenland - West</td>
-            </tr>
-            <tr>
-              <td>Patagonia Fjords</td>
-              <td>Iceland</td>
-            </tr>
-            <tr>
-              <td>Ross Sea</td>
-              <td>North Pole</td>
-            </tr>
-            <tr>
-              <td>South Georgia</td>
-              <td>Northeast Passage & Wrangle Island</td>
-            </tr>
-            <tr>
-              <td>South Sandwich Islands</td>
-              <td>Northwest Passage</td>
-            </tr>
-            <tr>
-              <td>South Shetland Islands</td>
-              <td>Norway</td>
-            </tr>
-            <tr>
-              <td>Sub-Antarctic Islands</td>
-              <td>Scotland</td>
-            </tr>
-            <tr>
-              <td>Weddell Sea</td>
-              <td>Svalbard</td>
-            </tr>
+            <% popular_destinations.each_slice(2) do |slice| %>
+              <tr>
+                <% slice.each do |destination| %>
+                  <td><%= link_to destination.name, destination_path(destination.id) %></td>
+                <% end -%>
+              </tr>
+            <% end -%>
           </table>
         </ul>
       </div>

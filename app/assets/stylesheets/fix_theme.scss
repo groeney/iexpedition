@@ -130,3 +130,91 @@
   display: inline-block;
   margin-bottom: 14px;
 }
+
+.slider.slider-horizontal {
+  margin-left: 9px;
+}
+
+.string.required.datepicker,
+#search_destinations {
+  width: 87%;
+}
+
+.input.string.required.search_departure_date.select-option.col-md-6 {
+  position: relative;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    right: 55px;
+    background-image: url("/icons/calendar.png");
+    width: 36px;
+    height: 34px;
+    z-index: 2;
+    pointer-events: none;
+  }
+}
+
+.input.select.required.search_destinations.select-option.col-md-6 {
+  position: relative;
+
+  &:after {
+    content: "\e64b";
+    color: #8e9083;
+    position: absolute;
+    font-size: 18px;
+    right: 60px;
+    top: 15px;
+    z-index: 2;
+    pointer-events: none;
+  }
+}
+
+.slider.slider-horizontal {
+  width: 85%;
+}
+
+.slider-tick-container {
+
+  div:last-child {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+
+  .slider.slider-horizontal {
+    width: 55%;
+  }
+
+  .input.string.required.search_departure_date.select-option.col-md-6:after {
+    right: 75px;
+  }
+
+  .input.select.required.search_destinations.select-option.col-md-6:after {
+    right: 80px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+
+  .input.string.required.search_departure_date.select-option.col-md-6:after {
+    right: 60px;
+  }
+
+  .input.select.required.search_destinations.select-option.col-md-6:after {
+    right: 65px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+
+  .input.string.required.search_departure_date.select-option.col-md-6:after {
+    right: 55px;
+  }
+
+  .input.select.required.search_destinations.select-option.col-md-6:after {
+    right: 60px;
+  }
+}

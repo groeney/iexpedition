@@ -36,7 +36,9 @@
         </tr>
         <tr>
           <td class="table-header">Single Supplement:</td>
-          <td><%= @voyage.cabins.maximum(:single_supplement) %>x twin rate or share options</td>
+          <% min_supp = @voyage.cabins.minimum(:single_supplement) %>
+          <% max_supp = @voyage.cabins.maximum(:single_supplement) %>
+          <td><%= max_supp == min_supp ? "#{min_supp}x" : "#{min_supp}x - #{max_supp}x" %> twin rate or share options</td>
         </tr>
       </tbody>
     </table>

@@ -1,0 +1,70 @@
+.print {
+  & > * {
+    color: #000;
+  }
+
+  .print-logo {
+    text-align: center;
+  }
+
+  .date-voyage {
+    list-style: none;
+    margin-bottom: 40px;
+    text-align: center;
+
+    li {
+      padding: 3px 0;
+    }
+  }
+
+  .accordion {
+    max-width: 900px;
+    text-align: justify;
+    list-style: none;
+    margin: 0 auto;
+
+    li {
+
+      & + li {
+        padding: 7px 0;
+      }
+
+      .title {
+        font-weight: bold;
+      }
+
+      .content {
+
+        p {
+          margin: 10px 0 15px;
+        }
+      }
+    }
+  }
+
+  .cabin-tile {
+    flex-direction: column-reverse;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & > * {
+      text-align: center;
+      max-width: 900px;
+    }
+
+    .big-image-container {
+    }
+
+    .cabin-list {
+      list-style: none;
+      display: inline-block;
+      padding: 0;
+    }
+  }
+  .extra-item {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+}

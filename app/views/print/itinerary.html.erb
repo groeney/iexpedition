@@ -1,0 +1,21 @@
+<div class="print">
+
+  <div class="print-logo">
+    <%= image_tag("iexpedition-text.png", class: "logo logo-dark") %>
+  </div>
+
+  <ul class="date-voyage">
+    <li><b>Ship Name</b>: <%= @order.voyage.ship.name %></li>
+    <li><b>Operator Details</b>: <%= @order.voyage.ship.operator.name %></li>
+    <li><b>Embarkation Port</b>: <%= @order.voyage.embark_port %></li>
+    <li><b>Date & Time</b>: <%= @order.voyage.formatted_start_date %></li>
+    <li><b>Disembarkation Port</b>: <%= @order.voyage.disembark_port %></li>
+    <li><b>Date & Time</b>: <%= @order.voyage.formatted_end_date %></li>
+  </ul>
+
+  <%= render partial: "includes/voyage/itinerary_tab", locals: {voyage: @voyage} if @voyage %>
+  <%= render partial: "includes/dashboard/cabins_and_extras", locals: {order: @order} %>
+</div>
+<script>
+    window.print();
+</script>

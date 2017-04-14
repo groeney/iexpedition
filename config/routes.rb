@@ -47,5 +47,6 @@ Rails.application.routes.draw do
   post "download/payment_invoice/:id" => "dashboard#download_payment_invoice", as: :download_payment_invoice
   post "download/deposit_invoice/:id" => "dashboard#download_deposit_invoice", as: :download_deposit_invoice
   put "dashboard/update_details" => "dashboard#update_details"
+  get "print/itinerary/:order_id" => "print#itinerary", as: :print_itinerary
   root "pages#home"
 end

@@ -13,7 +13,7 @@
       <div class="col-lg-6 col-md-6">
         <h4>voyage</h4>
         <div class="buttons-group flex">
-          <a class="btn btn-voyage-filled">print iterary</a>
+          <%= link_to 'print itinerary', print_itinerary_path(@order.id) , class: 'btn btn-voyage-filled', target: '_blank' %>
           <a class="btn btn-voyage">send tripcase</a>
         </div>
         <div class="details">
@@ -64,7 +64,7 @@
               <span>important docs</span>
             </div>
             <div class="tab-content videos">
-              <% if @order.voyage.destination.name == "Antarctica" %>
+              <% if @order && @order.voyage.destination.name == "Antarctica" %>
                 <%= render partial: "includes/important_docs_antarctica" %>
               <% else %>
                 <%= render partial: "includes/important_docs_arctic" %>

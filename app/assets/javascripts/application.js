@@ -36,3 +36,4 @@
 //= require rails.validations
 //= require rails.validations.simple_form
 //= require checkout
+//= require expand-all-btn

@@ -1,4 +1,29 @@
 $(document).on('turbolinks:load', function(){
+
+    if ($('.tabbed-content').length) {
+
+        showAllTabs();
+
+        function showAllTabs() {
+            var openAllBtn = $('h5.open-all'),
+                closeAllBtn = $('h5.close-all'),
+                allTabs = $('ul.expedition-advantages > li');
+
+            function openAll() {
+                allTabs.addClass('active');
+                console.log('msg')
+            }
+
+            function closeAll() {
+                allTabs.removeClass('active');
+            }
+
+            openAllBtn.on('click', openAll);
+            closeAllBtn.on('click', closeAll);
+        }
+    }
+
+
   if ($('.dashboard.personal_details, .dashboard.home').length > 0) {
     $('.dob input.datepicker').datepicker({
       endDate: new Date(),
@@ -37,15 +62,15 @@ $(document).on('turbolinks:load', function(){
 
     window.getFilePasportName = getFilePasportName;
     window.getFileVisaName = getFileVisaName;
-    
+
     $("#user_update_form").submit(function(e) {
       $.ajax({
         url: "/dashboard/update_details",
-        type: "PUT",             
+        type: "PUT",
         data: new FormData(this),
-        contentType: false,       
-        cache: false,             
-        processData:false,        
+        contentType: false,
+        cache: false,
+        processData:false,
         statusCode: {
           204: function() {
             success_message('Success');
@@ -55,6 +80,7 @@ $(document).on('turbolinks:load', function(){
           }
         }
       });
-    }); 
+    });
   }
 });
+

@@ -1,4 +1,4 @@
-<ul class="accordion accordion-1 one-open clear">
+<ul class="accordion accordion-1 one-open clear expedition-advantages">
   <% if voyage %>
     <% voyage.itinerary_day_groupings.group_by(&:itinerary_day_id).reverse_each do |itinerary_day_id, grouping| %>
       <% itinerary_day = ItineraryDay.find(itinerary_day_id) %>

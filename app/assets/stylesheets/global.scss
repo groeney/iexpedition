@@ -711,12 +711,16 @@ ul.accordion {
 =            Section accordion            =
 =========================================*/
 
-.expand {
+.tabbed-content {
 
   h5 {
     color: $voyage_color;
     font-weight: 500;
     margin-bottom: 15px;
+    &.open-all,
+    &.close-all {
+      cursor: pointer;
+    }
 
     span {
       font-size: 27px;

@@ -1,5 +1,9 @@
 <div class="container">
   <div class="row">
+    <p>Why iExpedition recommends the <%= ship.name %></p>
+    <%= simple_format(ship.recommendation_text) %>
+  </div>
+  <div class="row">
     <%= render partial: "includes/single_image_slider", locals: { collection: @voyage.gallery_images } %>
   </div>
 </div>

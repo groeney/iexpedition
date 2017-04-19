@@ -529,6 +529,18 @@ ActiveRecord::Schema.define(version: 20170421115348) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "vouchers", force: :cascade do |t|
+    t.integer  "order_id"
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
+    t.string   "link_name"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.index ["order_id"], name: "index_vouchers_on_order_id", using: :btree
+  end
+
   create_table "voyages", force: :cascade do |t|
     t.integer  "ship_id"
     t.string   "name",                                      null: false

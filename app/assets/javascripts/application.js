@@ -37,3 +37,4 @@
 //= require rails.validations.simple_form
 //= require checkout
 //= require expand-all-btn
+//= require ckeditor/init

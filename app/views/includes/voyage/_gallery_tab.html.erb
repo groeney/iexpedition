@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <h4>Why iExpedition recommends the <%= ship.name %></h4>
-    <span style="text-align: left;font-size: 15px;"><%= simple_format(ship.recommendation_text) %></span>
+    <p>Why iExpedition recommends the <%= ship.name %></p>
+    <%= simple_format(ship.recommendation_text) %>
   </div>
   <div class="row">
     <%= render partial: "includes/single_image_slider", locals: { collection: @voyage.gallery_images } %>

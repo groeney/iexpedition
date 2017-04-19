@@ -1,6 +1,8 @@
 class Order < ApplicationRecord
   has_many :order_items, dependent: :destroy
   has_many :passengers, dependent: :destroy
+  has_many :vouchers, dependent: :destroy
+  accepts_nested_attributes_for :vouchers, allow_destroy: true
   belongs_to :coupon
   belongs_to :voyage
   belongs_to :user # Only after status becomes > reserved

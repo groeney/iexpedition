@@ -123,6 +123,14 @@
   padding-top: 16px !important
 }
 
+.fz15 {
+  font-size: 15px;
+}
+
+.w100 {
+  width: 100%;
+}
+
 .relative {
   position: relative;
 }
@@ -668,6 +676,14 @@ ul.accordion {
 ====================================*/
 
 .tabbed-content.button-tabs {
+
+  table.table {
+
+    td {
+      border: 1px solid #000;
+    }
+  }
+
   ul.tabs {
     display: flex;
     align-items: stretch;
@@ -833,3 +849,29 @@ ul.accordion {
 }
 
 /*=====  End of Section accordion  ======*/
+
+/*=====================================================
+=            Section important information            =
+=====================================================*/
+
+.important_information {
+  color: #000;
+
+  span {
+    font-size: 2em;
+  }
+
+  p {
+    font-size: 1.2em;
+  }
+
+  ul {
+    display: flex;
+    justify-content: center;
+
+    li:not(:first-child) {
+      padding-left: 30px;
+    }
+  }
+}
+/*======  End of Section important information  =====*/

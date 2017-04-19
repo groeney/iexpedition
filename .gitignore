@@ -33,6 +33,7 @@ app/assets/images/orders/*
 app/assets/images/gallery_images/*
 app/assets/images/passports/*
 app/assets/images/orders/*
+app/assets/images/vouchers/*
 
 .ruby-version
 .ruby-gemset

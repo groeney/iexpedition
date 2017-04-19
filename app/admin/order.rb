@@ -1,7 +1,8 @@
 ActiveAdmin.register Order do
 
   permit_params :user_id, :voyage_id, :status, :coupon_id, :deposit_invoice_link, :deposit_invoice,
-                :payment_invoice_link, :payment_invoice, :payment_summary
+                :payment_invoice_link, :payment_invoice, :payment_summary,
+                vouchers_attributes: [:id, :link_name, :document, :_destroy]
 
   index do
     selectable_column
@@ -39,9 +40,15 @@ ActiveAdmin.register Order do
       end
       row :payment_summary
     end
+    div do
+      h2 'Vouchers'
+      order.vouchers.each do |voucher|
+        h4 link_to voucher.link_name, voucher.document.url, target: '_blank'
+      end
+    end
   end
 
-  form do |f|
+  form multipart: true  do |f|
     f.inputs do
       f.input :user
       f.input :voyage
@@ -52,6 +59,11 @@ ActiveAdmin.register Order do
       f.input :payment_invoice_link
       f.input :payment_invoice
       f.input :payment_summary
+      f.has_many :vouchers do |p|
+        p.input :link_name
+        p.input :document, hint: p.object.document_file_name
+        p.input :_destroy, as: :boolean, required: false, label: 'Remove'
+      end
     end
     f.actions
   end

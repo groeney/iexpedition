@@ -64,7 +64,7 @@
               <span>important info</span>
             </div>
             <div class="tab-content">
-
+              <%= render partial: "includes/dashboard/important_information" %>
             </div>
           </li>
           <li>
@@ -84,7 +84,18 @@
               <span>vouchers</span>
             </div>
             <div class="tab-content">
-
+              <% if @order %>
+                <% if @order.vouchers.present? %>
+                  <h1>Vouchers</h1>
+                  <ul>
+                    <% @order.vouchers.each do |voucher| %>
+                      <li><%= link_to voucher.link_name, voucher.document.url, target: '_blank', class: 'fz15' %></li>
+                    <% end %>
+                  </ul>
+                <% else %>
+                  <h1>There are no vouchers</h1>
+                <% end %>
+              <% end -%>
             </div>
           </li>
         </ul>

@@ -122,22 +122,15 @@
             <%= link_to "Antarctica", destination_antarctica_path %>
           </li><li class="vpf">
             <%= link_to "The Arctic", destination_arctic_path %>
-          </li><li class="has-dropdown">
+          </li><li>
             <a href="<%= search_ships_path %>">Expedition ships</a>
-            <ul>
-              <% Ship.first(20).each do |ship| %>
-                <li>
-                  <%= link_to ship.name, ship_path(ship) %>
-                </li>
-              <% end -%>
-            </ul>
           </li>
         </ul>
       </div>
     </div>
   </div>
   <div class="text-center sub-header">
-    <i>Your expedition starts here</i>
+    <i>Your expedition begins here</i>
     </a>
   </div>
 </nav>

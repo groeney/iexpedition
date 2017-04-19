@@ -83,10 +83,10 @@
         <h6 class="uppercase mb8">most popular destinations</h6>
         <ul>
           <table class="footer-destinations">
-            <% popular_destinations.each_slice(2) do |slice| %>
+            <% popular_regions.each_slice(2) do |slice| %>
               <tr>
-                <% slice.each do |destination| %>
-                  <td><%= link_to destination.name, destination_path(destination.id) %></td>
+                <% slice.each do |region| %>
+                  <td><%= link_to region.name, destination_path(region.destination.id) %></td>
                 <% end -%>
               </tr>
             <% end -%>

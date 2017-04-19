@@ -4,8 +4,8 @@ module ApplicationHelper
     Ship.all
   end
 
-  def popular_destinations
-    Destination.all
+  def popular_regions
+    Region.all
   end
 
 end

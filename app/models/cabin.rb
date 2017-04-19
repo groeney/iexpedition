@@ -21,7 +21,7 @@ class Cabin < ApplicationRecord
   end
 
   def square_feet
-    (self.square_meter || 0) * 10.7639 # conversion rate from google
+    ((self.square_meter || 0) * 10.7639).to_i # conversion rate from google
   end
 
   def additional_single_supp

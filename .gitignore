@@ -44,3 +44,5 @@ db/seeds/data/*
 config/database.yml
 /.env
 public/assets
+
+*.dump

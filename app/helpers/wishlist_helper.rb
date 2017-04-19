@@ -1,10 +1,14 @@
 module WishlistHelper
   def ship_in_wishlist?(ship)
-    (JSON.parse(cookies[:favourite_ship_ids] || '[]')).include?(ship.id)
+    json = cookies[:favourite_ship_ids]
+    json = json.blank? ? '[]' : json
+    (JSON.parse(json)).include?(ship.id)
   end
 
   def voyage_in_wishlist?(voyage)
     return false unless voyage.valid?
-    (JSON.parse(cookies[:favourite_voyage_ids] || '[]')).include?(voyage.id)
+    json = cookies[:favourite_voyage_ids]
+    json = json.blank? ? '[]' : json
+    (JSON.parse(json)).include?(voyage.id)
   end
 end

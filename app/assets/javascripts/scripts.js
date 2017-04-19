@@ -141,7 +141,7 @@ $(document).on('turbolinks:load', function(){
 
     $('.menu li').click(function(e) {
         if (!e) e = window.event;
-        e.stopPropagation();
+        // e.stopPropagation();
         if ($(this).find('ul').length) {
             $(this).toggleClass('toggle-sub');
         } else {

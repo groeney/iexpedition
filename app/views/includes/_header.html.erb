@@ -25,10 +25,6 @@
           <li>
             <%= link_to "About Us", about_us_path %>
           </li>
-          <!-- TODO: Delete sign out link from here -->
-          <li>
-            <%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure you want to sign out?" } %>
-          </li>
         </ul>
       </div>
     </div>
@@ -39,12 +35,10 @@
         <ul class="menu">
           <li class="has_dropdown">
             <% if current_user %>
-              <%= link_to(destroy_user_session_path, method: :delete, data: { confirm: "Are you sure you want to sign out?" }, style: "opacity: 1;") do %>
-                <i class="ti-user icon"></i>
-              <% end -%>
+              <i class="ti-user icon"></i>
               <ul>
                 <li>
-                  <%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure you want to sign out?" } %>
+                  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
                 </li>
               </ul>
             <% else %>

@@ -85,4 +85,9 @@ class Order < ApplicationRecord
       0
     end
   end
+
+  def deposit_perc_amount
+    return 0 unless self.deposit_perc
+    (self.deposit_perc / 100) * self.total
+  end
 end

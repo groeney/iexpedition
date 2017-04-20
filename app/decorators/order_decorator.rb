@@ -10,8 +10,8 @@ class OrderDecorator < Draper::Decorator
     "#{currency} #{number_to_currency(object.tax_amount, precision: 0)}"
   end
 
-  def deposit_perc
-    number_to_percentage object.deposit_perc, precision: 0
+  def deposit_perc_amount
+    "#{currency} #{number_to_currency(object.deposit_perc_amount, precision: 0)}"
   end
 
   def total

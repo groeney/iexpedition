@@ -71,7 +71,7 @@
                 <span>Gallery</span>
             </div>
             <div class="tab__content voyage-gallery-tab">
-              <%= render "includes/voyage/gallery_tab" %>
+              <%= render partial: "includes/voyage/gallery_tab", locals: { ship: @voyage.ship } %>
             </div>
           </li>
           <li>

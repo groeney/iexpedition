@@ -66,8 +66,8 @@ class SearchController < ApplicationController
   end
 
   def clean_dedicated_sole_occupancy(filter_params)
-    dedicated_sole_occupancy = filter_params[:dedicated_sole_occupancy].first
-    filter_params[:dedicated_sole_occupancy] = dedicated_sole_occupancy == "true" if dedicated_sole_occupancy
+    dedicated_sole_occupancy = filter_params[:dedicated_sole_occupancy]
+    filter_params[:dedicated_sole_occupancy] = dedicated_sole_occupancy.first == "true" if dedicated_sole_occupancy
   end
 
   def clean_destinations(filter_params)

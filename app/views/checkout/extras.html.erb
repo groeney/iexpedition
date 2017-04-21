@@ -30,12 +30,17 @@
         </div>
       </div>
     </div>
+    <% collection = @order.voyage.activities.not_mandatory %>
+    <% if collection.present? %>
     <h5 class="divider">
       <span>
         choose your extras
       </span>
     </h5>
-    <%= render partial: "includes/alternating_horizontal_tiles", locals: { collection: @order.voyage.activities.not_mandatory } %>
+    <%= render partial: "includes/alternating_horizontal_tiles", locals: { collection: collection } %>
+    <% else %>
+      <p class="msg text-center">This voyage has no available extras, please click Continue to proceed.</p>
+    <% end %>
     <div class="row">
       <div class="col-sm-offset-9 col-sm-3 col-xs-offset-6 col-xs-6" >
       <a href="<%= checkout_cart_path %>" class="btn pull-right">Continue</a>

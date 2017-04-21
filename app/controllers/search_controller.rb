@@ -4,6 +4,10 @@ class SearchController < ApplicationController
     @destination = Destination.find((@voyage_filter_params[:destinations] || 1))
     @results = Voyage.filter_and(@voyage_filter_params).group_by(&:name)
                      .sort { |x,y| x[1].first.start_date <=> y[1].first.start_date }
+
+    @no_results = @results.empty?
+    @results = Voyage.destinations(@destination.id).sample(10).group_by(&:name)
+                     .sort { |x,y| x[1].first.start_date <=> y[1].first.start_date } if @no_results
   end
 
   def antarctica

@@ -14,6 +14,9 @@
     <div class="flex sm-tablet-column">
       <%= render partial: "includes/search/voyage_filters", locals: { f: f } %>
       <section class="pt32 search-results">
+      <% if @no_results %>
+        <p class="msg text-center">You have ventured too far out to sea. Try using fewer filters. Here are some voyage that you might like instead.</p>
+      <% end -%>
         <% @results.each do |voyage_name, bundle| %>
           <%= render partial: "includes/search/voyage_bundle", locals: { voyage: bundle.first, bundle: bundle } %>
         <% end -%>

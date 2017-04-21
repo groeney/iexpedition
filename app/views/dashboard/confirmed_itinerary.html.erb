@@ -17,6 +17,14 @@
           <a class="btn btn-voyage">send tripcase</a>
         </div>
         <div class="details">
+          <div><span>Passengers:</span>
+            <ul style="list-style-type: decimal;padding-left:4%;color:black;font-size:15px;">
+              <li><%= "#{current_user.first_name} #{current_user.last_name}" %></li>
+              <% @order.passengers.each do |passenger| %>
+                <li><%= "#{passenger.first_name} #{passenger.last_name}" %></li>
+              <% end -%>
+            </ul>
+          </div>
           <div><span>Ship Name: <%= @order.voyage.ship.name %></span></div>
           <div><span>Operator Details: <%= @order.voyage.ship.operator.name %></span></div>
           <div class="no-mb"><span>Embarkation Port: <%= @order.voyage.embark_port %></span></div>

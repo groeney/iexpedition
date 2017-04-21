@@ -83,34 +83,6 @@
   margin-bottom: 12px!important;
 }
 
-.lg-flex {
-  display: block;
-  @media only screen and (max-width: 1920px) and (min-width: 1200px) {
-    display: flex;
-  }
-}
-
-.md-flex {
-  display: block;
-  @media only screen and (max-width: 1920px) and (min-width: 992px) {
-    display: flex;
-  }
-}
-
-.lg-flex {
-  display: block;
-  @media only screen and (max-width: 1920px) and (min-width: 1200px) {
-    display: flex;
-  }
-}
-
-.md-flex {
-  display: block;
-  @media only screen and (max-width: 1920px) and (min-width: 992px) {
-    display: flex;
-  }
-}
-
 .mb65 {
   margin-bottom: 65px;
 }
@@ -343,7 +315,7 @@ a.btn.btn-voyage {
     float: left;
     font-size: 110px;
     font-family: 'Raleway', sans-serif;
-    font-weight: 300;
+    font-weight: 100;
     color: #fff;
     text-transform: capitalize;
     margin-left: -111px;
@@ -457,6 +429,7 @@ a.btn.btn-voyage {
 ====================================*/
 
 .tabbed-content.button-tabs {
+
   ul.tabs {
     display: flex;
     align-items: stretch;
@@ -506,6 +479,10 @@ a.btn.btn-voyage {
     color: $voyage_color;
     font-weight: 500;
     margin-bottom: 15px;
+    &.open-all,
+    &.close-all {
+      cursor: pointer;
+    }
 
     span {
       font-size: 27px;
@@ -596,6 +573,7 @@ ul.accordion {
       p {
         margin-bottom: 0;
         padding-bottom: 0;
+        font-family: 'Raleway', sans-serif;
         color: #000;
       }
 
@@ -632,7 +610,6 @@ ul.accordion {
   display: none;
 }
 
-/*=====  End of Section alert-messages  ======*/
 .input.select {
   position: relative;
 }
@@ -670,185 +647,6 @@ ul.accordion {
 }
 
 /*=====  End of Section alert-messages  ======*/
-
-/*====================================
-=            Section tabs            =
-====================================*/
-
-.tabbed-content.button-tabs {
-
-  table.table {
-
-    td {
-      border: 1px solid #000;
-    }
-  }
-
-  ul.tabs {
-    display: flex;
-    align-items: stretch;
-
-    & > li {
-      width: 20%;
-
-      &.active div.tab-title {
-        background-color: $voyage-color;
-        color: #fff;
-      }
-
-      .tab-title {
-        min-width: inherit;
-        width: calc(100% - 3px);
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #ebebeb;
-        color: $voyage-color;
-        font-size: 13px;
-
-        &:hover {
-          background-color: #f9f9f9;
-        }
-
-        span {
-          line-height: 17px;
-          text-transform: none;
-          font-weight: 500;
-        }
-      }
-    }
-  }
-}
-
-/*=====  End of Section tabs  ======*/
-
-/*=========================================
-=            Section accordion            =
-=========================================*/
-
-.tabbed-content {
-
-  h5 {
-    color: $voyage_color;
-    font-weight: 500;
-    margin-bottom: 15px;
-    &.open-all,
-    &.close-all {
-      cursor: pointer;
-    }
-
-    span {
-      font-size: 27px;
-      position: relative;
-      top: 1px;
-
-      &.relative {
-        top: 3px;
-      }
-    }
-  }
-}
-
-ul.accordion {
-
-  & > li {
-    border: 1px solid $accordeon_border_color;
-    margin-bottom: 15px;
-  }
-
-  .title {
-    background-color: transparent;
-    position: relative;
-    border-bottom: none;
-
-    &:hover {
-      background-color: transparent;
-    }
-
-    span {
-      padding-left: 50px;
-      display: block;
-      font-family: 'Raleway', sans-serif;
-      font-weight: 700;
-      font-size: 18px;
-    }
-
-    &:before {
-      content: '\e61a';
-      font-size: 35px;
-      color: $accordeon_border_color;
-      position: absolute;
-      font-family: 'themify';
-      top: 10px;
-      left: 8px;
-    }
-  }
-
-  .content {
-    border-top: none;
-    padding-left: 50px;
-    padding-right: 40px;
-  }
-
-  .active {
-    border: none;
-
-    .title {
-      background-color: $voyage_color;
-
-      span {
-        color: #fff;
-      }
-
-      &:before {
-        content: '\e622';
-        color: #fff;
-      }
-    }
-
-    .content {
-      border: 1px solid $accordeon_border_color;
-      border-top: none;
-      height: auto;
-      max-height: inherit;
-      padding-bottom: 20px;
-
-      ul,
-      ol {
-        padding-left: 16px;
-        padding-top: 16px;
-
-        ul {
-          padding-top: 0px;
-        }
-      }
-
-      p {
-        margin-bottom: 0;
-        padding-bottom: 0;
-      }
-
-      table {
-        margin-top: 16px;
-        width: 100%;
-
-        td {
-          border: 1px solid #000;
-          text-align: center;
-        }
-      }
-
-      .faq-width-65 {
-        width: 65px;
-        display: block;
-        float: left;
-      }
-    }
-  }
-}
-
-/*=====  End of Section accordion  ======*/
 
 /*=====================================================
 =            Section important information            =

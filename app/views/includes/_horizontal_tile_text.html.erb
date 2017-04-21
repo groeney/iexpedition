@@ -2,9 +2,11 @@
   <% if resource.class.name == "Fact" %>
     <h4><%= resource.question %></h4>
     <span class="fact-header mt16">Answer:</span>
-    <%= !resource.answer.blank? ? simple_format(resource.answer) : simple_format("Lorem ipsum Eiusmod") %>
-    <span class="fact-header mt16">More Info:</span>
+    <%= !resource.answer.blank? ? simple_format(resource.answer + " <span class='fact-header destination-info'>More Info...</span>") : simple_format("Lorem ipsum Eiusmod") %>
+    <div class="answer-info">
     <%= !resource.more_info.blank? ? simple_format(resource.more_info) : simple_format("Lorem ipsum Eiusmod Lorem ipsum Velit eu eu fugiat est nulla sed occaecat proident elit aute. Lorem ipsum Tempor sed in non fugiat labore eu dolor laboris consectetur do enim.") %>
+      <span class='fact-header destination-collapse mt16'>Collapse</span>
+    </div>
   <% elsif resource.class.name == "OrderItem" %>
     <h4 class="mb8"><%= resource.productable.name %></h4>
     <h6>QTY: <%= resource.qty %></h6>

@@ -5,6 +5,15 @@
   font-weight: bolder;
 }
 
+.answer-info {
+  display: none;
+}
+
+.destination-info,
+.destination-collapse {
+  cursor: pointer;
+}
+
 .cursive-table-header {
   font-family: cursive;
   font-size: x-large;

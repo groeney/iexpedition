@@ -1,10 +1,13 @@
 $(document).on('turbolinks:load', function(){
+
   if ($('.destinations.show, .destinations.arctic, .destinations.antarctica, .pages.about_us').length > 0) {
+
     $('#duration-slider').slider({
       formatter: function(value) {
         return 'Current value: ' + value;
       }
     });
+
     $('#price-slider').slider({
       formatter: function(value) {
         return 'Current value: $' + value + 'k AUD';
@@ -147,4 +150,25 @@ $(document).on('turbolinks:load', function(){
         }
     }
   };
+
+  var destination_info = $('.destination-info')
+  var destination_collapse = $('.destination-collapse')
+
+  if ( $(destination_info).length ) {
+    showDestinationInfoShow()
+    showDestinationInfoHide()
+
+    function showDestinationInfoShow() {
+      $(destination_info).on('click', function() {
+        $(this).hide().parent().next().slideDown()
+      })
+    }
+
+    function showDestinationInfoHide() {
+      $(destination_collapse).on('click', function() {
+        $(this).parent().slideUp()
+        $(this).parent().prev().find('.destination-info').show()
+      })
+    }
+  }
 });

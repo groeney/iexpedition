@@ -8,4 +8,8 @@ module ApplicationHelper
     Region.all
   end
 
+  def not_dashboard?
+    controller_name != 'dashboard'
+  end
+
 end

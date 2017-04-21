@@ -66,7 +66,7 @@
         <i class="ti-star icon"></i>
       <% end -%>
       <div class="module widget-handle cart-widget-handle right">
-        <% if @order.present? %>
+        <% if @order.present? && not_dashboard? %>
             <div class="cart">
               <i class="ti-bag"></i>
               <span class="label number" id="order_items_count"><%= @order.order_items.count %></span>

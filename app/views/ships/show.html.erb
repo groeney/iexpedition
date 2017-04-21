@@ -63,8 +63,7 @@
 
     <div class="row">
       <div class="col-sm-6 col-centered">
-        <% destination_search_path = @destination.name == "Antarctica" ? search_antarctica_voyages_path : search_arctic_voyages_path %>
-        <a style="text-transform: uppercase;text-decoration: underline;font-size: large;" href="<%= destination_search_path %>">View all voyages in <%= @destination.name %></a>
+        <%= link_to "Click to view all #{@ship.name} voyages", { controller: "search", action: "voyages", search: { destinations: @destination.id, ships: [@ship.id] } }, { style: "text-transform: uppercase;text-decoration: underline;font-size: large;" } %>
       </div>
     </div>
   </section>

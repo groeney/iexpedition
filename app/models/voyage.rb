@@ -66,6 +66,7 @@ class Voyage < ApplicationRecord
 
   def alternative_voyages
     Voyage.where(name: self.name, ship_id: self.ship.id)
+          .sort { |x,y| x.start_date <=> y.start_date }
   end
 
   def gst_perc

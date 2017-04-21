@@ -1,6 +1,6 @@
 <div class="container-fluid presentation-header contact_us-header flex">
   <div class="large-container container flex">
-    <h1>About us</h1>
+    <h1>Contact us</h1>
   </div>
 </div>
 <div class="container-fluid contact_us">
@@ -39,21 +39,23 @@
       </section>
       <hr>
       <%= simple_form_for @contact_request, url: create_contact_path, remote: true, validate: true do |f| %>
-          <%= f.input :first_name, label: "FIRST NAME" %>
-          <%= f.input :last_name, label: "LAST NAME" %>
-          <%= f.input :email, label: "EMAIL", as: :string  %>
-          <%= f.input :phone_number, label: "PHONE NUMBER", as: :string  %>
-          <div class="select-option">
-            <%= f.input :destination, label: "DESTINATION", as: :select, collection: Destination.pluck(:name) %>
-          </div>
-          <div class="day-picker">
-            <%= f.input :travel_date, label: "MONTH / YEAR OF TRAVEL", as: :string, input_html: { class: 'datepicker' } %>
-          </div>
-          <div class="select-option number">
-            <%= f.input :number_of_people, label: "NUMBER OF PEOPLE", as: :select, collection: 1..10 %>
-          </div>
-          <div class="textarea">
-            <%= f.input :message, label: "MESSAGE", placeholder: "If you are marking a new enquiry, please let us know", input_html: { rows: 10 } %>
+          <div class="bdrs-inset label-flex">
+            <%= f.input :first_name, label: "FIRST NAME" %>
+            <%= f.input :last_name,  label: "LAST NAME" %>
+            <%= f.input :email, label: "EMAIL", as: :string  %>
+            <%= f.input :phone_number, label: "PHONE NUMBER", as: :string  %>
+            <div class="select-option">
+              <%= f.input :destination, label: "DESTINATION", as: :select, collection: Destination.pluck(:name) %>
+            </div>
+            <div class="day-picker">
+              <%= f.input :travel_date, label: "MONTH / YEAR OF TRAVEL", as: :string, input_html: { class: 'datepicker' } %>
+            </div>
+            <div class="select-option number">
+              <%= f.input :number_of_people, label: "NUMBER OF PEOPLE", as: :select, collection: 1..10 %>
+            </div>
+            <div class="textarea italic-holder">
+              <%= f.input :message, label: "MESSAGE", placeholder: "If you are marking a new enquiry, please let us know", input_html: { rows: 10 } %>
+            </div>
           </div>
 
           <%= f.button :submit, "SUBMIT" %>

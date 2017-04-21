@@ -41,6 +41,33 @@
   }
 }
 
+.bdrs-inset {
+
+  input,
+  select,
+  textarea {
+    border-radius: 5px;
+  }
+}
+
+.label-flex {
+
+  label {
+    display: flex;
+
+    abbr {
+      order: 2;
+    }
+  }
+}
+
+.italic-holder {
+  ::-webkit-input-placeholder {font-style: italic}
+  ::-moz-placeholder          {font-style: italic}/* Firefox 19+ */
+  :-moz-placeholder           {font-style: italic}/* Firefox 18- */
+  :-ms-input-placeholder      {font-style: italic}
+}
+
 .flex-between {
   justify-content: space-between;
 }

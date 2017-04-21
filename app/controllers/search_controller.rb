@@ -44,6 +44,7 @@ class SearchController < ApplicationController
 
   def clean_voyage_filter_params
     clean_passenger_capacity(@voyage_filter_params)
+    clean_date(@voyage_filter_params)
   end
 
   def clean_ship_filter_params
@@ -69,5 +70,10 @@ class SearchController < ApplicationController
       destinations = Destination.all.pluck(:id) # default to all destinations
     end
     filter_params[:destinations] = destinations
+  end
+
+  def clean_date(filter_params)
+    date = filter_params[:departure_date]
+    filter_params[:departure_date] =  Date.strptime(date, '%m/%d/%Y')
   end
 end

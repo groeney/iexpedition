@@ -3,7 +3,7 @@ $(document).on('turbolinks:load', function(){
     if ($('#durationSlider').length == 0){
       $('#duration-slider').slider({
         formatter: function(value) {
-          return 'Current value: ' + value + ' Days';
+          return value + ' Days';
         }
       });
     }
@@ -11,7 +11,7 @@ $(document).on('turbolinks:load', function(){
     if ($('#priceSlider').length == 0){
       $('#price-slider').slider({
         formatter: function(value) {
-          return 'Current value: AUD$' + (value/1000) + 'K';
+          return 'AUD$' + (value/1000) + 'K';
         }
       });
     }

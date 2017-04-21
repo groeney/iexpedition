@@ -2,13 +2,13 @@ $(document).on('turbolinks:load', function(){
   if ($('.pages.home').length > 0) {
     $('#duration-slider').slider({
       formatter: function(value) {
-        return 'Current value: ' + value;
+        return value + 'Days';
       }
     });
 
     $('#price-slider').slider({
       formatter: function(value) {
-        return 'Current value: $' + value + 'k AUD';
+        return 'AUD$' + (value/1000) + 'K';
       }
     });
 

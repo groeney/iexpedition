@@ -7,16 +7,17 @@ class User < ApplicationRecord
 
   validates_presence_of :password, :email
   validates_uniqueness_of [:email]
-  has_many :orders
+  has_many :orders, dependent: :destroy
   has_many :voyages, through: :orders
-  has_one :address
-  has_one :passport
-  has_one :emergency_contact
-  has_one :travel_detail_post, class_name: 'TravelDetail'
-  has_one :travel_detail_pre, class_name: 'TravelDetail'
-  has_many :favourite_voyages
+
+  has_one :address, dependent: :destroy
+  has_one :passport, dependent: :destroy
+  has_one :emergency_contact, dependent: :destroy
+  has_one :travel_detail_post, class_name: 'TravelDetail', dependent: :destroy
+  has_one :travel_detail_pre, class_name: 'TravelDetail', dependent: :destroy
+  has_many :favourite_voyages, dependent: :destroy
   has_many :wishlist_voyages, through: :favourite_voyages, source: :voyage
-  has_many :favourite_ships
+  has_many :favourite_ships, dependent: :destroy
   has_many :wishlist_ships, through: :favourite_ships, source: :ship
 
 

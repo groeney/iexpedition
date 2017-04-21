@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170412101441) do
+ActiveRecord::Schema.define(version: 20170421115348) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -385,7 +385,6 @@ ActiveRecord::Schema.define(version: 20170412101441) do
   end
 
   create_table "passengers", force: :cascade do |t|
-    t.integer  "order_item_id"
     t.string   "gender"
     t.string   "first_name"
     t.string   "last_name"
@@ -393,9 +392,10 @@ ActiveRecord::Schema.define(version: 20170412101441) do
     t.string   "phone_number"
     t.datetime "dob"
     t.string   "nationality"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["order_item_id"], name: "index_passengers_on_order_item_id", using: :btree
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "order_id"
+    t.index ["order_id"], name: "index_passengers_on_order_id", using: :btree
   end
 
   create_table "passports", force: :cascade do |t|
@@ -599,7 +599,7 @@ ActiveRecord::Schema.define(version: 20170412101441) do
   add_foreign_key "order_items", "orders"
   add_foreign_key "orders", "cabin_groupings"
   add_foreign_key "orders", "coupons"
-  add_foreign_key "passengers", "order_items"
+  add_foreign_key "passengers", "orders"
   add_foreign_key "passports", "users"
   add_foreign_key "ships", "operators"
   add_foreign_key "travel_details", "users"

@@ -38,11 +38,11 @@ class CreatePassengers < BaseService
   end
 
   def passengers_with_order
-    passengers_params.map { |passenger| passenger.merge(order_item_id: order_item_id) }
+    passengers_params.map { |passenger| passenger.merge(order_id: order_id) }
   end
 
-  def order_item_id
-    order.order_items.first.id
+  def order_id
+    order.id
   end
 
   def address_params

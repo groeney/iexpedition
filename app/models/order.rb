@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
-  has_many :order_items
-  has_many :passengers
+  has_many :order_items, dependent: :destroy
+  has_many :passengers, dependent: :destroy
   belongs_to :coupon
   belongs_to :voyage
   belongs_to :user # Only after status becomes > reserved

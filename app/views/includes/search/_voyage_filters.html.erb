@@ -19,7 +19,7 @@
       <%= render partial: "includes/search/checkbox_filter", locals: { group_name: "embark_ports", filter_name: "departing from", values: voyages.pluck(:embark_port).uniq, selected: @voyage_filter_params[:embark_ports] } %>
 
       <!-- Highlights filter  -->
-      <% highlights = Highlight.all %>
+      <% highlights = voyages.map { |v| v.highlights }.flatten.uniq %>
       <%= render partial: "includes/search/checkbox_filter", locals: { group_name: "highlight_names", filter_name: "expedition highlights", values: highlights.pluck(:name).uniq, selected: @voyage_filter_params[:highlight_names] } %>
 
       <!-- Activities filter  -->

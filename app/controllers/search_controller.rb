@@ -29,7 +29,7 @@ class SearchController < ApplicationController
 
   def voyage_filter_params
     @voyage_filter_params ||= params.fetch(:search, {})
-      .permit(:destinations, :departure_date, :duration, :price, :passenger_capacity => [], :regions => [], :names => [], :ships => [], :embark_ports => [], :highlight_names => [], :activity_names => [])
+      .permit(:destinations, :departure_date, :duration, :price, :passenger_capacity => [], :regions => [], :names => [], :ships => [], :embark_ports => [], :highlight_names => [], :activity_names => [], :dedicated_sole_occupancy => [])
       .delete_if { |k,v| v.blank? }
     clean_voyage_filter_params
   end
@@ -45,6 +45,7 @@ class SearchController < ApplicationController
   def clean_voyage_filter_params
     clean_passenger_capacity(@voyage_filter_params)
     clean_date(@voyage_filter_params)
+    clean_dedicated_sole_occupancy(@voyage_filter_params)
   end
 
   def clean_ship_filter_params
@@ -58,6 +59,11 @@ class SearchController < ApplicationController
     if (p_cap = filter_params[:passenger_capacity])
       filter_params[:passenger_capacity] = JSON(p_cap.try(:first))
     end
+  end
+
+  def clean_dedicated_sole_occupancy(filter_params)
+    dedicated_sole_occupancy = filter_params[:dedicated_sole_occupancy].first
+    filter_params[:dedicated_sole_occupancy] = dedicated_sole_occupancy == "true" if dedicated_sole_occupancy
   end
 
   def clean_destinations(filter_params)
@@ -74,6 +80,6 @@ class SearchController < ApplicationController
 
   def clean_date(filter_params)
     date = filter_params[:departure_date]
-    filter_params[:departure_date] =  Date.strptime(date, '%m/%d/%Y')
+    filter_params[:departure_date] =  Date.strptime(date, '%m/%d/%Y') if date
   end
 end

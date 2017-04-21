@@ -43,6 +43,7 @@ class Voyage < ApplicationRecord
   scope :embark_ports, -> (embark_ports) { where(embark_port: embark_ports) }
   scope :highlight_names, -> (names) { joins(:highlights).where(highlights: { name: names }) }
   scope :activity_names, -> (names) { joins(:activities).where(activities: { name: names }) }
+  scope :dedicated_sole_occupancy, -> (bool) { joins(:cabins).where(cabins: { dedicated_sole_occupancy: bool }) }
 
   def identifier_s
     (self.nil? || self.ship.nil?) ? "[unidentifiable]" : "#{self.name} on #{self.ship.name} from #{self.start_date} to #{self.end_date}"

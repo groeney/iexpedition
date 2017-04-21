@@ -14,6 +14,9 @@
       <!-- Solo traveller filter  -->
       <!-- <%= render partial: "includes/search/radio_button_filter", locals: { group_name: "solo_traveller", filter_name: "solo traveller", values: [1, 2, 3], labels: ["Bingo", "Bango", "Bongo"] } %> -->
 
+      <!-- Single cabin filter -->
+      <%= render partial: "includes/search/radio_button_filter", locals: { group_name: "dedicated_sole_occupancy", filter_name: "Single cabin", values: [true, false], labels: ["I want a single cabin", "I want to share a cabin with others"], selected: @voyage_filter_params[:dedicated_sole_occupancy] } %>
+
       <!-- Embarkation point filter  -->
       <% voyages = Voyage.destinations(@destination.id) %>
       <%= render partial: "includes/search/checkbox_filter", locals: { group_name: "embark_ports", filter_name: "departing from", values: voyages.pluck(:embark_port).uniq, selected: @voyage_filter_params[:embark_ports] } %>

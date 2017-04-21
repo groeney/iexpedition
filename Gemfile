@@ -48,6 +48,9 @@ gem "draper", "3.0.0.pre1"
 gem "momentjs-rails", "~> 2.9",  :github => "derekprior/momentjs-rails"
 gem "datetimepicker-rails", github: "zpaulovics/datetimepicker-rails", branch: "master", submodules: true
 
+gem "wicked_pdf"
+gem "wkhtmltopdf-binary"
+
 #allow seeding data in staging and dev
 group :development, :test, :staging do
   gem "faker"

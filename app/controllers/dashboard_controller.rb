@@ -1,6 +1,7 @@
 class DashboardController < ApplicationController
   before_action :authenticate_user!
   before_action :set_personal_details_data, only: [:home, :personal_details, :update_details]
+  before_action :set_order_and_voyage, only: [:confirmed_itinerary, :send_itinerary_to_email]
   layout "dashboard"
 
   def home
@@ -16,8 +17,17 @@ class DashboardController < ApplicationController
   end
 
   def confirmed_itinerary
-    @order = current_user.latest_current_order
-    @voyage = @order.try(:voyage)
+
+  end
+
+  def send_itinerary_to_email
+    respond_to do |format|
+      if UserMailer.send_itinerary_to_email(current_user, @voyage).deliver_now
+        format.js { render 'success', locals: { message: 'Message delivered' } }
+      else
+        format.js { render 'error', locals: { message: 'Error' } }
+      end
+    end
   end
 
   def wishlist
@@ -122,5 +132,10 @@ class DashboardController < ApplicationController
     @passport = current_user.passport || Passport.new(user: current_user)
     @travel_details_pre = current_user.travel_detail_pre || TravelDetail.new(user: current_user)
     @travel_details_post = current_user.travel_detail_post || TravelDetail.new(user: current_user)
+  end
+
+  def set_order_and_voyage
+    @order = current_user.latest_current_order
+    @voyage = @order.try(:voyage)
   end
 end

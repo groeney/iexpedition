@@ -14,7 +14,7 @@
         <h4>voyage</h4>
         <div class="buttons-group flex">
           <%= link_to 'print itinerary', print_itinerary_path(@order.id) , class: 'btn btn-voyage-filled', target: '_blank' %>
-          <a class="btn btn-voyage">send tripcase</a>
+          <%= link_to 'send to email', send_itinerary_to_email_path, method: :post, remote: true, class: 'btn btn-voyage', data: { disable_with: 'sending...' } %>
         </div>
         <div class="details">
           <div><span>Passengers:</span>

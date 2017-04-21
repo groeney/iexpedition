@@ -2,7 +2,7 @@ $(document).on('turbolinks:load', function(){
   if ($('.pages.home').length > 0) {
     $('#duration-slider').slider({
       formatter: function(value) {
-        return value + 'Days';
+        return value + ' Days';
       }
     });
 

@@ -9,7 +9,7 @@ if [ -z "$1" ]; then
   exit 64
 fi
 
-if [ "$RAILS_ENV" != "production" ];
+if [ "$RAILS_ENV" != "production" ] && [ "$RAILS_ENV" != "staging" ];
   then
     rails db:migrate:reset
   else

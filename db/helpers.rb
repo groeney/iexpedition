@@ -4,10 +4,11 @@ end
 
 def create_singleton(class_name, obj)
   klass = Object.const_get class_name
-  singleton = klass.find_or_create_by(obj)
+  image = obj.delete(:image)
+  singleton = klass.find_or_create_by(obj) # cannot search on .image attr because doesn't exits
   if singleton.nil?
     raise "Could not create #{class_name} #{obj}."
-  elsif !singleton.valid?
+  elsif !singleton.update_attributes(image: image)
     resource_error(singleton)
   else
     puts "Created #{class_name} #{singleton.inspect}."

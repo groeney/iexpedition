@@ -7,8 +7,8 @@
       <%= f.input :departure_date, wrapper_html: { class: 'select-option col-md-6' }, placeholder: 'Select Departure Date', input_html: { class: 'datepicker' }, label: false %>
     </div>
     <div class="row <%= "search-sliders" if controller_name != "pages" %>">
-      <%= f.input :duration, label: false, wrapper_html: { class: "col-md-6" }, input_html: { id: "duration-slider", data: { slider_id: "durationSlider", slider_min: "1", slider_max: "50", slider_step: "1", slider_value: "10", slider_ticks: "[1, 50]", slider_ticks_labels: '["1 Day", "50 Days"]' } } %>
-      <%= f.input :price, label: false, wrapper_html: { class: "col-md-6" }, input_html: { id: "price-slider", data: { slider_id: "priceSlider", slider_min: "1000", slider_max: "100000", slider_step: "1000", slider_value: "10000", slider_ticks: "[1000, 100000]", slider_ticks_labels: '["AUD$1k", "AUD$100k"]' } } %>
+      <%= f.input :duration, label: false, wrapper_html: { class: "col-md-6" }, input_html: { id: "duration-slider", data: { slider_id: "durationSlider", slider_min: "1", slider_max: "50", slider_step: "1", slider_value: "50", slider_ticks: "[1, 50]", slider_ticks_labels: '["1 Day", "50 Days"]' } } %>
+      <%= f.input :price, label: false, wrapper_html: { class: "col-md-6" }, input_html: { id: "price-slider", data: { slider_id: "priceSlider", slider_min: "1000", slider_max: "100000", slider_step: "1000", slider_value: "100000", slider_ticks: "[1000, 100000]", slider_ticks_labels: '["AUD$1k", "AUD$100k"]' } } %>
     </div>
     <div class="row">
       <div class="pt32 col-md-3 col-centered">
